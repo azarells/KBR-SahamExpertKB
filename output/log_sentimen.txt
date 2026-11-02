@@ -1,0 +1,132 @@
+N01 18 0.0 1 otomatis VALID
+N02 17 0.0 -1 anotasi-analis VALID
+N03 21 0.667 -1 otomatis-negasi VALID
+N04 20 0.0 1 otomatis stale/low-cred
+N05 5 0.0 0 otomatis VALID
+N06 5 0.5 1 otomatis VALID
+N07 5 0.25 0 - VALID
+N08 5 -0.667 1 anotasi-analis VALID
+N09 5 0.5 -1 otomatis VALID
+N10 6 -0.75 1 otomatis VALID
+N11 8 -0.667 1 otomatis VALID
+N12 117 -0.8 1 otomatis VALID
+N13 117 0.25 0 - VALID
+N14 231 -0.8 1 otomatis stale/low-cred
+N15 224 -0.667 1 otomatis stale/low-cred
+N16 200 0.0 1 anotasi-analis stale/low-cred
+N17 194 -0.5 -1 otomatis stale/low-cred
+N18 110 0.5 1 otomatis VALID
+N19 13 0.0 1 otomatis VALID
+N20 13 0.0 -1 anotasi-analis VALID
+N21 19 0.5 1 otomatis VALID
+N22 189 -0.667 1 otomatis stale/low-cred
+N23 111 -0.5 1 otomatis VALID
+N24 75 -0.5 1 otomatis VALID
+N25 75 -0.667 1 otomatis VALID
+N26 110 -0.5 1 otomatis VALID
+N27 103 0.667 0 - VALID
+N28 25 0.667 -1 otomatis VALID
+N29 55 0.75 -1 otomatis VALID
+N30 25 0.5 1 otomatis VALID
+N31 25 0.5 1 otomatis VALID
+N32 26 0.5 1 otomatis VALID
+N33 26 0.5 1 otomatis VALID
+N35 151 -0.667 0 - VALID
+N36 150 -0.5 0 - VALID
+N37 56 -0.25 0 - VALID
+N38 312 0.5 -1 otomatis stale/low-cred
+N39 327 0.5 -1 otomatis stale/low-cred
+N40 322 0.0 1 otomatis stale/low-cred
+N41 7 -0.5 0 - VALID
+N42 16 0.0 0 otomatis VALID
+N43 24 0.0 -1 anotasi-analis stale/low-cred
+N44 571 -0.75 1 otomatis stale/low-cred
+N45 10 0.0 1 otomatis VALID
+N46 10 0.0 1 otomatis VALID
+N47 6 -0.667 1 otomatis VALID
+N48 5 0.0 1 otomatis VALID
+N49 39 0.5 1 otomatis VALID
+N50 37 0.0 1 anotasi-analis VALID
+N51 74 0.0 0 - VALID
+N52 25 0.5 -1 otomatis VALID
+N53 262 0.0 0 otomatis stale/low-cred
+N54 74 0.0 0 - VALID
+
+SKOR SENTIMEN SEKTOR
+  Sektor_Kesehatan                 +0.240
+  Sektor_KonsumenPrimer            +0.047
+  Sektor_Energi                    -0.025
+  Sektor_Perindustrian             -0.054
+  Sektor_BarangBaku                -0.114
+  Sektor_TransportasiLogistik      -0.256
+  Sektor_Infrastruktur             -0.267
+  Sektor_KonsumenNonPrimer         -0.268
+  Sektor_PropertiRealEstat         -0.269
+  Sektor_Teknologi                 -0.373
+  Sektor_Keuangan                  -0.382
+
+SKOR SENTIMEN EMITEN (non-nol)
+  AADI   +0.390 (berita: 1)
+  TINS   +0.355 (berita: 1)
+  ISAT   +0.293 (berita: 1)
+  EXCL   +0.293 (berita: 1)
+  BBNI   +0.247 (berita: 1)
+  MDKA   +0.104 (berita: 1)
+  KLBF   +0.096 (berita: 0)
+  SIDO   +0.096 (berita: 0)
+  MIKA   +0.096 (berita: 0)
+  HEAL   +0.096 (berita: 0)
+  SILO   +0.096 (berita: 0)
+  ANTM   +0.090 (berita: 2)
+  ICBP   +0.019 (berita: 0)
+  INDF   +0.019 (berita: 0)
+  MYOR   +0.019 (berita: 0)
+  CPIN   +0.019 (berita: 1)
+  JPFA   +0.019 (berita: 0)
+  AMRT   +0.019 (berita: 0)
+  AALI   +0.019 (berita: 0)
+  LSIP   +0.019 (berita: 0)
+  DSNG   +0.019 (berita: 0)
+  UNVR   +0.019 (berita: 0)
+  PTBA   -0.010 (berita: 0)
+  ITMG   -0.010 (berita: 0)
+  MEDC   -0.010 (berita: 0)
+  PGAS   -0.010 (berita: 0)
+  AKRA   -0.010 (berita: 0)
+  ASII   -0.022 (berita: 0)
+  UNTR   -0.022 (berita: 0)
+  IMPC   -0.022 (berita: 0)
+  INCO   -0.046 (berita: 0)
+  NCKL   -0.046 (berita: 0)
+  BRMS   -0.046 (berita: 0)
+  INKP   -0.046 (berita: 0)
+  SMGR   -0.046 (berita: 0)
+  BIRD   -0.102 (berita: 0)
+  ASSA   -0.102 (berita: 0)
+  SMDR   -0.102 (berita: 0)
+  TMAS   -0.102 (berita: 0)
+  MAPI   -0.107 (berita: 0)
+  MAPA   -0.107 (berita: 0)
+  ACES   -0.107 (berita: 0)
+  ERAA   -0.107 (berita: 0)
+  AUTO   -0.107 (berita: 0)
+  TOWR   -0.107 (berita: 0)
+  MTEL   -0.107 (berita: 0)
+  JSMR   -0.107 (berita: 0)
+  CTRA   -0.108 (berita: 0)
+  BSDE   -0.108 (berita: 0)
+  PWON   -0.108 (berita: 0)
+  SMRA   -0.108 (berita: 0)
+  DMAS   -0.108 (berita: 0)
+  BUKA   -0.149 (berita: 0)
+  DCII   -0.149 (berita: 0)
+  MTDL   -0.149 (berita: 0)
+  EMTK   -0.149 (berita: 0)
+  BRIS   -0.153 (berita: 0)
+  BBTN   -0.153 (berita: 0)
+  GOTO   -0.311 (berita: 4)
+  BBCA   -0.422 (berita: 4)
+  BBRI   -0.494 (berita: 2)
+  BMRI   -0.520 (berita: 3)
+  AMMN   -0.526 (berita: 1)
+  TLKM   -0.587 (berita: 1)

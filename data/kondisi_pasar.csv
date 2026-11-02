@@ -1,0 +1,17 @@
+variabel,nilai,keterangan
+drawdownIHSGPersen,-42.21,IHSG terakhir ÷ IHSG akhir 2025 − 1 (%)
+perubahanIHSG1BulanPersen,-18.03,perubahan IHSG ±1 bulan (%)
+penurunanHarianTerbesarPersen,-11.57,penurunan harian terbesar dalam 1 bulan (%)
+netAsingYTDT,-88.19,net asing sejak awal tahun (Rp T)
+cds5YBps,99.73,CDS Indonesia 5Y (bps)
+yieldSBN10Y,7.14,yield SBN 10Y (%)
+spreadSBNUSTBps,216.0,yield SBN − yield UST 10Y (bps)
+kursUSDIDR,17938.0,kurs USD/IDR
+inflasiYoY,3.28,inflasi Indonesia yoy (%)
+biRatePersen,5.75,BI-Rate (%)
+ffrAtasPersen,4.0,Fed funds batas atas (%)
+brentUSD,106.65,Brent (US$/barel)
+emasUSD,4390.11,emas spot (US$/oz)
+trenCDS1Bulan,1,"1 = CDS naik sebulan, 0 = datar, -1 = turun"
+trenRupiah1Bulan,1,"1 = rupiah melemah, 0 = datar, -1 = menguat"
+trenYieldSBN1Bulan,0,"1 = yield naik, 0, -1"

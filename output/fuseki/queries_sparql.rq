@@ -1,0 +1,136 @@
+#====
+# Q01 PREDIKSI SEKTOR 1-3 TAHUN (urut ekspektasi probabilistik)
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?sektor ?base ?bull ?bear ?ekspektasi ?prediksi WHERE {
+  ?s a ex:Sektor ; ex:kodeIndeksSektor ?sektor ;
+     ex:skorOutlookBase ?base ; ex:skorOutlookBull ?bull ; ex:skorOutlookBear ?bear ; ex:skorEkspektasiProbabilistik ?ekspektasi .
+  ?s a ?k . FILTER(?k IN (ex:SektorBullishKuat, ex:SektorBullishModerat, ex:SektorNetral, ex:SektorBearish))
+  BIND(STRAFTER(STR(?k), "#") AS ?prediksi)
+} ORDER BY DESC(?ekspektasi)
+
+#====
+# Q02 PERAN PORTOFOLIO (inti / satelit / kontrarian)
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?sektor ?peran WHERE {
+  ?s a ex:Sektor ; ex:kodeIndeksSektor ?sektor ; a ?k .
+  FILTER(?k IN (ex:SektorPilihanInti, ex:SektorPilihanSatelit, ex:SektorPeluangKontrarian, ex:SektorRobustLintasSkenario, ex:SektorAsimetriPositif))
+  BIND(STRAFTER(STR(?k), "#") AS ?peran)
+} ORDER BY ?sektor ?peran
+
+#====
+# Q03 TOP-3 EMITEN PER SEKTOR INTI & SATELIT (skor adaptif-regime)
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?sektor ?kode ?skorAdaptif ?statusTopPick WHERE {
+  ?s ex:kodeIndeksSektor ?sektor .
+  { ?s a ex:SektorPilihanInti } UNION { ?s a ex:SektorPilihanSatelit }
+  ?e ex:termasukSektor ?s ; ex:kodeSaham ?kode ; ex:skorAdaptifRegime ?skorAdaptif .
+  FILTER NOT EXISTS { ?e a ex:EmitenUji }
+  { SELECT ?e (COUNT(?o) AS ?lebihTinggi) WHERE {
+      ?e ex:termasukSektor ?s2 ; ex:skorAdaptifRegime ?sk .
+      OPTIONAL { ?o ex:termasukSektor ?s2 ; ex:skorAdaptifRegime ?so . FILTER(?so > ?sk) }
+    } GROUP BY ?e }
+  FILTER(?lebihTinggi < 3)
+  BIND(EXISTS { ?e a ex:KandidatTopPickAdaptif } AS ?statusTopPick)
+} ORDER BY ?sektor DESC(?skorAdaptif)
+
+#====
+# Q04 ANALIS BIASA (skor statis) vs SISTEM PAKAR (skor adaptif-regime)
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?kode ?skorStatis ?skorAdaptif ?topPickAnalisBiasa ?topPickPakar WHERE {
+  ?e a ex:Emiten ; ex:kodeSaham ?kode ; ex:skorTotalEmiten ?skorStatis ; ex:skorAdaptifRegime ?skorAdaptif .
+  FILTER NOT EXISTS { ?e a ex:EmitenUji }
+  BIND(EXISTS { ?e a ex:KandidatTopPick } AS ?topPickAnalisBiasa)
+  BIND(EXISTS { ?e a ex:KandidatTopPickAdaptif } AS ?topPickPakar)
+  FILTER(?topPickAnalisBiasa || ?topPickPakar)
+} ORDER BY DESC(?skorAdaptif)
+
+#====
+# Q05 REGIME PASAR & SKOR STRES
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?kondisi ?regime ?skorStres ?risikoPerTransaksi ?ambangTopPick WHERE {
+  ?k a ex:KondisiPasarAktif ; ex:regimeTerdeteksi ?r ; ex:skorStresPasar ?skorStres .
+  ?r ex:risikoPerTransaksiPersen ?risikoPerTransaksi ; ex:ambangTopPickAdaptif ?ambangTopPick .
+  BIND(STRAFTER(STR(?k), "#") AS ?kondisi) BIND(STRAFTER(STR(?r), "#") AS ?regime)
+}
+
+#====
+# Q06 JALUR PENALARAN MULTI-HOP: peristiwa aktif -> node -> node -> sektor diuntungkan
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?peristiwa ?hop1 ?hop2 ?sektor WHERE {
+  ?ev a ex:PeristiwaAktif ; ex:memicuPergerakan ?m1 . ?m1 ex:menyebabkan ?m2 . ?m2 ex:menguntungkanSektor ?s .
+  ?m2 a ex:PergerakanAktif .
+  BIND(STRAFTER(STR(?ev), "#") AS ?peristiwa) BIND(STRAFTER(STR(?m1), "#") AS ?hop1)
+  BIND(STRAFTER(STR(?m2), "#") AS ?hop2) BIND(STRAFTER(STR(?s), "#") AS ?sektor)
+} ORDER BY ?sektor
+
+#====
+# Q07 RENCANA AKUMULASI BERTAHAP (3 tranche) + ukuran posisi
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?kode ?t1 ?t2 ?t3 ?posisiMaksPersen WHERE {
+  ?e a ex:KandidatAkumulasiBertahap ; ex:kodeSaham ?kode ; ex:hargaTranche1 ?t1 ; ex:hargaTranche2 ?t2 ; ex:hargaTranche3 ?t3 ;
+     ex:ukuranPosisiMaksPersen ?posisiMaksPersen .
+} ORDER BY ?kode
+
+#====
+# Q08 TESIS & KILL SWITCH
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?tesis ?indikator ?nilai ?status WHERE {
+  ?t a ex:TesisInvestasi ; ex:indikatorKunciTesis ?i . ?i ex:nilaiIndikator ?nilai .
+  ?t a ?k . FILTER(?k IN (ex:TesisValid, ex:TesisGugur, ex:TesisRapuh, ex:TesisTerpicu))
+  BIND(STRAFTER(STR(?t), "#") AS ?tesis) BIND(STRAFTER(STR(?i), "#") AS ?indikator) BIND(STRAFTER(STR(?k), "#") AS ?status)
+} ORDER BY ?tesis ?status
+
+#====
+# Q09 KATALIS <= 45 HARI
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?katalis ?tanggal ?hari WHERE {
+  ?k a ex:KatalisDekat ; ex:tanggalKatalis ?tanggal ; ex:hariMenujuKatalis ?hari .
+  BIND(STRAFTER(STR(?k), "#") AS ?katalis)
+} ORDER BY ?hari
+
+#====
+# Q10 RAWAN COLLAPSE / GOING CONCERN
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?kode ?altmanZ ?der WHERE {
+  ?e a ex:RisikoGoingConcern ; ex:kodeSaham ?kode ; ex:altmanZ ?altmanZ ; ex:der ?der .
+} ORDER BY ?altmanZ
+
+#====
+# Q11 SINYAL ENTRY + STOP LOSS / TAKE PROFIT
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?kode ?harga ?stopLoss ?takeProfit WHERE {
+  ?e a ex:SinyalEntry ; ex:kodeSaham ?kode ; ex:hargaPenutupan ?harga ; ex:hargaStopLoss ?stopLoss ; ex:hargaTakeProfit ?takeProfit .
+} ORDER BY ?kode
+
+#====
+# Q12 REKOMENDASI PER PERSONA
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?persona (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE {
+  ?e ex:direkomendasikanUntuk ?p ; ex:kodeSaham ?kode . FILTER NOT EXISTS { ?e a ex:EmitenUji }
+  BIND(STRAFTER(STR(?p), "#") AS ?persona)
+} GROUP BY ?persona ORDER BY ?persona
+
+#====
+# Q13 CASE-BASED REASONING: kemiripan periode historis
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?periode ?kemiripan ?analog WHERE {
+  ?p a ex:PeriodeHistoris ; ex:skorKemiripan ?kemiripan .
+  BIND(STRAFTER(STR(?p), "#") AS ?periode) BIND(EXISTS { ?p a ex:PeriodeAnalog } AS ?analog)
+} ORDER BY DESC(?kemiripan)
+
+#====
+# Q14 REACTION FUNCTION YANG TERPICU
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+SELECT ?antisipasi ?mengaktifkan WHERE {
+  ?a a ex:AntisipasiTerpicu ; ex:antisipasiMengaktifkan ?m .
+  BIND(STRAFTER(STR(?a), "#") AS ?antisipasi) BIND(STRAFTER(STR(?m), "#") AS ?mengaktifkan)
+}
+
+#====
+# Q15 BASIC KNOWLEDGE: rumus rasio valuasi
+PREFIX ex:   <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?rasio ?rumus WHERE {
+  ?r a ex:RasioValuasi ; rdfs:label ?rasio ; ex:rumus ?rumus .
+} ORDER BY ?rasio
