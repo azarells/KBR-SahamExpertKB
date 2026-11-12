@@ -1,7 +1,7 @@
 # ======================================================================
 # WHAT-IF (SPARQL Update) — jalankan di tab "query" dataset /saham dengan endpoint UPDATE
-# Skenario: premi risiko negara membaik (CDS 99,73 -> 75 bps; CDS & rupiah membaik)
-# Setelah update, jalankan ulang query Q05 & Q08: skorStres turun ke 9, muncul
+# Skenario: premi risiko negara membaik (CDS 103,79 -> 75 bps; CDS & rupiah membaik)
+# Setelah update, jalankan ulang query Q05 & Q08: skorStres turun 11 -> 10, muncul
 # DivergensiIntermarketBullish, dan Tesis_Keuangan_Kontrarian menjadi TesisTerpicu.
 # ======================================================================
 PREFIX ex:  <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>

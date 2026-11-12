@@ -6,6 +6,8 @@ sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, "lib"))
 import warnings; warnings.filterwarnings("ignore")
 from rules_swrl import define_rules
 import kb_market, kb_geo as G, kb_v2 as V2
+BUL = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+TGL = f"{G.TODAY.day} {BUL[G.TODAY.month-1]} {G.TODAY.year}"
 RULES = define_rules(kb_market.FAKTOR)
 
 OUT = os.path.join(HERE, "output")
@@ -42,16 +44,20 @@ tes = {t["nama"]: t for t in V["tesis"]}
 L = []; w = L.append
 w("# Laporan Hasil Inferensi v2 — Sistem Pakar Prediksi Sektor Saham BEI (1–3 Tahun)\n")
 w("Kelompok 9 KBR · Jonnathan Azarel Gunawan (L0224005) · Gloria Dana Praysilia (L0224043)  ")
-w(f"Tanggal acuan: **26 Oktober 2026** · Skenario aktif: **{SKN['Skenario_Base_2027_2028']}** · Regime terdeteksi: **{regime['label']}** · Reasoner: Pellet (OWLAPI) — konsisten ✅\n")
-w("> **Disclaimer:** Keluaran penalaran sistem pakar untuk keperluan akademik/edukasi, bukan nasihat investasi. Data makro & berita bersumber dari pemberitaan s.d. Okt 2026 (anotasi `sumberReferensi`). "
+w(f"Tanggal acuan: **{TGL}** · Skenario aktif: **{SKN['Skenario_Base_2027_2028']}** · Regime terdeteksi: **{regime['label']}** · Reasoner: Pellet (OWLAPI) — konsisten ✅\n")
+w("> **Disclaimer:** Keluaran penalaran sistem pakar untuk keperluan akademik/edukasi, bukan nasihat investasi. Data makro & berita bersumber dari pemberitaan s.d. {TGL} (anotasi `sumberReferensi`). "
   "**Rasio, teknikal, bandarmology, revisi konsensus per emiten adalah snapshot indikatif** dan ditandai `DataIndikatif`; sistem sendiri menandai rekomendasinya `PerluVerifikasiData`.\n")
 
 # ---------------------------------------------------------------- 0
 w("## 0. Ringkasan Eksekutif — Keputusan Pakar\n")
 w(f"1. **Regime pasar: {regime['label']}** (skor stres {I(P['skorStresPasar'])}/12). Bobot pilar otomatis bergeser: fundamental & valuasi ×1,5, smart money ×1,5, penalti neraca lemah ×1,5, teknikal & sentimen ×0,5; risiko per transaksi dipangkas ke **{F(regime['risiko'],2)}%** modal.")
 cls_p = P["kelas"]
-w(f"2. **Strategi pasar:** {'Zona Akumulasi Generasional' if 'ZonaAkumulasiGenerasional' in cls_p else ''}"
-  f"{' — tetapi dasar belum terkonfirmasi (CDS & rupiah masih memburuk)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **akumulasi bertahap {regime['tranche'][0]}/{regime['tranche'][1]}/{regime['tranche'][2]}**, bukan all-in.")
+if "StrategiAkumulasiBertahap" in cls_p:
+    w(f"2. **Strategi pasar:** {'Zona Akumulasi Generasional' if 'ZonaAkumulasiGenerasional' in cls_p else 'Kapitulasi + divergensi intermarket'}"
+      f"{' — tetapi dasar belum terkonfirmasi (CDS & rupiah masih memburuk)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **akumulasi bertahap {regime['tranche'][0]}/{regime['tranche'][1]}/{regime['tranche'][2]}**, bukan all-in.")
+else:
+    w(f"2. **Strategi pasar:** syarat zona akumulasi generasional belum terpenuhi (drawdown IHSG {F(P['drawdownIHSGPersen'],2)}% > −40%)"
+      f"{'; dasar belum terkonfirmasi (CDS & rupiah masih memburuk)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **selektif, tunggu konfirmasi**; posisi tetap dibatasi aturan ukuran posisi regime.")
 w("3. **Sektor inti (core, robust lintas skenario):** " + ", ".join(f"**{s['label'].replace('Sektor ', '')}** (EV {F(s['skorEkspektasiProbabilistik'],2)})" for s in inti) + ".")
 w("4. **Sektor satelit (asimetris-kontrarian):** " + (", ".join(f"**{s['label'].replace('Sektor ', '')}** (Base {s['skorOutlookBase']} → Bull {s['skorOutlookBull']})" for s in satelit) or "-")
   + f"; pemicu tesis: yield SBN < {F(tes['Tesis_Infrastruktur_DataCenter']['pemicu'],2)}%. **Keuangan** dipantau sebagai kontrarian (pemicu CDS < {F(tes['Tesis_Keuangan_Kontrarian']['pemicu'],0)} bps, kini {F(P['cds5YBps'],2)}).")

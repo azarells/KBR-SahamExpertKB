@@ -8,7 +8,7 @@
    "rasioValuasi": 0.6,
    "skorTema": 0,
    "poinSentimen": 0,
-   "sentimen": -0.025,
+   "sentimen": 0.006,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -16,7 +16,6 @@
     "SektorDirugikanGeopolitik",
     "SektorDiuntungkanGeopolitik",
     "SektorFavoritSiklus",
-    "SektorKatalisDekat",
     "SektorMurahHistoris",
     "SektorNetral",
     "SektorPresedenHistoris"
@@ -35,7 +34,7 @@
     {
      "node": "Pendapatan Eksportir (USD) Naik dalam Rupiah",
      "jalur": [
-      "Tekanan Rupiah (~Rp17.900/USD)",
+      "Tekanan Rupiah (rekor ~Rp18.239/USD, 12 Nov 2026)",
       "Rupiah Melemah",
       "Pendapatan Eksportir (USD) Naik dalam Rupiah"
      ],
@@ -57,6 +56,15 @@
      "jalur": [
       "Gencatan Senjata Rusia-Ukraina (infrastruktur energi, Okt 2026)",
       "Pasokan Diesel Global Membaik"
+     ],
+     "geopolitik": true
+    },
+    {
+     "node": "Harga Minyak Turun",
+     "jalur": [
+      "OPEC+ Pertahankan Produksi",
+      "Pasokan Minyak Stabil",
+      "Harga Minyak Turun"
      ],
      "geopolitik": true
     }
@@ -81,19 +89,17 @@
    "topPickAdaptif": [
     "AADI"
    ],
-   "katalis": [
-    "Pemilu Sela AS 3 Nov 2026"
-   ]
+   "katalis": []
   },
   {
    "nama": "Sektor_BarangBaku",
    "label": "Sektor Barang Baku",
-   "skorOutlookAktif": 10,
+   "skorOutlookAktif": 11,
    "skorValuasiSektor": 2,
    "rasioValuasi": 0.7058823529411765,
    "skorTema": 6,
-   "poinSentimen": -1,
-   "sentimen": -0.114,
+   "poinSentimen": 0,
+   "sentimen": -0.075,
    "poinAsing": 1,
    "kelas": [
     "InferensiSektor",
@@ -105,6 +111,7 @@
     "SektorFavoritSiklus",
     "SektorKeyakinanTinggi",
     "SektorMurahHistoris",
+    "SektorPerluPemantauanKetat",
     "SektorPilihanInti",
     "SektorPresedenHistoris",
     "SektorRobustLintasSkenario"
@@ -113,7 +120,7 @@
     {
      "node": "Pendapatan Eksportir (USD) Naik dalam Rupiah",
      "jalur": [
-      "Tekanan Rupiah (~Rp17.900/USD)",
+      "Tekanan Rupiah (rekor ~Rp18.239/USD, 12 Nov 2026)",
       "Rupiah Melemah",
       "Pendapatan Eksportir (USD) Naik dalam Rupiah"
      ],
@@ -130,7 +137,7 @@
     {
      "node": "Permintaan Safe Haven Emas",
      "jalur": [
-      "Harga Emas Tinggi (~US$4.390, Sep 2026)",
+      "Harga Emas Tinggi (puncak ~US$4.390 Sep, ~US$3.959 pada 12 Nov 2026)",
       "Permintaan Safe Haven Emas"
      ],
      "geopolitik": true
@@ -152,18 +159,18 @@
     "TINS"
    ],
    "watchlist": [
-    "AMMN",
-    "INCO",
-    "MDKA"
+    "AMMN"
    ],
-   "skorEkspektasiProbabilistik": 9.75,
-   "skorOutlookBase": 10,
-   "skorOutlookBull": 16,
-   "skorOutlookBear": 3,
+   "skorEkspektasiProbabilistik": 10.75,
+   "skorOutlookBase": 11,
+   "skorOutlookBull": 17,
+   "skorOutlookBear": 4,
    "upsideSkenario": 6,
    "downsideSkenario": 7,
    "topPickAdaptif": [
     "ANTM",
+    "BRMS",
+    "NCKL",
     "TINS"
    ],
    "katalis": []
@@ -176,7 +183,7 @@
    "rasioValuasi": 0.6111111111111112,
    "skorTema": 2,
    "poinSentimen": 0,
-   "sentimen": -0.054,
+   "sentimen": -0.083,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -208,13 +215,11 @@
    "watchlist": [],
    "skorEkspektasiProbabilistik": 5.25,
    "skorOutlookBase": 4,
-   "skorOutlookBull": 14,
+   "skorOutlookBull": 14.0,
    "skorOutlookBear": -1,
    "upsideSkenario": 10,
-   "downsideSkenario": 5,
-   "topPickAdaptif": [
-    "UNTR"
-   ],
+   "downsideSkenario": 5.0,
+   "topPickAdaptif": [],
    "katalis": []
   },
   {
@@ -225,7 +230,7 @@
    "rasioValuasi": 0.6666666666666666,
    "skorTema": 4,
    "poinSentimen": 0,
-   "sentimen": 0.047,
+   "sentimen": -0.018,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -260,7 +265,7 @@
     {
      "node": "Biaya Bahan Baku Impor Naik",
      "jalur": [
-      "Tekanan Rupiah (~Rp17.900/USD)",
+      "Tekanan Rupiah (rekor ~Rp18.239/USD, 12 Nov 2026)",
       "Rupiah Melemah",
       "Biaya Bahan Baku Impor Naik"
      ],
@@ -282,9 +287,8 @@
    "skorOutlookBull": 12,
    "skorOutlookBear": 1,
    "upsideSkenario": 6,
-   "downsideSkenario": 5,
+   "downsideSkenario": 5.0,
    "topPickAdaptif": [
-    "CPIN",
     "DSNG",
     "JPFA",
     "LSIP"
@@ -299,7 +303,7 @@
    "rasioValuasi": 0.5714285714285714,
    "skorTema": 0,
    "poinSentimen": -1,
-   "sentimen": -0.268,
+   "sentimen": -0.144,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -310,13 +314,6 @@
    ],
    "tailwind": [],
    "headwind": [
-    {
-     "node": "Penyesuaian Harga BBM Bersubsidi (Antisipasi)",
-     "jalur": [
-      "Penyesuaian Harga BBM Bersubsidi (Antisipasi)"
-     ],
-     "geopolitik": false
-    },
     {
      "node": "Harga Minyak Naik",
      "jalur": [
@@ -338,7 +335,7 @@
     {
      "node": "Biaya Bahan Baku Impor Naik",
      "jalur": [
-      "Tekanan Rupiah (~Rp17.900/USD)",
+      "Tekanan Rupiah (rekor ~Rp18.239/USD, 12 Nov 2026)",
       "Rupiah Melemah",
       "Biaya Bahan Baku Impor Naik"
      ],
@@ -364,12 +361,12 @@
   {
    "nama": "Sektor_Kesehatan",
    "label": "Sektor Kesehatan",
-   "skorOutlookAktif": 9,
+   "skorOutlookAktif": 8,
    "skorValuasiSektor": 2,
    "rasioValuasi": 0.6923076923076923,
    "skorTema": 4,
-   "poinSentimen": 1,
-   "sentimen": 0.24,
+   "poinSentimen": 0,
+   "sentimen": 0.048,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -399,7 +396,7 @@
     {
      "node": "Biaya Bahan Baku Impor Naik",
      "jalur": [
-      "Tekanan Rupiah (~Rp17.900/USD)",
+      "Tekanan Rupiah (rekor ~Rp18.239/USD, 12 Nov 2026)",
       "Rupiah Melemah",
       "Biaya Bahan Baku Impor Naik"
      ],
@@ -420,14 +417,13 @@
     "KLBF",
     "SILO"
    ],
-   "skorEkspektasiProbabilistik": 8.5,
-   "skorOutlookBase": 9,
-   "skorOutlookBull": 9,
-   "skorOutlookBear": 7,
+   "skorEkspektasiProbabilistik": 7.5,
+   "skorOutlookBase": 8,
+   "skorOutlookBull": 8,
+   "skorOutlookBear": 6,
    "upsideSkenario": 0,
    "downsideSkenario": 2,
    "topPickAdaptif": [
-    "HEAL",
     "MIKA"
    ],
    "katalis": []
@@ -435,22 +431,24 @@
   {
    "nama": "Sektor_Keuangan",
    "label": "Sektor Keuangan",
-   "skorOutlookAktif": -1,
+   "skorOutlookAktif": 0,
    "skorValuasiSektor": 3,
    "rasioValuasi": 0.5333333333333333,
    "skorTema": 4,
-   "poinSentimen": -2,
-   "sentimen": -0.382,
+   "poinSentimen": -1,
+   "sentimen": -0.23,
    "poinAsing": -1,
    "kelas": [
     "InferensiSektor",
     "KategoriInferensi",
+    "SektorAsimetriPositif",
     "SektorBearish",
     "SektorDidukungTema",
     "SektorDirugikanGeopolitik",
     "SektorKatalisDekat",
     "SektorMurahHistoris",
     "SektorPeluangKontrarian",
+    "SektorPilihanSatelit",
     "SektorPresedenHistoris"
    ],
    "tailwind": [
@@ -547,15 +545,16 @@
    ],
    "topPick": [],
    "watchlist": [],
-   "skorEkspektasiProbabilistik": 1.25,
-   "skorOutlookBase": -1,
-   "skorOutlookBull": 18,
-   "skorOutlookBear": -11,
+   "skorEkspektasiProbabilistik": 2.25,
+   "skorOutlookBase": 0,
+   "skorOutlookBull": 19,
+   "skorOutlookBear": -10,
    "upsideSkenario": 19,
    "downsideSkenario": 10,
    "topPickAdaptif": [],
    "katalis": [
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ]
   },
@@ -567,7 +566,7 @@
    "rasioValuasi": 0.5454545454545454,
    "skorTema": 2,
    "poinSentimen": -1,
-   "sentimen": -0.269,
+   "sentimen": -0.224,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -641,32 +640,32 @@
    "watchlist": [],
    "skorEkspektasiProbabilistik": 0.25,
    "skorOutlookBase": -2,
-   "skorOutlookBull": 14,
+   "skorOutlookBull": 14.0,
    "skorOutlookBear": -9,
-   "upsideSkenario": 16,
+   "upsideSkenario": 16.0,
    "downsideSkenario": 7,
    "topPickAdaptif": [],
    "katalis": [
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ]
   },
   {
    "nama": "Sektor_Teknologi",
    "label": "Sektor Teknologi",
-   "skorOutlookAktif": -5.0,
+   "skorOutlookAktif": -4,
    "skorValuasiSektor": 1,
    "rasioValuasi": 1.0526315789473684,
    "skorTema": 2,
-   "poinSentimen": -2,
-   "sentimen": -0.373,
+   "poinSentimen": -1,
+   "sentimen": -0.296,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
     "KategoriInferensi",
     "SektorBearish",
-    "SektorDirugikanGeopolitik",
-    "SektorKatalisDekat"
+    "SektorDirugikanGeopolitik"
    ],
    "tailwind": [
     {
@@ -722,17 +721,14 @@
    ],
    "topPick": [],
    "watchlist": [],
-   "skorEkspektasiProbabilistik": -2.25,
-   "skorOutlookBase": -5.0,
-   "skorOutlookBull": 15,
-   "skorOutlookBear": -14,
+   "skorEkspektasiProbabilistik": -1.25,
+   "skorOutlookBase": -4,
+   "skorOutlookBull": 16.0,
+   "skorOutlookBear": -13,
    "upsideSkenario": 20,
    "downsideSkenario": 9,
    "topPickAdaptif": [],
-   "katalis": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "FOMC 28 Okt 2026"
-   ]
+   "katalis": []
   },
   {
    "nama": "Sektor_Infrastruktur",
@@ -742,7 +738,7 @@
    "rasioValuasi": 0.5882352941176471,
    "skorTema": 4,
    "poinSentimen": -1,
-   "sentimen": -0.267,
+   "sentimen": -0.224,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -753,6 +749,7 @@
     "SektorMurahHistoris",
     "SektorNetral",
     "SektorPeluangKontrarian",
+    "SektorPerluPemantauanKetat",
     "SektorPilihanSatelit"
    ],
    "tailwind": [
@@ -817,7 +814,7 @@
    "skorOutlookBase": 6,
    "skorOutlookBull": 20,
    "skorOutlookBear": -1,
-   "upsideSkenario": 14,
+   "upsideSkenario": 14.0,
    "downsideSkenario": 7,
    "topPickAdaptif": [],
    "katalis": []
@@ -830,7 +827,7 @@
    "rasioValuasi": 0.7777777777777778,
    "skorTema": 0,
    "poinSentimen": -1,
-   "sentimen": -0.256,
+   "sentimen": -0.135,
    "poinAsing": 0,
    "kelas": [
     "InferensiSektor",
@@ -857,16 +854,18 @@
       "Pasokan Diesel Global Membaik"
      ],
      "geopolitik": true
+    },
+    {
+     "node": "Harga Minyak Turun",
+     "jalur": [
+      "OPEC+ Pertahankan Produksi",
+      "Pasokan Minyak Stabil",
+      "Harga Minyak Turun"
+     ],
+     "geopolitik": true
     }
    ],
    "headwind": [
-    {
-     "node": "Penyesuaian Harga BBM Bersubsidi (Antisipasi)",
-     "jalur": [
-      "Penyesuaian Harga BBM Bersubsidi (Antisipasi)"
-     ],
-     "geopolitik": false
-    },
     {
      "node": "Harga Minyak Naik",
      "jalur": [
@@ -899,7 +898,7 @@
    "sektor": "Sektor_Energi",
    "skorFundamental": 8,
    "skorValuasi": 2,
-   "skorTeknikal": 5,
+   "skorTeknikal": 5.0,
    "skorBandar": 4,
    "skorSentimen": 2,
    "skorKontribusiSektor": 0,
@@ -931,16 +930,13 @@
     "KonfluensiTinggi",
     "KualitasLabaTinggi",
     "MurahKarenaLabaTurun",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
     "PerluVerifikasiData",
     "RevisiLabaTurun",
-    "RisikoKonsentrasiTema",
     "RisikoOutflowPasif",
     "SentimenPositif",
     "SinyalBuyOnWeakness",
     "SinyalEntry",
-    "StrategiTrancheKatalisBiner",
     "TungguKonfirmasi",
     "Undervalued",
     "ZonaAman"
@@ -955,26 +951,22 @@
     "Persona_GenZ_Agresif",
     "Persona_Mahasiswa_Konservatif"
    ],
-   "kekuatanRelatifPersen": 11.03,
-   "equityRiskPremium": 17.86,
-   "skorAdaptifRegime": 27.5,
+   "kekuatanRelatifPersen": 4.54,
+   "equityRiskPremium": 17.29,
+   "skorAdaptifRegime": 26.0,
    "ukuranPosisiMaksPersen": 7.81,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
-   "poinSmartMoney": 2,
-   "skorKonfluensi": 5,
+   "poinSmartMoney": 1,
+   "skorKonfluensi": 5.0,
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -5.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Pemilu Sela AS 3 Nov 2026",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
-   "terkonsentrasiDengan": [
-    "UNTR"
-   ],
+   "terkonsentrasiDengan": [],
    "uji": false
   },
   {
@@ -989,7 +981,7 @@
    "skorKontribusiSektor": 0,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 16,
+   "skorTotalEmiten": 16.0,
    "rasioPERvsHistoris": 0.77,
    "nilaiWajar": 2470.0,
    "potensiUpsidePersen": 30.0,
@@ -1006,7 +998,6 @@
     "KonfluensiRendah",
     "KualitasLabaTinggi",
     "MurahKarenaLabaTurun",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
     "RevisiLabaTurun",
     "Undervalued",
@@ -1018,8 +1009,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 9.03,
-   "equityRiskPremium": 12.86,
+   "kekuatanRelatifPersen": 2.54,
+   "equityRiskPremium": 12.29,
    "skorAdaptifRegime": 18,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
@@ -1030,8 +1021,7 @@
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -8.0,
    "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1044,11 +1034,11 @@
    "skorValuasi": 1,
    "skorTeknikal": 4,
    "skorBandar": 3,
-   "skorSentimen": 0,
+   "skorSentimen": -2,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 16,
+   "skorTotalEmiten": 14.0,
    "rasioPERvsHistoris": 0.92,
    "nilaiWajar": 20652.17,
    "potensiUpsidePersen": 8.7,
@@ -1065,20 +1055,23 @@
     "KategoriInferensi",
     "KonfluensiRendah",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
+    "RedFlagBerita",
     "RevisiLabaTurun",
+    "SentimenNegatif",
     "ZonaAman"
    ],
    "diuntungkanOleh": [
     "Substitusi ke Batu Bara (Minyak Mahal)"
    ],
    "ditekanOleh": [],
-   "redFlag": [],
+   "redFlag": [
+    "Asing Net Sell Rp 20,7 Miliar Saat IHSG Turun Rabu (11/11), Cek Saham yang Dijual"
+   ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 8.03,
-   "equityRiskPremium": 14.6,
-   "skorAdaptifRegime": 18.0,
+   "kekuatanRelatifPersen": 1.54,
+   "equityRiskPremium": 14.03,
+   "skorAdaptifRegime": 17.0,
    "ukuranPosisiMaksPersen": 8.93,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -1088,8 +1081,7 @@
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -7.0,
    "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1098,15 +1090,15 @@
    "kode": "MEDC",
    "nama": "Medco Energi Internasional",
    "sektor": "Sektor_Energi",
-   "skorFundamental": 5,
+   "skorFundamental": 5.0,
    "skorValuasi": 2,
    "skorTeknikal": 7,
    "skorBandar": 4,
-   "skorSentimen": 0,
+   "skorSentimen": -1,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 19,
+   "skorTotalEmiten": 18,
    "rasioPERvsHistoris": 0.83,
    "nilaiWajar": 1380,
    "potensiUpsidePersen": 20.0,
@@ -1129,7 +1121,10 @@
     "KualitasLabaTinggi",
     "OutperformPasar",
     "PenerimaManfaatKomoditas",
+    "RedFlagBerita",
+    "SentimenNegatif",
     "SinyalEntry",
+    "SinyalKetahananBeritaBuruk",
     "TrenNaik",
     "Undervalued",
     "ZonaAbuAbu"
@@ -1137,14 +1132,18 @@
    "diuntungkanOleh": [
     "Harga Minyak Naik"
    ],
-   "ditekanOleh": [],
-   "redFlag": [],
+   "ditekanOleh": [
+    "Harga Minyak Turun"
+   ],
+   "redFlag": [
+    "Minyak Brent Turun ke US$ 92,39 per Barel Kamis (12/11), Pasar Cermati Pasokan Global"
+   ],
    "direkomendasikanUntuk": [
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 17.03,
-   "equityRiskPremium": 12.86,
-   "skorAdaptifRegime": 21.5,
+   "kekuatanRelatifPersen": 10.54,
+   "equityRiskPremium": 12.29,
+   "skorAdaptifRegime": 21.0,
    "ukuranPosisiMaksPersen": 6.58,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -1154,8 +1153,7 @@
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": 4.0,
    "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1196,8 +1194,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 2.03,
-   "equityRiskPremium": 10.1,
+   "kekuatanRelatifPersen": -4.46,
+   "equityRiskPremium": 9.53,
    "skorAdaptifRegime": 14.5,
    "ukuranPosisiMaksPersen": 9.62,
    "hargaTranche1": null,
@@ -1208,8 +1206,7 @@
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": 0.0,
    "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1222,18 +1219,18 @@
    "skorValuasi": 2,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": 0,
+   "skorSentimen": -1,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 12,
+   "skorTotalEmiten": 11,
    "rasioPERvsHistoris": 0.65,
    "nilaiWajar": 1376.47,
    "potensiUpsidePersen": 52.94,
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 900.0,
-   "atrRupiah": 27.0,
+   "atrRupiah": 27,
    "kelas": [
     "DividenAndalan",
     "ERPMenarik",
@@ -1241,17 +1238,22 @@
     "InferensiEmiten",
     "KategoriInferensi",
     "KonfluensiRendah",
+    "RedFlagBerita",
+    "SentimenNegatif",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
    "diuntungkanOleh": [],
    "ditekanOleh": [],
-   "redFlag": [],
+   "redFlag": [
+    "Minyak Brent Turun ke US$ 92,39 per Barel Kamis (12/11), Pasar Cermati Pasokan Global"
+   ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 0.03,
-   "equityRiskPremium": 4.62,
-   "skorAdaptifRegime": 15,
+   "kekuatanRelatifPersen": -6.46,
+   "equityRiskPremium": 4.06,
+   "skorAdaptifRegime": 14.5,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -1261,8 +1263,7 @@
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -2.0,
    "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1274,12 +1275,12 @@
    "skorFundamental": 9,
    "skorValuasi": 3,
    "skorTeknikal": 7,
-   "skorBandar": 5,
-   "skorSentimen": 0,
+   "skorBandar": 5.0,
+   "skorSentimen": -1,
    "skorKontribusiSektor": 2,
    "penaltiRisiko": 0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 28,
+   "skorTotalEmiten": 27,
    "rasioPERvsHistoris": 0.56,
    "nilaiWajar": 5220,
    "potensiUpsidePersen": 80.0,
@@ -1307,12 +1308,12 @@
     "OutperformPasar",
     "PenerimaManfaatKomoditas",
     "PerluVerifikasiData",
+    "RedFlagBerita",
     "RevisiLabaNaik",
     "RisikoKonsentrasiTema",
     "RisikoOutflowPasif",
     "SinyalBuyOnWeakness",
     "SinyalEntry",
-    "StrategiTrancheKatalisBiner",
     "TrenNaik",
     "Undervalued",
     "ZonaAman"
@@ -1322,29 +1323,31 @@
     "Permintaan Safe Haven Emas"
    ],
    "ditekanOleh": [],
-   "redFlag": [],
+   "redFlag": [
+    "Asing Net Sell Rp 20,7 Miliar Saat IHSG Turun Rabu (11/11), Cek Saham yang Dijual"
+   ],
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat",
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 15.03,
-   "equityRiskPremium": 2.86,
-   "skorAdaptifRegime": 33.5,
+   "kekuatanRelatifPersen": 8.54,
+   "equityRiskPremium": 2.29,
+   "skorAdaptifRegime": 35.0,
    "ukuranPosisiMaksPersen": 7.14,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 2,
-   "skorKonfluensi": 5,
-   "skorKontribusiSektorEV": 2,
+   "skorKonfluensi": 5.0,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 8.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [
-    "UNTR"
+    "BRMS",
+    "NCKL"
    ],
    "uji": false
   },
@@ -1352,15 +1355,15 @@
    "kode": "MDKA",
    "nama": "Merdeka Copper Gold",
    "sektor": "Sektor_BarangBaku",
-   "skorFundamental": 5,
+   "skorFundamental": 5.0,
    "skorValuasi": 0,
    "skorTeknikal": 6,
-   "skorBandar": 5,
-   "skorSentimen": 1,
+   "skorBandar": 5.0,
+   "skorSentimen": 0,
    "skorKontribusiSektor": 2,
    "penaltiRisiko": -5.0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 16,
+   "skorTotalEmiten": 15,
    "rasioPERvsHistoris": 1.14,
    "nilaiWajar": 1662.5,
    "potensiUpsidePersen": -12.5,
@@ -1376,7 +1379,6 @@
     "FaseMarkUpWyckoff",
     "FundamentalSedang",
     "InferensiEmiten",
-    "KandidatWatchlist",
     "KategoriInferensi",
     "KonfirmasiPolaBullish",
     "KualitasLabaTinggi",
@@ -1402,21 +1404,20 @@
     "Persona_TraderScalper",
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 20.03,
-   "equityRiskPremium": -5.89,
-   "skorAdaptifRegime": 15.5,
+   "kekuatanRelatifPersen": 13.54,
+   "equityRiskPremium": -6.46,
+   "skorAdaptifRegime": 17.0,
    "ukuranPosisiMaksPersen": 5.56,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 2,
-   "skorKonfluensi": 4,
-   "skorKontribusiSektorEV": 2,
+   "skorKonfluensi": 3,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 5.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1429,11 +1430,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 3,
    "skorBandar": 2,
-   "skorSentimen": 0,
+   "skorSentimen": -2,
    "skorKontribusiSektor": 2,
    "penaltiRisiko": 0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 17,
+   "skorTotalEmiten": 15,
    "rasioPERvsHistoris": 0.8,
    "nilaiWajar": 4125,
    "potensiUpsidePersen": 25.0,
@@ -1444,13 +1445,13 @@
    "kelas": [
     "FundamentalSedang",
     "InferensiEmiten",
-    "KandidatWatchlist",
     "KategoriInferensi",
     "KonfluensiRendah",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
+    "RedFlagBerita",
+    "SentimenNegatif",
     "Undervalued",
     "ZonaAman"
    ],
@@ -1458,21 +1459,23 @@
     "Harga Nikel Tertopang Kuota"
    ],
    "ditekanOleh": [],
-   "redFlag": [],
+   "redFlag": [
+    "Asing Net Sell Rp 20,7 Miliar Saat IHSG Turun Rabu (11/11), Cek Saham yang Dijual"
+   ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 7.03,
-   "equityRiskPremium": -2.14,
-   "skorAdaptifRegime": 19.5,
+   "kekuatanRelatifPersen": 0.54,
+   "equityRiskPremium": -2.71,
+   "skorAdaptifRegime": 20.5,
    "ukuranPosisiMaksPersen": 7.81,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": 2,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 3.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1500,16 +1503,18 @@
    "kelas": [
     "CelahEkspektasiPositif",
     "CocokModerat",
-    "ERPSangatMenarik",
+    "ERPMenarik",
     "FundamentalKuat",
     "InferensiEmiten",
     "KandidatTopPick",
+    "KandidatTopPickAdaptif",
     "KategoriInferensi",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
+    "PerluVerifikasiData",
     "RevisiLabaNaik",
     "RisikoHSC",
+    "RisikoKonsentrasiTema",
     "Undervalued",
     "ZonaAman"
    ],
@@ -1523,21 +1528,23 @@
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat"
    ],
-   "kekuatanRelatifPersen": 9.03,
-   "equityRiskPremium": 8.24,
-   "skorAdaptifRegime": 24.5,
+   "kekuatanRelatifPersen": 2.54,
+   "equityRiskPremium": 7.68,
+   "skorAdaptifRegime": 26.5,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 4,
-   "skorKontribusiSektorEV": 2,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 5.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
-   "terkonsentrasiDengan": [],
+   "terkonsentrasiDengan": [
+    "ANTM"
+   ],
    "uji": false
   },
   {
@@ -1552,7 +1559,7 @@
    "skorKontribusiSektor": 2,
    "penaltiRisiko": -1,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 16,
+   "skorTotalEmiten": 16.0,
    "rasioPERvsHistoris": 0.67,
    "nilaiWajar": 7200,
    "potensiUpsidePersen": 50.0,
@@ -1586,24 +1593,24 @@
    ],
    "ditekanOleh": [],
    "redFlag": [
-    "Semester I Kelam, IHSG Ambles 34,73% Disertai Kejatuhan Saham Big Caps dan Net Sell Asing"
+    "Semester I Kelam, IHSG Ambles 34,73% Disertai Kejatuhan Saham Big Caps dan Net Sell Asing",
+    "Asing Net Sell Rp 20,7 Miliar Saat IHSG Turun Rabu (11/11), Cek Saham yang Dijual"
    ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 3.03,
-   "equityRiskPremium": -3.81,
-   "skorAdaptifRegime": 21.5,
+   "kekuatanRelatifPersen": -3.46,
+   "equityRiskPremium": -4.37,
+   "skorAdaptifRegime": 23.5,
    "ukuranPosisiMaksPersen": 5.95,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 1,
    "skorKonfluensi": 3,
-   "skorKontribusiSektorEV": 2,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 6.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1616,11 +1623,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 6,
    "skorBandar": 4,
-   "skorSentimen": 0,
+   "skorSentimen": 1,
    "skorKontribusiSektor": 2,
    "penaltiRisiko": 0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 23,
+   "skorTotalEmiten": 24,
    "rasioPERvsHistoris": 0.67,
    "nilaiWajar": 645.0,
    "potensiUpsidePersen": 50.0,
@@ -1636,13 +1643,16 @@
     "FundamentalSedang",
     "InferensiEmiten",
     "KandidatTopPick",
+    "KandidatTopPickAdaptif",
     "KategoriInferensi",
     "KonfluensiTinggi",
     "LonjakanVolume",
     "MahalVsObligasi",
     "OutperformPasar",
     "PenerimaManfaatKomoditas",
+    "PerluVerifikasiData",
     "RevisiLabaNaik",
+    "RisikoKonsentrasiTema",
     "SinyalScalpingLong",
     "TrenNaik",
     "Undervalued",
@@ -1657,21 +1667,23 @@
     "Persona_TraderScalper",
     "Persona_PekerjaMuda_Moderat"
    ],
-   "kekuatanRelatifPersen": 22.03,
-   "equityRiskPremium": -4.64,
-   "skorAdaptifRegime": 24.5,
+   "kekuatanRelatifPersen": 15.54,
+   "equityRiskPremium": -5.21,
+   "skorAdaptifRegime": 27.0,
    "ukuranPosisiMaksPersen": 4.81,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
-   "skorKonfluensi": 5,
-   "skorKontribusiSektorEV": 2,
+   "skorKonfluensi": 6,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 10.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
-   "terkonsentrasiDengan": [],
+   "terkonsentrasiDengan": [
+    "ANTM"
+   ],
    "uji": false
   },
   {
@@ -1726,19 +1738,19 @@
     "Persona_PekerjaMuda_Moderat",
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 13.03,
-   "equityRiskPremium": 5.36,
-   "skorAdaptifRegime": 28.0,
+   "kekuatanRelatifPersen": 6.54,
+   "equityRiskPremium": 4.79,
+   "skorAdaptifRegime": 30.0,
    "ukuranPosisiMaksPersen": 6.25,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 2,
    "skorKonfluensi": 6,
-   "skorKontribusiSektorEV": 2,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": 6.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1782,19 +1794,19 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 2.03,
-   "equityRiskPremium": 12.86,
-   "skorAdaptifRegime": 12.5,
+   "kekuatanRelatifPersen": -4.46,
+   "equityRiskPremium": 12.29,
+   "skorAdaptifRegime": 14.5,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": 2,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": -4.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1835,6 +1847,7 @@
     "Overvalued",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "ZonaAbuAbu"
    ],
    "diuntungkanOleh": [],
@@ -1843,19 +1856,19 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -3.97,
-   "equityRiskPremium": -3.14,
-   "skorAdaptifRegime": 6.5,
+   "kekuatanRelatifPersen": -10.46,
+   "equityRiskPremium": -3.71,
+   "skorAdaptifRegime": 8.5,
    "ukuranPosisiMaksPersen": 8.06,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 1,
-   "skorKontribusiSektorEV": 2,
+   "skorKontribusiSektorEV": 4,
    "revisiEPS3BulanPersen": -10.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1872,7 +1885,7 @@
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 13,
+   "skorTotalEmiten": 13.0,
    "rasioPERvsHistoris": 0.61,
    "nilaiWajar": 6054.55,
    "potensiUpsidePersen": 63.64,
@@ -1903,8 +1916,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 2.03,
-   "equityRiskPremium": 11.04,
+   "kekuatanRelatifPersen": -4.46,
+   "equityRiskPremium": 10.47,
    "skorAdaptifRegime": 15.5,
    "ukuranPosisiMaksPersen": 8.62,
    "hargaTranche1": null,
@@ -1916,8 +1929,7 @@
    "revisiEPS3BulanPersen": -4.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -1952,18 +1964,12 @@
     "FaseAkumulasiWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
-    "KandidatAkumulasiBertahap",
-    "KandidatTopPickAdaptif",
     "KategoriInferensi",
     "KonfirmasiPolaBullish",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
-    "PerluVerifikasiData",
-    "RisikoKonsentrasiTema",
     "RisikoOutflowPasif",
     "SinyalBuyOnWeakness",
-    "StrategiTrancheKatalisBiner",
     "Undervalued",
     "ZonaAman"
    ],
@@ -1977,26 +1983,22 @@
    "direkomendasikanUntuk": [
     "Persona_Mahasiswa_Konservatif"
    ],
-   "kekuatanRelatifPersen": 8.03,
-   "equityRiskPremium": 15.08,
-   "skorAdaptifRegime": 25,
+   "kekuatanRelatifPersen": 1.54,
+   "equityRiskPremium": 14.52,
+   "skorAdaptifRegime": 23.5,
    "ukuranPosisiMaksPersen": 9.26,
-   "hargaTranche1": 20000.0,
-   "hargaTranche2": 18920,
-   "hargaTranche3": 17840,
-   "poinSmartMoney": 2,
+   "hargaTranche1": null,
+   "hargaTranche2": null,
+   "hargaTranche3": null,
+   "poinSmartMoney": 1,
    "skorKonfluensi": 3,
    "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -3.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
-   "terkonsentrasiDengan": [
-    "AADI",
-    "ANTM"
-   ],
+   "terkonsentrasiDengan": [],
    "uji": false
   },
   {
@@ -2029,7 +2031,6 @@
     "KategoriInferensi",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
     "RevisiLabaNaik",
     "SinyalEntry",
     "TrenNaik",
@@ -2041,8 +2042,8 @@
    "direkomendasikanUntuk": [
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 8.03,
-   "equityRiskPremium": -3.81,
+   "kekuatanRelatifPersen": 1.54,
+   "equityRiskPremium": -4.37,
    "skorAdaptifRegime": 23.5,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
@@ -2098,8 +2099,8 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 4.03,
-   "equityRiskPremium": 1.95,
+   "kekuatanRelatifPersen": -2.46,
+   "equityRiskPremium": 1.38,
    "skorAdaptifRegime": 21.0,
    "ukuranPosisiMaksPersen": 10.42,
    "hargaTranche1": null,
@@ -2111,8 +2112,7 @@
    "revisiEPS3BulanPersen": 0.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2129,7 +2129,7 @@
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 16,
+   "skorTotalEmiten": 16.0,
    "rasioPERvsHistoris": 0.71,
    "nilaiWajar": 8120,
    "potensiUpsidePersen": 40.0,
@@ -2144,7 +2144,6 @@
     "KategoriInferensi",
     "KorbanKenaikanKomoditas",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "PenerimaManfaatKomoditas",
     "RisikoOutflowPasif",
     "Undervalued",
@@ -2158,8 +2157,8 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 7.03,
-   "equityRiskPremium": 12.86,
+   "kekuatanRelatifPersen": 0.54,
+   "equityRiskPremium": 12.29,
    "skorAdaptifRegime": 19.5,
    "ukuranPosisiMaksPersen": 10.0,
    "hargaTranche1": null,
@@ -2171,8 +2170,7 @@
    "revisiEPS3BulanPersen": 1.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2181,7 +2179,7 @@
    "kode": "MYOR",
    "nama": "Mayora Indah",
    "sektor": "Sektor_KonsumenPrimer",
-   "skorFundamental": 5,
+   "skorFundamental": 5.0,
    "skorValuasi": 2,
    "skorTeknikal": 2,
    "skorBandar": 1,
@@ -2206,6 +2204,7 @@
     "MurahKarenaLabaTurun",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -2213,8 +2212,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 1.03,
-   "equityRiskPremium": -0.47,
+   "kekuatanRelatifPersen": -5.46,
+   "equityRiskPremium": -1.04,
    "skorAdaptifRegime": 15.5,
    "ukuranPosisiMaksPersen": 9.62,
    "hargaTranche1": null,
@@ -2225,7 +2224,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": -5.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2258,15 +2257,11 @@
     "FaseAkumulasiWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
-    "KandidatAkumulasiBertahap",
-    "KandidatTopPickAdaptif",
     "KategoriInferensi",
     "KonfirmasiPolaBullish",
     "KorbanKenaikanKomoditas",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
-    "PerluVerifikasiData",
     "RevisiLabaNaik",
     "SinyalBuyOnWeakness",
     "Undervalued",
@@ -2278,19 +2273,19 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 9.03,
-   "equityRiskPremium": -1.26,
-   "skorAdaptifRegime": 26,
+   "kekuatanRelatifPersen": 2.54,
+   "equityRiskPremium": -1.82,
+   "skorAdaptifRegime": 24.5,
    "ukuranPosisiMaksPersen": 8.93,
-   "hargaTranche1": 4100.0,
-   "hargaTranche2": 3870.4,
-   "hargaTranche3": 3640.8,
-   "poinSmartMoney": 2,
+   "hargaTranche1": null,
+   "hargaTranche2": null,
+   "hargaTranche3": null,
+   "poinSmartMoney": 1,
    "skorKonfluensi": 4,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 5.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2303,11 +2298,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 7,
    "skorBandar": 3,
-   "skorSentimen": 0,
+   "skorSentimen": -2,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 21,
+   "skorTotalEmiten": 19,
    "rasioPERvsHistoris": 0.67,
    "nilaiWajar": 2400.0,
    "potensiUpsidePersen": 50.0,
@@ -2321,7 +2316,6 @@
     "AkumulasiTersembunyi",
     "CocokAgresif",
     "CocokKonservatif",
-    "CocokModerat",
     "DefensifBerkualitas",
     "DividenAndalan",
     "ERPSangatMenarik",
@@ -2336,9 +2330,12 @@
     "KualitasLabaTinggi",
     "OutperformPasar",
     "PerluVerifikasiData",
+    "RedFlagBerita",
     "RevisiLabaNaik",
+    "SentimenNegatif",
     "SinyalBuyOnWeakness",
     "SinyalEntry",
+    "SinyalKetahananBeritaBuruk",
     "TrenNaik",
     "Undervalued",
     "ZonaAman"
@@ -2347,25 +2344,27 @@
    "ditekanOleh": [
     "Biaya Bahan Baku Impor Naik"
    ],
-   "redFlag": [],
+   "redFlag": [
+    "Asing Net Sell Rp 20,7 Miliar Saat IHSG Turun Rabu (11/11), Cek Saham yang Dijual"
+   ],
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat",
     "Persona_GenZ_Agresif",
     "Persona_Mahasiswa_Konservatif"
    ],
-   "kekuatanRelatifPersen": 12.03,
-   "equityRiskPremium": 9.53,
-   "skorAdaptifRegime": 27.5,
+   "kekuatanRelatifPersen": 5.54,
+   "equityRiskPremium": 8.96,
+   "skorAdaptifRegime": 26.5,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 2,
-   "skorKonfluensi": 5,
+   "skorKonfluensi": 5.0,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 6.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2400,6 +2399,7 @@
     "MahalVsObligasi",
     "RisikoOutflowPasif",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -2407,8 +2407,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 1.03,
-   "equityRiskPremium": -2.14,
+   "kekuatanRelatifPersen": -5.46,
+   "equityRiskPremium": -2.71,
    "skorAdaptifRegime": 20.5,
    "ukuranPosisiMaksPersen": 9.26,
    "hargaTranche1": null,
@@ -2420,8 +2420,7 @@
    "revisiEPS3BulanPersen": -3.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2471,15 +2470,15 @@
    "direkomendasikanUntuk": [
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 12.03,
-   "equityRiskPremium": 5.36,
+   "kekuatanRelatifPersen": 5.54,
+   "equityRiskPremium": 4.79,
    "skorAdaptifRegime": 22.5,
    "ukuranPosisiMaksPersen": 9.62,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
-   "skorKonfluensi": 5,
+   "skorKonfluensi": 5.0,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 7.0,
    "katalisDekat": [],
@@ -2514,7 +2513,7 @@
     "CocokModerat",
     "DefensifBerkualitas",
     "DividenAndalan",
-    "ERPSangatMenarik",
+    "ERPMenarik",
     "FaseMarkUpWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
@@ -2543,15 +2542,15 @@
     "Persona_PekerjaMuda_Moderat",
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 13.03,
-   "equityRiskPremium": 8.24,
+   "kekuatanRelatifPersen": 6.54,
+   "equityRiskPremium": 7.68,
    "skorAdaptifRegime": 29.0,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 2,
-   "skorKonfluensi": 5,
+   "skorKonfluensi": 5.0,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 7.0,
    "katalisDekat": [],
@@ -2583,7 +2582,7 @@
    "kelas": [
     "CocokAgresif",
     "CocokModerat",
-    "ERPSangatMenarik",
+    "ERPMenarik",
     "FaseMarkUpWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
@@ -2610,15 +2609,15 @@
     "Persona_PekerjaMuda_Moderat",
     "Persona_GenZ_Agresif"
    ],
-   "kekuatanRelatifPersen": 12.03,
-   "equityRiskPremium": 8.24,
+   "kekuatanRelatifPersen": 5.54,
+   "equityRiskPremium": 7.68,
    "skorAdaptifRegime": 25.5,
    "ukuranPosisiMaksPersen": 7.81,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
-   "skorKonfluensi": 5,
+   "skorKonfluensi": 5.0,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 7.0,
    "katalisDekat": [],
@@ -2631,7 +2630,7 @@
    "kode": "UNVR",
    "nama": "Unilever Indonesia",
    "sektor": "Sektor_KonsumenPrimer",
-   "skorFundamental": 5,
+   "skorFundamental": 5.0,
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 0,
@@ -2658,9 +2657,11 @@
     "KonfluensiRendah",
     "KorbanKenaikanKomoditas",
     "KualitasLabaTinggi",
+    "MahalVsObligasi",
     "MurahKarenaLabaTurun",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -2670,8 +2671,8 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -1.97,
-   "equityRiskPremium": 0.0,
+   "kekuatanRelatifPersen": -8.46,
+   "equityRiskPremium": -0.56,
    "skorAdaptifRegime": 15.5,
    "ukuranPosisiMaksPersen": 9.62,
    "hargaTranche1": null,
@@ -2682,7 +2683,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": -10.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2695,18 +2696,18 @@
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 0,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 7,
+   "skorTotalEmiten": 8,
    "rasioPERvsHistoris": 0.5,
    "nilaiWajar": 2000.0,
    "potensiUpsidePersen": 100.0,
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 1000.0,
-   "atrRupiah": 33.0,
+   "atrRupiah": 33,
    "kelas": [
     "AkumulasiDidominasiRitel",
     "DistribusiKeRitel",
@@ -2721,6 +2722,7 @@
     "MurahKarenaLabaTurun",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -2728,9 +2730,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -0.97,
-   "equityRiskPremium": 7.15,
-   "skorAdaptifRegime": 11.5,
+   "kekuatanRelatifPersen": -7.46,
+   "equityRiskPremium": 6.58,
+   "skorAdaptifRegime": 12.0,
    "ukuranPosisiMaksPersen": 7.58,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -2740,7 +2742,7 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -6.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2753,11 +2755,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 11,
+   "skorTotalEmiten": 12,
    "rasioPERvsHistoris": 0.59,
    "nilaiWajar": 1105,
    "potensiUpsidePersen": 70.0,
@@ -2779,9 +2781,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 2.03,
-   "equityRiskPremium": 2.86,
-   "skorAdaptifRegime": 16.0,
+   "kekuatanRelatifPersen": -4.46,
+   "equityRiskPremium": 2.29,
+   "skorAdaptifRegime": 16.5,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -2802,11 +2804,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 0,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 7,
+   "skorTotalEmiten": 8,
    "rasioPERvsHistoris": 0.36,
    "nilaiWajar": 1045.0,
    "potensiUpsidePersen": 175.0,
@@ -2829,6 +2831,7 @@
     "MurahKarenaLabaTurun",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -2836,9 +2839,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -2.97,
-   "equityRiskPremium": 5.36,
-   "skorAdaptifRegime": 11.5,
+   "kekuatanRelatifPersen": -9.46,
+   "equityRiskPremium": 4.79,
+   "skorAdaptifRegime": 12.0,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -2848,7 +2851,7 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -8.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -2861,11 +2864,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 5,
+   "skorTotalEmiten": 6,
    "rasioPERvsHistoris": 0.71,
    "nilaiWajar": 420,
    "potensiUpsidePersen": 40.0,
@@ -2888,9 +2891,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 2.03,
-   "equityRiskPremium": 12.86,
-   "skorAdaptifRegime": 7.0,
+   "kekuatanRelatifPersen": -4.46,
+   "equityRiskPremium": 12.29,
+   "skorAdaptifRegime": 7.5,
    "ukuranPosisiMaksPersen": 7.14,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -2911,11 +2914,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 3,
    "skorBandar": 2,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 9,
+   "skorTotalEmiten": 10,
    "rasioPERvsHistoris": 0.79,
    "nilaiWajar": 2163.64,
    "potensiUpsidePersen": 27.27,
@@ -2931,7 +2934,6 @@
     "KategoriInferensi",
     "KonfluensiRendah",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "TrenTurun",
     "Undervalued",
     "ZonaAman"
@@ -2940,9 +2942,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 5.03,
-   "equityRiskPremium": 11.04,
-   "skorAdaptifRegime": 12.0,
+   "kekuatanRelatifPersen": -1.46,
+   "equityRiskPremium": 10.47,
+   "skorAdaptifRegime": 12.5,
    "ukuranPosisiMaksPersen": 8.93,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -2986,7 +2988,6 @@
     "KorbanKenaikanKomoditas",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
     "RisikoOutflowPasif",
     "Undervalued",
     "ZonaAman"
@@ -2997,21 +2998,20 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 5.03,
-   "equityRiskPremium": -0.47,
-   "skorAdaptifRegime": 24.5,
+   "kekuatanRelatifPersen": -1.46,
+   "equityRiskPremium": -1.04,
+   "skorAdaptifRegime": 23.0,
    "ukuranPosisiMaksPersen": 9.62,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
-   "poinSmartMoney": 2,
+   "poinSmartMoney": 1,
    "skorKonfluensi": 3,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": -1.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3044,7 +3044,6 @@
     "KandidatTopPick",
     "KategoriInferensi",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -3054,8 +3053,8 @@
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat"
    ],
-   "kekuatanRelatifPersen": 7.03,
-   "equityRiskPremium": 1.19,
+   "kekuatanRelatifPersen": 0.54,
+   "equityRiskPremium": 0.63,
    "skorAdaptifRegime": 24.5,
    "ukuranPosisiMaksPersen": 10.42,
    "hargaTranche1": null,
@@ -3066,7 +3065,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 1.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3099,7 +3098,6 @@
     "FaseAkumulasiWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
-    "KandidatAkumulasiBertahap",
     "KandidatTopPick",
     "KandidatTopPickAdaptif",
     "KategoriInferensi",
@@ -3107,7 +3105,6 @@
     "KonfirmasiPolaBullish",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
     "PerluVerifikasiData",
     "SinyalBuyOnWeakness",
     "Undervalued",
@@ -3119,19 +3116,19 @@
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat"
    ],
-   "kekuatanRelatifPersen": 7.03,
-   "equityRiskPremium": -2.97,
-   "skorAdaptifRegime": 27.5,
+   "kekuatanRelatifPersen": 0.54,
+   "equityRiskPremium": -3.54,
+   "skorAdaptifRegime": 26.0,
    "ukuranPosisiMaksPersen": 10.0,
-   "hargaTranche1": 2100.0,
-   "hargaTranche2": 1995,
-   "hargaTranche3": 1890,
-   "poinSmartMoney": 2,
+   "hargaTranche1": null,
+   "hargaTranche2": null,
+   "hargaTranche3": null,
+   "poinSmartMoney": 1,
    "skorKonfluensi": 4,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 3.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3165,15 +3162,11 @@
     "FaseAkumulasiWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
-    "KandidatAkumulasiBertahap",
-    "KandidatTopPickAdaptif",
     "KandidatWatchlist",
     "KategoriInferensi",
     "KonfirmasiPolaBullish",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
-    "PerluVerifikasiData",
     "RevisiLabaNaik",
     "SinyalBuyOnWeakness",
     "Undervalued",
@@ -3185,19 +3178,19 @@
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat"
    ],
-   "kekuatanRelatifPersen": 9.03,
-   "equityRiskPremium": -3.14,
-   "skorAdaptifRegime": 26,
+   "kekuatanRelatifPersen": 2.54,
+   "equityRiskPremium": -3.71,
+   "skorAdaptifRegime": 24.5,
    "ukuranPosisiMaksPersen": 8.62,
-   "hargaTranche1": 1250.0,
-   "hargaTranche2": 1177.5,
-   "hargaTranche3": 1105,
-   "poinSmartMoney": 2,
+   "hargaTranche1": null,
+   "hargaTranche2": null,
+   "hargaTranche3": null,
+   "poinSmartMoney": 1,
    "skorKonfluensi": 4,
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 5.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3230,7 +3223,6 @@
     "KategoriInferensi",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -3240,8 +3232,8 @@
    "direkomendasikanUntuk": [
     "Persona_PekerjaMuda_Moderat"
    ],
-   "kekuatanRelatifPersen": 8.03,
-   "equityRiskPremium": -2.59,
+   "kekuatanRelatifPersen": 1.54,
+   "equityRiskPremium": -3.16,
    "skorAdaptifRegime": 23,
    "ukuranPosisiMaksPersen": 8.93,
    "hargaTranche1": null,
@@ -3267,14 +3259,14 @@
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 13,
+   "skorTotalEmiten": 13.0,
    "rasioPERvsHistoris": 0.54,
    "nilaiWajar": 11446.15,
    "potensiUpsidePersen": 84.62,
    "hargaStopLoss": 5828,
    "hargaTakeProfit": 6758,
    "hargaPenutupan": 6200.0,
-   "atrRupiah": 186,
+   "atrRupiah": 186.0,
    "kelas": [
     "AkumulasiBandar",
     "AkumulasiTersembunyi",
@@ -3283,18 +3275,17 @@
     "FaseAkumulasiWyckoff",
     "FundamentalKuat",
     "InferensiEmiten",
-    "KandidatAkumulasiBertahap",
     "KapitulasiEmiten",
     "KategoriInferensi",
     "KonfirmasiPolaBullish",
     "KonfluensiRendah",
-    "PerluVerifikasiData",
+    "MahalVsObligasi",
     "RedFlagBerita",
     "RisikoOutflowPasif",
     "SentimenNegatif",
     "SinyalBuyOnWeakness",
-    "StrategiTrancheKatalisBiner",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued"
    ],
    "diuntungkanOleh": [],
@@ -3307,22 +3298,22 @@
    "direkomendasikanUntuk": [
     "Persona_Mahasiswa_Konservatif"
    ],
-   "kekuatanRelatifPersen": -2.97,
-   "equityRiskPremium": 0.55,
-   "skorAdaptifRegime": 20.5,
+   "kekuatanRelatifPersen": -9.46,
+   "equityRiskPremium": -0.01,
+   "skorAdaptifRegime": 23.5,
    "ukuranPosisiMaksPersen": 8.33,
-   "hargaTranche1": 6200.0,
-   "hargaTranche2": 5828,
-   "hargaTranche3": 5456,
+   "hargaTranche1": null,
+   "hargaTranche2": null,
+   "hargaTranche3": null,
    "poinSmartMoney": 1,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": -3,
+   "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -3.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3367,6 +3358,7 @@
     "SentimenNegatif",
     "SinyalHindari",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued"
    ],
    "diuntungkanOleh": [],
@@ -3376,23 +3368,23 @@
     "Semester I Kelam, IHSG Ambles 34,73% Disertai Kejatuhan Saham Big Caps dan Net Sell Asing"
    ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -3.97,
-   "equityRiskPremium": 7.15,
-   "skorAdaptifRegime": 14.0,
+   "kekuatanRelatifPersen": -10.46,
+   "equityRiskPremium": 6.58,
+   "skorAdaptifRegime": 17.0,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": -3,
+   "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -8.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "FOMC 9 Des 2026",
-    "FOMC 28 Okt 2026"
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
+    "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3424,18 +3416,16 @@
     "ERPSangatMenarik",
     "FundamentalKuat",
     "InferensiEmiten",
-    "KandidatAkumulasiBertahap",
     "KapitulasiEmiten",
     "KategoriInferensi",
     "KonfluensiRendah",
     "MurahKarenaLabaTurun",
-    "PerluVerifikasiData",
     "RedFlagBerita",
     "RevisiLabaTurun",
     "RisikoOutflowPasif",
     "SentimenNegatif",
-    "StrategiTrancheKatalisBiner",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued"
    ],
    "diuntungkanOleh": [],
@@ -3448,23 +3438,23 @@
    "direkomendasikanUntuk": [
     "Persona_Mahasiswa_Konservatif"
    ],
-   "kekuatanRelatifPersen": -4.97,
-   "equityRiskPremium": 9.53,
-   "skorAdaptifRegime": 17.5,
+   "kekuatanRelatifPersen": -11.46,
+   "equityRiskPremium": 8.96,
+   "skorAdaptifRegime": 20.5,
    "ukuranPosisiMaksPersen": 7.14,
-   "hargaTranche1": 3600.0,
-   "hargaTranche2": 3348,
-   "hargaTranche3": 3096,
+   "hargaTranche1": null,
+   "hargaTranche2": null,
+   "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": -3,
+   "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -5.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "FOMC 9 Des 2026",
-    "FOMC 28 Okt 2026"
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
+    "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3473,15 +3463,15 @@
    "kode": "BBNI",
    "nama": "Bank Negara Indonesia",
    "sektor": "Sektor_Keuangan",
-   "skorFundamental": 5,
+   "skorFundamental": 5.0,
    "skorValuasi": 3,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": 1,
+   "skorSentimen": 2,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 11,
+   "skorTotalEmiten": 12,
    "rasioPERvsHistoris": 0.58,
    "nilaiWajar": 5181.82,
    "potensiUpsidePersen": 72.73,
@@ -3502,28 +3492,29 @@
     "RisikoOutflowPasif",
     "SentimenPositif",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued"
    ],
    "diuntungkanOleh": [],
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -2.97,
-   "equityRiskPremium": 11.04,
-   "skorAdaptifRegime": 13.5,
+   "kekuatanRelatifPersen": -9.46,
+   "equityRiskPremium": 10.47,
+   "skorAdaptifRegime": 17.0,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": -3,
+   "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -6.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3537,11 +3528,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 3,
    "skorBandar": 2,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 14,
+   "skorTotalEmiten": 15,
    "rasioPERvsHistoris": 0.6,
    "nilaiWajar": 3166.67,
    "potensiUpsidePersen": 66.67,
@@ -3564,20 +3555,21 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 2.03,
-   "equityRiskPremium": 1.19,
-   "skorAdaptifRegime": 18.5,
+   "kekuatanRelatifPersen": -4.46,
+   "equityRiskPremium": 0.63,
+   "skorAdaptifRegime": 22.0,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 2,
-   "skorKontribusiSektorEV": -3,
+   "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": 2.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3591,11 +3583,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 6,
+   "skorTotalEmiten": 7,
    "rasioPERvsHistoris": 0.58,
    "nilaiWajar": 1457.14,
    "potensiUpsidePersen": 71.43,
@@ -3610,6 +3602,7 @@
     "KategoriInferensi",
     "KonfluensiRendah",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ValueTrap"
    ],
@@ -3617,20 +3610,21 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -0.97,
-   "equityRiskPremium": 21.43,
-   "skorAdaptifRegime": 9.5,
+   "kekuatanRelatifPersen": -7.46,
+   "equityRiskPremium": 20.86,
+   "skorAdaptifRegime": 13.0,
    "ukuranPosisiMaksPersen": 6.58,
    "hargaTranche1": null,
    "hargaTranche2": null,
    "hargaTranche3": null,
    "poinSmartMoney": 0,
    "skorKonfluensi": 1,
-   "skorKontribusiSektorEV": -3,
+   "skorKontribusiSektorEV": 0,
    "revisiEPS3BulanPersen": -4.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3644,11 +3638,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -1,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 8,
+   "skorTotalEmiten": 9,
    "rasioPERvsHistoris": 0.6,
    "nilaiWajar": 1166.67,
    "potensiUpsidePersen": 66.67,
@@ -3665,6 +3659,7 @@
     "MurahKarenaLabaTurun",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAbuAbu"
    ],
@@ -3672,9 +3667,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 0.03,
-   "equityRiskPremium": 9.53,
-   "skorAdaptifRegime": 11.5,
+   "kekuatanRelatifPersen": -6.46,
+   "equityRiskPremium": 8.96,
+   "skorAdaptifRegime": 12.0,
    "ukuranPosisiMaksPersen": 7.14,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -3684,8 +3679,9 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -5.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3699,11 +3695,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -1,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 7,
+   "skorTotalEmiten": 8,
    "rasioPERvsHistoris": 0.56,
    "nilaiWajar": 1244.44,
    "potensiUpsidePersen": 77.78,
@@ -3720,6 +3716,7 @@
     "MurahKarenaLabaTurun",
     "RevisiLabaTurun",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAbuAbu"
    ],
@@ -3727,9 +3724,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -0.97,
-   "equityRiskPremium": 15.08,
-   "skorAdaptifRegime": 11.0,
+   "kekuatanRelatifPersen": -7.46,
+   "equityRiskPremium": 14.52,
+   "skorAdaptifRegime": 11.5,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -3739,8 +3736,9 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -7.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3754,11 +3752,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -1,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 10,
+   "skorTotalEmiten": 11,
    "rasioPERvsHistoris": 0.58,
    "nilaiWajar": 480,
    "potensiUpsidePersen": 71.43,
@@ -3774,6 +3772,7 @@
     "KonfluensiRendah",
     "KualitasLabaTinggi",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAbuAbu"
    ],
@@ -3781,9 +3780,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 1.03,
-   "equityRiskPremium": 7.15,
-   "skorAdaptifRegime": 14.5,
+   "kekuatanRelatifPersen": -5.46,
+   "equityRiskPremium": 6.58,
+   "skorAdaptifRegime": 15.0,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -3793,9 +3792,10 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -4.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
-    "FOMC 9 Des 2026",
-    "FOMC 28 Okt 2026"
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "Window dressing akhir tahun (≈pertengahan Des)",
+    "RDG Bank Indonesia 17-18 Nov 2026",
+    "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3808,23 +3808,23 @@
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 0,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -5.0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": -2,
+   "skorTotalEmiten": -1,
    "rasioPERvsHistoris": 0.43,
    "nilaiWajar": 807.69,
    "potensiUpsidePersen": 130.77,
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 350.0,
-   "atrRupiah": 14,
+   "atrRupiah": 14.0,
    "kelas": [
     "AkumulasiDidominasiRitel",
     "DistribusiBandar",
     "DistribusiKeRitel",
-    "ERPSangatMenarik",
+    "ERPMenarik",
     "FaseMarkDownWyckoff",
     "FundamentalLemah",
     "InferensiEmiten",
@@ -3846,9 +3846,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -5.97,
-   "equityRiskPremium": 8.24,
-   "skorAdaptifRegime": -2.0,
+   "kekuatanRelatifPersen": -12.46,
+   "equityRiskPremium": 7.68,
+   "skorAdaptifRegime": -1.5,
    "ukuranPosisiMaksPersen": 6.25,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -3858,8 +3858,9 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -10.0,
    "katalisDekat": [
-    "FOMC 9 Des 2026",
-    "FOMC 28 Okt 2026"
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "RDG Bank Indonesia 17-18 Nov 2026",
+    "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -3872,11 +3873,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 4,
    "skorBandar": 2,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 12,
+   "skorTotalEmiten": 13.0,
    "rasioPERvsHistoris": 0.75,
    "nilaiWajar": 173.33,
    "potensiUpsidePersen": 33.33,
@@ -3892,7 +3893,6 @@
     "KonfluensiRendah",
     "KualitasLabaTinggi",
     "MurahKarenaLabaTurun",
-    "OutperformPasar",
     "RevisiLabaTurun",
     "Undervalued",
     "ZonaAman"
@@ -3901,9 +3901,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 6.03,
-   "equityRiskPremium": 9.53,
-   "skorAdaptifRegime": 15.5,
+   "kekuatanRelatifPersen": -0.46,
+   "equityRiskPremium": 8.96,
+   "skorAdaptifRegime": 16.0,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -3913,7 +3913,8 @@
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -5.0,
    "katalisDekat": [
-    "FOMC 28 Okt 2026",
+    "RDG Bank Indonesia 15-16 Des 2026",
+    "RDG Bank Indonesia 17-18 Nov 2026",
     "FOMC 9 Des 2026"
    ],
    "terkonsentrasiDengan": [],
@@ -3927,11 +3928,11 @@
    "skorValuasi": 0,
    "skorTeknikal": 1,
    "skorBandar": 0,
-   "skorSentimen": -2,
+   "skorSentimen": -1,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -5.0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": -4,
+   "skorTotalEmiten": -3,
    "rasioPERvsHistoris": null,
    "nilaiWajar": null,
    "potensiUpsidePersen": null,
@@ -3960,13 +3961,13 @@
    "diuntungkanOleh": [],
    "ditekanOleh": [],
    "redFlag": [
-    "MSCI Depak GOTO, Manajemen Perseroan Tegaskan Hal Ini",
-    "Tertahan di Level Rp50, MSCI Bakal Bekukan Saham GOTO"
+    "Tertahan di Level Rp50, MSCI Bakal Bekukan Saham GOTO",
+    "MSCI Depak GOTO, Manajemen Perseroan Tegaskan Hal Ini"
    ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 3.03,
+   "kekuatanRelatifPersen": -3.46,
    "equityRiskPremium": null,
-   "skorAdaptifRegime": -4.0,
+   "skorAdaptifRegime": -3.5,
    "ukuranPosisiMaksPersen": 12.5,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -3975,10 +3976,7 @@
    "skorKonfluensi": 0,
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": 0.0,
-   "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "FOMC 28 Okt 2026"
-   ],
+   "katalisDekat": [],
    "terkonsentrasiDengan": [],
    "uji": false
   },
@@ -4017,8 +4015,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 4.03,
-   "equityRiskPremium": -3.81,
+   "kekuatanRelatifPersen": -2.46,
+   "equityRiskPremium": -4.37,
    "skorAdaptifRegime": 6.0,
    "ukuranPosisiMaksPersen": 8.93,
    "hargaTranche1": null,
@@ -4028,10 +4026,7 @@
    "skorKonfluensi": 0,
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": -5.0,
-   "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "FOMC 28 Okt 2026"
-   ],
+   "katalisDekat": [],
    "terkonsentrasiDengan": [],
    "uji": false
   },
@@ -4047,7 +4042,7 @@
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 13,
+   "skorTotalEmiten": 13.0,
    "rasioPERvsHistoris": 1.25,
    "nilaiWajar": 120000,
    "potensiUpsidePersen": -20.0,
@@ -4062,7 +4057,6 @@
     "KonfluensiRendah",
     "KualitasLabaTinggi",
     "MahalVsObligasi",
-    "OutperformPasar",
     "Overvalued",
     "RevisiLabaNaik",
     "RisikoHSC",
@@ -4075,8 +4069,8 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 7.03,
-   "equityRiskPremium": -6.74,
+   "kekuatanRelatifPersen": 0.54,
+   "equityRiskPremium": -7.31,
    "skorAdaptifRegime": 15.0,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
@@ -4086,10 +4080,7 @@
    "skorKonfluensi": 2,
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": 5.0,
-   "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "FOMC 28 Okt 2026"
-   ],
+   "katalisDekat": [],
    "terkonsentrasiDengan": [],
    "uji": false
   },
@@ -4119,7 +4110,6 @@
     "InferensiEmiten",
     "KategoriInferensi",
     "KonfluensiRendah",
-    "OutperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -4127,8 +4117,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 7.03,
-   "equityRiskPremium": 5.36,
+   "kekuatanRelatifPersen": 0.54,
+   "equityRiskPremium": 4.79,
    "skorAdaptifRegime": 12.5,
    "ukuranPosisiMaksPersen": 8.93,
    "hargaTranche1": null,
@@ -4138,10 +4128,7 @@
    "skorKonfluensi": 1,
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": 0.0,
-   "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "FOMC 28 Okt 2026"
-   ],
+   "katalisDekat": [],
    "terkonsentrasiDengan": [],
    "uji": false
   },
@@ -4157,7 +4144,7 @@
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -1,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 5,
+   "skorTotalEmiten": 5.0,
    "rasioPERvsHistoris": 1.25,
    "nilaiWajar": 304.0,
    "potensiUpsidePersen": -20.0,
@@ -4177,14 +4164,15 @@
     "MahalVsObligasi",
     "Overvalued",
     "TrenTurun",
+    "UnderperformPasar",
     "ZonaAbuAbu"
    ],
    "diuntungkanOleh": [],
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 1.03,
-   "equityRiskPremium": -3.14,
+   "kekuatanRelatifPersen": -5.46,
+   "equityRiskPremium": -3.71,
    "skorAdaptifRegime": 7.0,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
@@ -4194,10 +4182,7 @@
    "skorKonfluensi": 0,
    "skorKontribusiSektorEV": -3,
    "revisiEPS3BulanPersen": 0.0,
-   "katalisDekat": [
-    "Pemilu Sela AS 3 Nov 2026",
-    "FOMC 28 Okt 2026"
-   ],
+   "katalisDekat": [],
    "terkonsentrasiDengan": [],
    "uji": false
   },
@@ -4209,11 +4194,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 1,
    "skorBandar": 2,
-   "skorSentimen": -2,
+   "skorSentimen": -1,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 11,
+   "skorTotalEmiten": 12,
    "rasioPERvsHistoris": 0.6,
    "nilaiWajar": 3500.0,
    "potensiUpsidePersen": 66.67,
@@ -4234,8 +4219,8 @@
     "KualitasLabaTinggi",
     "RedFlagBerita",
     "RisikoOutflowPasif",
-    "SentimenNegatif",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAbuAbu"
    ],
@@ -4245,9 +4230,9 @@
     "Semester I Kelam, IHSG Ambles 34,73% Disertai Kejatuhan Saham Big Caps dan Net Sell Asing"
    ],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 0.03,
-   "equityRiskPremium": 3.97,
-   "skorAdaptifRegime": 19.0,
+   "kekuatanRelatifPersen": -6.46,
+   "equityRiskPremium": 3.4,
+   "skorAdaptifRegime": 19.5,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4258,8 +4243,7 @@
    "revisiEPS3BulanPersen": -4.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -4272,11 +4256,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 3,
    "skorBandar": 2,
-   "skorSentimen": 1,
+   "skorSentimen": 2,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 2,
-   "skorTotalEmiten": 16,
+   "skorTotalEmiten": 17,
    "rasioPERvsHistoris": 0.56,
    "nilaiWajar": 2666.67,
    "potensiUpsidePersen": 77.78,
@@ -4303,9 +4287,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 3.03,
-   "equityRiskPremium": 3.97,
-   "skorAdaptifRegime": 21.5,
+   "kekuatanRelatifPersen": -3.46,
+   "equityRiskPremium": 3.4,
+   "skorAdaptifRegime": 22.0,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4316,8 +4300,7 @@
    "revisiEPS3BulanPersen": 2.0,
    "katalisDekat": [
     "Efektif MSCI Review (1 Des 2026)",
-    "MSCI Index Review Nov 2026 (umum 11 Nov)",
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -4330,11 +4313,11 @@
    "skorValuasi": 0,
    "skorTeknikal": 3,
    "skorBandar": 2,
-   "skorSentimen": 1,
+   "skorSentimen": 2,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -5.0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 4,
+   "skorTotalEmiten": 5.0,
    "rasioPERvsHistoris": 1.12,
    "nilaiWajar": 1607.14,
    "potensiUpsidePersen": -10.71,
@@ -4361,9 +4344,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 4.03,
-   "equityRiskPremium": -3.57,
-   "skorAdaptifRegime": 2.5,
+   "kekuatanRelatifPersen": -2.46,
+   "equityRiskPremium": -4.14,
+   "skorAdaptifRegime": 3.0,
    "ukuranPosisiMaksPersen": 7.14,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4373,7 +4356,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": -6.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -4386,11 +4369,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 11,
+   "skorTotalEmiten": 12,
    "rasioPERvsHistoris": 0.54,
    "nilaiWajar": 886.15,
    "potensiUpsidePersen": 84.62,
@@ -4399,13 +4382,14 @@
    "hargaPenutupan": 480.0,
    "atrRupiah": 15.84,
    "kelas": [
-    "ERPSangatMenarik",
+    "ERPMenarik",
     "FundamentalSedang",
     "InferensiEmiten",
     "KategoriInferensi",
     "KonfluensiRendah",
     "KualitasLabaTinggi",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaAbuAbu"
    ],
@@ -4413,9 +4397,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 1.03,
-   "equityRiskPremium": 8.24,
-   "skorAdaptifRegime": 16.5,
+   "kekuatanRelatifPersen": -5.46,
+   "equityRiskPremium": 7.68,
+   "skorAdaptifRegime": 17.0,
    "ukuranPosisiMaksPersen": 7.58,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4425,7 +4409,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": -3.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -4438,18 +4422,18 @@
    "skorValuasi": 2,
    "skorTeknikal": 3,
    "skorBandar": 2,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -1,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 12,
+   "skorTotalEmiten": 13.0,
    "rasioPERvsHistoris": 0.64,
    "nilaiWajar": 777.78,
    "potensiUpsidePersen": 55.56,
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 500.0,
-   "atrRupiah": 14,
+   "atrRupiah": 14.0,
    "kelas": [
     "FundamentalSedang",
     "InferensiEmiten",
@@ -4465,9 +4449,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 4.03,
-   "equityRiskPremium": -1.58,
-   "skorAdaptifRegime": 16.5,
+   "kekuatanRelatifPersen": -2.46,
+   "equityRiskPremium": -2.15,
+   "skorAdaptifRegime": 17.0,
    "ukuranPosisiMaksPersen": 8.93,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4477,7 +4461,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": 0.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -4490,11 +4474,11 @@
    "skorValuasi": 3,
    "skorTeknikal": 1,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": 0,
    "penaltiRisiko": -5.0,
    "poinLikuiditas": 1,
-   "skorTotalEmiten": 6,
+   "skorTotalEmiten": 7,
    "rasioPERvsHistoris": 0.5,
    "nilaiWajar": 6000.0,
    "potensiUpsidePersen": 100,
@@ -4516,6 +4500,7 @@
     "RisikoGoingConcern",
     "SinyalHindari",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaDistress"
    ],
@@ -4523,9 +4508,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -0.97,
-   "equityRiskPremium": 15.08,
-   "skorAdaptifRegime": 10.0,
+   "kekuatanRelatifPersen": -7.46,
+   "equityRiskPremium": 14.52,
+   "skorAdaptifRegime": 10.5,
    "ukuranPosisiMaksPersen": 7.58,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4535,7 +4520,7 @@
    "skorKontribusiSektorEV": 2,
    "revisiEPS3BulanPersen": -2.0,
    "katalisDekat": [
-    "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"
+    "Window dressing akhir tahun (≈pertengahan Des)"
    ],
    "terkonsentrasiDengan": [],
    "uji": false
@@ -4548,18 +4533,18 @@
    "skorValuasi": 3,
    "skorTeknikal": 2,
    "skorBandar": 2,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 10,
+   "skorTotalEmiten": 11,
    "rasioPERvsHistoris": 0.58,
    "nilaiWajar": 2400,
    "potensiUpsidePersen": 71.43,
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 1400.0,
-   "atrRupiah": 42.0,
+   "atrRupiah": 42,
    "kelas": [
     "DividenAndalan",
     "ERPMenarik",
@@ -4579,9 +4564,9 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 3.03,
-   "equityRiskPremium": 7.15,
-   "skorAdaptifRegime": 14.5,
+   "kekuatanRelatifPersen": -3.46,
+   "equityRiskPremium": 6.58,
+   "skorAdaptifRegime": 15.0,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4598,15 +4583,15 @@
    "kode": "ASSA",
    "nama": "Adi Sarana Armada",
    "sektor": "Sektor_TransportasiLogistik",
-   "skorFundamental": 5,
+   "skorFundamental": 5.0,
    "skorValuasi": 2,
    "skorTeknikal": 2,
    "skorBandar": 1,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": -5.0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 1,
+   "skorTotalEmiten": 2,
    "rasioPERvsHistoris": 0.67,
    "nilaiWajar": 750.0,
    "potensiUpsidePersen": 50.0,
@@ -4625,6 +4610,7 @@
     "RisikoGoingConcern",
     "SinyalHindari",
     "TrenTurun",
+    "UnderperformPasar",
     "Undervalued",
     "ZonaDistress"
    ],
@@ -4634,9 +4620,9 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 1.03,
-   "equityRiskPremium": 5.36,
-   "skorAdaptifRegime": 1.5,
+   "kekuatanRelatifPersen": -5.46,
+   "equityRiskPremium": 4.79,
+   "skorAdaptifRegime": 2.0,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4657,11 +4643,11 @@
    "skorValuasi": 2,
    "skorTeknikal": 4,
    "skorBandar": 3,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 13,
+   "skorTotalEmiten": 14.0,
    "rasioPERvsHistoris": 0.83,
    "nilaiWajar": 312,
    "potensiUpsidePersen": 20.0,
@@ -4675,7 +4661,6 @@
     "InferensiEmiten",
     "KategoriInferensi",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "Undervalued",
     "ZonaAman"
    ],
@@ -4683,9 +4668,9 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 10.03,
-   "equityRiskPremium": 12.86,
-   "skorAdaptifRegime": 16.5,
+   "kekuatanRelatifPersen": 3.54,
+   "equityRiskPremium": 12.29,
+   "skorAdaptifRegime": 17,
    "ukuranPosisiMaksPersen": 6.94,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4706,11 +4691,11 @@
    "skorValuasi": 1,
    "skorTeknikal": 4,
    "skorBandar": 3,
-   "skorSentimen": -1,
+   "skorSentimen": 0,
    "skorKontribusiSektor": -3,
    "penaltiRisiko": 0,
    "poinLikuiditas": 0,
-   "skorTotalEmiten": 12,
+   "skorTotalEmiten": 13.0,
    "rasioPERvsHistoris": 0.92,
    "nilaiWajar": 218.18,
    "potensiUpsidePersen": 9.09,
@@ -4727,16 +4712,15 @@
     "KategoriInferensi",
     "KonfluensiRendah",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "ZonaAman"
    ],
    "diuntungkanOleh": [],
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 9.03,
-   "equityRiskPremium": 11.04,
-   "skorAdaptifRegime": 15.0,
+   "kekuatanRelatifPersen": 2.54,
+   "equityRiskPremium": 10.47,
+   "skorAdaptifRegime": 15.5,
    "ukuranPosisiMaksPersen": 7.35,
    "hargaTranche1": null,
    "hargaTranche2": null,
@@ -4755,7 +4739,7 @@
    "sektor": "Sektor_Perindustrian",
    "skorFundamental": 0,
    "skorValuasi": 0,
-   "skorTeknikal": 5,
+   "skorTeknikal": 5.0,
    "skorBandar": 1,
    "skorSentimen": 0,
    "skorKontribusiSektor": 0,
@@ -4801,8 +4785,8 @@
    ],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 98.03,
-   "equityRiskPremium": -5.96,
+   "kekuatanRelatifPersen": 91.54,
+   "equityRiskPremium": -6.53,
    "skorAdaptifRegime": -3.0,
    "ukuranPosisiMaksPersen": 2.78,
    "hargaTranche1": null,
@@ -4835,7 +4819,7 @@
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 400.0,
-   "atrRupiah": 16,
+   "atrRupiah": 16.0,
    "kelas": [
     "AkumulasiDidominasiRitel",
     "DistribusiKeRitel",
@@ -4858,8 +4842,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": -6.97,
-   "equityRiskPremium": 9.53,
+   "kekuatanRelatifPersen": -13.46,
+   "equityRiskPremium": 8.96,
    "skorAdaptifRegime": 9.5,
    "ukuranPosisiMaksPersen": 6.25,
    "hargaTranche1": null,
@@ -4892,14 +4876,13 @@
    "hargaStopLoss": null,
    "hargaTakeProfit": null,
    "hargaPenutupan": 900.0,
-   "atrRupiah": 27.0,
+   "atrRupiah": 27,
    "kelas": [
     "ERPSangatMenarik",
     "FundamentalKuat",
     "InferensiEmiten",
     "KategoriInferensi",
     "KualitasLabaTinggi",
-    "OutperformPasar",
     "SinyalOrangDalam",
     "TrenTurun",
     "Undervalued",
@@ -4909,8 +4892,8 @@
    "ditekanOleh": [],
    "redFlag": [],
    "direkomendasikanUntuk": [],
-   "kekuatanRelatifPersen": 8.03,
-   "equityRiskPremium": 9.53,
+   "kekuatanRelatifPersen": 1.54,
+   "equityRiskPremium": 8.96,
    "skorAdaptifRegime": 22.0,
    "ukuranPosisiMaksPersen": 8.33,
    "hargaTranche1": null,
@@ -4945,7 +4928,7 @@
    "skenario": "Skenario_Base_2027_2028",
    "makro": 0,
    "rotasi": 2,
-   "outlook": 10,
+   "outlook": 11,
    "kelas": [
     "KategoriInferensi",
     "PenilaianAktif",
@@ -4997,7 +4980,7 @@
    "skenario": "Skenario_Base_2027_2028",
    "makro": 1,
    "rotasi": 1,
-   "outlook": 9,
+   "outlook": 8,
    "kelas": [
     "KategoriInferensi",
     "PenilaianAktif",
@@ -5010,7 +4993,7 @@
    "skenario": "Skenario_Base_2027_2028",
    "makro": -5.0,
    "rotasi": 0,
-   "outlook": -1,
+   "outlook": 0,
    "kelas": [
     "KategoriInferensi",
     "PenilaianAktif",
@@ -5036,7 +5019,7 @@
    "skenario": "Skenario_Base_2027_2028",
    "makro": -5.0,
    "rotasi": -1,
-   "outlook": -5.0,
+   "outlook": -4,
    "kelas": [
     "KategoriInferensi",
     "PenilaianAktif",
@@ -5087,7 +5070,7 @@
    "skenario": "Skenario_Bull_Pemulihan",
    "makro": 8,
    "rotasi": 0,
-   "outlook": 16,
+   "outlook": 17,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBullishKuat"
@@ -5099,7 +5082,7 @@
    "skenario": "Skenario_Bull_Pemulihan",
    "makro": 9,
    "rotasi": 1,
-   "outlook": 14,
+   "outlook": 14.0,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBullishKuat"
@@ -5135,7 +5118,7 @@
    "skenario": "Skenario_Bull_Pemulihan",
    "makro": 2,
    "rotasi": 0,
-   "outlook": 9,
+   "outlook": 8,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBullishModerat"
@@ -5147,7 +5130,7 @@
    "skenario": "Skenario_Bull_Pemulihan",
    "makro": 12,
    "rotasi": 2,
-   "outlook": 18,
+   "outlook": 19,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBullishKuat"
@@ -5159,7 +5142,7 @@
    "skenario": "Skenario_Bull_Pemulihan",
    "makro": 8,
    "rotasi": 2,
-   "outlook": 14,
+   "outlook": 14.0,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBullishKuat"
@@ -5171,7 +5154,7 @@
    "skenario": "Skenario_Bull_Pemulihan",
    "makro": 12,
    "rotasi": 2,
-   "outlook": 15,
+   "outlook": 16.0,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBullishKuat"
@@ -5181,7 +5164,7 @@
    "nama": "Penilaian_Infrastruktur_Bull_Pemulihan",
    "sektor": "Sektor_Infrastruktur",
    "skenario": "Skenario_Bull_Pemulihan",
-   "makro": 13,
+   "makro": 13.0,
    "rotasi": 1,
    "outlook": 20,
    "kelas": [
@@ -5219,7 +5202,7 @@
    "skenario": "Skenario_Bear_Stagflasi",
    "makro": -4,
    "rotasi": -1,
-   "outlook": 3,
+   "outlook": 4,
    "kelas": [
     "KategoriInferensi",
     "PenilaianNetral"
@@ -5267,10 +5250,10 @@
    "skenario": "Skenario_Bear_Stagflasi",
    "makro": -2,
    "rotasi": 2,
-   "outlook": 7,
+   "outlook": 6,
    "kelas": [
     "KategoriInferensi",
-    "PenilaianBullishModerat"
+    "PenilaianNetral"
    ]
   },
   {
@@ -5279,7 +5262,7 @@
    "skenario": "Skenario_Bear_Stagflasi",
    "makro": -14,
    "rotasi": -1,
-   "outlook": -11,
+   "outlook": -10,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBearish"
@@ -5303,7 +5286,7 @@
    "skenario": "Skenario_Bear_Stagflasi",
    "makro": -14,
    "rotasi": -1,
-   "outlook": -14,
+   "outlook": -13,
    "kelas": [
     "KategoriInferensi",
     "PenilaianBearish"
@@ -5368,7 +5351,7 @@
   {
    "nama": "Kasus_DevaluasiYuan_2015",
    "label": "Devaluasi Yuan & Jatuhnya Komoditas 2015",
-   "kemiripan": 5,
+   "kemiripan": 5.0,
    "analog": false,
    "unggul": [
     "Sektor_KonsumenPrimer",
@@ -5446,6 +5429,7 @@
   "Ev_MSCI_KonsultasiStandalone_Okt2026",
   "Ev_MSCI_ReviewAgustus2026",
   "Ev_MandatoriBiodiesel",
+  "Ev_OPEC_PertahankanProduksi",
   "Ev_PembelianDomestikBlueChip",
   "Ev_PenutupanHormuz_2026",
   "Ev_PerpresOjol_2026",
@@ -5471,15 +5455,16 @@
   "Mv_GangguanPelayaran",
   "Mv_HargaCPONaik",
   "Mv_HargaMinyakNaik",
+  "Mv_HargaMinyakTurun",
   "Mv_HargaNikelTertopang",
   "Mv_IHSGTertekan",
   "Mv_InflasiNaik",
   "Mv_InvestasiDataCenter",
-  "Mv_KenaikanHargaBBM",
   "Mv_KepercayaanAsingPulih",
   "Mv_LikuiditasBankLonggar",
   "Mv_OutflowSBN",
   "Mv_PasokanDieselMembaik",
+  "Mv_PasokanMinyakStabil",
   "Mv_PendapatanEksportirNaik",
   "Mv_PenghapusanHSC",
   "Mv_PenjualanPropertiOtoMelemah",
@@ -5556,36 +5541,33 @@
  ],
  "v2": {
   "pasar": {
-   "drawdownIHSGPersen": -42.21,
-   "perubahanIHSG1BulanPersen": -18.03,
+   "drawdownIHSGPersen": -39.27,
+   "perubahanIHSG1BulanPersen": -11.54,
    "penurunanHarianTerbesarPersen": -11.57,
-   "netAsingYTDT": -88.19,
-   "cds5YBps": 99.73,
-   "yieldSBN10Y": 7.14,
-   "spreadSBNUSTBps": 216.0,
-   "kursUSDIDR": 17938.0,
-   "inflasiYoY": 3.28,
+   "netAsingYTDT": -98.0,
+   "cds5YBps": 103.79,
+   "yieldSBN10Y": 7.707,
+   "spreadSBNUSTBps": 281.0,
+   "kursUSDIDR": 18239.0,
+   "inflasiYoY": 3.23,
    "ffrAtasPersen": 4.0,
-   "brentUSD": 106.65,
-   "emasUSD": 4390.11,
+   "brentUSD": 92.39,
+   "emasUSD": 3959.03,
    "breadthPersenDiAtasMA200": 18.75,
    "poinStresDrawdown": 2,
    "poinStresCDS": 1,
    "poinStresAsing": 2,
    "poinStresKurs": 2,
-   "poinStresYield": 1,
+   "poinStresYield": 2,
    "poinStresBreadth": 2,
-   "skorStresPasar": 10,
+   "skorStresPasar": 11,
    "kelas": [
     "BreadthWashout",
     "DasarBelumTerkonfirmasi",
     "InferensiPasar",
-    "KapitulasiPasar",
     "KategoriInferensi",
     "KondisiPasarAktif",
-    "PremiRisikoNegaraTinggi",
-    "StrategiAkumulasiBertahap",
-    "ZonaAkumulasiGenerasional"
+    "PremiRisikoNegaraTinggi"
    ]
   },
   "regime": [
@@ -5694,7 +5676,7 @@
    {
     "nama": "Antisipasi_PenyesuaianBBM",
     "label": "Penyesuaian Harga BBM / Subsidi",
-    "terpicu": true,
+    "terpicu": false,
     "mengaktifkan": [
      "Penyesuaian Harga BBM Bersubsidi (Antisipasi)"
     ]
@@ -5702,7 +5684,7 @@
    {
     "nama": "Antisipasi_OutflowSBN",
     "label": "Outflow Asing dari SBN",
-    "terpicu": true,
+    "terpicu": false,
     "mengaktifkan": [
      "Outflow Asing dari SBN"
     ]
@@ -5729,47 +5711,63 @@
     "nama": "K_FOMC_Okt2026",
     "label": "FOMC 28 Okt 2026",
     "tanggal": "2026-10-28",
-    "hari": 2,
+    "hari": -15,
     "tipe": "KatalisBiner",
-    "dekat": true
+    "dekat": false
    },
    {
     "nama": "K_RilisLK_Q3_2026",
     "label": "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)",
     "tanggal": "2026-10-31",
-    "hari": 5,
+    "hari": -12,
     "tipe": "KatalisTerjadwal",
-    "dekat": true
+    "dekat": false
    },
    {
     "nama": "K_PemiluSelaAS",
     "label": "Pemilu Sela AS 3 Nov 2026",
     "tanggal": "2026-11-03",
-    "hari": 8,
+    "hari": -9,
     "tipe": "KatalisBiner",
-    "dekat": true
+    "dekat": false
    },
    {
     "nama": "K_MSCI_ReviewNov2026",
     "label": "MSCI Index Review Nov 2026 (umum 11 Nov)",
     "tanggal": "2026-11-11",
-    "hari": 16,
+    "hari": -1,
     "tipe": "KatalisBiner",
-    "dekat": true
+    "dekat": false
    },
    {
     "nama": "K_MSCI_EfektifDes2026",
     "label": "Efektif MSCI Review (1 Des 2026)",
     "tanggal": "2026-12-01",
-    "hari": 36,
+    "hari": 19,
     "tipe": "KatalisTerjadwal",
+    "dekat": true
+   },
+   {
+    "nama": "K_RDG_BI_Nov2026",
+    "label": "RDG Bank Indonesia 17-18 Nov 2026",
+    "tanggal": "2026-11-18",
+    "hari": 6,
+    "tipe": "KatalisBiner",
     "dekat": true
    },
    {
     "nama": "K_FOMC_Des2026",
     "label": "FOMC 9 Des 2026",
     "tanggal": "2026-12-09",
-    "hari": 44,
+    "hari": 27,
+    "tipe": "KatalisBiner",
+    "dekat": true
+   },
+   {
+    "nama": "K_RDG_BI_Des2026",
+    "label": "RDG Bank Indonesia 15-16 Des 2026",
+    "tanggal": "2026-12-16",
+    "hari": 34,
     "tipe": "KatalisBiner",
     "dekat": true
    },
@@ -5777,15 +5775,15 @@
     "nama": "K_WindowDressing",
     "label": "Window dressing akhir tahun (≈pertengahan Des)",
     "tanggal": "2026-12-15",
-    "hari": 50,
+    "hari": 33,
     "tipe": "KatalisMusiman",
-    "dekat": false
+    "dekat": true
    },
    {
     "nama": "K_EvaluasiLQ45_Jan2027",
     "label": "Evaluasi mayor LQ45 (≈akhir Jan 2027)",
     "tanggal": "2027-01-25",
-    "hari": 91,
+    "hari": 74,
     "tipe": "KatalisTerjadwal",
     "dekat": false
    },
@@ -5793,7 +5791,7 @@
     "nama": "K_MSCI_ReviewFeb2027",
     "label": "MSCI Index Review Feb 2027 (umum 9 Feb)",
     "tanggal": "2027-02-09",
-    "hari": 106,
+    "hari": 89,
     "tipe": "KatalisBiner",
     "dekat": false
    },
@@ -5801,7 +5799,7 @@
     "nama": "K_RamadanLebaran2027",
     "label": "Ramadan-Lebaran 2027 (≈Feb-Mar)",
     "tanggal": "2027-02-08",
-    "hari": 105,
+    "hari": 88,
     "tipe": "KatalisMusiman",
     "dekat": false
    },
@@ -5809,7 +5807,7 @@
     "nama": "K_MusimDividen2027",
     "label": "Musim RUPS & dividen (≈Mar-Jun 2027)",
     "tanggal": "2027-03-15",
-    "hari": 140,
+    "hari": 123,
     "tipe": "KatalisMusiman",
     "dekat": false
    },
@@ -5817,7 +5815,7 @@
     "nama": "K_BatasKonsultasiMSCI",
     "label": "Batas akhir konsultasi MSCI (30 Apr 2027)",
     "tanggal": "2027-04-30",
-    "hari": 186,
+    "hari": 169,
     "tipe": "KatalisBiner",
     "dekat": false
    },
@@ -5825,7 +5823,7 @@
     "nama": "K_KeputusanFinalMSCI",
     "label": "Keputusan final MSCI standalone (≈akhir Jun 2027)",
     "tanggal": "2027-06-30",
-    "hari": 247,
+    "hari": 230,
     "tipe": "KatalisBiner",
     "dekat": false
    }
@@ -5841,16 +5839,16 @@
      "Harga Emas Spot"
     ],
     "nilai": [
-     4390.11
+     3959.03
     ],
     "bawah": 3800.0,
     "atas": 1000000000.0,
     "pemicu": null,
-    "bufBawah": 13.441804419479238,
+    "bufBawah": 4.016893026827279,
     "bufAtas": null,
     "kelas": [
      "KategoriInferensi",
-     "TesisPerluDataBaru",
+     "TesisRapuh",
      "TesisValid"
     ]
    },
@@ -5864,16 +5862,15 @@
      "Harga Brent"
     ],
     "nilai": [
-     106.65
+     92.39
     ],
     "bawah": 75.0,
     "atas": 1000000000.0,
     "pemicu": null,
-    "bufBawah": 29.676511954992968,
+    "bufBawah": 18.822383374824113,
     "bufAtas": null,
     "kelas": [
      "KategoriInferensi",
-     "TesisPerluDataBaru",
      "TesisValid"
     ]
    },
@@ -5887,16 +5884,15 @@
      "Kurs USD/IDR"
     ],
     "nilai": [
-     17938.0
+     18239.0
     ],
     "bawah": 0.0,
     "atas": 19500.0,
     "pemicu": null,
     "bufBawah": null,
-    "bufAtas": 8.70777121195228,
+    "bufAtas": 6.9137562366357805,
     "kelas": [
      "KategoriInferensi",
-     "TesisPerluDataBaru",
      "TesisRapuh",
      "TesisValid"
     ]
@@ -5911,15 +5907,16 @@
      "CDS Indonesia 5Y"
     ],
     "nilai": [
-     99.73
+     103.79
     ],
     "bawah": 0.0,
     "atas": 150.0,
     "pemicu": 85.0,
     "bufBawah": null,
-    "bufAtas": 50.406096460443194,
+    "bufAtas": 44.522593698814916,
     "kelas": [
      "KategoriInferensi",
+     "TesisPerluDataBaru",
      "TesisValid"
     ]
    },
@@ -5933,16 +5930,17 @@
      "Yield SBN 10Y"
     ],
     "nilai": [
-     7.14
+     7.707
     ],
     "bawah": 0.0,
     "atas": 8.0,
     "pemicu": 6.75,
     "bufBawah": null,
-    "bufAtas": 12.044817927170868,
+    "bufAtas": 3.801738679122875,
     "kelas": [
      "KategoriInferensi",
      "TesisPerluDataBaru",
+     "TesisRapuh",
      "TesisValid"
     ]
    },
@@ -5956,13 +5954,13 @@
      "Inflasi Indonesia (yoy)"
     ],
     "nilai": [
-     3.28
+     3.23
     ],
     "bawah": 0.0,
     "atas": 5.0,
     "pemicu": null,
     "bufBawah": null,
-    "bufAtas": 52.4390243902439,
+    "bufAtas": 54.79876160990712,
     "kelas": [
      "KategoriInferensi",
      "TesisValid"
@@ -5970,14 +5968,10 @@
    }
   ],
   "dataKedaluwarsa": [
-   "Makro_Brent",
-   "Makro_Emas",
-   "Makro_IHSG",
+   "Makro_CDS5Y",
    "Makro_NetAsingYTD",
    "Makro_SpreadSBN_UST",
-   "Makro_USDIDR",
    "Makro_UST10Y",
-   "Makro_WTI",
    "Makro_YieldSBN10Y"
   ]
  }

@@ -50,7 +50,7 @@ code{background:#eef1f6;padding:0 3px;border-radius:3px;font-size:8pt}
 H = []; w = H.append
 w(f"<!doctype html><html lang='id'><head><meta charset='utf-8'><style>{CSS}</style></head><body>")
 w("<div class='box'><h1>Dokumen Pengembangan v2 — SahamExpertKB</h1>")
-w("<div class='sub'>Sumber Data · Katalog Indikator · Apa yang Membedakan Sistem Pakar dari Analis Saham Biasa<br>Kelompok 9 KBR · Jonnathan Azarel Gunawan (L0224005) · Gloria Dana Praysilia (L0224043) · 26 Oktober 2026</div>")
+w("<div class='sub'>Sumber Data · Katalog Indikator · Apa yang Membedakan Sistem Pakar dari Analis Saham Biasa<br>Kelompok 9 KBR · Jonnathan Azarel Gunawan (L0224005) · Gloria Dana Praysilia (L0224043) · data acuan " + str(G.TODAY) + "</div>")
 w(f"<div class='kpi'><b>{num('CLASSES')}</b>kelas (v1: 226)</div><div class='kpi'><b>{num('INDIVIDUALS'):,}</b>individu (v1: 1.003)</div>"
   f"<div class='kpi'><b>{num('SWRL_RULES')}</b>aturan SWRL (v1: 182)</div><div class='kpi'><b>{(num('TOTAL_AXIOMS') - num('SWRL_RULES')) / num('TOTAL_AXIOMS'):.1%}</b>porsi knowledge base</div>")
 w(f"<div class='kpi'><b>{len(SRC.SUMBER)}</b>sumber data terdaftar</div><div class='kpi'><b>{len(SRC.K)}</b>indikator dalam katalog</div>"
@@ -77,7 +77,7 @@ w("<div class='tip'>Komponen non-simbolik tetap &lt;20%: scorer sentimen, detekt
 
 # ---------------- 2  pembeda
 w("<h2>2. Yang Membedakan Sistem Pakar dari Analis Saham Biasa</h2>")
-w("<p>Setiap baris di bawah adalah modul yang <b>sudah diimplementasikan</b> sebagai aturan SWRL. Kolom terakhir menunjukkan apa yang benar-benar dihasilkan reasoner Pellet pada data 26 Okt 2026.</p>")
+w("<p>Setiap baris di bawah adalah modul yang <b>sudah diimplementasikan</b> sebagai aturan SWRL. Kolom terakhir menunjukkan apa yang benar-benar dihasilkan reasoner Pellet pada data acuan " + str(G.TODAY) + ".</p>")
 w("<table><tr><th style='width:15%'>Kemampuan</th><th style='width:20%'>Analis saham biasa</th><th style='width:30%'>Sistem pakar v2</th><th style='width:9%'>Aturan</th><th>Bukti hasil inferensi</th></tr>")
 ant = [a["label"] for a in V["antisipasi"] if a["terpicu"]]
 rows = [

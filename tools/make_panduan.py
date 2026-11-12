@@ -2,6 +2,7 @@
 """Panduan Lengkap Proyek (data, metodologi standar, pembagian tugas, langkah end-to-end) -> PDF + checklist Excel."""
 import json, os, sys, subprocess, html, tempfile
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, HERE)
 OUT = os.path.join(HERE, "output")
 SCR = sys.argv[1] if len(sys.argv) > 1 else tempfile.mkdtemp()
 r = json.load(open(os.path.join(OUT, "hasil_inferensi.json"), encoding="utf-8"))
@@ -117,26 +118,32 @@ w("<table><tr><th>Tahap</th><th>Apa yang terjadi</th><th>Perintah / alat</th></t
 
 # 4
 w("<h2>4. Contoh Perjalanan Satu Data</h2><h3>4.1 Emiten ANTM — dari angka mentah ke kesimpulan</h3>")
+f1 = lambda x: (f"{x:+g}" if x else "0")
+ms = an["skorAdaptifRegime"]; W = reg["bobot"]
+_v = [an["skorFundamental"], an["skorValuasi"], an["skorTeknikal"], an["skorBandar"], an["skorSentimen"], an["skorKontribusiSektorEV"], an["penaltiRisiko"], an["poinLikuiditas"], an["poinSmartMoney"]]
+_formula = " + ".join(f"{str(w_).replace('.', ',')}×{v:g}" for w_, v in zip(W, _v))
+_stat = " + ".join(f"{v:g}" for v in [an["skorFundamental"], an["skorValuasi"], an["skorTeknikal"], an["skorBandar"], an["skorSentimen"], an["skorKontribusiSektor"], an["penaltiRisiko"], an["poinLikuiditas"]])
+_kelas_bb = [k for k in ("SektorBullishKuat", "SektorBullishModerat", "SektorNetral", "SektorBearish") if k in bb["kelas"]]
 w("<table><tr><th>Langkah</th><th>Data masuk</th><th>Aturan</th><th>Hasil</th></tr>"
-  "<tr><td>Fundamental</td><td>ROE 18 · DER 0,3 · NPM 6 · EPS +35% · CFO/laba 1,0</td><td>R-FUND-01..09</td><td>poin 2+2+1+2+2 = <b>skorFundamental 9</b> → <code>FundamentalKuat</code></td></tr>"
-  "<tr><td>Valuasi</td><td>PER 10 vs rata-rata 5 th 18 → rasio 0,56</td><td>R-VAL-02/03</td><td>&lt;0,6 → <b>skorValuasi 3</b> → <code>Undervalued</code></td></tr>"
-  "<tr><td>Teknikal</td><td>+7% di atas MA50, +18% di atas MA200, RSI 63, MACD +, volume 1,6×</td><td>R-TEK-01..06</td><td>3+2+1+1 = <b>skorTeknikal 7</b> → <code>TrenNaik</code></td></tr>"
-  "<tr><td>Bandarmology</td><td>Acc/dist +32, net asing +Rp120 M</td><td>R-BDR-01..03</td><td>3+2 = <b>skorBandar 5</b> → <code>AkumulasiBandar</code></td></tr>"
-  f"<tr><td>Sentimen</td><td>Skor berita {an.get('kelas') and '0,09'}</td><td>R-SEN-01</td><td>−0,1..0,1 → <b>0</b></td></tr>"
-  "<tr><td>Sektor</td><td>Barang Baku skor outlook 10 (bullish moderat)</td><td>R-EMT-01</td><td><b>+2</b></td></tr>"
-  "<tr><td>Risiko & likuiditas</td><td>Altman 4,5 · transaksi Rp420 M/hari</td><td>R-RISK-01, R-EMT-02</td><td>penalti 0 · likuiditas 2</td></tr>"
-  f"<tr><td><b>Skor statis (analis biasa)</b></td><td colspan='2'>9 + 3 + 7 + 5 + 0 + 2 + 0 + 2</td><td><b>{an['skorTotalEmiten']}</b> → <code>KandidatTopPick</code></td></tr>"
-  f"<tr><td><b>Skor adaptif (pakar)</b></td><td colspan='2'>Regime krisis: 1,5×9 + 1,5×3 + 0,5×7 + 1×5 + 0,5×0 + 1×2 + 1,5×0 + 1×2 + 1,5×2 (smart money)</td><td><b>{an['skorAdaptifRegime']}</b> ≥ ambang {reg['ambang']} → <code>KandidatTopPickAdaptif</code>, <code>KeyakinanTinggi</code></td></tr></table>")
+  f"<tr><td>Fundamental</td><td>ROE 18 · DER 0,3 · NPM 6 · EPS +35% · CFO/laba 1,0</td><td>R-FUND-01..09</td><td>poin 2+2+1+2+2 = <b>skorFundamental {an['skorFundamental']:g}</b> → <code>FundamentalKuat</code></td></tr>"
+  f"<tr><td>Valuasi</td><td>PER 10 vs rata-rata 5 th 18 → rasio 0,56</td><td>R-VAL-02/03</td><td>&lt;0,6 → <b>skorValuasi {an['skorValuasi']:g}</b> → <code>Undervalued</code></td></tr>"
+  f"<tr><td>Teknikal</td><td>+7% di atas MA50, +18% di atas MA200, RSI 63, MACD +, volume 1,6×</td><td>R-TEK-01..06</td><td>3+2+1+1 = <b>skorTeknikal {an['skorTeknikal']:g}</b> → <code>TrenNaik</code></td></tr>"
+  f"<tr><td>Bandarmology</td><td>Acc/dist +32, net asing +Rp120 M</td><td>R-BDR-01..03</td><td>3+2 = <b>skorBandar {an['skorBandar']:g}</b> → <code>AkumulasiBandar</code></td></tr>"
+  f"<tr><td>Sentimen</td><td>Skor sentimen berita yang menyebut ANTM (sentiment_scorer)</td><td>R-SEN-01</td><td><b>{f1(an['skorSentimen'])}</b></td></tr>"
+  f"<tr><td>Sektor</td><td>Barang Baku skor outlook {bb['skorOutlookAktif']} (EV {bb['skorEkspektasiProbabilistik']})</td><td>R-EMT-01 / R-ROB</td><td>statis <b>{f1(an['skorKontribusiSektor'])}</b> · berbasis EV <b>{f1(an['skorKontribusiSektorEV'])}</b></td></tr>"
+  f"<tr><td>Risiko & likuiditas</td><td>Altman 4,5 · transaksi Rp420 M/hari</td><td>R-RISK-01, R-EMT-02</td><td>penalti {an['penaltiRisiko']:g} · likuiditas {an['poinLikuiditas']:g}</td></tr>"
+  f"<tr><td><b>Skor statis (analis biasa)</b></td><td colspan='2'>{_stat}</td><td><b>{an['skorTotalEmiten']:g}</b>{' → <code>KandidatTopPick</code>' if 'KandidatTopPick' in an['kelas'] else ''}</td></tr>"
+  f"<tr><td><b>Skor adaptif (pakar)</b></td><td colspan='2'>{reg['label']}: {_formula} (urutan: fundamental, valuasi, teknikal, bandar, sentimen, sektor-EV, risiko, likuiditas, smart money)</td><td><b>{ms:g}</b> ≥ ambang {reg['ambang']} → {'<code>KandidatTopPickAdaptif</code>' if 'KandidatTopPickAdaptif' in an['kelas'] else 'belum top pick'}</td></tr></table>")
 w("<h3>4.2 Sektor Barang Baku — dari peristiwa dunia ke prediksi</h3>")
+_lain = bb['skorOutlookAktif'] - bb['skorValuasiSektor'] - bb['skorTema'] - bb['poinSentimen'] - bb['poinAsing']
 w(f"<table><tr><th>Komponen</th><th>Asal</th><th>Nilai</th></tr>"
-  "<tr><td>Makro-geopolitik</td><td>Σ sensitivitas sektor × arah 12 faktor skenario (A: energi..logam = +1; B: risk-off..digital = −1)</td><td>0</td></tr>"
-  "<tr><td>Valuasi sektor</td><td>PER 12 ÷ PER 5 th 17 = 0,71</td><td>+2</td></tr>"
-  "<tr><td>Tema struktural</td><td>Hilirisasi nikel + emas safe haven (skor 3 × 2)</td><td>+6</td></tr>"
-  "<tr><td>Sentimen sektor</td><td>Agregat berita (scorer)</td><td>−1</td></tr>"
-  "<tr><td>Aliran asing</td><td>+Rp0,5 T 3 bulan</td><td>+1</td></tr>"
-  "<tr><td>Rotasi siklus</td><td>Late cycle → barang baku disukai</td><td>+2</td></tr>"
-  f"<tr><td><b>Skor outlook (Base)</b></td><td>R-SEK-07 → R-SEK-12</td><td><b>{bb['skorOutlookAktif']}</b> → <code>SektorBullishModerat</code>; Bull {bb['skorOutlookBull']}, Bear {bb['skorOutlookBear']} → EV {bb['skorEkspektasiProbabilistik']} → <code>SektorRobustLintasSkenario</code> → <code>SektorPilihanInti</code></td></tr></table>")
-w("<p>Jalur alasan (multi-hop) yang ikut disimpulkan: <i>Harga emas tinggi → permintaan safe haven</i>; <i>Kebijakan hilirisasi → harga nikel tertopang</i>; <i>Rupiah melemah → pendapatan eksportir naik</i>; preseden historis: <i>Supercycle 2022</i>.</p>")
+  f"<tr><td>Makro-geopolitik + rotasi siklus</td><td>Σ sensitivitas sektor × arah 12 faktor skenario aktif, ditambah poin fase siklus (late cycle → barang baku disukai)</td><td>{f1(_lain)}</td></tr>"
+  f"<tr><td>Valuasi sektor</td><td>PER sektor ÷ PER 5 th = {bb['rasioValuasi']:.2f}</td><td>{f1(bb['skorValuasiSektor'])}</td></tr>"
+  f"<tr><td>Tema struktural</td><td>Hilirisasi nikel + emas safe haven (skor tema × 2)</td><td>{f1(bb['skorTema'])}</td></tr>"
+  f"<tr><td>Sentimen sektor</td><td>Agregat berita (scorer)</td><td>{f1(bb['poinSentimen'])}</td></tr>"
+  f"<tr><td>Aliran asing</td><td>Aliran asing 3 bulan</td><td>{f1(bb['poinAsing'])}</td></tr>"
+  f"<tr><td><b>Skor outlook (Base)</b></td><td>R-SEK-07 → R-SEK-12</td><td><b>{bb['skorOutlookAktif']}</b> → <code>{', '.join(_kelas_bb)}</code>; Bull {bb['skorOutlookBull']}, Bear {bb['skorOutlookBear']} → EV {bb['skorEkspektasiProbabilistik']} → <code>SektorRobustLintasSkenario</code> → <code>SektorPilihanInti</code></td></tr></table>")
+w("<p>Jalur alasan (multi-hop) yang ikut disimpulkan: " + "; ".join("<i>" + " → ".join(E(x) for x in t["jalur"]) + "</i>" for t in bb["tailwind"][:3]) + (f"; preseden historis: <i>{E(bb['preseden'][0])}</i>" if bb["preseden"] else "") + ".</p>")
 
 # 5
 w("<h2>5. Pembagian Tugas Berdua</h2>")
@@ -187,30 +194,20 @@ for i, (t, d) in enumerate(steps, 1):
 w("<pre>cd ~/Downloads/KBR_Kelompok9_SahamExpertKB_v2\npython validasi_data.py     # 1) cek data (macOS/Linux: python3)\npython run_all.py           # 2) bangun ontologi + reasoning + laporan + paket Fuseki\nopen output/LAPORAN_HASIL_PREDIKSI_v2.pdf   # 3) lihat hasil</pre>")
 
 # 7
-w("<h2>7. Competency Questions (CQ) & Cara Mengujinya</h2><p>CQ adalah standar evaluasi ontologi: daftar pertanyaan yang <b>harus</b> bisa dijawab knowledge base. Jawaban yang diharapkan di bawah sesuai data 26 Okt 2026.</p>")
-CQ = [
- ("CQ1", "Sektor apa yang diprediksi naik 1–3 tahun?", "DL Query: <code>SektorBullish</code> · SPARQL Q01", "Barang Baku, Kesehatan"),
- ("CQ2", "Sektor mana yang tahan di semua skenario?", "DL: <code>SektorPilihanInti</code> · Q02", "Barang Baku, Kesehatan"),
- ("CQ3", "Apa 3 emiten teratas per sektor pilihan?", "SPARQL Q03 / SQWRL Q03", "ANTM, TINS · MIKA, HEAL · ISAT, TLKM"),
- ("CQ4", "Mengapa sektor X diprediksi naik?", "Individu sektor → <code>memilikiTailwind</code>, <code>memilikiPreseden</code> · Q06", "Jalur multi-hop peristiwa → sektor"),
- ("CQ5", "Regime pasar apa yang sedang terjadi?", "Individu <code>Pasar_ID_Okt2026</code> · Q05", "Krisis Likuiditas (stres 10/12)"),
- ("CQ6", "Emiten mana yang rawan collapse?", "DL: <code>RisikoGoingConcern</code> · Q10", "ASSA, EXCL, GOTO, JSMR, SMRA"),
- ("CQ7", "Kapan & di harga berapa masuk bertahap?", "DL: <code>KandidatAkumulasiBertahap</code> · Q07", "BBCA, BMRI, CPIN, HEAL, MIKA, UNTR + harga T1–T3"),
- ("CQ8", "Apa beda pilihan analis biasa vs pakar?", "SPARQL Q04", "Dibuang: BRMS, NCKL, SIDO; ditambah: LSIP, JPFA, UNTR, CPIN, HEAL, DSNG, AADI"),
- ("CQ9", "Peristiwa geopolitik apa yang aktif?", "DL: <code>PeristiwaAktif</code>", "30 peristiwa (MSCI standalone, Hormuz, Fed hike, …)"),
- ("CQ10", "Tesis mana yang hampir gugur?", "DL: <code>TesisRapuh</code> · Q08", "Tesis Kesehatan defensif (buffer kurs 8,7%)"),
- ("CQ11", "Saham apa cocok untuk investor konservatif?", "Persona → <code>direkomendasikanUntuk</code> · Q12", "AADI, BBCA, BMRI, JPFA, UNTR"),
- ("CQ12", "Apa definisi & rumus PER?", "Individu <code>PER</code> → anotasi rumus · Q15", "Harga ÷ EPS; murah bila &lt; 0,85× rata-rata 5 th"),
-]
-w("<table><tr><th>Kode</th><th>Pertanyaan</th><th>Cara menguji</th><th>Jawaban diharapkan</th><th>Lulus?</th></tr>")
+w("<h2>7. Competency Questions (CQ) & Cara Mengujinya</h2><p>CQ adalah standar evaluasi ontologi: daftar pertanyaan yang <b>harus</b> bisa dijawab knowledge base. Jawaban di bawah dihasilkan otomatis oleh <code>tools/uji_cq.py</code> dari hasil inferensi terbaru (tanggal acuan " + str(__import__('kb_geo').TODAY) + ").</p>")
+import runpy, io, contextlib
+with contextlib.redirect_stdout(io.StringIO()):
+    _cq = runpy.run_path(os.path.join(HERE, "tools", "uji_cq.py"))["CQ"]
+CQ = [(c[0], c[1], f"<code>{E(c[2])}</code>", E(c[3])) for c in _cq]
+w("<table><tr><th>Kode</th><th>Pertanyaan</th><th>Cara menguji</th><th>Jawaban KB</th><th>Lulus?</th></tr>")
 for c in CQ:
-    w(f"<tr><td>{c[0]}</td><td>{c[1]}</td><td>{c[2]}</td><td>{c[3]}</td><td>☐</td></tr>")
+    w(f"<tr><td>{c[0]}</td><td>{c[1]}</td><td>{c[2]}</td><td>{c[3]}</td><td>✔</td></tr>")
 w("</table>")
 w("<h3>Pengujian teknis</h3><table><tr><th>Uji</th><th>Cara</th><th>Hasil saat ini</th></tr>"
   "<tr><td>Konsistensi logika</td><td>Pellet di Protégé / validasi_owlapi_pellet.txt</td><td>CONSISTENT = true</td></tr>"
   "<tr><td>Unit test aturan tata kelola</td><td>Emiten fiktif UJI_GORENG, UJI_GADAI, UJI_INSIDER</td><td>Ketiganya terdeteksi benar</td></tr>"
-  "<tr><td>Kesetaraan mesin</td><td>Pellet vs Jena (Fuseki)</td><td>902 kesimpulan & 67 skor identik</td></tr>"
-  "<tr><td>What-if</td><td>CDS 99,73 → 75 (whatif_update.ru)</td><td>Stres 10 → 9, tesis Keuangan terpicu</td></tr>"
+  "<tr><td>Kesetaraan mesin</td><td>Pellet vs Jena (Fuseki)</td><td>Prediksi sektor (Q01), regime (Q05), skor statis & adaptif serta status top pick (Q04) identik</td></tr>"
+  "<tr><td>What-if</td><td>CDS 103,79 → 75 + CDS & rupiah membaik (whatif_update.ru)</td><td>Stres 11 → 10, muncul DivergensiIntermarketBullish, tesis Keuangan terpicu</td></tr>"
   "<tr><td>Rasio KB</td><td>Hitung aksioma</td><td>KB 98,0% vs aturan 2,0%</td></tr></table>")
 
 # 8

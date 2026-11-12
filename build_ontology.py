@@ -50,9 +50,9 @@ with onto:
         "Knowledge Base Sistem Pakar Prediksi Sektor Saham Unggulan & Kesehatan Fundamental Emiten BEI (horizon 1-3 tahun). "
         "Integrasi analisis Fundamental, Teknikal, Bandarmology, Sentimen (aspect-based), Geopolitik-Makro multi-hop, "
         "Case-Based Reasoning historis, dan rotasi siklus sektor. Penalaran dengan SWRL (jalankan Pellet / SWRLTab-Drools). "
-        "Kelompok 9: Jonnathan Azarel Gunawan (L0224005), Gloria Dana Praysilia (L0224043). Tanggal acuan data: 26 Okt 2026. v2: lapisan sumber data & katalog indikator, deteksi regime + bobot adaptif, reaction function kebijakan, refleksivitas (priced-in), kapitulasi & akumulasi bertahap, revisi laba, ERP, tata kelola/gorengan, robustness skenario, konfluensi/konflik, sizing, katalis, tesis & kill switch.")]
+        "Kelompok 9: Jonnathan Azarel Gunawan (L0224005), Gloria Dana Praysilia (L0224043). Tanggal acuan data: " + str(G.TODAY) + ". v2: lapisan sumber data & katalog indikator, deteksi regime + bobot adaptif, reaction function kebijakan, refleksivitas (priced-in), kapitulasi & akumulasi bertahap, revisi laba, ERP, tata kelola/gorengan, robustness skenario, konfluensi/konflik, sizing, katalis, tesis & kill switch.")]
     onto.metadata.label = [L("SahamExpertKB - Ontologi Pakar Saham Indonesia")]
-    onto.metadata.versionInfo = ["2.0 (2026-10-26)"]
+    onto.metadata.versionInfo = [f"2.1 ({G.TODAY})"]
 
     # ------------------------------------------------------------ KELAS
     CLS = {}
@@ -226,7 +226,7 @@ with onto:
     dp("namaMedia", "Berita", str, "nama media")
     dp("urlSumber", None, str, "URL sumber")
     dp("tanggalTerbit", "Berita", datetime.date, "tanggal terbit")
-    dp("umurHari", "Berita", int, "umur berita (hari, acuan 25 Okt 2026)")
+    dp("umurHari", "Berita", int, "umur berita (hari, terhadap tanggal acuan data/tanggal_acuan.txt)")
     dp("kredibilitasSumber", "Berita", float, "kredibilitas sumber (0..1)")
     dp("skorSentimenBerita", "Berita", float, "skor nada berita (-1..1)")
     dp("arahVariabel", "Berita", int, "arah variabel makro terdeteksi (+1/0/-1)")
@@ -270,7 +270,7 @@ with onto:
     for n in ["porsiTranche1", "porsiTranche2", "porsiTranche3"]:
         dp(n, "RegimePasar", int, n + " (% modal alokasi)")
     dp("tanggalKatalis", "Katalis", str, "tanggal katalis")
-    dp("hariMenujuKatalis", "Katalis", int, "hari menuju katalis (acuan 26 Okt 2026)")
+    dp("hariMenujuKatalis", "Katalis", int, "hari menuju katalis (terhadap tanggal acuan)")
     for n in ["ambangInvalidasiBawah", "ambangInvalidasiAtas", "ambangPemicuBawah"]:
         dp(n, "TesisInvestasi", float, n)
     for n in ["bufferBawahPersen", "bufferAtasPersen"]:

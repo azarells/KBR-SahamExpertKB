@@ -111,7 +111,7 @@ w("<h3>2b. Buka di Protégé & jalankan reasoner</h3>")
 steps(["Protégé → <b>File › Open</b> → <code>output/SahamExpertKB_v2.owl</code>.",
        "<b>Reasoner › Pellet</b> → <b>Reasoner › Start reasoner</b>. Tunggu sampai bilah progres selesai (±1–3 menit).",
        "Tab <b>Entities › Individuals by class</b> (atau Window › Tabs › Individuals by class) → di pohon kelas klik <code>KategoriInferensi › InferensiSektor › SektorPilihanInti</code>. Muncul <b>Sektor_BarangBaku</b> dan <b>Sektor_Kesehatan</b> berlatar kuning (= hasil inferensi).",
-       "Klik <code>Sektor_BarangBaku</code> → panel <b>Property assertions</b>: lihat <code>skorOutlookAktif 10</code>, <code>memilikiTailwind</code>, <code>topPickSektor</code>.",
+       "Klik <code>Sektor_BarangBaku</code> → panel <b>Property assertions</b>: lihat <code>skorOutlookAktif</code>, <code>memilikiTailwind</code>, <code>topPickSektor</code>.",
        "Klik ikon <b>?</b> di sebelah salah satu baris kuning → jendela <i>Explanation</i> menunjukkan aturan SWRL & fakta yang memicunya."])
 w("<p class='cek'>✔ Selesai bila: kedua anggota bisa menampilkan SektorPilihanInti dan penjelasannya di laptop masing-masing.</p>")
 
@@ -266,20 +266,12 @@ w("<p class='cek'>✔ Selesai bila: tabel Parameter Pakar (nilai lama → baru �
 
 # ---------------- TAHAP 8
 w("<h2 class='pb'>Tahap 8 — Pengujian</h2>")
-w("<h3>8a. Competency Questions " + TB + "</h3><p>Pertanyaan yang wajib bisa dijawab KB. Jalankan dengan DL Query (Tahap 6c) atau SPARQL (Tahap 9), isi kolom hasil. Jawaban diharapkan berikut sesuai data 26 Okt 2026 — <b>setelah data diperbarui, jawaban bisa berubah</b>; yang dinilai adalah KB mampu menjawab & jawabannya bisa dijelaskan.</p>")
-CQ = [("CQ1", "Sektor apa yang diprediksi naik 1–3 tahun?", "SektorBullish · Q01", "Barang Baku, Kesehatan"),
-      ("CQ2", "Sektor mana yang tahan di semua skenario?", "SektorPilihanInti · Q02", "Barang Baku, Kesehatan; satelit: Infrastruktur"),
-      ("CQ3", "Apa 3 emiten teratas per sektor pilihan?", "SPARQL Q03 / SQWRL", "per sektor inti & satelit"),
-      ("CQ4", "Mengapa sektor X diprediksi naik?", "memilikiTailwind, memilikiPreseden · Q06", "jalur peristiwa → makro → sektor"),
-      ("CQ5", "Regime pasar apa yang sedang terjadi?", "RegimeAktif · Q05", "Krisis Likuiditas (stres 10/12)"),
-      ("CQ6", "Emiten mana rawan collapse?", "RisikoGoingConcern · Q10", "daftar emiten Altman distress"),
-      ("CQ7", "Kapan & di harga berapa masuk bertahap?", "KandidatAkumulasiBertahap · Q07", "harga tranche 1–3"),
-      ("CQ8", "Beda pilihan analis biasa vs pakar?", "KandidatTopPick vs KandidatTopPickAdaptif · Q04", "yang dibuang & ditambah"),
-      ("CQ9", "Peristiwa geopolitik apa yang aktif?", "PeristiwaAktif", "daftar peristiwa"),
-      ("CQ10", "Tesis mana yang hampir gugur?", "TesisRapuh · Q08", "tesis + indikator kunci"),
-      ("CQ11", "Saham apa cocok untuk investor konservatif?", "direkomendasikanUntuk · Q12", "daftar per persona"),
-      ("CQ12", "Apa definisi & rumus PER?", "individu PER → rumus · Q15", "Harga ÷ EPS")]
-w("<table><tr><th>Kode</th><th>Pertanyaan</th><th>Kelas DL Query / query SPARQL</th><th>Jawaban (26 Okt)</th><th>Hasil uji Anda</th><th>Lulus</th></tr>")
+w("<h3>8a. Competency Questions " + TB + "</h3><p>Pertanyaan yang wajib bisa dijawab KB. Jalankan dengan DL Query (Tahap 6c) atau SPARQL (Tahap 9), isi kolom hasil. Kolom jawaban diisi otomatis oleh <code>tools/uji_cq.py</code> dari hasil inferensi terbaru — <b>setelah data diperbarui, jawaban bisa berubah</b>; yang dinilai adalah KB mampu menjawab & jawabannya bisa dijelaskan.</p>")
+import runpy, io, contextlib
+with contextlib.redirect_stdout(io.StringIO()):
+    _cq = runpy.run_path(os.path.join(HERE, "tools", "uji_cq.py"))["CQ"]
+CQ = [(c[0], c[1], E(c[2]), E(c[3])) for c in _cq]
+w("<table><tr><th>Kode</th><th>Pertanyaan</th><th>Kelas DL Query / query SPARQL</th><th>Jawaban KB (data acuan terbaru)</th><th>Hasil uji Anda</th><th>Lulus</th></tr>")
 for c in CQ: w(f"<tr><td>{c[0]}</td><td>{c[1]}</td><td>{c[2]}</td><td>{c[3]}</td><td></td><td>☐</td></tr>")
 w("</table>")
 w("<h3>8b. Uji teknis " + TA + "</h3>")
@@ -305,7 +297,7 @@ steps(["Unduh Fuseki 6.2.0 (jena.apache.org → Download → <i>apache-jena-fuse
        "Windows: <code>output\\fuseki\\start_fuseki.bat C:\\fuseki\\apache-jena-fuseki-6.2.0</code> · macOS/Linux: <code>./output/fuseki/start_fuseki.sh ~/fuseki/apache-jena-fuseki-6.2.0</code>",
        "Buka browser <code>http://localhost:3030</code> → dataset <code>/saham</code> (penalaran aturan langsung) dan <code>/saham-pellet</code> (hasil Pellet).",
        "Tab <b>query</b> → tempel query dari <code>queries_sparql.rq</code> (Q01 prediksi sektor, Q03 top-3, Q04 analis biasa vs pakar, …) → Run.",
-       "What-if: tab <b>update</b> → tempel <code>whatif_update.ru</code> (mis. CDS 99,73 → 75) → jalankan → ulangi Q05/Q08 dan lihat perubahan regime/tesis.",
+       "What-if: tab <b>update</b> → tempel <code>whatif_update.ru</code> (mis. CDS 103,79 → 75) → jalankan → ulangi Q05/Q08 dan lihat perubahan regime/tesis.",
        "Rekam layar demo (cadangan bila saat presentasi laptop bermasalah)."])
 w("<p class='cek'>✔ Selesai bila: Q01–Q05 berjalan di /saham, hasil sama dengan Pellet, demo what-if terekam.</p>")
 
