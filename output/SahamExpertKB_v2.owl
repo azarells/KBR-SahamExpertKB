@@ -8125,7 +8125,7 @@
   <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.3</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-12.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.5</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">55.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.6</beneishM>
@@ -8478,7 +8478,7 @@
   <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.5</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">48.0</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.5</beneishM>
@@ -8648,10 +8648,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.4</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.3</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.1</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">34.8</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.5</beneishM>
@@ -8766,10 +8766,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.3</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14.3</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.5</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-36.9</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.0</beneishM>
@@ -8821,12 +8821,12 @@
   <per rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.0</per>
   <per5Tahun rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</per5Tahun>
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</pbv>
-  <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12.0</roe>
+  <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">53.9</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.5</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.5</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">584.0</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.4</beneishM>
@@ -9409,7 +9409,7 @@
   <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.4</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">100.2</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.5</beneishM>
@@ -9500,8 +9500,8 @@
   <termasukSubsektor rdf:resource="#Sub_Perkebunan"/>
   <bagianDariGrup rdf:resource="#Grup_Astra"/>
   <anggotaIndeks rdf:resource="#ISSI"/>
-  <anggotaIndeks rdf:resource="#JII"/>
   <anggotaIndeks rdf:resource="#IDX80"/>
+  <anggotaIndeks rdf:resource="#JII"/>
   <eksposurKomoditasPendapatan rdf:resource="#Kom_CPO"/>
   <terdeteksiPola rdf:resource="#CupAndHandle"/>
   <brokerAkumulatorUtama rdf:resource="#Broker_ZP"/>
@@ -9557,10 +9557,10 @@
   <termasukSektor rdf:resource="#Sektor_KonsumenPrimer"/>
   <termasukSubsektor rdf:resource="#Sub_Perkebunan"/>
   <bagianDariGrup rdf:resource="#Grup_Salim"/>
+  <anggotaIndeks rdf:resource="#IDX80"/>
   <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#IDXHIDIV20"/>
   <anggotaIndeks rdf:resource="#JII"/>
-  <anggotaIndeks rdf:resource="#IDX80"/>
   <eksposurKomoditasPendapatan rdf:resource="#Kom_CPO"/>
   <terdeteksiPola rdf:resource="#BullFlag"/>
   <brokerAkumulatorUtama rdf:resource="#Broker_RX"/>
@@ -9581,7 +9581,7 @@
   <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.1</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.5</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">40.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.6</beneishM>
@@ -9634,10 +9634,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.9</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.8</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.4</beneishM>
@@ -9726,8 +9726,8 @@
   <termasukSektor rdf:resource="#Sektor_KonsumenNonPrimer"/>
   <termasukSubsektor rdf:resource="#Sub_RitelGayaHidup"/>
   <bagianDariGrup rdf:resource="#Grup_MAP"/>
-  <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#IDX80"/>
+  <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#JII"/>
   <anggotaIndeks rdf:resource="#LQ45"/>
   <terdeteksiPola rdf:resource="#DescendingTriangle"/>
@@ -10086,10 +10086,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.0</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">32.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">30.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24.8</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.1</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-24.4</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">95.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.8</beneishM>
@@ -10145,7 +10145,7 @@
   <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">28.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.2</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.7</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">45.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.7</beneishM>
@@ -10199,10 +10199,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.8</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.5</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.5</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.6</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-14.8</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.6</beneishM>
@@ -10316,9 +10316,9 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.8</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22.0</roe>
   <npl rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.9</npl>
-  <nim rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.6</nim>
+  <nim rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.3</nim>
   <car rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">29.0</car>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.2</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">70.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.6</beneishM>
@@ -10433,10 +10433,10 @@
   <per5Tahun rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">11.0</per5Tahun>
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.1</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</roe>
-  <npl rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</npl>
+  <npl rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.98</npl>
   <nim rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">4.9</nim>
-  <car rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.0</car>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</pertumbuhanEPS>
+  <car rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18.4</car>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20.7</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">60.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.6</beneishM>
@@ -10641,8 +10641,8 @@
   <termasukSektor rdf:resource="#Sektor_PropertiRealEstat"/>
   <termasukSubsektor rdf:resource="#Sub_Properti"/>
   <bagianDariGrup rdf:resource="#Grup_Ciputra"/>
-  <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#IDX80"/>
+  <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#JII"/>
   <anggotaIndeks rdf:resource="#LQ45"/>
   <terdeteksiPola rdf:resource="#DescendingTriangle"/>
@@ -10757,8 +10757,8 @@
   <termasukSektor rdf:resource="#Sektor_PropertiRealEstat"/>
   <termasukSubsektor rdf:resource="#Sub_Properti"/>
   <bagianDariGrup rdf:resource="#Grup_Pakuwon"/>
-  <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#IDX80"/>
+  <anggotaIndeks rdf:resource="#ISSI"/>
   <anggotaIndeks rdf:resource="#JII"/>
   <anggotaIndeks rdf:resource="#LQ45"/>
   <terdeteksiPola rdf:resource="#RectangleRange"/>
@@ -11219,10 +11219,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.5</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12.7</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.4</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.4</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-5.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-3.9</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.7</beneishM>
@@ -11276,10 +11276,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.4</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">9.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">10.8</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">3.0</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.1</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">37.2</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">50.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.4</beneishM>
@@ -11388,10 +11388,10 @@
   <pbv rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</pbv>
   <roe rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13.0</roe>
   <der rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.7</der>
-  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">18.0</npm>
+  <npm rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">25.0</npm>
   <cfoPerLabaBersih rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</cfoPerLabaBersih>
   <altmanZ rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.9</altmanZ>
-  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</pertumbuhanEPS>
+  <pertumbuhanEPS rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.2</pertumbuhanEPS>
   <dividendYield rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.0</dividendYield>
   <dpr rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">35.0</dpr>
   <beneishM rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">-2.6</beneishM>
@@ -12032,8 +12032,8 @@
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <menyebabkan rdf:resource="#Mv_DiskonValuasiBigCaps"/>
   <menyebabkan rdf:resource="#Mv_IHSGTertekan"/>
-  <merugikanSektor rdf:resource="#Sektor_Keuangan"/>
   <merugikanSektor rdf:resource="#Sektor_Infrastruktur"/>
+  <merugikanSektor rdf:resource="#Sektor_Keuangan"/>
   <rdfs:label xml:lang="id">Outflow Dana Pasif (MSCI/S&amp;P)</rdfs:label>
 </PergerakanMakro>
 
@@ -12044,9 +12044,9 @@
 
 <PergerakanMakro rdf:about="#Mv_DiskonValuasiBigCaps">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <menciptakanPeluangKontrarian rdf:resource="#Sektor_Keuangan"/>
-  <menciptakanPeluangKontrarian rdf:resource="#Sektor_KonsumenPrimer"/>
   <menciptakanPeluangKontrarian rdf:resource="#Sektor_Infrastruktur"/>
+  <menciptakanPeluangKontrarian rdf:resource="#Sektor_KonsumenPrimer"/>
+  <menciptakanPeluangKontrarian rdf:resource="#Sektor_Keuangan"/>
   <rdfs:label xml:lang="id">Diskon Valuasi Ekstrem Big Caps</rdfs:label>
 </PergerakanMakro>
 
@@ -12189,8 +12189,8 @@
 
 <PergerakanMakro rdf:about="#Mv_KepercayaanAsingPulih">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <menguntungkanSektor rdf:resource="#Sektor_Keuangan"/>
   <menguntungkanSektor rdf:resource="#Sektor_Infrastruktur"/>
+  <menguntungkanSektor rdf:resource="#Sektor_Keuangan"/>
   <rdfs:label xml:lang="id">Kepercayaan Investor Asing Pulih (1-3 th)</rdfs:label>
 </PergerakanMakro>
 
@@ -12239,10 +12239,10 @@
 
 <PergerakanMakro rdf:about="#Mv_DukunganLikuiditasDomestik">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <menguntungkanSektor rdf:resource="#Sektor_Keuangan"/>
   <menguntungkanSektor rdf:resource="#Sektor_Infrastruktur"/>
-  <menciptakanPeluangKontrarian rdf:resource="#Sektor_Keuangan"/>
+  <menguntungkanSektor rdf:resource="#Sektor_Keuangan"/>
   <menciptakanPeluangKontrarian rdf:resource="#Sektor_Infrastruktur"/>
+  <menciptakanPeluangKontrarian rdf:resource="#Sektor_Keuangan"/>
   <rdfs:label xml:lang="id">Dukungan Likuiditas Domestik (institusi lokal, buyback)</rdfs:label>
 </PergerakanMakro>
 
@@ -12767,8 +12767,8 @@
 <BeritaMakroGeopolitik rdf:about="#Berita_N10">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <tentangPeristiwa rdf:resource="#Ev_KrisisPasarModal_2026"/>
-  <tentangSektor rdf:resource="#Sektor_Keuangan"/>
   <tentangSektor rdf:resource="#Sektor_Infrastruktur"/>
+  <tentangSektor rdf:resource="#Sektor_Keuangan"/>
   <dariSumber rdf:resource="#Sumber_BeritaFinansial"/>
   <rdfs:label xml:lang="id">IHSG Terendah 6 Tahun, Waspadai Tekanan Jual Saham Big Caps Hari Ini</rdfs:label>
   <judulBerita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">IHSG Terendah 6 Tahun, Waspadai Tekanan Jual Saham Big Caps Hari Ini</judulBerita>
@@ -12805,9 +12805,9 @@
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   <tentangPeristiwa rdf:resource="#Ev_KrisisPasarModal_2026"/>
   <tentangPeristiwa rdf:resource="#Ev_TwinDeficit_2026"/>
-  <tentangSektor rdf:resource="#Sektor_PropertiRealEstat"/>
-  <tentangSektor rdf:resource="#Sektor_Energi"/>
   <tentangSektor rdf:resource="#Sektor_Infrastruktur"/>
+  <tentangSektor rdf:resource="#Sektor_Energi"/>
+  <tentangSektor rdf:resource="#Sektor_PropertiRealEstat"/>
   <tentangEmiten rdf:resource="#BBRI"/>
   <tentangEmiten rdf:resource="#AMMN"/>
   <tentangEmiten rdf:resource="#BMRI"/>
@@ -13376,8 +13376,8 @@
   <tentangPeristiwa rdf:resource="#Ev_PembelianDomestikBlueChip"/>
   <tentangPeristiwa rdf:resource="#Ev_RencanaBEI_KeluarkanHSC"/>
   <tentangPeristiwa rdf:resource="#Ev_CrashIHSG_16Okt2026"/>
-  <tentangSektor rdf:resource="#Sektor_Keuangan"/>
   <tentangSektor rdf:resource="#Sektor_Infrastruktur"/>
+  <tentangSektor rdf:resource="#Sektor_Keuangan"/>
   <dariSumber rdf:resource="#Sumber_BeritaFinansial"/>
   <rdfs:label xml:lang="id">Pelemahan Dinilai Mulai Terbatas; IHSG Anjlok 11,57% Jumat, Investor Domestik Borong Blue Chip Terdiskon</rdfs:label>
   <judulBerita rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pelemahan Dinilai Mulai Terbatas; IHSG Anjlok 11,57% Jumat, Investor Domestik Borong Blue Chip Terdiskon</judulBerita>
@@ -14037,8 +14037,8 @@
 
 <PeriodeHistoris rdf:about="#Kasus_TaperTantrum_2013">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <unggulPadaPeriode rdf:resource="#Sektor_KonsumenPrimer"/>
   <unggulPadaPeriode rdf:resource="#Sektor_Infrastruktur"/>
+  <unggulPadaPeriode rdf:resource="#Sektor_KonsumenPrimer"/>
   <terpurukPadaPeriode rdf:resource="#Sektor_PropertiRealEstat"/>
   <terpurukPadaPeriode rdf:resource="#Sektor_Keuangan"/>
   <rdfs:label xml:lang="id">Taper Tantrum 2013</rdfs:label>
@@ -14125,8 +14125,8 @@
 
 <PeriodeHistoris rdf:about="#Kasus_SVB_PuncakBunga_2023">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <unggulPadaPeriode rdf:resource="#Sektor_Keuangan"/>
   <unggulPadaPeriode rdf:resource="#Sektor_Infrastruktur"/>
+  <unggulPadaPeriode rdf:resource="#Sektor_Keuangan"/>
   <terpurukPadaPeriode rdf:resource="#Sektor_Energi"/>
   <terpurukPadaPeriode rdf:resource="#Sektor_Teknologi"/>
   <rdfs:label xml:lang="id">SVB &amp; Puncak Suku Bunga 2023</rdfs:label>
@@ -16676,8 +16676,8 @@
 
 <KatalisBiner rdf:about="#K_KeputusanFinalMSCI">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-  <katalisSektor rdf:resource="#Sektor_Keuangan"/>
   <katalisSektor rdf:resource="#Sektor_Infrastruktur"/>
+  <katalisSektor rdf:resource="#Sektor_Keuangan"/>
   <katalisIndeks rdf:resource="#MSCI_Indonesia"/>
   <rdfs:label xml:lang="id">Keputusan final MSCI standalone (≈akhir Jun 2027)</rdfs:label>
   <rdfs:comment xml:lang="id">Katalis terbesar horizon 1-3 th.</rdfs:comment>

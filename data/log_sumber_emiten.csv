@@ -1,0 +1,30 @@
+kode,kolom,nilai_lama,nilai_baru,sumber,tanggal_diambil,catatan
+AADI,epsg,-12.0,24.5,https://market.bisnis.com/read/20261031/192/2017169/adaro-andalan-aadi-cetak-laba-bersih-rp122-triliun-kuartal-iii2026,2026-11-13,"Laba 9M26 Rp12,2 T vs Rp9,8 T 9M25 (rupiah; dalam US$ dapat berbeda)"
+ANTM,epsg,35.0,48.0,https://bcasekuritas.co.id/latest-news/news/antam-catat-laba-bersih-tumbuh-46-dalam-sembilan-bulan-pertama,2026-11-13,"EPS dasar 9M26 Rp367,78, +48% yoy"
+NCKL,epsg,15.0,34.8,https://ima-api.org/harita-nickel-nckl-cetak-laba-rp869-triliun-kuartal-iii-2026-tumbuh-348/,2026-11-13,"Laba atribusi 9M26 Rp8,69 T vs Rp6,45 T"
+NCKL,f3,25.0,32.3,ima-api (sama),2026-11-13,"NPM = 8,69 / 26,87 T"
+BRMS,epsg,80.0,-36.9,https://industri.kontan.co.id/news/laba-bumi-resources-minerals-brms-anjlok-3686-produksi-emas-diharap-naik-di-2027,2026-11-13,"Laba 9M26 US$23,93 jt vs US$37,90 jt"
+BRMS,f3,25.0,14.3,kontan (sama),2026-11-13,"NPM = 23,93 / 167,58"
+TINS,epsg,60.0,584.0,https://katadata.co.id/berita/energi/6ae482600aff8/produksi-bijih-naik-55-laba-pt-timah-di-kuartal-iii-2026-capai-rp4-12-triliun,2026-11-13,"Laba 9M26 Rp4,12 T vs Rp602 M"
+TINS,f3,9.0,25.5,katadata (sama),2026-11-13,"NPM = 4,12 / 16,15 T"
+TINS,roe,12.0,53.9,katadata (sama),2026-11-13,"Laba 9M disetahunkan 5,49 T / ekuitas rata-rata (8,41+11,97)/2"
+JPFA,epsg,30.0,100.2,https://avinews.com/id/laba-bersih-japfa-terbang-1002-jadi-rp-248-triliun-di-semester-i-2026/amp/,2026-11-13,"Data terakhir tersedia: semester I 2026, laba Rp2,48 T +100,2%"
+LSIP,epsg,20.0,25.0,https://investortrust.id/market/111369/laba-lonsum-lsip-melesat-25-semester-i-2026-penjualan-dan-produksi-cpo-jadi-penopang,2026-11-13,"Data terakhir tersedia: semester I 2026, laba Rp891 M +25%"
+DSNG,epsg,35.0,9.8,https://industri.kontan.co.id/news/dharma-satya-dsng-bukukan-laba-rp-146-triliun-pada-kuartal-iii-2026,2026-11-13,"Laba Rp1,46 T vs Rp1,31 T"
+DSNG,f3,15.0,16.0,kontan (sama),2026-11-13,"NPM = 1,46 / 9,10 T"
+SIDO,epsg,5.0,-24.4,https://investasi.kontan.co.id/news/laba-bersih-sido-muncul-sido-turun-244-per-september-2026,2026-11-13,Laba 9M26 Rp619 M vs Rp819 M
+SIDO,f3,30.0,24.8,kontan (sama),2026-11-13,"NPM = 619 M / 2,5 T"
+MIKA,epsg,10.0,6.7,https://market.bisnis.com/read/20261103/192/2017943/mitra-keluarga-mika-cetak-laba-rp108-triliun-kuartal-iii2026-tumbuh-667,2026-11-13,"Laba 9M26 Rp1,08 T, +6,67% (judul berita)"
+HEAL,epsg,15.0,-14.8,https://industri.kontan.co.id/news/medikaloka-hermina-heal-bukukan-pendapatan-rp-552-triliun-hingga-kuartal-iii-2026,2026-11-13,Laba atribusi 9M26 Rp303 M vs Rp356 M
+HEAL,f3,10.0,5.5,kontan (sama),2026-11-13,"NPM = 303 M / 5,52 T"
+BBCA,epsg,6.0,4.2,https://bcasekuritas.co.id/latest-news/news/news-recap/bbca-raih-laba-bersih-rp452-triliun-9m26-rp157-triliun-3q26,2026-11-13,"Laba 9M26 Rp45,2 T +4,2%"
+BBCA,f3,5.6,5.3,bcasekuritas (sama),2026-11-13,"NIM 3Q26 5,3%"
+BMRI,epsg,2.0,20.7,https://www.kabarbursa.com/market-hari-ini/bank-mandiri-bmri-cetak-laba-rp455-triliun-npl-turun,2026-11-13,"Laba 9M26 Rp45,5 T +20,7%"
+BMRI,f2,1.0,0.98,kabarbursa (sama),2026-11-13,NPL gross bank-only Sep 2026
+BMRI,f5,20.0,18.4,kabarbursa (sama),2026-11-13,CAR bank-only Sep 2026
+TLKM,epsg,-5.0,-3.9,https://databoks.katadata.co.id/pasar/statistik/6af27be38561b/laba-telkom-tlkm-turun-pada-kuartal-iii-2026-terendah-5-tahun-terakhir,2026-11-13,"Laba 9M26 Rp14,45 T, -3,89%"
+TLKM,f3,15.0,12.7,databoks (sama),2026-11-13,"NPM = 14,45 / 113,5 T"
+ISAT,epsg,5.0,37.2,https://investasi.kontan.co.id/news/indosat-isat-catat-kinerja-positif-hingga-kuartal-iii-2026,2026-11-13,"Laba 9M26 Rp4,92 T vs Rp3,59 T"
+ISAT,f3,9.0,10.8,kontan (sama),2026-11-13,"NPM = 4,92 / 45,75 T"
+TOWR,epsg,0.0,8.2,https://emitennews.com/news/kemas-laba-rp277t-pendapatan-emiten-grup-djarum-towr-tumbuh-1418,2026-11-13,"Laba atribusi 9M26 Rp2,77 T vs Rp2,56 T"
+TOWR,f3,18.0,25.0,emitennews (sama),2026-11-13,"NPM = 2,77 / 11,06 T"

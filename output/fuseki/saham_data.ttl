@@ -2429,11 +2429,11 @@ ex:BRMS
       ex:namaPerusahaan "Bumi Resources Minerals"^^xsd:string ;
       ex:netAsing20HariM "60.0"^^xsd:double ;
       ex:netRitel20HariM "20.0"^^xsd:double ;
-      ex:npm  "25.0"^^xsd:double ;
+      ex:npm  "14.3"^^xsd:double ;
       ex:pbv  "2.0"^^xsd:double ;
       ex:per  "40.0"^^xsd:double ;
       ex:per5Tahun "60.0"^^xsd:double ;
-      ex:pertumbuhanEPS "80.0"^^xsd:double ;
+      ex:pertumbuhanEPS "-36.9"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "4.0"^^xsd:double ;
       ex:pesaingDari ex:MDKA ;
@@ -2800,11 +2800,11 @@ ex:NCKL
       ex:namaPerusahaan "Trimegah Bangun Persada"^^xsd:string ;
       ex:netAsing20HariM "35.0"^^xsd:double ;
       ex:netRitel20HariM "-20.0"^^xsd:double ;
-      ex:npm  "25.0"^^xsd:double ;
+      ex:npm  "32.3"^^xsd:double ;
       ex:pbv  "1.4"^^xsd:double ;
       ex:per  "6.5"^^xsd:double ;
       ex:per5Tahun "10.0"^^xsd:double ;
-      ex:pertumbuhanEPS "15.0"^^xsd:double ;
+      ex:pertumbuhanEPS "34.8"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-9.0"^^xsd:double ;
       ex:rasioBidOffer "1.2"^^xsd:double ;
@@ -6724,11 +6724,11 @@ ex:ISAT
       ex:namaPerusahaan "Indosat Ooredoo Hutchison"^^xsd:string ;
       ex:netAsing20HariM "-30.0"^^xsd:double ;
       ex:netRitel20HariM "15.0"^^xsd:double ;
-      ex:npm  "9.0"^^xsd:double ;
+      ex:npm  "10.8"^^xsd:double ;
       ex:pbv  "1.4"^^xsd:double ;
       ex:per  "9.0"^^xsd:double ;
       ex:per5Tahun "16.0"^^xsd:double ;
-      ex:pertumbuhanEPS "5.0"^^xsd:double ;
+      ex:pertumbuhanEPS "37.2"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-15.0"^^xsd:double ;
       ex:pesaingDari ex:TLKM ;
@@ -6770,6 +6770,9 @@ ex:KonflikFundamentalVsBandar
       rdfs:comment "Fundamental kuat tetapi bandar distribusi."@id ;
       rdfs:label "Konflik: Fundamental vs Bandar"@id ;
       rdfs:subClassOf ex:InferensiEmiten .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:FundamentalKuat ex:FundamentalSedang ex:FundamentalLemah) .
 
 ex:Stk_EdukatorKomunitas
       a       ex:StakeholderKandidat , owl:NamedIndividual ;
@@ -7597,11 +7600,11 @@ ex:TOWR
       ex:namaPerusahaan "Sarana Menara Nusantara"^^xsd:string ;
       ex:netAsing20HariM "-15.0"^^xsd:double ;
       ex:netRitel20HariM "8.0"^^xsd:double ;
-      ex:npm  "18.0"^^xsd:double ;
+      ex:npm  "25.0"^^xsd:double ;
       ex:pbv  "1.0"^^xsd:double ;
       ex:per  "6.5"^^xsd:double ;
       ex:per5Tahun "12.0"^^xsd:double ;
-      ex:pertumbuhanEPS "0.0"^^xsd:double ;
+      ex:pertumbuhanEPS "8.2"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-17.0"^^xsd:double ;
       ex:rasioBidOffer "0.9"^^xsd:double ;
@@ -8086,6 +8089,9 @@ ex:Emiten
       rdfs:label "Emiten"@id ;
       rdfs:subClassOf ex:EntitasPasarModal .
 
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:SektorBullishKuat ex:SektorBullishModerat ex:SektorNetral ex:SektorBearish) .
+
 ex:Aturan_R_STR_04c
       a       owl:NamedIndividual , swrl:Imp ;
       rdfs:comment "[Regime Pasar] Poin stres kurs USD/IDR: kursUSDIDR ∈ [-inf, 16500.0) → poinStresKurs 0"@id ;
@@ -8237,6 +8243,9 @@ ex:RevenueGrowth
       ex:interpretasi "Momentum bisnis."@id ;
       ex:rumus "(Rev_t / Rev_t-1) - 1"@id .
 
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:PenilaianBullishKuat ex:PenilaianBullishModerat ex:PenilaianNetral ex:PenilaianBearish) .
+
 ex:Persona_Mahasiswa_Konservatif
       a       ex:InvestorRitel , owl:NamedIndividual ;
       rdfs:label "Persona: Mahasiswa, Konservatif"@id ;
@@ -8335,7 +8344,7 @@ ex:ANTM
       ex:pbv  "1.6"^^xsd:double ;
       ex:per  "10.0"^^xsd:double ;
       ex:per5Tahun "18.0"^^xsd:double ;
-      ex:pertumbuhanEPS "35.0"^^xsd:double ;
+      ex:pertumbuhanEPS "48.0"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-3.0"^^xsd:double ;
       ex:pesaingDari ex:MDKA , ex:BRMS ;
@@ -9128,6 +9137,9 @@ ex:SMGR
       ex:transaksiOrangDalam
               0 .
 
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:Undervalued ex:FairValued ex:Overvalued) .
+
 ex:Src_Satelit
       a       owl:NamedIndividual , ex:SumberDataAlternatif ;
       rdfs:comment "Aktivitas tambang/pabrik, lampu malam, mobilitas (roadmap)."@id ;
@@ -9357,6 +9369,9 @@ ex:Tema_DataCenterAI
       rdfs:comment "Investasi hyperscaler & kebutuhan konektivitas, fiber, menara, listrik."@id ;
       rdfs:label "Data Center & AI"@id ;
       ex:skorKekuatanTema 2 .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:ZonaDistress ex:ZonaAbuAbu ex:ZonaAman) .
 
 <urn:swrl#w0>
       a       swrl:Variable .
@@ -10737,6 +10752,9 @@ ex:selisihMA50MA200Persen
       rdfs:label "selisih MA50 vs MA200 (%)"@id ;
       rdfs:range xsd:decimal .
 
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:KatalisBiner ex:KatalisMusiman ex:KatalisTerjadwal) .
+
 ex:Berita_N31
       a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
       rdfs:label "Inflasi September 2026 Naik Jadi 3,28%, Harga Pangan dan Emas Jadi Pendorong"@id ;
@@ -10819,6 +10837,9 @@ ex:Berita_N30
 
 <urn:swrl#g5>
       a       swrl:Variable .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:CandlestickBullish ex:CandlestickBearish ex:CandlestickIndecision) .
 
 ex:Berita_N33
       a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
@@ -11190,11 +11211,11 @@ ex:HEAL
       ex:namaPerusahaan "Medikaloka Hermina"^^xsd:string ;
       ex:netAsing20HariM "8.0"^^xsd:double ;
       ex:netRitel20HariM "-6.0"^^xsd:double ;
-      ex:npm  "10.0"^^xsd:double ;
+      ex:npm  "5.5"^^xsd:double ;
       ex:pbv  "3.8"^^xsd:double ;
       ex:per  "25.0"^^xsd:double ;
       ex:per5Tahun "40.0"^^xsd:double ;
-      ex:pertumbuhanEPS "15.0"^^xsd:double ;
+      ex:pertumbuhanEPS "-14.8"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-9.0"^^xsd:double ;
       ex:pesaingDari ex:MIKA , ex:SILO ;
@@ -12289,9 +12310,6 @@ ex:SinyalBuyOnWeakness
       rdfs:label "Sinyal Buy on Weakness"@id ;
       rdfs:subClassOf ex:InferensiEmiten .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:FundamentalKuat ex:FundamentalSedang ex:FundamentalLemah) .
-
 ex:TemaStruktural
       a       owl:Class ;
       rdfs:comment "Megatren 1-3 tahun (hilirisasi, AI/data center, MBG, dll)."@id ;
@@ -12555,7 +12573,7 @@ ex:JPFA
       ex:pbv  "1.0"^^xsd:double ;
       ex:per  "6.0"^^xsd:double ;
       ex:per5Tahun "9.0"^^xsd:double ;
-      ex:pertumbuhanEPS "30.0"^^xsd:double ;
+      ex:pertumbuhanEPS "100.2"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-6.0"^^xsd:double ;
       ex:rasioBidOffer "1.4"^^xsd:double ;
@@ -13387,9 +13405,6 @@ ex:Kasus_COVID_2020
       ex:unggulPadaPeriode
               ex:Sektor_Teknologi , ex:Sektor_Kesehatan .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:SektorBullishKuat ex:SektorBullishModerat ex:SektorNetral ex:SektorBearish) .
-
 ex:SET
       a       owl:NamedIndividual , ex:IndeksAsiaPasifik ;
       rdfs:label "SET Index"@id ;
@@ -13695,9 +13710,6 @@ ex:Aturan_R_SEK_08d
                   swrl:classPredicate ex:PenilaianBearish
                 ]) .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:PenilaianBullishKuat ex:PenilaianBullishModerat ex:PenilaianNetral ex:PenilaianBearish) .
-
 ex:Mv_PermintaanChinaTurun
       a       ex:PergerakanMakro , owl:NamedIndividual ;
       rdfs:label "Permintaan China Melemah"@id ;
@@ -13943,9 +13955,6 @@ ex:CelahEkspektasiPositif
       rdfs:comment "Laba direvisi naik & murah, tetapi harga belum bereaksi (teknikal ≤ 4)."@id ;
       rdfs:label "Celah Ekspektasi Positif"@id ;
       rdfs:subClassOf ex:InferensiEmiten .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:Undervalued ex:FairValued ex:Overvalued) .
 
 ex:MDKA
       a       ex:EmitenNonKeuangan , ex:EmitenSyariah , ex:DataIndikatif , owl:NamedIndividual ;
@@ -14491,9 +14500,6 @@ ex:skorBandar
       rdfs:label "skor bandarmology (0-5)"@id ;
       rdfs:range xsd:integer .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:ZonaDistress ex:ZonaAbuAbu ex:ZonaAman) .
-
 ex:memilikiHorizon
       a       owl:FunctionalProperty , owl:ObjectProperty ;
       rdfs:domain ex:InvestorRitel ;
@@ -14629,9 +14635,6 @@ ex:Makro_USDIDR
       ex:tanggalData "2026-11-12"^^xsd:string ;
       ex:umurDataHari 0 ;
       ex:urlSumber "https://voi.id/ekonomi/602301/rupiah-ditutup-melemah-ke-rp18-239-per-dolar-as-pada-kamis-ditekan-ekspektasi-suku-bunga-the-fed"^^xsd:string .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:KatalisBiner ex:KatalisMusiman ex:KatalisTerjadwal) .
 
 ex:cfoPerLabaBersih
       a       owl:DatatypeProperty ;
@@ -15204,9 +15207,6 @@ ex:Aturan_R_ERP_04
                   swrl:argument1 <urn:swrl#e> ;
                   swrl:classPredicate ex:MahalVsObligasi
                 ]) .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:CandlestickBullish ex:CandlestickBearish ex:CandlestickIndecision) .
 
 ex:DividenAndalan
       a       owl:Class ;
@@ -15944,7 +15944,7 @@ ex:MIKA
       ex:pbv  "5.0"^^xsd:double ;
       ex:per  "24.0"^^xsd:double ;
       ex:per5Tahun "38.0"^^xsd:double ;
-      ex:pertumbuhanEPS "10.0"^^xsd:double ;
+      ex:pertumbuhanEPS "6.7"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-11.0"^^xsd:double ;
       ex:pesaingDari ex:SILO ;
@@ -16238,11 +16238,11 @@ ex:TLKM
       ex:namaPerusahaan "Telkom Indonesia"^^xsd:string ;
       ex:netAsing20HariM "-700.0"^^xsd:double ;
       ex:netRitel20HariM "-150.0"^^xsd:double ;
-      ex:npm  "15.0"^^xsd:double ;
+      ex:npm  "12.7"^^xsd:double ;
       ex:pbv  "1.5"^^xsd:double ;
       ex:per  "9.0"^^xsd:double ;
       ex:per5Tahun "15.0"^^xsd:double ;
-      ex:pertumbuhanEPS "-5.0"^^xsd:double ;
+      ex:pertumbuhanEPS "-3.9"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-18.0"^^xsd:double ;
       ex:rasioBidOffer "1.0"^^xsd:double ;
@@ -18036,11 +18036,11 @@ ex:DSNG
       ex:namaPerusahaan "Dharma Satya Nusantara"^^xsd:string ;
       ex:netAsing20HariM "8.0"^^xsd:double ;
       ex:netRitel20HariM "-6.0"^^xsd:double ;
-      ex:npm  "15.0"^^xsd:double ;
+      ex:npm  "16.0"^^xsd:double ;
       ex:pbv  "0.9"^^xsd:double ;
       ex:per  "6.5"^^xsd:double ;
       ex:per5Tahun "8.0"^^xsd:double ;
-      ex:pertumbuhanEPS "35.0"^^xsd:double ;
+      ex:pertumbuhanEPS "9.8"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-6.0"^^xsd:double ;
       ex:pesaingDari ex:LSIP ;
@@ -20325,7 +20325,7 @@ ex:AADI
       ex:pbv  "0.9"^^xsd:double ;
       ex:per  "4.0"^^xsd:double ;
       ex:per5Tahun "5.5"^^xsd:double ;
-      ex:pertumbuhanEPS "-12.0"^^xsd:double ;
+      ex:pertumbuhanEPS "24.5"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-7.0"^^xsd:double ;
       ex:pesaingDari ex:ITMG , ex:PTBA ;
@@ -20843,7 +20843,7 @@ ex:BMRI
               ex:Broker_CC ;
       ex:brokerDistributorUtama
               ex:Broker_BK ;
-      ex:car  "20.0"^^xsd:double ;
+      ex:car  "18.4"^^xsd:double ;
       ex:catatanData "SNAPSHOT INDIKATIF (demonstrasi penalaran) - perbarui dari laporan keuangan & data pasar terbaru sebelum digunakan. Data gadai/orang dalam = 0 (belum diisi dari keterbukaan informasi)."^^xsd:string ;
       ex:dividendYield "10.0"^^xsd:double ;
       ex:dpr  "60.0"^^xsd:double ;
@@ -20867,11 +20867,11 @@ ex:BMRI
       ex:netAsing20HariM "-1600.0"^^xsd:double ;
       ex:netRitel20HariM "200.0"^^xsd:double ;
       ex:nim  "4.9"^^xsd:double ;
-      ex:npl  "1.0"^^xsd:double ;
+      ex:npl  "0.98"^^xsd:double ;
       ex:pbv  "1.1"^^xsd:double ;
       ex:per  "6.0"^^xsd:double ;
       ex:per5Tahun "11.0"^^xsd:double ;
-      ex:pertumbuhanEPS "2.0"^^xsd:double ;
+      ex:pertumbuhanEPS "20.7"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-23.0"^^xsd:double ;
       ex:rasioBidOffer "1.0"^^xsd:double ;
@@ -21920,7 +21920,7 @@ ex:LSIP
       ex:pbv  "0.7"^^xsd:double ;
       ex:per  "6.5"^^xsd:double ;
       ex:per5Tahun "8.0"^^xsd:double ;
-      ex:pertumbuhanEPS "20.0"^^xsd:double ;
+      ex:pertumbuhanEPS "25.0"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-5.0"^^xsd:double ;
       ex:rasioBidOffer "1.4"^^xsd:double ;
@@ -22655,12 +22655,12 @@ ex:BBCA
       ex:namaPerusahaan "Bank Central Asia"^^xsd:string ;
       ex:netAsing20HariM "-2500.0"^^xsd:double ;
       ex:netRitel20HariM "-300.0"^^xsd:double ;
-      ex:nim  "5.6"^^xsd:double ;
+      ex:nim  "5.3"^^xsd:double ;
       ex:npl  "1.9"^^xsd:double ;
       ex:pbv  "2.8"^^xsd:double ;
       ex:per  "13.0"^^xsd:double ;
       ex:per5Tahun "24.0"^^xsd:double ;
-      ex:pertumbuhanEPS "6.0"^^xsd:double ;
+      ex:pertumbuhanEPS "4.2"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-21.0"^^xsd:double ;
       ex:pesaingDari ex:BBNI , ex:BBTN , ex:BMRI , ex:BBRI ;
@@ -22803,18 +22803,18 @@ ex:TINS
       ex:namaPerusahaan "Timah"^^xsd:string ;
       ex:netAsing20HariM "25.0"^^xsd:double ;
       ex:netRitel20HariM "-15.0"^^xsd:double ;
-      ex:npm  "9.0"^^xsd:double ;
+      ex:npm  "25.5"^^xsd:double ;
       ex:pbv  "1.2"^^xsd:double ;
       ex:per  "8.0"^^xsd:double ;
       ex:per5Tahun "15.0"^^xsd:double ;
-      ex:pertumbuhanEPS "60.0"^^xsd:double ;
+      ex:pertumbuhanEPS "584.0"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-5.0"^^xsd:double ;
       ex:rasioBidOffer "1.4"^^xsd:double ;
       ex:rasioVolume "1.5"^^xsd:double ;
       ex:revisiEPS3BulanPersen
               "6.0"^^xsd:double ;
-      ex:roe  "12.0"^^xsd:double ;
+      ex:roe  "53.9"^^xsd:double ;
       ex:rsi14 "61.0"^^xsd:double ;
       ex:sahamDigadaikanPersen
               "0.0"^^xsd:double ;
@@ -25729,11 +25729,11 @@ ex:SIDO
       ex:namaPerusahaan "Industri Jamu & Farmasi Sido Muncul"^^xsd:string ;
       ex:netAsing20HariM "5.0"^^xsd:double ;
       ex:netRitel20HariM "-4.0"^^xsd:double ;
-      ex:npm  "30.0"^^xsd:double ;
+      ex:npm  "24.8"^^xsd:double ;
       ex:pbv  "4.0"^^xsd:double ;
       ex:per  "12.0"^^xsd:double ;
       ex:per5Tahun "20.0"^^xsd:double ;
-      ex:pertumbuhanEPS "5.0"^^xsd:double ;
+      ex:pertumbuhanEPS "-24.4"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-11.0"^^xsd:double ;
       ex:rasioBidOffer "1.2"^^xsd:double ;

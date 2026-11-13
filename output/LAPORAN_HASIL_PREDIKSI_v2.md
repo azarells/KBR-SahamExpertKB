@@ -3,7 +3,7 @@
 Kelompok 9 KBR · Jonnathan Azarel Gunawan (L0224005) · Gloria Dana Praysilia (L0224043)  
 Tanggal acuan: **12 November 2026** · Skenario aktif: **Base Case 2027-2028: Normalisasi Bertahap** · Regime terdeteksi: **Krisis Likuiditas / Kapitulasi** · Reasoner: Pellet (OWLAPI) — konsisten ✅
 
-> **Disclaimer:** Keluaran penalaran sistem pakar untuk keperluan akademik/edukasi, bukan nasihat investasi. Data makro & berita bersumber dari pemberitaan s.d. Okt 2026 (anotasi `sumberReferensi`). **Rasio, teknikal, bandarmology, revisi konsensus per emiten adalah snapshot indikatif** dan ditandai `DataIndikatif`; sistem sendiri menandai rekomendasinya `PerluVerifikasiData`.
+> **Disclaimer:** Keluaran penalaran sistem pakar untuk keperluan akademik/edukasi, bukan nasihat investasi. Data makro & berita bersumber dari pemberitaan s.d. {TGL} (anotasi `sumberReferensi`). **Rasio, teknikal, bandarmology, revisi konsensus per emiten adalah snapshot indikatif** dan ditandai `DataIndikatif`; sistem sendiri menandai rekomendasinya `PerluVerifikasiData`.
 
 ## 0. Ringkasan Eksekutif — Keputusan Pakar
 
@@ -11,7 +11,7 @@ Tanggal acuan: **12 November 2026** · Skenario aktif: **Base Case 2027-2028: No
 2. **Strategi pasar:** syarat zona akumulasi generasional belum terpenuhi (drawdown IHSG -39.27% > −40%); dasar belum terkonfirmasi (CDS & rupiah masih memburuk) → **selektif, tunggu konfirmasi**; posisi tetap dibatasi aturan ukuran posisi regime.
 3. **Sektor inti (core, robust lintas skenario):** **Barang Baku** (EV 10.75), **Kesehatan** (EV 7.50).
 4. **Sektor satelit (asimetris-kontrarian):** **Infrastruktur** (Base 6 → Bull 20), **Keuangan** (Base 0 → Bull 19); pemicu tesis: yield SBN < 6.75%. **Keuangan** dipantau sebagai kontrarian (pemicu CDS < 85 bps, kini 103.79).
-5. **Top pick adaptif-regime:** ANTM (35.0), TINS (30.0), LSIP (29.0), BRMS (27.0), NCKL (26.5), JPFA (26.5), AADI (26.0), MIKA (26.0), DSNG (25.5).
+5. **Top pick adaptif-regime:** ANTM (35.0), TINS (33.0), AADI (29.0), LSIP (29.0), NCKL (26.5), JPFA (26.5), MIKA (26.0).
 6. **Akumulasi bertahap (kualitas yang terpukul):** .
 7. **Katalis ≤45 hari:** RDG Bank Indonesia 17-18 Nov 2026 (H-6); Efektif MSCI Review (1 Des 2026) (H-19); FOMC 9 Des 2026 (H-27); Window dressing akhir tahun (≈pertengahan Des) (H-33); RDG Bank Indonesia 15-16 Des 2026 (H-34) → kandidat dengan katalis biner dekat diberi strategi tranche.
 8. **Kill switch:** semua tesis masih valid; Tesis: Emas & nikel menopang Barang Baku **rapuh**, Tesis: Kesehatan defensif **rapuh**, Tesis kontrarian: Infrastruktur digital **rapuh**. 5 indikator makro harian sudah kedaluwarsa → perlu pembaruan sebelum eksekusi.
@@ -169,23 +169,23 @@ Probabilitas skenario: Base 50% · Bull 25% · Bear 25%. EV = Σ p × skor outlo
 | Rank | Emiten | Skor statis | **Skor adaptif** | Konfluensi | RS vs IHSG | ERP | Pos. maks | Status pakar | Catatan |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | **ANTM** — Aneka Tambang | 27 | **35.0** | 5.0/6 | 8.5 pp | 2.3 pp | 7.1% | TOP PICK ADAPTIF | RisikoKonsentrasiTema, RisikoOutflowPasif |
-| 2 | **TINS** — Timah | 25 | **30.0** | 6/6 | 6.5 pp | 4.8 pp | 6.2% | TOP PICK ADAPTIF | ZonaAbuAbu |
-| 3 | **BRMS** — Bumi Resources Minerals | 24 | **27.0** | 6/6 | 15.5 pp | -5.2 pp | 4.8% | TOP PICK ADAPTIF | RisikoKonsentrasiTema, MahalVsObligasi |
+| 2 | **TINS** — Timah | 27 | **33.0** | 6/6 | 6.5 pp | 4.8 pp | 6.2% | TOP PICK ADAPTIF | ZonaAbuAbu |
+| 3 | **NCKL** — Trimegah Bangun Persada | 21 | **26.5** | 4/6 | 2.5 pp | 7.7 pp | 7.3% | TOP PICK ADAPTIF | CelahEkspektasiPositif, RisikoHSC, RisikoKonsentrasiTema |
 
 **Sektor Kesehatan**
 
 | Rank | Emiten | Skor statis | **Skor adaptif** | Konfluensi | RS vs IHSG | ERP | Pos. maks | Status pakar | Catatan |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | **MIKA** — Mitra Keluarga Karyasehat | 21 | **26.0** | 4/6 | 0.5 pp | -3.5 pp | 10.0% | TOP PICK ADAPTIF | MahalVsObligasi |
-| 2 | **SIDO** — Industri Jamu & Farmasi Sido Muncul | 21 | **24.5** | 4/6 | 0.5 pp | 0.6 pp | 10.4% | - |  |
-| 3 | **HEAL** — Medikaloka Hermina | 20 | **24.5** | 4/6 | 2.5 pp | -3.7 pp | 8.6% | watchlist | CelahEkspektasiPositif, MahalVsObligasi |
+| 2 | **KLBF** — Kalbe Farma | 19 | **23.0** | 3/6 | -1.5 pp | -1.0 pp | 9.6% | watchlist | MahalVsObligasi, RisikoOutflowPasif |
+| 3 | **SIDO** — Industri Jamu & Farmasi Sido Muncul | 20 | **23.0** | 4/6 | 0.5 pp | 0.6 pp | 10.4% | watchlist |  |
 
 **Sektor Infrastruktur**
 
 | Rank | Emiten | Skor statis | **Skor adaptif** | Konfluensi | RS vs IHSG | ERP | Pos. maks | Status pakar | Catatan |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | **ISAT** — Indosat Ooredoo Hutchison | 17 | **22.0** | 3/6 | -3.5 pp | 3.4 pp | 7.3% | - | ZonaAbuAbu, RisikoOutflowPasif |
-| 2 | **TLKM** — Telkom Indonesia | 12 | **19.5** | 3/6 | -6.5 pp | 3.4 pp | 8.3% | - | ZonaAbuAbu, RisikoOutflowPasif |
+| 1 | **ISAT** — Indosat Ooredoo Hutchison | 18 | **23.5** | 4/6 | -3.5 pp | 3.4 pp | 7.3% | - | ZonaAbuAbu, RisikoOutflowPasif |
+| 2 | **TLKM** — Telkom Indonesia | 11 | **18.0** | 2/6 | -6.5 pp | 3.4 pp | 8.3% | - | ZonaAbuAbu, RisikoOutflowPasif |
 | 3 | **TOWR** — Sarana Menara Nusantara | 12 | **17.0** | 2/6 | -5.5 pp | 7.7 pp | 7.6% | - | ZonaAbuAbu |
 
 **Sektor Keuangan**
@@ -199,13 +199,12 @@ Probabilitas skenario: Base 50% · Bull 25% · Bear 25%. EV = Σ p × skor outlo
 ### 5.1 Di mana sistem pakar berbeda dari analis biasa
 
 - **Hanya dipilih analis biasa (skor statis) — dibuang sistem pakar:**
-  - **SIDO**: skor adaptif 24.5 < ambang 24.7; tanpa jejak smart money
+  - **BRMS**: skor adaptif 22.5 < ambang 24.7; tanpa jejak smart money; ERP negatif (kalah dari SBN); kekuatannya dominan dari teknikal (bobot 0,5 di regime krisis)
 - **Hanya dipilih sistem pakar:**
-  - **AADI** (statis 23 → adaptif 26.0): fundamental 8/10; jejak smart money; ERP 17.3 pp; sektor EV 4.50
-  - **DSNG** (statis 21 → adaptif 25.5): fundamental 9/10; sektor EV 6.25
+  - **AADI** (statis 25 → adaptif 29.0): fundamental 10/10; jejak smart money; ERP 17.3 pp; sektor EV 4.50
   - **JPFA** (statis 19 → adaptif 26.5): fundamental 8/10; jejak smart money; ERP 9.0 pp; sektor EV 6.25
   - **LSIP** (statis 22 → adaptif 29.0): fundamental 9/10; jejak smart money; sektor EV 6.25
-- **Disepakati keduanya:** ANTM, BRMS, MIKA, NCKL, TINS.
+- **Disepakati keduanya:** ANTM, MIKA, NCKL, TINS.
 
 ## 6. Rencana Akumulasi Bertahap (kapitulasi)
 
@@ -217,7 +216,7 @@ Regime Krisis Likuiditas / Kapitulasi: porsi tranche 30% / 30% / 40% dari alokas
 ## 7. Konfluensi, Konflik, Refleksivitas & Ekspektasi Laba
 
 - **Konfluensi tinggi (≥5/6 pilar):** AADI, AALI, ANTM, BRMS, DSNG, JPFA, LSIP, TINS
-- **Tunggu konfirmasi (konflik sinyal):** AADI
+- **Tunggu konfirmasi (konflik sinyal):** AADI, BRMS
 - **Fundamental kuat vs bandar distribusi:** -
 - **Distribusi saat euforia:** -
 - **Berita buruk priced-in:** JPFA, MEDC
@@ -228,7 +227,7 @@ Regime Krisis Likuiditas / Kapitulasi: porsi tranche 30% / 30% / 40% dari alokas
 - **Murah karena laba turun (value-trap dini):** AADI, ACES, BBNI, BBRI, BMRI, BSDE, CTRA, DMAS, MAPI, MYOR, PTBA, SMRA, UNVR
 - **ERP ≥ 8 pp (murah vs SBN):** AADI, ASII, AUTO, BBNI, BBTN, BMRI, BSDE, CTRA, DMAS, ERAA, INDF, INKP, ITMG, JPFA, JSMR, MEDC, PGAS, PTBA, SMDR, TMAS, UNTR
 - **Mahal vs obligasi (ERP < 0):** AMMN, AMRT, BBCA, BRMS, BUKA, CPIN, DCII, EMTK, EXCL, HEAL, IMPC, INCO, KLBF, MDKA, MIKA, MTEL, MYOR, SILO, SMGR, UNVR
-- **Risiko konsentrasi tema:** ANTM, BRMS, DSNG, LSIP, NCKL
+- **Risiko konsentrasi tema:** ANTM, NCKL
 
 ## 8. Kalender Katalis
 
@@ -286,17 +285,16 @@ Strategi tranche sebelum katalis biner: -.
 |---|---|---|---|---|---|---|
 | ANTM | SinyalEntry, SinyalBuyOnWeakness | 2,900 | 2,697 | 3,204 | 7.1% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
 | TINS | SinyalEntry | 1,900 | 1,748 | 2,128 | 6.2% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
-| LSIP | SinyalEntry, SinyalBuyOnWeakness | 1,050 | 987 | 1,144 | 8.3% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
-| BRMS | SinyalScalpingLong | 430 | - | - | 4.8% | FaseMarkUpWyckoff, LonjakanVolume |
-| JPFA | SinyalEntry, SinyalBuyOnWeakness | 1,600 | 1,491 | 1,763 | 7.3% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
 | AADI | SinyalEntry, SinyalBuyOnWeakness | 5,400 | 5,054 | 5,918 | 7.8% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, TungguKonfirmasi |
+| LSIP | SinyalEntry, SinyalBuyOnWeakness | 1,050 | 987 | 1,144 | 8.3% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
+| JPFA | SinyalEntry, SinyalBuyOnWeakness | 1,600 | 1,491 | 1,763 | 7.3% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
 | MIKA | SinyalBuyOnWeakness | 2,100 | 1,995 | 2,258 | 10.0% | AkumulasiInstitusiAsing, AkumulasiTersembunyi |
-| DSNG | SinyalEntry | 850 | 796 | 932 | 7.8% | FaseMarkUpWyckoff |
 | CPIN | SinyalBuyOnWeakness | 4,100 | 3,870 | 4,444 | 8.9% | AkumulasiInstitusiAsing, AkumulasiTersembunyi |
-| HEAL | SinyalBuyOnWeakness | 1,250 | 1,178 | 1,359 | 8.6% | AkumulasiInstitusiAsing, AkumulasiTersembunyi |
+| DSNG | SinyalEntry | 850 | 796 | 932 | 7.8% | FaseMarkUpWyckoff |
 | UNTR | SinyalBuyOnWeakness | 20,000 | 18,920 | 21,620 | 9.3% | AkumulasiInstitusiAsing, AkumulasiTersembunyi |
 | IMPC | SinyalEntry | 1,900 | 1,763 | 2,105 | 6.9% | FaseMarkUpWyckoff |
 | BBCA | SinyalBuyOnWeakness | 6,200 | 5,828 | 6,758 | 8.3% | AkumulasiTersembunyi |
+| BRMS | SinyalScalpingLong | 430 | - | - | 4.8% | FaseMarkUpWyckoff, LonjakanVolume, TungguKonfirmasi |
 | AALI | SinyalEntry | 6,000 | 5,688 | 6,468 | 9.6% | FaseMarkUpWyckoff |
 | MEDC | SinyalEntry | 1,150 | 1,063 | 1,281 | 6.6% | AkumulasiInstitusiAsing, AkumulasiTersembunyi, FaseMarkUpWyckoff |
 | MDKA | SinyalEntry, SinyalScalpingLong | 1,900 | 1,729 | 2,156 | 5.6% | AkumulasiInstitusiAsing, FaseMarkUpWyckoff, LonjakanVolume |
@@ -317,12 +315,12 @@ Emiten uji tidak masuk peringkat apa pun; fungsinya membuktikan aturan tata kelo
 
 - **Indikator makro kedaluwarsa (umur > 5× frekuensi):** Makro_CDS5Y, Makro_NetAsingYTD, Makro_SpreadSBN_UST, Makro_UST10Y, Makro_YieldSBN10Y
 - **Tesis perlu data baru:** Tesis kontrarian: Big banks pasca-kapitulasi, Tesis kontrarian: Infrastruktur digital
-- **Rekomendasi yang wajib diverifikasi (PerluVerifikasiData):** AADI, ANTM, BRMS, DSNG, JPFA, LSIP, MIKA, NCKL, TINS
+- **Rekomendasi yang wajib diverifikasi (PerluVerifikasiData):** AADI, ANTM, JPFA, LSIP, MIKA, NCKL, TINS
 
 ## 14. Rekomendasi per Persona
 
 - **Mahasiswa Konservatif**: AADI, BBCA, BMRI, JPFA, UNTR
-- **PekerjaMuda Moderat**: AADI, ANTM, BRMS, DSNG, HEAL, JPFA, LSIP, MIKA, NCKL, SIDO, SILO, TINS
+- **PekerjaMuda Moderat**: AADI, ANTM, JPFA, LSIP, MIKA, NCKL, SIDO, SILO, TINS
 - **GenZ Agresif**: AADI, AALI, ANTM, DSNG, IMPC, JPFA, LSIP, MDKA, MEDC, TINS
 - **TraderScalper**: BRMS, MDKA
 
