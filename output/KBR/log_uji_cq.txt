@@ -10,10 +10,10 @@ Sumber: output/hasil_inferensi.json · Lulus (terjawab): **12/12**
 | CQ4 | Mengapa Barang Baku diprediksi naik? | memilikiTailwind / memilikiPreseden | Tailwind: Tekanan Rupiah (rekor ~Rp18.239/USD, 12 Nov 2026) → Rupiah Melemah → Pendapatan Eksportir (USD) Naik dalam Rupiah; Kebijakan Hilirisasi & Kuota RKAB Nikel → Harga Nikel Tertopang Kuota; Harga Emas Tinggi (puncak ~US$4.390 Sep, ~US$3.959 pada 12 Nov 2026) → Permintaan Safe Haven Emas · Preseden: Supercycle Komoditas & Perang Rusia-Ukraina 2022 | ✔ |
 | CQ5 | Regime pasar apa yang sedang terjadi? | RegimeAktif | Krisis Likuiditas / Kapitulasi (skor stres 11/12) | ✔ |
 | CQ6 | Emiten mana rawan collapse? | RisikoGoingConcern | ASSA, EXCL, GOTO, JSMR, SMRA | ✔ |
-| CQ7 | Kapan & di harga berapa masuk bertahap? | KandidatAkumulasiBertahap | Belum ada: StrategiAkumulasiBertahap tidak aktif karena syarat kapitulasi pasar (drawdown IHSG ≤ −40%) tidak terpenuhi; drawdown saat ini -39.27% | ✔ |
-| CQ8 | Beda pilihan analis biasa vs pakar? | KandidatTopPick vs KandidatTopPickAdaptif | Dibuang pakar: BRMS · Ditambah pakar: AADI, JPFA, LSIP | ✔ |
+| CQ7 | Kapan & di harga berapa masuk bertahap? | KandidatAkumulasiBertahap | Belum ada: StrategiAkumulasiBertahap tidak aktif karena syarat kapitulasi pasar (drawdown IHSG ≤ −40%) tidak terpenuhi; drawdown saat ini -39.3% | ✔ |
+| CQ8 | Beda pilihan analis biasa vs pakar? | KandidatTopPick vs KandidatTopPickAdaptif | Dibuang pakar: - · Ditambah pakar: AADI, JPFA, LSIP | ✔ |
 | CQ9 | Peristiwa geopolitik apa yang aktif? | PeristiwaAktif | 31 peristiwa, mis. BI_RDG_Okt2026, BI_TurunkanGWM, CrashIHSG_16Okt2026, EkspektasiKenaikanBIRate, EmasRekor_2026 | ✔ |
-| CQ10 | Tesis mana yang rapuh/gugur? | TesisRapuh / TesisGugur | BarangBaku_EmasNikel (rapuh), Kesehatan_Defensif (rapuh), Infrastruktur_DataCenter (rapuh) | ✔ |
+| CQ10 | Tesis mana yang rapuh/gugur? | TesisRapuh / TesisGugur | BarangBaku_EmasNikel (gugur), Kesehatan_Defensif (rapuh), Infrastruktur_DataCenter (rapuh) | ✔ |
 | CQ11 | Saham untuk investor konservatif? | direkomendasikanUntuk | Mahasiswa_Konservatif: AADI, BBCA, BMRI, JPFA, UNTR | ✔ |
 | CQ12 | Apa definisi & rumus PER? | individu PER → rumus | Harga saham ÷ EPS (dapat dicek di Protégé: individu PER, anotasi rumus) | ✔ |
 

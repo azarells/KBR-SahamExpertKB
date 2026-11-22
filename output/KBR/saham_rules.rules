@@ -657,8 +657,8 @@
 # R-PAS-04 | Struktur Pasar | Zona akumulasi generasional: kapitulasi + washout + premi risiko tinggi
 [R_PAS_04: (?k rdf:type ex:KapitulasiPasar) (?k rdf:type ex:BreadthWashout) (?k rdf:type ex:PremiRisikoNegaraTinggi) -> (?k rdf:type ex:ZonaAkumulasiGenerasional)]
 
-# R-PAS-05 | Intermarket | Dasar belum terkonfirmasi: CDS & rupiah masih memburuk
-[R_PAS_05: (?k rdf:type ex:KondisiPasarAktif) (?k ex:trenCDS1Bulan ?c) ge(?c, 1) (?k ex:trenRupiah1Bulan ?r) ge(?r, 1) -> (?k rdf:type ex:DasarBelumTerkonfirmasi)]
+# R-PAS-05 | Intermarket | Dasar belum terkonfirmasi: CDS & rupiah belum membaik (memburuk atau datar)
+[R_PAS_05: (?k rdf:type ex:KondisiPasarAktif) (?k ex:trenCDS1Bulan ?c) ge(?c, 0) (?k ex:trenRupiah1Bulan ?r) ge(?r, 0) -> (?k rdf:type ex:DasarBelumTerkonfirmasi)]
 
 # R-PAS-06 | Intermarket | Divergensi intermarket bullish: CDS & rupiah membaik saat IHSG masih turun
 [R_PAS_06: (?k rdf:type ex:KondisiPasarAktif) (?k ex:trenCDS1Bulan ?c) le(?c, -1) (?k ex:trenRupiah1Bulan ?r) le(?r, -1) (?k ex:perubahanIHSG1BulanPersen ?m) lessThan(?m, '0.0'^^xsd:double) -> (?k rdf:type ex:DivergensiIntermarketBullish)]

@@ -54,10 +54,10 @@ w(f"1. **Regime pasar: {regime['label']}** (skor stres {I(P['skorStresPasar'])}/
 cls_p = P["kelas"]
 if "StrategiAkumulasiBertahap" in cls_p:
     w(f"2. **Strategi pasar:** {'Zona Akumulasi Generasional' if 'ZonaAkumulasiGenerasional' in cls_p else 'Kapitulasi + divergensi intermarket'}"
-      f"{' — tetapi dasar belum terkonfirmasi (CDS & rupiah masih memburuk)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **akumulasi bertahap {regime['tranche'][0]}/{regime['tranche'][1]}/{regime['tranche'][2]}**, bukan all-in.")
+      f"{' — tetapi dasar belum terkonfirmasi (CDS & rupiah belum membaik)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **akumulasi bertahap {regime['tranche'][0]}/{regime['tranche'][1]}/{regime['tranche'][2]}**, bukan all-in.")
 else:
     w(f"2. **Strategi pasar:** syarat zona akumulasi generasional belum terpenuhi (drawdown IHSG {F(P['drawdownIHSGPersen'],2)}% > −40%)"
-      f"{'; dasar belum terkonfirmasi (CDS & rupiah masih memburuk)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **selektif, tunggu konfirmasi**; posisi tetap dibatasi aturan ukuran posisi regime.")
+      f"{'; dasar belum terkonfirmasi (CDS & rupiah belum membaik)' if 'DasarBelumTerkonfirmasi' in cls_p else ''} → **selektif, tunggu konfirmasi**; posisi tetap dibatasi aturan ukuran posisi regime.")
 w("3. **Sektor inti (core, robust lintas skenario):** " + ", ".join(f"**{s['label'].replace('Sektor ', '')}** (EV {F(s['skorEkspektasiProbabilistik'],2)})" for s in inti) + ".")
 w("4. **Sektor satelit (asimetris-kontrarian):** " + (", ".join(f"**{s['label'].replace('Sektor ', '')}** (Base {s['skorOutlookBase']} → Bull {s['skorOutlookBull']})" for s in satelit) or "-")
   + f"; pemicu tesis: yield SBN < {F(tes['Tesis_Infrastruktur_DataCenter']['pemicu'],2)}%. **Keuangan** dipantau sebagai kontrarian (pemicu CDS < {F(tes['Tesis_Keuangan_Kontrarian']['pemicu'],0)} bps, kini {F(P['cds5YBps'],2)}).")

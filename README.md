@@ -1,7 +1,7 @@
 # SahamExpertKB v2 — Sistem Pakar Prediksi Sektor Saham BEI (Protégé OWL + SWRL)
 
 **Kelompok 9 KBR** · Jonnathan Azarel Gunawan (L0224005) · Gloria Dana Praysilia (L0224043)
-Horizon prediksi: **1–3 tahun** · Tanggal acuan data: **26 Oktober 2026** · Versi 2.0
+Horizon prediksi: **1–3 tahun** · Tanggal acuan data: **19 November 2026** · Versi 2.0
 
 Ontologi pakar yang menggabungkan Fundamental, Teknikal, Bandarmology, Sentimen (aspect-based), Geopolitik-Makro multi-hop, CBR, dan rotasi siklus,
 ditambah **lapisan meta-penalaran v2**: deteksi regime + bobot adaptif, reaction function kebijakan, refleksivitas (priced-in), kapitulasi & akumulasi bertahap,
@@ -110,3 +110,18 @@ Langkah kerja detail dari awal sampai akhir: `output/BUKU_KERJA_LANGKAH_DEMI_LAN
 - Indikator makro, peristiwa, dan berita bersumber dari pemberitaan Okt 2026 (URL di anotasi `sumberReferensi`/`urlSumber`).
 - **Rasio keuangan, harga, teknikal, dan bandarmology emiten adalah snapshot indikatif** (anotasi `catatanData`) untuk demonstrasi penalaran. Kode broker dan keanggotaan indeks juga indikatif. Perbarui dari IDX/laporan keuangan/terminal data sebelum dipakai untuk keputusan.
 - Keluaran sistem adalah alat bantu riset & edukasi, **bukan nasihat investasi**.
+
+## 7. Menguji knowledge base (103 soal)
+
+```
+python3 tools/uji_kb.py            # 98 soal statis (SPARQL ke ontologi hasil Pellet), ±5 detik
+python3 tools/uji_kb.py --whatif   # + 5 what-if (ubah data -> Pellet ulang), ±35 detik
+```
+
+- Hasil per soal (pertanyaan, cara uji di Protégé, jawaban KB, query SPARQL): `output/HASIL_UJI_KB.md`.
+- Semua query SPARQL untuk Fuseki: `output/uji_kb/queries_uji.rq`; hasil terstruktur: `output/uji_kb/hasil_uji_kb.json`.
+- `run_all.py` menjalankan uji ini otomatis sebagai langkah 12 (log: `output/log_uji_kb.txt`). Kode keluar 0 = semua lulus.
+- 17 modul: struktur KB, kebenaran aturan (tepat satu skor per pilar, penjumlahan skor), pengetahuan dasar, fundamental, teknikal,
+  bandarmology, sentimen, geopolitik & makro, indeks, prediksi sektor, rekomendasi emiten, meta-penalaran, stakeholder, kualitas data,
+  dan what-if (skenario bull/bear, emiten memburuk, kapitulasi IHSG, CDS membaik). 12 competency questions proposal = B01, C04, G01, I01, I03, I04, J01, J02, K01, K04, K08, L02 (pemetaan lengkap ada di HASIL_UJI_KB.md).
+- `tools/uji_cq.py` (12 CQ versi lama) tetap tersedia.

@@ -8,8 +8,6 @@ BRMS,f3,25.0,14.3,kontan (sama),2026-11-13,"NPM = 23,93 / 167,58"
 TINS,epsg,60.0,584.0,https://katadata.co.id/berita/energi/6ae482600aff8/produksi-bijih-naik-55-laba-pt-timah-di-kuartal-iii-2026-capai-rp4-12-triliun,2026-11-13,"Laba 9M26 Rp4,12 T vs Rp602 M"
 TINS,f3,9.0,25.5,katadata (sama),2026-11-13,"NPM = 4,12 / 16,15 T"
 TINS,roe,12.0,53.9,katadata (sama),2026-11-13,"Laba 9M disetahunkan 5,49 T / ekuitas rata-rata (8,41+11,97)/2"
-JPFA,epsg,30.0,100.2,https://avinews.com/id/laba-bersih-japfa-terbang-1002-jadi-rp-248-triliun-di-semester-i-2026/amp/,2026-11-13,"Data terakhir tersedia: semester I 2026, laba Rp2,48 T +100,2%"
-LSIP,epsg,20.0,25.0,https://investortrust.id/market/111369/laba-lonsum-lsip-melesat-25-semester-i-2026-penjualan-dan-produksi-cpo-jadi-penopang,2026-11-13,"Data terakhir tersedia: semester I 2026, laba Rp891 M +25%"
 DSNG,epsg,35.0,9.8,https://industri.kontan.co.id/news/dharma-satya-dsng-bukukan-laba-rp-146-triliun-pada-kuartal-iii-2026,2026-11-13,"Laba Rp1,46 T vs Rp1,31 T"
 DSNG,f3,15.0,16.0,kontan (sama),2026-11-13,"NPM = 1,46 / 9,10 T"
 SIDO,epsg,5.0,-24.4,https://investasi.kontan.co.id/news/laba-bersih-sido-muncul-sido-turun-244-per-september-2026,2026-11-13,Laba 9M26 Rp619 M vs Rp819 M
@@ -28,3 +26,8 @@ ISAT,epsg,5.0,37.2,https://investasi.kontan.co.id/news/indosat-isat-catat-kinerj
 ISAT,f3,9.0,10.8,kontan (sama),2026-11-13,"NPM = 4,92 / 45,75 T"
 TOWR,epsg,0.0,8.2,https://emitennews.com/news/kemas-laba-rp277t-pendapatan-emiten-grup-djarum-towr-tumbuh-1418,2026-11-13,"Laba atribusi 9M26 Rp2,77 T vs Rp2,56 T"
 TOWR,f3,18.0,25.0,emitennews (sama),2026-11-13,"NPM = 2,77 / 11,06 T"
+JPFA,epsg,100.2,34.0,https://investasi.kontan.co.id/news/segmen-doc-dan-livebird-topang-kinerja-japfa-jpfa-di-tengah-tekanan-beban-bunga,2026-11-19,"Laba bersih 9M26 Rp3,23 T +34% yoy (menggantikan data semester I)"
+JPFA,f3,5.0,5.9,investasi.kontan.co.id (sama),2026-11-19,"NPM = 3,23 / 54,53 T"
+LSIP,epsg,25.0,40.0,https://www.idxchannel.com/market-news/laba-lonsum-lsip-melonjak-40-persen-jadi-rp175-triliun-hingga-september,2026-11-19,"Laba atribusi 9M26 Rp1,75 T +40% yoy (menggantikan data semester I)"
+LSIP,f3,20.0,40.4,www.idxchannel.com (sama),2026-11-19,"NPM = 1,75 / 4,33 T"
+JPFA,revisi,6,-11,https://www.mediakompeten.co.id/japfa-pulihkan-kinerja-laba-tertekan,2026-11-19,BRI Danareksa memangkas proyeksi laba 2026 sebesar 11% (laba Q3-26 turun 36% yoy karena beban bunga)

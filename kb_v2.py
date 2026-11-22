@@ -30,7 +30,7 @@ InferensiPasar | KategoriInferensi | Inferensi Level Pasar | Kesimpulan atas kea
 KapitulasiPasar | InferensiPasar | Kapitulasi Pasar | Drawdown ≥ 40% + hari crash ≥ 10%: penjualan paksa/panik selesai sebagian.
 BreadthWashout | InferensiPasar | Breadth Washout | ≤ 25% saham di atas MA200 (jenuh jual luas).
 ZonaAkumulasiGenerasional | InferensiPasar | Zona Akumulasi Generasional | Kapitulasi + washout + premi risiko tinggi: peluang 1-3 th terbaik secara historis.
-DasarBelumTerkonfirmasi | InferensiPasar | Dasar Belum Terkonfirmasi | CDS & rupiah masih memburuk: jangan all-in, akumulasi bertahap.
+DasarBelumTerkonfirmasi | InferensiPasar | Dasar Belum Terkonfirmasi | CDS & rupiah belum membaik (memburuk atau datar): jangan all-in, akumulasi bertahap.
 DivergensiIntermarketBullish | InferensiPasar | Divergensi Intermarket Bullish | CDS & rupiah membaik mendahului IHSG (sinyal dasar).
 StrategiAkumulasiBertahap | InferensiPasar | Strategi Akumulasi Bertahap | Rencana masuk 3 tranche.
 PremiRisikoNegaraTinggi | InferensiPasar | Premi Risiko Negara Tinggi | CDS 5Y ≥ 90 bps.

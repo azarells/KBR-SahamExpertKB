@@ -45,8 +45,8 @@ def add_v2(R, bins, REGIME_NAMES):
       "KondisiPasarAktif(?k), drawdownIHSGPersen(?k, ?d), lessThanOrEqual(?d, -40.0), penurunanHarianTerbesarPersen(?k, ?x), lessThanOrEqual(?x, -10.0) -> KapitulasiPasar(?k)")
     R("R-PAS-04", "Struktur Pasar", "Zona akumulasi generasional: kapitulasi + washout + premi risiko tinggi",
       "KapitulasiPasar(?k), BreadthWashout(?k), PremiRisikoNegaraTinggi(?k) -> ZonaAkumulasiGenerasional(?k)")
-    R("R-PAS-05", "Intermarket", "Dasar belum terkonfirmasi: CDS & rupiah masih memburuk",
-      "KondisiPasarAktif(?k), trenCDS1Bulan(?k, ?c), greaterThanOrEqual(?c, 1), trenRupiah1Bulan(?k, ?r), greaterThanOrEqual(?r, 1) -> DasarBelumTerkonfirmasi(?k)")
+    R("R-PAS-05", "Intermarket", "Dasar belum terkonfirmasi: CDS & rupiah belum membaik (memburuk atau datar)",
+      "KondisiPasarAktif(?k), trenCDS1Bulan(?k, ?c), greaterThanOrEqual(?c, 0), trenRupiah1Bulan(?k, ?r), greaterThanOrEqual(?r, 0) -> DasarBelumTerkonfirmasi(?k)")
     R("R-PAS-06", "Intermarket", "Divergensi intermarket bullish: CDS & rupiah membaik saat IHSG masih turun",
       "KondisiPasarAktif(?k), trenCDS1Bulan(?k, ?c), lessThanOrEqual(?c, -1), trenRupiah1Bulan(?k, ?r), lessThanOrEqual(?r, -1), perubahanIHSG1BulanPersen(?k, ?m), lessThan(?m, 0.0) -> DivergensiIntermarketBullish(?k)")
     R("R-PAS-07", "Struktur Pasar", "Zona akumulasi tetapi dasar belum terkonfirmasi → akumulasi bertahap",

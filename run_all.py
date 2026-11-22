@@ -44,5 +44,6 @@ shutil.copy(os.path.join("output", "SahamExpertKB_v2_inferred.owl"), os.path.joi
 langkah(9, "Dokumen pengembangan (PDF)", [PY, "make_blueprint.py"], wajib=False)
 langkah(10, "Uji 12 competency questions", [PY, "tools/uji_cq.py"], out=os.path.join("output", "log_uji_cq.txt"), wajib=False)
 langkah(11, "Panduan proyek (PDF)", [PY, "tools/make_panduan.py", tempfile.mkdtemp()], wajib=False)
-print("\nSELESAI. Buka folder output/ — file utama: SahamExpertKB_v2.owl, LAPORAN_HASIL_PREDIKSI_v2.pdf, validasi_owlapi_pellet.txt")
+langkah(12, "Uji knowledge base lengkap (98 soal + 5 what-if)", [PY, "tools/uji_kb.py", "--whatif"], out=os.path.join("output", "log_uji_kb.txt"), wajib=False)
+print("\nSELESAI. Buka folder output/ — file utama: SahamExpertKB_v2.owl, LAPORAN_HASIL_PREDIKSI_v2.pdf, validasi_owlapi_pellet.txt, HASIL_UJI_KB.md")
 print("Catatan: langkah 6, 9 & 11 (PDF) butuh Node.js + Playwright; bila gagal, file .md dan .owl tetap terbentuk.")

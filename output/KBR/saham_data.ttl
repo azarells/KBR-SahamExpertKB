@@ -78,7 +78,7 @@ ex:K_PemiluSelaAS
       rdfs:comment "Arah kebijakan tarif/fiskal AS."@id ;
       rdfs:label "Pemilu Sela AS 3 Nov 2026"@id ;
       ex:hariMenujuKatalis
-              -9 ;
+              -16 ;
       ex:katalisSektor ex:Sektor_Teknologi , ex:Sektor_Energi ;
       ex:tanggalKatalis "2026-11-03"^^xsd:string .
 
@@ -188,16 +188,16 @@ ex:Ind_SaldoMargin
 
 ex:Makro_DepositFacility
       a       ex:IndikatorMoneter , owl:NamedIndividual ;
-      rdfs:comment "Dinaikkan untuk stabilisasi rupiah."@id ;
+      rdfs:comment "Naik 25 bps bersama BI-Rate; Lending Facility 6,75%."@id ;
       rdfs:label "BI Deposit Facility"@id ;
       ex:dirilisOleh ex:BankIndonesia ;
       ex:frekuensiHari 30 ;
-      ex:nilaiIndikator "5.0"^^xsd:double ;
+      ex:nilaiIndikator "5.25"^^xsd:double ;
       ex:satuan "%"^^xsd:string ;
-      ex:sumberReferensi "https://www.idnfinancials.com/news/70614/bank-indonesia-holds-rate-at-5-75-raises-deposit-facility-rate-to-5"^^xsd:string ;
-      ex:tanggalData "2026-10-21"^^xsd:string ;
-      ex:umurDataHari 22 ;
-      ex:urlSumber "https://www.idnfinancials.com/news/70614/bank-indonesia-holds-rate-at-5-75-raises-deposit-facility-rate-to-5"^^xsd:string .
+      ex:sumberReferensi "https://www.bloombergtechnoz.com/detail-news/128231/rangkuman-keputusan-bi-november-2026-bi-rate-naik-jadi-6"^^xsd:string ;
+      ex:tanggalData "2026-11-18"^^xsd:string ;
+      ex:umurDataHari 1 ;
+      ex:urlSumber "https://www.bloombergtechnoz.com/detail-news/128231/rangkuman-keputusan-bi-november-2026-bi-rate-naik-jadi-6"^^xsd:string .
 
 ex:Src_GDELT
       a       owl:NamedIndividual , ex:SumberDataAlternatif ;
@@ -230,7 +230,7 @@ ex:Berita_N01
       ex:sumberReferensi "https://market.bisnis.com/read/20261008/7/2010804/fomc-minutes-buka-peluang-kenaikan-bunga-ihsg-dibayangi-tekanan"^^xsd:string ;
       ex:tanggalTerbit "2026-10-08"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_FOMC_Hawkish_2026 ;
-      ex:umurHari 35 ;
+      ex:umurHari 42 ;
       ex:urlSumber "https://market.bisnis.com/read/20261008/7/2010804/fomc-minutes-buka-peluang-kenaikan-bunga-ihsg-dibayangi-tekanan"^^xsd:string .
 
 ex:KomoditasAgrikultur
@@ -296,7 +296,7 @@ ex:ACES
       ex:skorAccDistBroker
               "-18.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.058"^^xsd:double ;
+              "-0.04"^^xsd:double ;
       ex:terdeteksiPola ex:HeadAndShoulders ;
       ex:termasukSektor ex:Sektor_KonsumenNonPrimer ;
       ex:termasukSubsektor
@@ -380,7 +380,7 @@ ex:Berita_N03
       ex:sumberReferensi "https://www.rctiplus.com/news/detail/idxchannel/5485054/tiga-petinggi-the-fed-kecilkan-peluang-kenaikan-suku-bunga-pada-oktober-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-10-05"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_FOMC_Hawkish_2026 ;
-      ex:umurHari 38 ;
+      ex:umurHari 45 ;
       ex:urlSumber "https://www.rctiplus.com/news/detail/idxchannel/5485054/tiga-petinggi-the-fed-kecilkan-peluang-kenaikan-suku-bunga-pada-oktober-2026"^^xsd:string .
 
 ex:RisikoHSC
@@ -430,7 +430,7 @@ ex:Berita_N02
       ex:sumberReferensi "https://investortrust.id/international/89954/risalah-fomc-ungkap-perpecahan-pejabat-the-fed-indikasikan-suku-bunga-mendekati-3-pada-2027"^^xsd:string ;
       ex:tanggalTerbit "2026-10-09"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_FOMC_Hawkish_2026 ;
-      ex:umurHari 34 ;
+      ex:umurHari 41 ;
       ex:urlSumber "https://investortrust.id/international/89954/risalah-fomc-ungkap-perpecahan-pejabat-the-fed-indikasikan-suku-bunga-mendekati-3-pada-2027"^^xsd:string .
 
 ex:Aturan_R_SEK_12b
@@ -484,7 +484,7 @@ ex:Berita_N05
       ex:sumberReferensi "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-10-21"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_BI_RDG_Okt2026 ;
-      ex:umurHari 22 ;
+      ex:umurHari 29 ;
       ex:urlSumber "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026"^^xsd:string .
 
 ex:Sentimen_Positif
@@ -593,7 +593,7 @@ ex:Berita_N04
       ex:sumberReferensi "https://www.kucoin.com/id/news/flash/fed-dissenters-push-for-rate-hike-amid-inflation-concerns"^^xsd:string ;
       ex:tanggalTerbit "2026-10-06"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_FOMC_Hawkish_2026 ;
-      ex:umurHari 37 ;
+      ex:umurHari 44 ;
       ex:urlSumber "https://www.kucoin.com/id/news/flash/fed-dissenters-push-for-rate-hike-amid-inflation-concerns"^^xsd:string .
 
 ex:Grup_Unilever
@@ -667,7 +667,7 @@ ex:Berita_N07
       ex:tanggalTerbit "2026-10-21"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_BI_RDG_Okt2026 , ex:Ev_BI_TurunkanGWM ;
       ex:tentangSektor ex:Sektor_Keuangan ;
-      ex:umurHari 22 ;
+      ex:umurHari 29 ;
       ex:urlSumber "https://insight.kontan.co.id/news/deposit-facility-naik-saat-bi-rate-tetap-pada-oktober-2026-bi-akan-turunkan-gwm-bank"^^xsd:string .
 
 ex:Ind_SahamDigadaikan
@@ -762,7 +762,7 @@ ex:Berita_N06
       ex:sumberReferensi "https://finansial.bisnis.com/read/20261021/11/2014377/bi-rate-diproyeksi-naik-ke-6-rupiah-dan-arus-modal-asing-jadi-pertimbangan"^^xsd:string ;
       ex:tanggalTerbit "2026-10-21"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_EkspektasiKenaikanBIRate ;
-      ex:umurHari 22 ;
+      ex:umurHari 29 ;
       ex:urlSumber "https://finansial.bisnis.com/read/20261021/11/2014377/bi-rate-diproyeksi-naik-ke-6-rupiah-dan-arus-modal-asing-jadi-pertimbangan"^^xsd:string .
 
 ex:ThreeWhiteSoldiers
@@ -786,7 +786,7 @@ ex:Mv_YieldUSNaik
       a       ex:PergerakanMakro , owl:NamedIndividual ;
       rdfs:label "Yield US Treasury Naik"@id ;
       ex:menyebabkan ex:Mv_DolarMenguat ;
-      ex:merugikanSektor ex:Sektor_Teknologi , ex:Sektor_PropertiRealEstat .
+      ex:merugikanSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Teknologi .
 
 <urn:swrl#d3>
       a       swrl:Variable .
@@ -866,7 +866,7 @@ ex:Berita_N09
               "0.5"^^xsd:double ;
       ex:sumberReferensi "https://databoks.katadata.co.id/en/market/statistics/6ad888653144b/ihsg-edges-up-after-bi-keeps-interest-rates-steady-wednesday-october-21-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-10-21"^^xsd:date ;
-      ex:umurHari 22 ;
+      ex:umurHari 29 ;
       ex:urlSumber "https://databoks.katadata.co.id/en/market/statistics/6ad888653144b/ihsg-edges-up-after-bi-keeps-interest-rates-steady-wednesday-october-21-2026"^^xsd:string .
 
 ex:BIRD
@@ -927,7 +927,7 @@ ex:BIRD
       ex:skorAccDistBroker
               "5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.054"^^xsd:double ;
+              "-0.03"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_TransportasiLogistik ;
       ex:termasukSubsektor
@@ -953,7 +953,7 @@ ex:Berita_N08
       ex:sumberReferensi "https://rri.co.id/en/business/2664084/bi-holds-benchmark-rate-at-575-percent-amid-rupiah-pressure-global-uncertainty"^^xsd:string ;
       ex:tanggalTerbit "2026-10-21"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_RupiahTertekan_2026 ;
-      ex:umurHari 22 ;
+      ex:umurHari 29 ;
       ex:urlSumber "https://rri.co.id/en/business/2664084/bi-holds-benchmark-rate-at-575-percent-amid-rupiah-pressure-global-uncertainty"^^xsd:string .
 
 ex:diputuskanOleh
@@ -1074,7 +1074,7 @@ ex:DMAS
       ex:skorAccDistBroker
               "6.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.089"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_PropertiRealEstat ;
       ex:termasukSubsektor
@@ -1205,7 +1205,7 @@ ex:BBNI
       ex:skorAccDistBroker
               "5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.308"^^xsd:double ;
+              "0.351"^^xsd:double ;
       ex:terdeteksiPola ex:Hammer ;
       ex:termasukSektor ex:Sektor_Keuangan ;
       ex:termasukSubsektor
@@ -1279,7 +1279,7 @@ ex:Sektor_TransportasiLogistik
       ex:skorFaseMid 1 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.135"^^xsd:double ;
+              "-0.075"^^xsd:double ;
       ex:skorTemaStruktural
               0 .
 
@@ -1311,6 +1311,9 @@ ex:PenilaianBullishModerat
       rdfs:comment "Skor 8-13."@id ;
       rdfs:label "Penilaian: Bullish Moderat"@id ;
       rdfs:subClassOf ex:KategoriInferensi .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:FundamentalKuat ex:FundamentalSedang ex:FundamentalLemah) .
 
 ex:Kasus_Krisis1998
       a       ex:PeriodeHistoris , owl:NamedIndividual ;
@@ -1447,7 +1450,7 @@ ex:Sektor_Energi
       ex:skorFaseMid 1 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "0.006"^^xsd:double ;
+              "-0.005"^^xsd:double ;
       ex:skorTemaStruktural
               0 .
 
@@ -1609,7 +1612,7 @@ ex:Berita_N11
       ex:tentangEmiten ex:BMRI , ex:BBCA ;
       ex:tentangPeristiwa ex:Ev_KrisisPasarModal_2026 ;
       ex:tentangSektor ex:Sektor_Keuangan ;
-      ex:umurHari 25 ;
+      ex:umurHari 32 ;
       ex:urlSumber "https://market.bisnis.com/read/20261018/7/2013517/ihsg-ambruk-asing-net-sell-jumbo-di-saham-big-banks-bbca-bmri"^^xsd:string .
 
 ex:LockUp
@@ -1652,7 +1655,7 @@ ex:Berita_N10
       ex:tanggalTerbit "2026-10-20"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_KrisisPasarModal_2026 ;
       ex:tentangSektor ex:Sektor_Infrastruktur , ex:Sektor_Keuangan ;
-      ex:umurHari 23 ;
+      ex:umurHari 30 ;
       ex:urlSumber "https://insight.kontan.co.id/news/ihsg-terendah-6-tahun-waspadai-tekanan-jual-saham-big-caps-hari-ini-2010"^^xsd:string .
 
 <urn:swrl#v1>
@@ -1662,6 +1665,9 @@ ex:LaporanArusKas
       a       ex:LaporanKeuangan , owl:NamedIndividual ;
       rdfs:comment "Arus kas operasi (CFO), investasi (CFI), pendanaan (CFF)."@id ;
       rdfs:label "Laporan Arus Kas"@id .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:SektorBullishKuat ex:SektorBullishModerat ex:SektorNetral ex:SektorBearish) .
 
 ex:Berita_N13
       a       owl:NamedIndividual , ex:BeritaEmiten ;
@@ -1677,7 +1683,7 @@ ex:Berita_N13
       ex:sumberReferensi "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string ;
       ex:tanggalTerbit "2026-07-01"^^xsd:date ;
       ex:tentangEmiten ex:MDKA ;
-      ex:umurHari 134 ;
+      ex:umurHari 141 ;
       ex:urlSumber "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string .
 
 ex:Penyedia_KRX
@@ -1776,7 +1782,7 @@ ex:Berita_N12
       ex:tentangEmiten ex:TLKM , ex:BMRI , ex:BBCA , ex:BBRI , ex:AMMN ;
       ex:tentangPeristiwa ex:Ev_KrisisPasarModal_2026 , ex:Ev_TwinDeficit_2026 ;
       ex:tentangSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Infrastruktur , ex:Sektor_Energi ;
-      ex:umurHari 134 ;
+      ex:umurHari 141 ;
       ex:urlSumber "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string .
 
 ex:skorFaseResesi
@@ -1958,7 +1964,7 @@ ex:Berita_N15
       ex:sumberReferensi "https://www.cnbcindonesia.com/market/20260316085914-17-719251/perang-iran-vs-as-israel-makin-gila-minyak-sentuh-us-100-lagi"^^xsd:string ;
       ex:tanggalTerbit "2026-03-16"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_PerangIran_AS_Israel_2026 ;
-      ex:umurHari 241 ;
+      ex:umurHari 248 ;
       ex:urlSumber "https://www.cnbcindonesia.com/market/20260316085914-17-719251/perang-iran-vs-as-israel-makin-gila-minyak-sentuh-us-100-lagi"^^xsd:string .
 
 <urn:swrl#p10>
@@ -1998,7 +2004,7 @@ ex:Berita_N14
       ex:sumberReferensi "https://ekonomi.bisnis.com/read/20260309/620/1958952/perang-iran-vs-as-israel-makin-panas-bikin-harga-minyak-mendidih-dan-pasar-saham-tumbang"^^xsd:string ;
       ex:tanggalTerbit "2026-03-09"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_PerangIran_AS_Israel_2026 ;
-      ex:umurHari 248 ;
+      ex:umurHari 255 ;
       ex:urlSumber "https://ekonomi.bisnis.com/read/20260309/620/1958952/perang-iran-vs-as-israel-makin-panas-bikin-harga-minyak-mendidih-dan-pasar-saham-tumbang"^^xsd:string .
 
 ex:hargaTranche2
@@ -2029,7 +2035,7 @@ ex:Berita_N17
       ex:sumberReferensi "https://news.bloomberglaw.com/bloomberg-government-news/oil-and-gas-prices-plunge-after-us-and-iran-agree-to-a-ceasefire"^^xsd:string ;
       ex:tanggalTerbit "2026-04-15"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_GencatanSenjata_AS_Iran_Apr2026 ;
-      ex:umurHari 211 ;
+      ex:umurHari 218 ;
       ex:urlSumber "https://news.bloomberglaw.com/bloomberg-government-news/oil-and-gas-prices-plunge-after-us-and-iran-agree-to-a-ceasefire"^^xsd:string .
 
 ex:Ind_ATR
@@ -2048,8 +2054,8 @@ ex:K_FOMC_Okt2026
       rdfs:comment "Peluang kenaikan lanjutan."@id ;
       rdfs:label "FOMC 28 Okt 2026"@id ;
       ex:hariMenujuKatalis
-              -15 ;
-      ex:katalisSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Teknologi , ex:Sektor_Keuangan ;
+              -22 ;
+      ex:katalisSektor ex:Sektor_Teknologi , ex:Sektor_PropertiRealEstat , ex:Sektor_Keuangan ;
       ex:tanggalKatalis "2026-10-28"^^xsd:string .
 
 ex:kredibilitasSumber
@@ -2073,7 +2079,7 @@ ex:Berita_N16
       ex:sumberReferensi "https://www.bloomberg.com/news/articles/2026-04-09/goldman-flags-100-plus-brent-if-hormuz-shut-for-another-month"^^xsd:string ;
       ex:tanggalTerbit "2026-04-09"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_PenutupanHormuz_2026 ;
-      ex:umurHari 217 ;
+      ex:umurHari 224 ;
       ex:urlSumber "https://www.bloomberg.com/news/articles/2026-04-09/goldman-flags-100-plus-brent-if-hormuz-shut-for-another-month"^^xsd:string .
 
 ex:Ind_InflasiInti
@@ -2101,7 +2107,7 @@ ex:Berita_N19
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string ;
       ex:tanggalTerbit "2026-10-13"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_EskalasiTimurTengah_Okt2026 ;
-      ex:umurHari 30 ;
+      ex:umurHari 37 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string .
 
 ex:Ind_AISC
@@ -2174,7 +2180,7 @@ ex:Berita_N18
       ex:sumberReferensi "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Jump-over-7-as-Iran-Ceasefire-Declared-Over.amp.html"^^xsd:string ;
       ex:tanggalTerbit "2026-07-08"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_PenutupanHormuz_2026 ;
-      ex:umurHari 127 ;
+      ex:umurHari 134 ;
       ex:urlSumber "https://oilprice.com/Latest-Energy-News/World-News/Oil-Prices-Jump-over-7-as-Iran-Ceasefire-Declared-Over.amp.html"^^xsd:string .
 
 <urn:swrl#v9>
@@ -2418,7 +2424,7 @@ ex:BRMS
       ex:jarakVWAPPersen "1.4"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              2 ;
+              3 ;
       ex:kapitalisasiPasarT
               "61.0"^^xsd:double ;
       ex:kodeSaham "BRMS"^^xsd:string ;
@@ -2450,7 +2456,7 @@ ex:BRMS
       ex:skorAccDistBroker
               "15.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.12"^^xsd:double ;
+              "-0.045"^^xsd:double ;
       ex:terdeteksiPola ex:ThreeWhiteSoldiers , ex:BullFlag ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
@@ -2555,15 +2561,15 @@ ex:MomentumTrading
 
 ex:Makro_IHSG
       a       ex:IndikatorAliranDana , owl:NamedIndividual ;
-      rdfs:comment "Naik 2,66% pada 12 Nov (relief rally usai pengumuman MSCI & peristiwa politik domestik)."@id ;
+      rdfs:comment "Turun 1,07% pada hari BI menaikkan bunga; asing net sell Rp443 M."@id ;
       rdfs:label "Level IHSG"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "5250.9"^^xsd:double ;
+      ex:nilaiIndikator "5247.88"^^xsd:double ;
       ex:satuan "poin"^^xsd:string ;
-      ex:sumberReferensi "https://www.cnbcindonesia.com/market/20261112152847-17-784722/ihsg-ditutup-naik-266-ke-525090-usai-gibran-mundur-rilis-msci"^^xsd:string ;
-      ex:tanggalData "2026-11-12"^^xsd:string ;
-      ex:umurDataHari 0 ;
-      ex:urlSumber "https://www.cnbcindonesia.com/market/20261112152847-17-784722/ihsg-ditutup-naik-266-ke-525090-usai-gibran-mundur-rilis-msci"^^xsd:string .
+      ex:sumberReferensi "https://www.cnbcindonesia.com/market/20261118152552-17-786366/ihsg-ditutup-melemah-107-ke-level-52478"^^xsd:string ;
+      ex:tanggalData "2026-11-18"^^xsd:string ;
+      ex:umurDataHari 1 ;
+      ex:urlSumber "https://www.cnbcindonesia.com/market/20261118152552-17-786366/ihsg-ditutup-melemah-107-ke-level-52478"^^xsd:string .
 
 ex:aliranAsing3BulanT
       a       owl:DatatypeProperty ;
@@ -2820,13 +2826,16 @@ ex:NCKL
       ex:skorAccDistBroker
               "18.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.03"^^xsd:double ;
+              "-0.038"^^xsd:double ;
       ex:terdeteksiPola ex:InverseHeadAndShoulders ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
               ex:Sub_Nikel ;
       ex:transaksiOrangDalam
               0 .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:Undervalued ex:FairValued ex:Overvalued) .
 
 ex:Tesis_Infrastruktur_DataCenter
       a       ex:TesisInvestasi , owl:NamedIndividual ;
@@ -2886,6 +2895,9 @@ ex:IDXV30
       ex:jumlahKonstituen 30 ;
       ex:kodeIndeks "IDXV30"^^xsd:string ;
       ex:negaraAsal "Indonesia"^^xsd:string .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:PenilaianBullishKuat ex:PenilaianBullishModerat ex:PenilaianNetral ex:PenilaianBearish) .
 
 ex:Mv_AliranAsingKeluarEM
       a       ex:PergerakanMakro , owl:NamedIndividual ;
@@ -3066,15 +3078,15 @@ ex:RevisiLabaTurun
 
 ex:Makro_Brent
       a       ex:IndikatorHargaKomoditas , owl:NamedIndividual ;
-      rdfs:comment "Turun dari US$106 (Okt) karena produksi OPEC+ naik; risiko Hormuz masih ada."@id ;
+      rdfs:comment "Turun 1,28%: stok minyak AS naik 3,4 juta barel; IEA perkirakan surplus pasokan meski risiko Hormuz masih ada."@id ;
       rdfs:label "Harga Brent"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "92.39"^^xsd:double ;
+      ex:nilaiIndikator "91.95"^^xsd:double ;
       ex:satuan "US$/barel"^^xsd:string ;
-      ex:sumberReferensi "https://internasional.kontan.co.id/news/minyak-brent-turun-ke-us-9239-per-barel-kamis-1211-pasar-cermati-pasokan-global"^^xsd:string ;
-      ex:tanggalData "2026-11-12"^^xsd:string ;
-      ex:umurDataHari 0 ;
-      ex:urlSumber "https://internasional.kontan.co.id/news/minyak-brent-turun-ke-us-9239-per-barel-kamis-1211-pasar-cermati-pasokan-global"^^xsd:string .
+      ex:sumberReferensi "https://periskop.id/pasar-modal/20261119/bursa-dunia-18-november-2026-pasar-global-tertekan-saham-ai-beragam"^^xsd:string ;
+      ex:tanggalData "2026-11-18"^^xsd:string ;
+      ex:umurDataHari 1 ;
+      ex:urlSumber "https://periskop.id/pasar-modal/20261119/bursa-dunia-18-november-2026-pasar-global-tertekan-saham-ai-beragam"^^xsd:string .
 
 <urn:swrl#u>
       a       swrl:Variable .
@@ -3091,7 +3103,7 @@ ex:Makro_ProyeksiBrentEIA
       ex:satuan "US$/barel"^^xsd:string ;
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string ;
       ex:tanggalData "2026-10-06"^^xsd:string ;
-      ex:umurDataHari 37 ;
+      ex:umurDataHari 44 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string .
 
 ex:H05_Inflasi
@@ -3217,15 +3229,15 @@ ex:PenandaKualitasData
 
 ex:Makro_WTI
       a       ex:IndikatorHargaKomoditas , owl:NamedIndividual ;
-      rdfs:comment "Menuju penurunan mingguan."@id ;
+      rdfs:comment "Brent & WTI terkoreksi ±16-20% sepanjang November."@id ;
       rdfs:label "Harga WTI"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "86.16"^^xsd:double ;
+      ex:nilaiIndikator "86.01"^^xsd:double ;
       ex:satuan "US$/barel"^^xsd:string ;
-      ex:sumberReferensi "https://internasional.kontan.co.id/news/minyak-brent-turun-ke-us-9239-per-barel-kamis-1211-pasar-cermati-pasokan-global"^^xsd:string ;
-      ex:tanggalData "2026-11-12"^^xsd:string ;
-      ex:umurDataHari 0 ;
-      ex:urlSumber "https://internasional.kontan.co.id/news/minyak-brent-turun-ke-us-9239-per-barel-kamis-1211-pasar-cermati-pasokan-global"^^xsd:string .
+      ex:sumberReferensi "https://suksesfinansial.id/detail/601728/harga-minyak-dunia-naik-brent-usd9314-wti-usd8601-per-barel"^^xsd:string ;
+      ex:tanggalData "2026-11-17"^^xsd:string ;
+      ex:umurDataHari 2 ;
+      ex:urlSumber "https://suksesfinansial.id/detail/601728/harga-minyak-dunia-naik-brent-usd9314-wti-usd8601-per-barel"^^xsd:string .
 
 ex:Aturan_R_SEK_01b
       a       owl:NamedIndividual , swrl:Imp ;
@@ -4061,7 +4073,7 @@ ex:PTBA
       ex:skorAccDistBroker
               "12.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.002"^^xsd:double ;
+              "-0.002"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_Energi ;
       ex:termasukSubsektor
@@ -4158,7 +4170,7 @@ ex:UNTR
       ex:skorAccDistBroker
               "22.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.033"^^xsd:double ;
+              "-0.034"^^xsd:double ;
       ex:terdeteksiPola ex:InverseHeadAndShoulders ;
       ex:termasukSektor ex:Sektor_Perindustrian ;
       ex:termasukSubsektor
@@ -4419,7 +4431,7 @@ ex:Makro_IHSG_30Sep
       ex:satuan "poin"^^xsd:string ;
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/hsbc-pasang-target-ihsg-6200-ruang-penguatan-tinggal-17-persen"^^xsd:string ;
       ex:tanggalData "2026-09-30"^^xsd:string ;
-      ex:umurDataHari 43 ;
+      ex:umurDataHari 50 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/hsbc-pasang-target-ihsg-6200-ruang-penguatan-tinggal-17-persen"^^xsd:string .
 
 ex:Aturan_R_PRF_07
@@ -4548,15 +4560,15 @@ ex:PullbackDalamUptrend
 
 ex:Makro_NetAsingYTD
       a       ex:IndikatorAliranDana , owl:NamedIndividual ;
-      rdfs:comment "Net sell asing YTD ±Rp98 T per pekan pertama Nov 2026."@id ;
+      rdfs:comment "Net sell YTD per 13 Nov; asing kembali net sell Rp484 M (17 Nov) & Rp443 M (18 Nov)."@id ;
       rdfs:label "Net Sell Asing YTD 2026"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "-98.0"^^xsd:double ;
+      ex:nilaiIndikator "-97.62"^^xsd:double ;
       ex:satuan "Rp triliun"^^xsd:string ;
-      ex:sumberReferensi "https://market.bisnis.com/read/20261107/7/2019247/ihsg-turun-013-sepekan-ke-5050-net-sell-asing-capai-rp98-triliun"^^xsd:string ;
-      ex:tanggalData "2026-11-06"^^xsd:string ;
+      ex:sumberReferensi "https://market.bisnis.com/read/20261114/7/2021297/ihsg-sepekan-menguat-582-net-buy-asing-capai-rp46773-miliar"^^xsd:string ;
+      ex:tanggalData "2026-11-13"^^xsd:string ;
       ex:umurDataHari 6 ;
-      ex:urlSumber "https://market.bisnis.com/read/20261107/7/2019247/ihsg-turun-013-sepekan-ke-5050-net-sell-asing-capai-rp98-triliun"^^xsd:string .
+      ex:urlSumber "https://market.bisnis.com/read/20261114/7/2021297/ihsg-sepekan-menguat-582-net-buy-asing-capai-rp46773-miliar"^^xsd:string .
 
 ex:Tema_InklusiKeuangan
       a       owl:NamedIndividual , ex:TemaStruktural ;
@@ -4733,7 +4745,7 @@ ex:K_WindowDressing
       rdfs:comment "Big caps cenderung dijaga menjelang tutup buku."@id ;
       rdfs:label "Window dressing akhir tahun (≈pertengahan Des)"@id ;
       ex:hariMenujuKatalis
-              33 ;
+              26 ;
       ex:katalisIndeks ex:LQ45 ;
       ex:tanggalKatalis "2026-12-15"^^xsd:string .
 
@@ -5121,7 +5133,7 @@ ex:MTDL
       ex:skorAccDistBroker
               "8.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.118"^^xsd:double ;
+              "-0.097"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_Teknologi ;
       ex:termasukSubsektor
@@ -5555,7 +5567,7 @@ ex:Berita_N43
       ex:sumberReferensi "https://journalarta.com/news/2026/10/02/the-fed-pause-oktober-2026-pce-inflasi-melandai/?all=1"^^xsd:string ;
       ex:tanggalTerbit "2026-10-02"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_FOMC_Hawkish_2026 ;
-      ex:umurHari 41 ;
+      ex:umurHari 48 ;
       ex:urlSumber "https://journalarta.com/news/2026/10/02/the-fed-pause-oktober-2026-pce-inflasi-melandai/?all=1"^^xsd:string .
 
 ex:KatalisTerjadwal
@@ -5583,7 +5595,7 @@ ex:Berita_N42
       ex:sumberReferensi "https://www.kabarbursa.com/makro/subsidi-energi-rp3768-triliun-seberapa-kuat-apbn-menahan-lonjakan-harga-minyak"^^xsd:string ;
       ex:tanggalTerbit "2026-10-10"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_TekananFiskalSubsidi ;
-      ex:umurHari 33 ;
+      ex:umurHari 40 ;
       ex:urlSumber "https://www.kabarbursa.com/makro/subsidi-energi-rp3768-triliun-seberapa-kuat-apbn-menahan-lonjakan-harga-minyak"^^xsd:string .
 
 ex:Sub_BankSyariah
@@ -5616,7 +5628,7 @@ ex:Berita_N45
       ex:sumberReferensi "https://market.bisnis.com/read/20261016/7/2013088/bei-minta-klarifikasi-msci-soal-usulan-status-standalone-market"^^xsd:string ;
       ex:tanggalTerbit "2026-10-16"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_MSCI_KonsultasiStandalone_Okt2026 ;
-      ex:umurHari 27 ;
+      ex:umurHari 34 ;
       ex:urlSumber "https://market.bisnis.com/read/20261016/7/2013088/bei-minta-klarifikasi-msci-soal-usulan-status-standalone-market"^^xsd:string .
 
 <urn:swrl#y8>
@@ -5695,7 +5707,7 @@ ex:Sektor_Perindustrian
       ex:skorFaseMid 2 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.083"^^xsd:double ;
+              "-0.085"^^xsd:double ;
       ex:skorTemaStruktural
               1 .
 
@@ -5712,7 +5724,7 @@ ex:Berita_N44
               "-0.75"^^xsd:double ;
       ex:tanggalTerbit "2025-04-03"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_TarifAS_LiberationDay_2025 ;
-      ex:umurHari 588 .
+      ex:umurHari 595 .
 
 <urn:swrl#y9>
       a       swrl:Variable .
@@ -5765,7 +5777,7 @@ ex:Berita_N47
       ex:tanggalTerbit "2026-10-20"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_PembelianDomestikBlueChip , ex:Ev_RencanaBEI_KeluarkanHSC , ex:Ev_CrashIHSG_16Okt2026 ;
       ex:tentangSektor ex:Sektor_Infrastruktur , ex:Sektor_Keuangan ;
-      ex:umurHari 23 ;
+      ex:umurHari 30 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/pelemahan-dinilai-mulai-terbatas-simak-arah-ihsg-hari-ini"^^xsd:string .
 
 ex:PolaSpoofing
@@ -5860,7 +5872,7 @@ ex:AALI
       ex:skorAccDistBroker
               "18.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:CupAndHandle ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -5904,7 +5916,7 @@ ex:Berita_N46
       ex:sumberReferensi "https://market.bisnis.com/read/20261016/7/2013233/wamenko-perekonomian-minta-investor-tak-panik-msci-tak-selalu-benar"^^xsd:string ;
       ex:tanggalTerbit "2026-10-16"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_MSCI_KonsultasiStandalone_Okt2026 ;
-      ex:umurHari 27 ;
+      ex:umurHari 34 ;
       ex:urlSumber "https://market.bisnis.com/read/20261016/7/2013233/wamenko-perekonomian-minta-investor-tak-panik-msci-tak-selalu-benar"^^xsd:string .
 
 ex:KonfirmasiPolaBullish
@@ -6040,7 +6052,7 @@ ex:Berita_N49
       ex:sumberReferensi "https://investortrust.id/market/116614/the-fed-naikkan-suku-bunga-ke-3-754-00-ini-implikasinya-bagi-pasar-obligasi-indonesia"^^xsd:string ;
       ex:tanggalTerbit "2026-09-17"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_FedHike_Sep2026 ;
-      ex:umurHari 56 ;
+      ex:umurHari 63 ;
       ex:urlSumber "https://investortrust.id/market/116614/the-fed-naikkan-suku-bunga-ke-3-754-00-ini-implikasinya-bagi-pasar-obligasi-indonesia"^^xsd:string .
 
 <urn:swrl#y4>
@@ -6078,7 +6090,7 @@ ex:K_RDG_BI_Nov2026
       rdfs:comment "Konsensus ekonom: BI-Rate naik 25 bps ke 6% untuk menjaga rupiah."@id ;
       rdfs:label "RDG Bank Indonesia 17-18 Nov 2026"@id ;
       ex:hariMenujuKatalis
-              6 ;
+              -1 ;
       ex:katalisSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Keuangan ;
       ex:tanggalKatalis "2026-11-18"^^xsd:string .
 
@@ -6107,7 +6119,7 @@ ex:Berita_N48
       ex:sumberReferensi "https://investasi.kontan.co.id/news/cds-indonesia-terus-menanjak-sentimen-msci-tekan-persepsi-risiko-investor"^^xsd:string ;
       ex:tanggalTerbit "2026-10-21"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_MSCI_KonsultasiStandalone_Okt2026 ;
-      ex:umurHari 22 ;
+      ex:umurHari 29 ;
       ex:urlSumber "https://investasi.kontan.co.id/news/cds-indonesia-terus-menanjak-sentimen-msci-tekan-persepsi-risiko-investor"^^xsd:string .
 
 ex:Aturan_R_TEK_02a
@@ -6525,7 +6537,7 @@ ex:ICBP
       ex:skorAccDistBroker
               "20.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:Doji ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -6745,7 +6757,7 @@ ex:ISAT
       ex:skorAccDistBroker
               "20.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.311"^^xsd:double ;
+              "0.326"^^xsd:double ;
       ex:terdeteksiPola ex:FallingWedge ;
       ex:termasukSektor ex:Sektor_Infrastruktur ;
       ex:termasukSubsektor
@@ -6770,9 +6782,6 @@ ex:KonflikFundamentalVsBandar
       rdfs:comment "Fundamental kuat tetapi bandar distribusi."@id ;
       rdfs:label "Konflik: Fundamental vs Bandar"@id ;
       rdfs:subClassOf ex:InferensiEmiten .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:FundamentalKuat ex:FundamentalSedang ex:FundamentalLemah) .
 
 ex:Stk_EdukatorKomunitas
       a       ex:StakeholderKandidat , owl:NamedIndividual ;
@@ -6911,7 +6920,7 @@ ex:Makro_EstimasiOutflowPasif
       ex:satuan "US$ miliar (titik tengah 3-6)"^^xsd:string ;
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/pelemahan-dinilai-mulai-terbatas-simak-arah-ihsg-hari-ini"^^xsd:string ;
       ex:tanggalData "2026-10-20"^^xsd:string ;
-      ex:umurDataHari 23 ;
+      ex:umurDataHari 30 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/pelemahan-dinilai-mulai-terbatas-simak-arah-ihsg-hari-ini"^^xsd:string .
 
 ex:Neraca
@@ -7036,7 +7045,7 @@ ex:Berita_N41
       ex:tentangEmiten ex:BMRI , ex:BBCA , ex:BBRI ;
       ex:tentangPeristiwa ex:Ev_KrisisPasarModal_2026 ;
       ex:tentangSektor ex:Sektor_Keuangan ;
-      ex:umurHari 24 ;
+      ex:umurHari 31 ;
       ex:urlSumber "https://keuangan.kontan.co.id/news/aksi-jual-asing-tekan-saham-big-banks-simak-rekomendasinya"^^xsd:string .
 
 ex:Mv_GangguanPelayaran
@@ -7178,7 +7187,7 @@ ex:Berita_N40
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/minyak-brent-naik-ke-usd75-ancaman-suplai-bikin-pasar-waspada"^^xsd:string ;
       ex:tanggalTerbit "2025-12-08"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_OPEC_PertahankanProduksi ;
-      ex:umurHari 339 ;
+      ex:umurHari 346 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/minyak-brent-naik-ke-usd75-ancaman-suplai-bikin-pasar-waspada"^^xsd:string .
 
 ex:ERPSangatMenarik
@@ -7210,7 +7219,7 @@ ex:Berita_N55
       ex:tanggalTerbit "2026-11-12"^^xsd:date ;
       ex:tentangEmiten ex:BRMS ;
       ex:tentangPeristiwa ex:Ev_MSCI_Freeze_2026 ;
-      ex:umurHari 0 ;
+      ex:umurHari 7 ;
       ex:urlSumber "https://www.cnbcindonesia.com/market/20261112152847-17-784722/ihsg-ditutup-naik-266-ke-525090-usai-gibran-mundur-rilis-msci"^^xsd:string .
 
 ex:EmitenUji
@@ -7296,7 +7305,7 @@ ex:Berita_N54
               "0.0"^^xsd:double ;
       ex:sumberReferensi "https://market.bisnis.com/read/20260813/7/1995834/msci-umumkan-jadwal-8-index-review-hingga-agustus-2028"^^xsd:string ;
       ex:tanggalTerbit "2026-08-13"^^xsd:date ;
-      ex:umurHari 91 ;
+      ex:umurHari 98 ;
       ex:urlSumber "https://market.bisnis.com/read/20260813/7/1995834/msci-umumkan-jadwal-8-index-review-hingga-agustus-2028"^^xsd:string .
 
 ex:KLBF
@@ -7358,7 +7367,7 @@ ex:KLBF
       ex:skorAccDistBroker
               "22.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.019"^^xsd:double ;
+              "-0.035"^^xsd:double ;
       ex:terdeteksiPola ex:DoubleBottom ;
       ex:termasukSektor ex:Sektor_Kesehatan ;
       ex:termasukSubsektor
@@ -7413,15 +7422,15 @@ ex:Mv_HargaMinyakTurun
 
 ex:Makro_YieldSBN10Y
       a       ex:IndikatorMoneter , owl:NamedIndividual ;
-      rdfs:comment "Naik dari 7,11% (30 Sep)."@id ;
+      rdfs:comment "AsianBondsOnline (ADB), penutupan 11 Nov 2026; +147 bps YTD."@id ;
       rdfs:label "Yield SBN 10Y"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "7.707"^^xsd:double ;
+      ex:nilaiIndikator "7.668"^^xsd:double ;
       ex:satuan "%"^^xsd:string ;
-      ex:sumberReferensi "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string ;
-      ex:tanggalData "2026-11-02"^^xsd:string ;
-      ex:umurDataHari 10 ;
-      ex:urlSumber "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string .
+      ex:sumberReferensi "https://asianbondsonline.adb.org/indonesia/"^^xsd:string ;
+      ex:tanggalData "2026-11-11"^^xsd:string ;
+      ex:umurDataHari 8 ;
+      ex:urlSumber "https://asianbondsonline.adb.org/indonesia/"^^xsd:string .
 
 ex:Berita_N57
       a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
@@ -7440,7 +7449,7 @@ ex:Berita_N57
       ex:tentangEmiten ex:MEDC , ex:AKRA ;
       ex:tentangPeristiwa ex:Ev_OPEC_PertahankanProduksi ;
       ex:tentangSektor ex:Sektor_Energi ;
-      ex:umurHari 0 ;
+      ex:umurHari 7 ;
       ex:urlSumber "https://internasional.kontan.co.id/news/minyak-brent-turun-ke-us-9239-per-barel-kamis-1211-pasar-cermati-pasokan-global"^^xsd:string .
 
 ex:Aturan_R_TEK_01b
@@ -7514,7 +7523,7 @@ ex:Berita_N56
       ex:tentangEmiten ex:MDKA , ex:BRMS , ex:ANTM ;
       ex:tentangPeristiwa ex:Ev_FOMC_Hawkish_2026 ;
       ex:tentangSektor ex:Sektor_BarangBaku ;
-      ex:umurHari 0 ;
+      ex:umurHari 7 ;
       ex:urlSumber "https://internasional.kontan.co.id/news/harga-emas-dunia-turun-ke-us-3959-per-ons-pasar-antisipasi-kenaikan-bunga-the-fed"^^xsd:string .
 
 ex:faseSiklus
@@ -7620,7 +7629,7 @@ ex:TOWR
       ex:skorAccDistBroker
               "-5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.074"^^xsd:double ;
       ex:terdeteksiPola ex:DescendingTriangle ;
       ex:termasukSektor ex:Sektor_Infrastruktur ;
       ex:termasukSubsektor
@@ -7657,7 +7666,7 @@ ex:Berita_N59
       ex:tanggalTerbit "2026-11-02"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_InflasiNaik_Sep2026 ;
       ex:tentangSektor ex:Sektor_KonsumenPrimer ;
-      ex:umurHari 10 ;
+      ex:umurHari 17 ;
       ex:urlSumber "https://ekonomi.bisnis.com/read/20261102/9/2017542/penyebab-inflasi-oktober-2026-jadi-323-yoy"^^xsd:string .
 
 ex:EmitenPerbankan
@@ -7683,7 +7692,7 @@ ex:Berita_N58
       ex:tanggalTerbit "2026-11-02"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_EkspektasiKenaikanBIRate ;
       ex:tentangSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Keuangan ;
-      ex:umurHari 10 ;
+      ex:umurHari 17 ;
       ex:urlSumber "https://investor.id/macroeconomy/460342/rupiah-tertekan-bi-diprediksi-naikkan-birate-ke-6-pada-bulan-ini"^^xsd:string .
 
 ex:Aturan_R_TEK_01a
@@ -7929,7 +7938,7 @@ ex:INCO
       ex:skorAccDistBroker
               "5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.43"^^xsd:double ;
+              "-0.438"^^xsd:double ;
       ex:terdeteksiPola ex:FallingWedge ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
@@ -8089,9 +8098,6 @@ ex:Emiten
       rdfs:label "Emiten"@id ;
       rdfs:subClassOf ex:EntitasPasarModal .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:SektorBullishKuat ex:SektorBullishModerat ex:SektorNetral ex:SektorBearish) .
-
 ex:Aturan_R_STR_04c
       a       owl:NamedIndividual , swrl:Imp ;
       rdfs:comment "[Regime Pasar] Poin stres kurs USD/IDR: kursUSDIDR ∈ [-inf, 16500.0) → poinStresKurs 0"@id ;
@@ -8243,9 +8249,6 @@ ex:RevenueGrowth
       ex:interpretasi "Momentum bisnis."@id ;
       ex:rumus "(Rev_t / Rev_t-1) - 1"@id .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:PenilaianBullishKuat ex:PenilaianBullishModerat ex:PenilaianNetral ex:PenilaianBearish) .
-
 ex:Persona_Mahasiswa_Konservatif
       a       ex:InvestorRitel , owl:NamedIndividual ;
       rdfs:label "Persona: Mahasiswa, Konservatif"@id ;
@@ -8329,7 +8332,7 @@ ex:ANTM
       ex:jarakVWAPPersen "0.7"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              4 ;
+              5 ;
       ex:kapitalisasiPasarT
               "70.0"^^xsd:double ;
       ex:kodeSaham "ANTM"^^xsd:string ;
@@ -8361,7 +8364,7 @@ ex:ANTM
       ex:skorAccDistBroker
               "32.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.135"^^xsd:double ;
+              "-0.197"^^xsd:double ;
       ex:terdeteksiPola ex:CupAndHandle , ex:BullFlag ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
@@ -8450,7 +8453,7 @@ ex:JSMR
       ex:skorAccDistBroker
               "-10.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.074"^^xsd:double ;
       ex:terdeteksiPola ex:HeadAndShoulders ;
       ex:termasukSektor ex:Sektor_Infrastruktur ;
       ex:termasukSubsektor
@@ -8652,7 +8655,7 @@ ex:INDF
       ex:skorAccDistBroker
               "14.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:Hammer ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -8681,7 +8684,7 @@ ex:Berita_N51
       ex:tanggalTerbit "2026-08-13"^^xsd:date ;
       ex:tentangEmiten ex:CPIN , ex:GOTO ;
       ex:tentangPeristiwa ex:Ev_MSCI_ReviewAgustus2026 ;
-      ex:umurHari 91 ;
+      ex:umurHari 98 ;
       ex:urlSumber "https://www.kabarbursa.com/makro/msci-coret-goto-dan-cpin-bukan-masalah-besar-november-justru-jadi-penentu"^^xsd:string .
 
 ex:Ind_ROIC_WACC
@@ -8767,7 +8770,7 @@ ex:Berita_N50
       ex:tanggalTerbit "2026-09-19"^^xsd:date ;
       ex:tentangEmiten ex:ANTM ;
       ex:tentangPeristiwa ex:Ev_EmasRekor_2026 ;
-      ex:umurHari 54 ;
+      ex:umurHari 61 ;
       ex:urlSumber "https://www.kabarbursa.com/makro/emas-spot-sentuh-usd439011-antam-diprediksi-capai-rp32-juta-per-gram"^^xsd:string .
 
 ex:ValueInvesting
@@ -8785,7 +8788,7 @@ ex:Mv_SukuBungaBINaik
       a       ex:PergerakanMakro , owl:NamedIndividual ;
       rdfs:label "Suku Bunga BI Naik/Tinggi"@id ;
       ex:menyebabkan ex:Mv_BiayaKreditNaik ;
-      ex:merugikanSektor ex:Sektor_Teknologi , ex:Sektor_PropertiRealEstat .
+      ex:merugikanSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Teknologi .
 
 ex:IDXCYCLIC
       a       owl:NamedIndividual , ex:IndeksSektoralBEI ;
@@ -8835,7 +8838,7 @@ ex:Berita_N53
       ex:sumberReferensi "https://market.bisnis.com/read/20260206/92/1950691/premi-risiko-cds-indonesia-naik-tipis-usai-moody-s-turunkan-outlook-utang-ri-ke-negatif"^^xsd:string ;
       ex:tanggalTerbit "2026-02-06"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_MoodysOutlookNegatif_Feb2026 ;
-      ex:umurHari 279 ;
+      ex:umurHari 286 ;
       ex:urlSumber "https://market.bisnis.com/read/20260206/92/1950691/premi-risiko-cds-indonesia-naik-tipis-usai-moody-s-turunkan-outlook-utang-ri-ke-negatif"^^xsd:string .
 
 ex:Makro_RatingSP
@@ -8847,7 +8850,7 @@ ex:Makro_RatingSP
       ex:satuan "BBB/A-2 stabil"^^xsd:string ;
       ex:sumberReferensi "https://investortrust.id/market/109557/target-ihsg-7200-ini-daftar-saham-pilihan-bri-danareksa-dan-target-harganya"^^xsd:string ;
       ex:tanggalData "2026-07"^^xsd:string ;
-      ex:umurDataHari 120 ;
+      ex:umurDataHari 127 ;
       ex:urlSumber "https://investortrust.id/market/109557/target-ihsg-7200-ini-daftar-saham-pilihan-bri-danareksa-dan-target-harganya"^^xsd:string .
 
 ex:Sumber_Rumor
@@ -8872,7 +8875,7 @@ ex:Berita_N52
               "0.5"^^xsd:double ;
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/hsbc-pasang-target-ihsg-6200-ruang-penguatan-tinggal-17-persen"^^xsd:string ;
       ex:tanggalTerbit "2026-10-01"^^xsd:date ;
-      ex:umurHari 42 ;
+      ex:umurHari 49 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/hsbc-pasang-target-ihsg-6200-ruang-penguatan-tinggal-17-persen"^^xsd:string .
 
 ex:Ind_CopperGold
@@ -9029,7 +9032,7 @@ ex:GOTO
       ex:skorAccDistBroker
               "-20.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.28"^^xsd:double ;
+              "-0.259"^^xsd:double ;
       ex:terdeteksiPola ex:DescendingTriangle ;
       ex:termasukSektor ex:Sektor_Teknologi ;
       ex:termasukSubsektor
@@ -9129,16 +9132,13 @@ ex:SMGR
       ex:skorAccDistBroker
               "-20.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.03"^^xsd:double ;
+              "-0.038"^^xsd:double ;
       ex:terdeteksiPola ex:BearishEngulfing , ex:HeadAndShoulders ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
               ex:Sub_Semen ;
       ex:transaksiOrangDalam
               0 .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:Undervalued ex:FairValued ex:Overvalued) .
 
 ex:Src_Satelit
       a       owl:NamedIndividual , ex:SumberDataAlternatif ;
@@ -9163,7 +9163,7 @@ ex:Berita_N21
       ex:sumberReferensi "https://www.idnfinancials.com/id/news/61580/goldman-sachs-naikkan-proyeksi-harga-minyak-akhir-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-10-07"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_EskalasiTimurTengah_Okt2026 ;
-      ex:umurHari 36 ;
+      ex:umurHari 43 ;
       ex:urlSumber "https://www.idnfinancials.com/id/news/61580/goldman-sachs-naikkan-proyeksi-harga-minyak-akhir-2026"^^xsd:string .
 
 <urn:swrl#w4>
@@ -9172,6 +9172,9 @@ ex:Berita_N21
 ex:Penyedia_SSE
       a       owl:NamedIndividual , ex:PenyediaIndeks ;
       rdfs:label "Shanghai Stock Exchange / CSI"@id .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:KatalisBiner ex:KatalisMusiman ex:KatalisTerjadwal) .
 
 ex:Ind_DXY
       a       ex:IndikatorCoincident , owl:NamedIndividual , ex:IndikatorKatalog ;
@@ -9232,7 +9235,7 @@ ex:Berita_N20
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string ;
       ex:tanggalTerbit "2026-10-13"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_GencatanRusiaUkraina_Okt2026 ;
-      ex:umurHari 30 ;
+      ex:umurHari 37 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string .
 
 ex:SektorRobustLintasSkenario
@@ -9264,7 +9267,7 @@ ex:Berita_N23
       ex:sumberReferensi "https://market.bisnis.com/read/20260707/7/1986188/msci-pertahankan-freeze-saham-ri-hingga-review-november-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-07-07"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_MSCI_Freeze_2026 ;
-      ex:umurHari 128 ;
+      ex:umurHari 135 ;
       ex:urlSumber "https://market.bisnis.com/read/20260707/7/1986188/msci-pertahankan-freeze-saham-ri-hingga-review-november-2026"^^xsd:string .
 
 ex:SektorDefensif
@@ -9293,7 +9296,7 @@ ex:Berita_N22
       ex:sumberReferensi "https://investortrust.id/market/100712/msci-freezes-indonesia-weightings-as-jakarta-scrambles-to-save-emerging-market-status"^^xsd:string ;
       ex:tanggalTerbit "2026-04-20"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_ReformasiFreeFloat_OJK , ex:Ev_MSCI_Freeze_2026 ;
-      ex:umurHari 206 ;
+      ex:umurHari 213 ;
       ex:urlSumber "https://investortrust.id/market/100712/msci-freezes-indonesia-weightings-as-jakarta-scrambles-to-save-emerging-market-status"^^xsd:string .
 
 ex:Aturan_R_SKN_01
@@ -9346,7 +9349,7 @@ ex:Berita_N25
       ex:sumberReferensi "https://investortrust.id/market/103129/msci-tetap-freeze-saham-indonesia-reformasi-ojk-dinilai-belum-meyakinkan"^^xsd:string ;
       ex:tanggalTerbit "2026-08-12"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_ReformasiFreeFloat_OJK , ex:Ev_MSCI_Freeze_2026 ;
-      ex:umurHari 92 ;
+      ex:umurHari 99 ;
       ex:urlSumber "https://investortrust.id/market/103129/msci-tetap-freeze-saham-indonesia-reformasi-ojk-dinilai-belum-meyakinkan"^^xsd:string .
 
 ex:Grup_Djarum
@@ -9369,9 +9372,6 @@ ex:Tema_DataCenterAI
       rdfs:comment "Investasi hyperscaler & kebutuhan konektivitas, fiber, menara, listrik."@id ;
       rdfs:label "Data Center & AI"@id ;
       ex:skorKekuatanTema 2 .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:ZonaDistress ex:ZonaAbuAbu ex:ZonaAman) .
 
 <urn:swrl#w0>
       a       swrl:Variable .
@@ -9405,7 +9405,7 @@ ex:Berita_N24
       ex:sumberReferensi "https://www.rctiplus.com/news/detail/idxchannel/5422425/msci-tetap-bekukan-saham-indonesia--tak-ada-penambahan-emiten-pada-review-agustus-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-08-12"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_MSCI_Freeze_2026 ;
-      ex:umurHari 92 ;
+      ex:umurHari 99 ;
       ex:urlSumber "https://www.rctiplus.com/news/detail/idxchannel/5422425/msci-tetap-bekukan-saham-indonesia--tak-ada-penambahan-emiten-pada-review-agustus-2026"^^xsd:string .
 
 <urn:swrl#w1>
@@ -9447,7 +9447,7 @@ ex:Berita_N27
       ex:tanggalTerbit "2026-07-15"^^xsd:date ;
       ex:tentangEmiten ex:TINS , ex:BBNI , ex:BBCA , ex:ANTM , ex:ISAT , ex:AADI , ex:EXCL ;
       ex:tentangPeristiwa ex:Ev_SnP_AfirmasiBBB ;
-      ex:umurHari 120 ;
+      ex:umurHari 127 ;
       ex:urlSumber "https://investortrust.id/market/109557/target-ihsg-7200-ini-daftar-saham-pilihan-bri-danareksa-dan-target-harganya"^^xsd:string .
 
 ex:SnP_Ratings
@@ -9494,7 +9494,7 @@ ex:Berita_N26
       ex:sumberReferensi "https://investortrust.id/market/92712/free-float-dipertanyakan-msci-tangguhkan-review-msci-februari-hingga-peluang-turun-jadi-frontier-market-pasar-saham-indonesia"^^xsd:string ;
       ex:tanggalTerbit "2026-07-08"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_SPDJI_FrontierFlag , ex:Ev_MSCI_Freeze_2026 ;
-      ex:umurHari 127 ;
+      ex:umurHari 134 ;
       ex:urlSumber "https://investortrust.id/market/92712/free-float-dipertanyakan-msci-tangguhkan-review-msci-februari-hingga-peluang-turun-jadi-frontier-market-pasar-saham-indonesia"^^xsd:string .
 
 ex:SILO
@@ -9553,7 +9553,7 @@ ex:SILO
       ex:skorAccDistBroker
               "15.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.019"^^xsd:double ;
+              "-0.035"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_Kesehatan ;
       ex:termasukSubsektor
@@ -9616,7 +9616,7 @@ ex:BRIS
       ex:skorAccDistBroker
               "12.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.092"^^xsd:double ;
+              "-0.05"^^xsd:double ;
       ex:terdeteksiPola ex:DoubleBottom ;
       ex:termasukSektor ex:Sektor_Keuangan ;
       ex:termasukSubsektor
@@ -9640,7 +9640,7 @@ ex:Berita_N29
               "0.75"^^xsd:double ;
       ex:sumberReferensi "https://market.bisnis.com/read/20260901/189/2000529/peluang-ihsg-ke-6650-kiwoom-jagokan-9-saham-pilihan"^^xsd:string ;
       ex:tanggalTerbit "2026-09-01"^^xsd:date ;
-      ex:umurHari 72 ;
+      ex:umurHari 79 ;
       ex:urlSumber "https://market.bisnis.com/read/20260901/189/2000529/peluang-ihsg-ke-6650-kiwoom-jagokan-9-saham-pilihan"^^xsd:string .
 
 ex:TMAS
@@ -9699,7 +9699,7 @@ ex:TMAS
       ex:skorAccDistBroker
               "12.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.054"^^xsd:double ;
+              "-0.03"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_TransportasiLogistik ;
       ex:termasukSubsektor
@@ -9756,7 +9756,7 @@ ex:Berita_N28
               "0.667"^^xsd:double ;
       ex:sumberReferensi "https://market.bisnis.com/read/20261001/189/2008873/ihsg-berpeluang-ke-7000-cek-rekomendasi-saham-oktober-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-10-01"^^xsd:date ;
-      ex:umurHari 42 ;
+      ex:umurHari 49 ;
       ex:urlSumber "https://market.bisnis.com/read/20261001/189/2008873/ihsg-berpeluang-ke-7000-cek-rekomendasi-saham-oktober-2026"^^xsd:string .
 
 ex:ASSA
@@ -9818,7 +9818,7 @@ ex:ASSA
       ex:skorAccDistBroker
               "-6.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.054"^^xsd:double ;
+              "-0.03"^^xsd:double ;
       ex:terdeteksiPola ex:BearFlag ;
       ex:termasukSektor ex:Sektor_TransportasiLogistik ;
       ex:termasukSubsektor
@@ -9832,6 +9832,9 @@ ex:poinMargin
       rdfs:domain ex:Emiten ;
       rdfs:label "poin margin (NPM/NIM)"@id ;
       rdfs:range xsd:integer .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:ZonaDistress ex:ZonaAbuAbu ex:ZonaAman) .
 
 ex:Src_IMF_WB
       a       ex:SumberDataResmi , owl:NamedIndividual ;
@@ -10463,9 +10466,12 @@ ex:K_MSCI_ReviewNov2026
       rdfs:comment "Freeze FIF/NOS dicabut atau diperpanjang."@id ;
       rdfs:label "MSCI Index Review Nov 2026 (umum 11 Nov)"@id ;
       ex:hariMenujuKatalis
-              -1 ;
+              -8 ;
       ex:katalisIndeks ex:MSCI_Indonesia ;
       ex:tanggalKatalis "2026-11-11"^^xsd:string .
+
+[]    a       owl:AllDisjointClasses ;
+      owl:members (ex:CandlestickBullish ex:CandlestickBearish ex:CandlestickIndecision) .
 
 ex:Aturan_R_GEO_08
       a       owl:NamedIndividual , swrl:Imp ;
@@ -10584,7 +10590,7 @@ ex:Sektor_KonsumenNonPrimer
       ex:skorFaseMid 1 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.144"^^xsd:double ;
+              "-0.1"^^xsd:double ;
       ex:skorTemaStruktural
               0 .
 
@@ -10752,9 +10758,6 @@ ex:selisihMA50MA200Persen
       rdfs:label "selisih MA50 vs MA200 (%)"@id ;
       rdfs:range xsd:decimal .
 
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:KatalisBiner ex:KatalisMusiman ex:KatalisTerjadwal) .
-
 ex:Berita_N31
       a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
       rdfs:label "Inflasi September 2026 Naik Jadi 3,28%, Harga Pangan dan Emas Jadi Pendorong"@id ;
@@ -10769,7 +10772,7 @@ ex:Berita_N31
       ex:sumberReferensi "https://insight.kontan.co.id/news/inflasi-september-2026-naik-jadi-328-harga-pangan-dan-emas-jadi-pendorong"^^xsd:string ;
       ex:tanggalTerbit "2026-10-01"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_EmasRekor_2026 , ex:Ev_InflasiNaik_Sep2026 ;
-      ex:umurHari 42 ;
+      ex:umurHari 49 ;
       ex:urlSumber "https://insight.kontan.co.id/news/inflasi-september-2026-naik-jadi-328-harga-pangan-dan-emas-jadi-pendorong"^^xsd:string .
 
 <urn:swrl#x8>
@@ -10832,14 +10835,11 @@ ex:Berita_N30
       ex:sumberReferensi "https://investortrust.id/macro/118018/bps-inflasi-september-2026-tembus-0-30-tahunan-3-28"^^xsd:string ;
       ex:tanggalTerbit "2026-10-01"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_InflasiNaik_Sep2026 ;
-      ex:umurHari 42 ;
+      ex:umurHari 49 ;
       ex:urlSumber "https://investortrust.id/macro/118018/bps-inflasi-september-2026-tembus-0-30-tahunan-3-28"^^xsd:string .
 
 <urn:swrl#g5>
       a       swrl:Variable .
-
-[]    a       owl:AllDisjointClasses ;
-      owl:members (ex:CandlestickBullish ex:CandlestickBearish ex:CandlestickIndecision) .
 
 ex:Berita_N33
       a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
@@ -10855,7 +10855,7 @@ ex:Berita_N33
       ex:sumberReferensi "https://bcasekuritas.co.id/latest-news/news/kemendag-hr-cpo-naik-pada-oktober-2026"^^xsd:string ;
       ex:tanggalTerbit "2026-09-30"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_HargaCPONaik_Okt2026 ;
-      ex:umurHari 43 ;
+      ex:umurHari 50 ;
       ex:urlSumber "https://bcasekuritas.co.id/latest-news/news/kemendag-hr-cpo-naik-pada-oktober-2026"^^xsd:string .
 
 ex:Src_FRED
@@ -10927,7 +10927,7 @@ ex:Berita_N32
       ex:tanggalTerbit "2026-09-30"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_HargaCPONaik_Okt2026 ;
       ex:tentangSektor ex:Sektor_KonsumenPrimer ;
-      ex:umurHari 43 ;
+      ex:umurHari 50 ;
       ex:urlSumber "https://industri.kontan.co.id/news/harga-referensi-cpo-naik-344-pada-oktober-2026"^^xsd:string .
 
 <urn:swrl#x7>
@@ -10983,7 +10983,7 @@ ex:Berita_N35
       ex:tanggalTerbit "2026-05-28"^^xsd:date ;
       ex:tentangEmiten ex:GOTO ;
       ex:tentangPeristiwa ex:Ev_GOTO_DidepakMSCI ;
-      ex:umurHari 168 ;
+      ex:umurHari 175 ;
       ex:urlSumber "https://market.bisnis.com/read/20260528/7/1976875/tertahan-di-level-rp50-msci-bakal-bekukan-saham-goto"^^xsd:string .
 
 ex:SinyalScalpingHindari
@@ -11019,7 +11019,7 @@ ex:MEDC
       ex:jarakVWAPPersen "0.8"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              1 ;
+              2 ;
       ex:kapitalisasiPasarT
               "29.0"^^xsd:double ;
       ex:kodeSaham "MEDC"^^xsd:string ;
@@ -11051,7 +11051,7 @@ ex:MEDC
       ex:skorAccDistBroker
               "28.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.298"^^xsd:double ;
+              "-0.226"^^xsd:double ;
       ex:terdeteksiPola ex:BullFlag , ex:BullishMarubozu ;
       ex:termasukSektor ex:Sektor_Energi ;
       ex:termasukSubsektor
@@ -11138,7 +11138,7 @@ ex:Berita_N37
       ex:tentangEmiten ex:GOTO ;
       ex:tentangPeristiwa ex:Ev_PerpresOjol_2026 ;
       ex:tentangSektor ex:Sektor_Teknologi ;
-      ex:umurHari 73 ;
+      ex:umurHari 80 ;
       ex:urlSumber "https://market.bisnis.com/read/20260831/189/2000049/tantangan-saham-gocap-hingga-perpres-ojol-goto-masih-ada-peluang"^^xsd:string .
 
 ex:drawdownIHSGPersen
@@ -11232,7 +11232,7 @@ ex:HEAL
       ex:skorAccDistBroker
               "23.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.019"^^xsd:double ;
+              "-0.035"^^xsd:double ;
       ex:terdeteksiPola ex:InverseHeadAndShoulders ;
       ex:termasukSektor ex:Sektor_Kesehatan ;
       ex:termasukSubsektor
@@ -11270,7 +11270,7 @@ ex:Berita_N36
       ex:tanggalTerbit "2026-05-29"^^xsd:date ;
       ex:tentangEmiten ex:GOTO ;
       ex:tentangPeristiwa ex:Ev_GOTO_DidepakMSCI ;
-      ex:umurHari 167 ;
+      ex:umurHari 174 ;
       ex:urlSumber "https://investortrust.id/market/112721/msci-depak-goto-manajemen-perseroan-tegaskan-hal-ini"^^xsd:string .
 
 ex:Aturan_R_KON_01a
@@ -11328,7 +11328,7 @@ ex:Berita_N39
               "0.5"^^xsd:double ;
       ex:sumberReferensi "https://market.bisnis.com/read/20251203/7/1933944/mandiri-sekuritas-ramal-ihsg-pada-2026-tembus-level-9350-cek-sektor-unggulannya"^^xsd:string ;
       ex:tanggalTerbit "2025-12-03"^^xsd:date ;
-      ex:umurHari 344 ;
+      ex:umurHari 351 ;
       ex:urlSumber "https://market.bisnis.com/read/20251203/7/1933944/mandiri-sekuritas-ramal-ihsg-pada-2026-tembus-level-9350-cek-sektor-unggulannya"^^xsd:string .
 
 ex:termasukSubsektor
@@ -11365,7 +11365,7 @@ ex:Berita_N38
               "0.5"^^xsd:double ;
       ex:sumberReferensi "https://market.bisnis.com/read/20251218/189/1938020/ihsg-diproyeksi-tembus-9820-pada-2026-cek-saham-jagoan-bri-danareksa"^^xsd:string ;
       ex:tanggalTerbit "2025-12-18"^^xsd:date ;
-      ex:umurHari 329 ;
+      ex:umurHari 336 ;
       ex:urlSumber "https://market.bisnis.com/read/20251218/189/1938020/ihsg-diproyeksi-tembus-9820-pada-2026-cek-saham-jagoan-bri-danareksa"^^xsd:string .
 
 ex:PajakDividen
@@ -11408,7 +11408,7 @@ ex:Makro_IHSG_Akhir2025
       ex:satuan "poin"^^xsd:string ;
       ex:sumberReferensi "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string ;
       ex:tanggalData "2025-12-31"^^xsd:string ;
-      ex:umurDataHari 316 ;
+      ex:umurDataHari 323 ;
       ex:urlSumber "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string .
 
 ex:H30_DataKualitas
@@ -11583,7 +11583,7 @@ ex:AMRT
       ex:skorAccDistBroker
               "10.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:DescendingTriangle ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -11880,7 +11880,7 @@ ex:MYOR
       ex:skorAccDistBroker
               "-8.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
               ex:Sub_MakananOlahan ;
@@ -11983,7 +11983,7 @@ ex:Makro_InflasiID
       ex:satuan "%"^^xsd:string ;
       ex:sumberReferensi "https://ekonomi.bisnis.com/read/20261102/9/2017542/penyebab-inflasi-oktober-2026-jadi-323-yoy"^^xsd:string ;
       ex:tanggalData "2026-10"^^xsd:string ;
-      ex:umurDataHari 28 ;
+      ex:umurDataHari 35 ;
       ex:urlSumber "https://ekonomi.bisnis.com/read/20261102/9/2017542/penyebab-inflasi-oktober-2026-jadi-323-yoy"^^xsd:string .
 
 ex:InferensiEmiten
@@ -12357,7 +12357,7 @@ ex:K_RDG_BI_Des2026
       a       owl:NamedIndividual , ex:KatalisBiner ;
       rdfs:label "RDG Bank Indonesia 15-16 Des 2026"@id ;
       ex:hariMenujuKatalis
-              34 ;
+              27 ;
       ex:katalisSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Keuangan ;
       ex:tanggalKatalis "2026-12-16"^^xsd:string .
 
@@ -12558,7 +12558,7 @@ ex:JPFA
       ex:jarakVWAPPersen "0.5"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              1 ;
+              2 ;
       ex:kapitalisasiPasarT
               "19.0"^^xsd:double ;
       ex:kodeSaham "JPFA"^^xsd:string ;
@@ -12569,17 +12569,17 @@ ex:JPFA
       ex:namaPerusahaan "Japfa Comfeed Indonesia"^^xsd:string ;
       ex:netAsing20HariM "25.0"^^xsd:double ;
       ex:netRitel20HariM "-20.0"^^xsd:double ;
-      ex:npm  "5.0"^^xsd:double ;
+      ex:npm  "5.9"^^xsd:double ;
       ex:pbv  "1.0"^^xsd:double ;
       ex:per  "6.0"^^xsd:double ;
       ex:per5Tahun "9.0"^^xsd:double ;
-      ex:pertumbuhanEPS "100.2"^^xsd:double ;
+      ex:pertumbuhanEPS "34.0"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-6.0"^^xsd:double ;
       ex:rasioBidOffer "1.4"^^xsd:double ;
       ex:rasioVolume "1.5"^^xsd:double ;
       ex:revisiEPS3BulanPersen
-              "6.0"^^xsd:double ;
+              "-11.0"^^xsd:double ;
       ex:roe  "17.0"^^xsd:double ;
       ex:rsi14 "60.0"^^xsd:double ;
       ex:sahamDigadaikanPersen
@@ -12589,7 +12589,7 @@ ex:JPFA
       ex:skorAccDistBroker
               "25.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.407"^^xsd:double ;
+              "-0.373"^^xsd:double ;
       ex:terdeteksiPola ex:AscendingTriangle ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -12661,7 +12661,7 @@ ex:Sektor_Kesehatan
       ex:skorFaseMid 0 ;
       ex:skorFaseResesi 2 ;
       ex:skorSentimenSektor
-              "0.048"^^xsd:double ;
+              "-0.087"^^xsd:double ;
       ex:skorTemaStruktural
               2 .
 
@@ -12781,15 +12781,15 @@ ex:FaseDistribusiWyckoff
 
 ex:Makro_CDS5Y
       a       ex:IndikatorMoneter , owl:NamedIndividual ;
-      rdfs:comment "Naik dari 92 bps (14 Okt) & 100,26 (22 Okt); ekonom BCA: kisaran 100-120 bps s.d. akhir 2026."@id ;
+      rdfs:comment "Bloomberg: naik 3,7 bps sepekan (95,9 pada 12 Nov), +0,3 bps sebulan (99,3 pada 19 Okt) → tren bulanan datar."@id ;
       rdfs:label "CDS Indonesia 5Y"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "103.79"^^xsd:double ;
+      ex:nilaiIndikator "99.6"^^xsd:double ;
       ex:satuan "bps"^^xsd:string ;
-      ex:sumberReferensi "https://investasi.kontan.co.id/news/investor-waspadai-risiko-struktural-cds-indonesia-masih-dibayangi-tekanan"^^xsd:string ;
-      ex:tanggalData "2026-11-03"^^xsd:string ;
-      ex:umurDataHari 9 ;
-      ex:urlSumber "https://investasi.kontan.co.id/news/investor-waspadai-risiko-struktural-cds-indonesia-masih-dibayangi-tekanan"^^xsd:string .
+      ex:sumberReferensi "https://investasi.kontan.co.id/news/kenaikan-bi-rate-belum-cukup-meredam-premi-risiko-investasi-indonesia"^^xsd:string ;
+      ex:tanggalData "2026-11-19"^^xsd:string ;
+      ex:umurDataHari 0 ;
+      ex:urlSumber "https://investasi.kontan.co.id/news/kenaikan-bi-rate-belum-cukup-meredam-premi-risiko-investasi-indonesia"^^xsd:string .
 
 ex:EMTK
       a       ex:EmitenNonKeuangan , ex:EmitenSyariah , ex:DataIndikatif , owl:NamedIndividual ;
@@ -12848,7 +12848,7 @@ ex:EMTK
       ex:skorAccDistBroker
               "-10.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.118"^^xsd:double ;
+              "-0.097"^^xsd:double ;
       ex:terdeteksiPola ex:BearFlag ;
       ex:termasukSektor ex:Sektor_Teknologi ;
       ex:termasukSubsektor
@@ -12957,7 +12957,7 @@ ex:Makro_NetSellAsingH1
       ex:satuan "Rp triliun"^^xsd:string ;
       ex:sumberReferensi "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string ;
       ex:tanggalData "2026-06-30"^^xsd:string ;
-      ex:umurDataHari 135 ;
+      ex:umurDataHari 142 ;
       ex:urlSumber "https://investortrust.id/market/108011/semester-i-kelam-ihsg-ambles-34-73-disertai-kejatuhaan-saham-big-caps-dan-net-sell-asing"^^xsd:string .
 
 ex:Grup_Sinarmas
@@ -13281,7 +13281,7 @@ ex:EXCL
       ex:skorAccDistBroker
               "14.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.311"^^xsd:double ;
+              "0.326"^^xsd:double ;
       ex:terdeteksiPola ex:FallingWedge ;
       ex:termasukSektor ex:Sektor_Infrastruktur ;
       ex:termasukSubsektor
@@ -13476,7 +13476,7 @@ ex:Makro_CorePCE_US
       ex:satuan "%"^^xsd:string ;
       ex:sumberReferensi "https://market.bisnis.com/read/20261008/7/2010804/fomc-minutes-buka-peluang-kenaikan-bunga-ihsg-dibayangi-tekanan"^^xsd:string ;
       ex:tanggalData "2026-08"^^xsd:string ;
-      ex:umurDataHari 89 ;
+      ex:umurDataHari 96 ;
       ex:urlSumber "https://market.bisnis.com/read/20261008/7/2010804/fomc-minutes-buka-peluang-kenaikan-bunga-ihsg-dibayangi-tekanan"^^xsd:string .
 
 ex:netRitel20HariM
@@ -13774,7 +13774,7 @@ ex:PGAS
       ex:skorAccDistBroker
               "3.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.002"^^xsd:double ;
+              "-0.002"^^xsd:double ;
       ex:terdeteksiPola ex:SymmetricalTriangle ;
       ex:termasukSektor ex:Sektor_Energi ;
       ex:termasukSubsektor
@@ -13937,7 +13937,7 @@ ex:Makro_UST10Y
       ex:satuan "%"^^xsd:string ;
       ex:sumberReferensi "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string ;
       ex:tanggalData "2026-11-02"^^xsd:string ;
-      ex:umurDataHari 10 ;
+      ex:umurDataHari 17 ;
       ex:urlSumber "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string .
 
 ex:DarkCloudCover
@@ -13983,7 +13983,7 @@ ex:MDKA
       ex:jarakVWAPPersen "1.1"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              2 ;
+              3 ;
       ex:kapitalisasiPasarT
               "46.0"^^xsd:double ;
       ex:kodeSaham "MDKA"^^xsd:string ;
@@ -14014,7 +14014,7 @@ ex:MDKA
       ex:skorAccDistBroker
               "30.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.002"^^xsd:double ;
+              "-0.164"^^xsd:double ;
       ex:terdeteksiPola ex:AscendingTriangle ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
@@ -14085,7 +14085,7 @@ ex:SMRA
       ex:skorAccDistBroker
               "-25.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.089"^^xsd:double ;
       ex:terdeteksiPola ex:HeadAndShoulders , ex:ThreeBlackCrows ;
       ex:termasukSektor ex:Sektor_PropertiRealEstat ;
       ex:termasukSubsektor
@@ -14520,7 +14520,7 @@ ex:Makro_ProyeksiBrentGS
       ex:satuan "US$/barel"^^xsd:string ;
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string ;
       ex:tanggalData "2026-10"^^xsd:string ;
-      ex:umurDataHari 28 ;
+      ex:umurDataHari 35 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/houthi-gempur-arab-saudi-harga-minyak-brent-naik-ke-level-usd106-per-barel"^^xsd:string .
 
 ex:skorKontribusiSektor
@@ -14602,7 +14602,7 @@ ex:K_RilisLK_Q3_2026
       rdfs:comment "Earnings surprise & revisi konsensus."@id ;
       rdfs:label "Batas rilis laporan keuangan Q3-2026 (≈31 Okt)"@id ;
       ex:hariMenujuKatalis
-              -12 ;
+              -19 ;
       ex:katalisIndeks ex:LQ45 ;
       ex:tanggalKatalis "2026-10-31"^^xsd:string .
 
@@ -14621,20 +14621,20 @@ ex:Makro_SpreadSBN_UST
       ex:satuan "bps"^^xsd:string ;
       ex:sumberReferensi "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string ;
       ex:tanggalData "2026-11-02"^^xsd:string ;
-      ex:umurDataHari 10 ;
+      ex:umurDataHari 17 ;
       ex:urlSumber "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string .
 
 ex:Makro_USDIDR
       a       ex:IndikatorNilaiTukar , owl:NamedIndividual ;
-      rdfs:comment "Rekor terlemah; ditekan ekspektasi kenaikan bunga The Fed & dolar menguat."@id ;
+      rdfs:comment "Menguat tipis 0,13% usai BI-Rate naik; masih dekat rekor terlemah Rp18.239 (12 Nov)."@id ;
       rdfs:label "Kurs USD/IDR"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "18239.0"^^xsd:double ;
+      ex:nilaiIndikator "18232.0"^^xsd:double ;
       ex:satuan "Rp"^^xsd:string ;
-      ex:sumberReferensi "https://voi.id/ekonomi/602301/rupiah-ditutup-melemah-ke-rp18-239-per-dolar-as-pada-kamis-ditekan-ekspektasi-suku-bunga-the-fed"^^xsd:string ;
-      ex:tanggalData "2026-11-12"^^xsd:string ;
-      ex:umurDataHari 0 ;
-      ex:urlSumber "https://voi.id/ekonomi/602301/rupiah-ditutup-melemah-ke-rp18-239-per-dolar-as-pada-kamis-ditekan-ekspektasi-suku-bunga-the-fed"^^xsd:string .
+      ex:sumberReferensi "https://www.owrite.id/ekbis/2026/11/18/rupiah-ditutup-menguat-rp18-232-usai-bi-rate-naik-ihsg-malah-anjlok-107-persen/"^^xsd:string ;
+      ex:tanggalData "2026-11-18"^^xsd:string ;
+      ex:umurDataHari 1 ;
+      ex:urlSumber "https://www.owrite.id/ekbis/2026/11/18/rupiah-ditutup-menguat-rp18-232-usai-bi-rate-naik-ihsg-malah-anjlok-107-persen/"^^xsd:string .
 
 ex:cfoPerLabaBersih
       a       owl:DatatypeProperty ;
@@ -15273,7 +15273,7 @@ ex:CPIN
       ex:skorAccDistBroker
               "26.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:BullishEngulfing , ex:InverseHeadAndShoulders ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -15360,7 +15360,7 @@ ex:AUTO
       ex:skorAccDistBroker
               "8.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.058"^^xsd:double ;
+              "-0.04"^^xsd:double ;
       ex:terdeteksiPola ex:Doji ;
       ex:termasukSektor ex:Sektor_KonsumenNonPrimer ;
       ex:termasukSubsektor
@@ -15509,7 +15509,7 @@ ex:Sektor_Infrastruktur
       ex:skorFaseMid 1 ;
       ex:skorFaseResesi 1 ;
       ex:skorSentimenSektor
-              "-0.224"^^xsd:double ;
+              "-0.185"^^xsd:double ;
       ex:skorTemaStruktural
               2 .
 
@@ -15643,6 +15643,26 @@ ex:OutperformPasar
       rdfs:label "Mengungguli Pasar"@id ;
       rdfs:subClassOf ex:InferensiEmiten .
 
+ex:Berita_N67
+      a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
+      rdfs:label "IHSG Ditutup Melemah 1,07% ke Level 5.247,8"@id ;
+      ex:arahVariabel -1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "IHSG Ditutup Melemah 1,07% ke Level 5.247,8"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.85"^^xsd:double ;
+      ex:namaMedia "CNBC Indonesia"^^xsd:string ;
+      ex:skorSentimenBerita
+              "-0.5"^^xsd:double ;
+      ex:sumberReferensi "https://www.cnbcindonesia.com/market/20261118152552-17-786366/ihsg-ditutup-melemah-107-ke-level-52478"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-18"^^xsd:date ;
+      ex:tentangEmiten ex:ASII , ex:BMRI , ex:BBRI , ex:AMMN ;
+      ex:tentangPeristiwa ex:Ev_KrisisPasarModal_2026 ;
+      ex:tentangSektor ex:Sektor_Keuangan ;
+      ex:umurHari 1 ;
+      ex:urlSumber "https://www.cnbcindonesia.com/market/20261118152552-17-786366/ihsg-ditutup-melemah-107-ke-level-52478"^^xsd:string .
+
 ex:IndikatorCoincident
       a       owl:Class ;
       rdfs:comment "Bergerak bersamaan (harga, kurs, volume)."@id ;
@@ -15657,6 +15677,25 @@ ex:BullishHarami
 ex:Penyedia_KEHATI
       a       owl:NamedIndividual , ex:PenyediaIndeks ;
       rdfs:label "Yayasan KEHATI - BEI"@id .
+
+ex:Berita_N66
+      a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
+      rdfs:label "Bank Sentral Naikkan BI Rate 25 Bps Jadi 6%, Berkebalikan dengan Konsensus Ekonom"@id ;
+      ex:arahVariabel 1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "Bank Sentral Naikkan BI Rate 25 Bps Jadi 6%, Berkebalikan dengan Konsensus Ekonom"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.9"^^xsd:double ;
+      ex:namaMedia "Bloomberg Technoz"^^xsd:string ;
+      ex:skorSentimenBerita
+              "0.5"^^xsd:double ;
+      ex:sumberReferensi "https://www.bloombergtechnoz.com/detail-news/128078/bank-sentral-naikkan-bi-rate-25-bps-jadi-6"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-18"^^xsd:date ;
+      ex:tentangPeristiwa ex:Ev_EkspektasiKenaikanBIRate , ex:Ev_RupiahTertekan_2026 ;
+      ex:tentangSektor ex:Sektor_Keuangan ;
+      ex:umurHari 1 ;
+      ex:urlSumber "https://www.bloombergtechnoz.com/detail-news/128078/bank-sentral-naikkan-bi-rate-25-bps-jadi-6"^^xsd:string .
 
 ex:AMMN
       a       ex:EmitenNonKeuangan , ex:EmitenSyariah , ex:DataIndikatif , owl:NamedIndividual ;
@@ -15685,7 +15724,7 @@ ex:AMMN
       ex:jarakVWAPPersen "0.2"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              2 ;
+              3 ;
       ex:kapitalisasiPasarT
               "348.0"^^xsd:double ;
       ex:kodeSaham "AMMN"^^xsd:string ;
@@ -15717,7 +15756,7 @@ ex:AMMN
       ex:skorAccDistBroker
               "22.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.445"^^xsd:double ;
+              "-0.399"^^xsd:double ;
       ex:terdeteksiPola ex:MorningStar , ex:FallingWedge ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
@@ -15731,12 +15770,51 @@ ex:ATR
       rdfs:label "Average True Range"@id ;
       ex:ambangBatas "SL = Entry - 2×ATR"@id .
 
+ex:Berita_N69
+      a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
+      rdfs:label "Kenaikan BI-Rate Belum Cukup Meredam Premi Risiko Investasi Indonesia"@id ;
+      ex:arahVariabel -1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "Kenaikan BI-Rate Belum Cukup Meredam Premi Risiko Investasi Indonesia"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.85"^^xsd:double ;
+      ex:namaMedia "Kontan"^^xsd:string ;
+      ex:skorSentimenBerita
+              "0.5"^^xsd:double ;
+      ex:sumberReferensi "https://investasi.kontan.co.id/news/kenaikan-bi-rate-belum-cukup-meredam-premi-risiko-investasi-indonesia"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-19"^^xsd:date ;
+      ex:tentangPeristiwa ex:Ev_TekananFiskalSubsidi , ex:Ev_TwinDeficit_2026 ;
+      ex:tentangSektor ex:Sektor_Keuangan ;
+      ex:umurHari 0 ;
+      ex:urlSumber "https://investasi.kontan.co.id/news/kenaikan-bi-rate-belum-cukup-meredam-premi-risiko-investasi-indonesia"^^xsd:string .
+
 ex:skorTeknikal
       a       owl:DatatypeProperty ;
       rdfs:comment "INFERENSI SWRL"@id ;
       rdfs:domain ex:Emiten ;
       rdfs:label "skor teknikal (0-7)"@id ;
       rdfs:range xsd:integer .
+
+ex:Berita_N68
+      a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
+      rdfs:label "Harga Emas Dunia Bangkit dari Level Terendah 14 Bulan, Cermati Suku Bunga The Fed"@id ;
+      ex:arahVariabel -1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "Harga Emas Dunia Bangkit dari Level Terendah 14 Bulan, Cermati Suku Bunga The Fed"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.85"^^xsd:double ;
+      ex:namaMedia "Kontan"^^xsd:string ;
+      ex:skorSentimenBerita
+              "-0.5"^^xsd:double ;
+      ex:sumberReferensi "https://internasional.kontan.co.id/news/harga-emas-dunia-bangkit-dari-level-terendah-14-bulan-cermati-suku-bunga-the-fed"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-19"^^xsd:date ;
+      ex:tentangEmiten ex:MDKA , ex:BRMS , ex:ANTM ;
+      ex:tentangPeristiwa ex:Ev_EmasRekor_2026 , ex:Ev_FOMC_Hawkish_2026 ;
+      ex:tentangSektor ex:Sektor_BarangBaku ;
+      ex:umurHari 0 ;
+      ex:urlSumber "https://internasional.kontan.co.id/news/harga-emas-dunia-bangkit-dari-level-terendah-14-bulan-cermati-suku-bunga-the-fed"^^xsd:string .
 
 ex:AutoRejectionAtas
       a       ex:MekanismePerdagangan , owl:NamedIndividual ;
@@ -15961,7 +16039,7 @@ ex:MIKA
       ex:skorAccDistBroker
               "20.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.019"^^xsd:double ;
+              "-0.035"^^xsd:double ;
       ex:terdeteksiPola ex:FallingWedge ;
       ex:termasukSektor ex:Sektor_Kesehatan ;
       ex:termasukSubsektor
@@ -16258,7 +16336,7 @@ ex:TLKM
       ex:skorAccDistBroker
               "25.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.18"^^xsd:double ;
+              "-0.164"^^xsd:double ;
       ex:terdeteksiPola ex:DoubleBottom , ex:BullishHarami ;
       ex:termasukSektor ex:Sektor_Infrastruktur ;
       ex:termasukSubsektor
@@ -16637,7 +16715,7 @@ ex:K_KeputusanFinalMSCI
       rdfs:comment "Katalis terbesar horizon 1-3 th."@id ;
       rdfs:label "Keputusan final MSCI standalone (≈akhir Jun 2027)"@id ;
       ex:hariMenujuKatalis
-              230 ;
+              223 ;
       ex:katalisIndeks ex:MSCI_Indonesia ;
       ex:katalisSektor ex:Sektor_Infrastruktur , ex:Sektor_Keuangan ;
       ex:tanggalKatalis "2027-06-30"^^xsd:string .
@@ -16901,7 +16979,7 @@ ex:Berita_N61
       ex:sumberReferensi "https://voi.id/ekonomi/602301/rupiah-ditutup-melemah-ke-rp18-239-per-dolar-as-pada-kamis-ditekan-ekspektasi-suku-bunga-the-fed"^^xsd:string ;
       ex:tanggalTerbit "2026-11-12"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_RupiahTertekan_2026 ;
-      ex:umurHari 0 ;
+      ex:umurHari 7 ;
       ex:urlSumber "https://voi.id/ekonomi/602301/rupiah-ditutup-melemah-ke-rp18-239-per-dolar-as-pada-kamis-ditekan-ekspektasi-suku-bunga-the-fed"^^xsd:string .
 
 ex:Aturan_R_FUND_04a
@@ -16967,7 +17045,7 @@ ex:Berita_N60
       ex:sumberReferensi "https://investasi.kontan.co.id/news/investor-waspadai-risiko-struktural-cds-indonesia-masih-dibayangi-tekanan"^^xsd:string ;
       ex:tanggalTerbit "2026-11-03"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_KrisisPasarModal_2026 ;
-      ex:umurHari 9 ;
+      ex:umurHari 16 ;
       ex:urlSumber "https://investasi.kontan.co.id/news/investor-waspadai-risiko-struktural-cds-indonesia-masih-dibayangi-tekanan"^^xsd:string .
 
 ex:Aturan_R_TES_07
@@ -17071,7 +17149,7 @@ ex:Berita_N63
       ex:sumberReferensi "https://investasi.kontan.co.id/news/asing-net-sell-rp-207-miliar-saat-ihsg-turun-rabu-1111-cek-saham-yang-dijual"^^xsd:string ;
       ex:tanggalTerbit "2026-11-11"^^xsd:date ;
       ex:tentangEmiten ex:INCO , ex:JPFA , ex:ANTM , ex:ITMG , ex:AMMN ;
-      ex:umurHari 1 ;
+      ex:umurHari 8 ;
       ex:urlSumber "https://investasi.kontan.co.id/news/asing-net-sell-rp-207-miliar-saat-ihsg-turun-rabu-1111-cek-saham-yang-dijual"^^xsd:string .
 
 ex:Aturan_R_TES_08
@@ -17163,14 +17241,14 @@ ex:Berita_N62
       ex:tanggalTerbit "2026-11-02"^^xsd:date ;
       ex:tentangPeristiwa ex:Ev_TwinDeficit_2026 ;
       ex:tentangSektor ex:Sektor_Keuangan ;
-      ex:umurHari 10 ;
+      ex:umurHari 17 ;
       ex:urlSumber "https://id.investing.com/news/stock-market-news/selisih-yield-sbn-dan-treasury-10-tahun-melebar-ke-281-poin-persentase-nov-2026-3114944"^^xsd:string .
 
 ex:K_BatasKonsultasiMSCI
       a       owl:NamedIndividual , ex:KatalisBiner ;
       rdfs:label "Batas akhir konsultasi MSCI (30 Apr 2027)"@id ;
       ex:hariMenujuKatalis
-              169 ;
+              162 ;
       ex:katalisIndeks ex:MSCI_Indonesia ;
       ex:tanggalKatalis "2027-04-30"^^xsd:string .
 
@@ -17200,6 +17278,25 @@ ex:PenilaianAktif
       rdfs:label "Penilaian di Skenario Aktif"@id ;
       rdfs:subClassOf ex:KategoriInferensi .
 
+ex:Berita_N65
+      a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
+      rdfs:label "Bank Indonesia Kerek BI Rate Jadi 6% pada November 2026"@id ;
+      ex:arahVariabel 1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "Bank Indonesia Kerek BI Rate Jadi 6% pada November 2026"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.9"^^xsd:double ;
+      ex:namaMedia "Bisnis.com"^^xsd:string ;
+      ex:skorSentimenBerita
+              "0.0"^^xsd:double ;
+      ex:sumberReferensi "https://finansial.bisnis.com/read/20261118/11/2022401/breaking-bank-indonesia-kerek-bi-rate-jadi-6-pada-november-2026"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-18"^^xsd:date ;
+      ex:tentangPeristiwa ex:Ev_EkspektasiKenaikanBIRate ;
+      ex:tentangSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Keuangan ;
+      ex:umurHari 1 ;
+      ex:urlSumber "https://finansial.bisnis.com/read/20261118/11/2022401/breaking-bank-indonesia-kerek-bi-rate-jadi-6-pada-november-2026"^^xsd:string .
+
 ex:Ev_FOMC_Hawkish_2026
       a       ex:PeristiwaGlobal , ex:KebijakanMoneter , owl:NamedIndividual ;
       rdfs:comment "Core PCE 3,0%, headline 3,4%; 16/18 pejabat proyeksikan ≥1 kenaikan lagi; yield UST tertinggi sejak 2002; FFR 3,75% bisa ke 4,25%."@id ;
@@ -17224,7 +17321,7 @@ ex:Berita_N64
       ex:sumberReferensi "https://www.cnbcindonesia.com/market/20261110125921-17-783875/meski-ihsg-hijau-tapi-dana-asing-lari-rp299-m-lepas-10-saham-ini"^^xsd:string ;
       ex:tanggalTerbit "2026-11-10"^^xsd:date ;
       ex:tentangEmiten ex:TLKM ;
-      ex:umurHari 2 ;
+      ex:umurHari 9 ;
       ex:urlSumber "https://www.cnbcindonesia.com/market/20261110125921-17-783875/meski-ihsg-hijau-tapi-dana-asing-lari-rp299-m-lepas-10-saham-ini"^^xsd:string .
 
 ex:CocokModerat
@@ -17619,7 +17716,7 @@ ex:SMDR
       ex:skorAccDistBroker
               "18.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.054"^^xsd:double ;
+              "-0.03"^^xsd:double ;
       ex:terdeteksiPola ex:AscendingTriangle ;
       ex:termasukSektor ex:Sektor_TransportasiLogistik ;
       ex:termasukSubsektor
@@ -17950,7 +18047,7 @@ ex:Sektor_BarangBaku
       ex:skorFaseMid 2 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.075"^^xsd:double ;
+              "-0.094"^^xsd:double ;
       ex:skorTemaStruktural
               3 .
 
@@ -17996,7 +18093,7 @@ ex:Stk_ManajerInvestasi
       ex:kebutuhanStakeholder
               "Sinyal rotasi sektor untuk alokasi portofolio & manajemen risiko outflow pasif."^^xsd:string ;
       ex:mengonsumsiKeluaran
-              ex:Output_TesisDanKillSwitch , ex:Output_PrediksiSektor , ex:Output_PeringatanRisiko , ex:Output_SkenarioWhatIf , ex:Output_RegimeDanStrategiPasar .
+              ex:Output_TesisDanKillSwitch , ex:Output_PrediksiSektor , ex:Output_SkenarioWhatIf , ex:Output_PeringatanRisiko , ex:Output_RegimeDanStrategiPasar .
 
 ex:DSNG
       a       ex:EmitenNonKeuangan , ex:EmitenSyariah , ex:DataIndikatif , owl:NamedIndividual ;
@@ -18057,7 +18154,7 @@ ex:DSNG
       ex:skorAccDistBroker
               "19.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:AscendingTriangle ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -18285,7 +18382,7 @@ ex:IMPC
       ex:skorAccDistBroker
               "10.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.033"^^xsd:double ;
+              "-0.034"^^xsd:double ;
       ex:termasukSektor ex:Sektor_Perindustrian ;
       ex:termasukSubsektor
               ex:Sub_BahanBangunan ;
@@ -18854,6 +18951,24 @@ ex:skorMakroGeo
       rdfs:label "skor makro-geopolitik Σ(sensitivitas × arah)"@id ;
       rdfs:range xsd:integer .
 
+ex:Berita_N71
+      a       ex:BeritaRisetAnalis , owl:NamedIndividual ;
+      rdfs:label "Segmen DOC dan Livebird Topang Kinerja Japfa (JPFA) di Tengah Tekanan Beban Bunga"@id ;
+      ex:arahVariabel 0 ;
+      ex:dariSumber ex:Sumber_RisetAnalis ;
+      ex:judulBerita "Segmen DOC dan Livebird Topang Kinerja Japfa (JPFA) di Tengah Tekanan Beban Bunga"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.85"^^xsd:double ;
+      ex:namaMedia "Kontan"^^xsd:string ;
+      ex:skorSentimenBerita
+              "-0.5"^^xsd:double ;
+      ex:sumberReferensi "https://investasi.kontan.co.id/news/segmen-doc-dan-livebird-topang-kinerja-japfa-jpfa-di-tengah-tekanan-beban-bunga"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-03"^^xsd:date ;
+      ex:tentangEmiten ex:JPFA ;
+      ex:tentangSektor ex:Sektor_KonsumenPrimer ;
+      ex:umurHari 16 ;
+      ex:urlSumber "https://investasi.kontan.co.id/news/segmen-doc-dan-livebird-topang-kinerja-japfa-jpfa-di-tengah-tekanan-beban-bunga"^^xsd:string .
+
 ex:upsideSkenario
       a       owl:DatatypeProperty ;
       rdfs:comment "INFERENSI SWRL"@id ;
@@ -18861,12 +18976,32 @@ ex:upsideSkenario
       rdfs:label "upsideSkenario"@id ;
       rdfs:range xsd:integer .
 
+ex:Berita_N70
+      a       ex:BeritaMakroGeopolitik , owl:NamedIndividual ;
+      rdfs:label "Bursa Dunia 18 November 2026: Pasar Global Tertekan, Minyak Turun karena Stok AS Naik"@id ;
+      ex:arahVariabel -1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "Bursa Dunia 18 November 2026: Pasar Global Tertekan, Minyak Turun karena Stok AS Naik"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.8"^^xsd:double ;
+      ex:namaMedia "Periskop"^^xsd:string ;
+      ex:skorSentimenBerita
+              "-0.25"^^xsd:double ;
+      ex:sumberReferensi "https://periskop.id/pasar-modal/20261119/bursa-dunia-18-november-2026-pasar-global-tertekan-saham-ai-beragam"^^xsd:string ;
+      ex:tanggalTerbit "2026-11-19"^^xsd:date ;
+      ex:tentangEmiten ex:MEDC , ex:AKRA ;
+      ex:tentangPeristiwa ex:Ev_PenutupanHormuz_2026 , ex:Ev_OPEC_PertahankanProduksi ;
+      ex:tentangSektor ex:Sektor_Energi ;
+      ex:umurHari 0 ;
+      ex:urlSumber "https://periskop.id/pasar-modal/20261119/bursa-dunia-18-november-2026-pasar-global-tertekan-saham-ai-beragam"^^xsd:string .
+
 ex:K_MusimDividen2027
       a       ex:KatalisMusiman , owl:NamedIndividual ;
       rdfs:comment "Dividend play."@id ;
       rdfs:label "Musim RUPS & dividen (≈Mar-Jun 2027)"@id ;
       ex:hariMenujuKatalis
-              123 ;
+              116 ;
       ex:katalisIndeks ex:IDXHIDIV20 ;
       ex:tanggalKatalis "2027-03-15"^^xsd:string .
 
@@ -18988,6 +19123,26 @@ ex:BearishEngulfing
       a       owl:NamedIndividual , ex:CandlestickBearish ;
       rdfs:comment "Lilin merah menelan lilin hijau."@id ;
       rdfs:label "Bearish Engulfing"@id .
+
+ex:Berita_N72
+      a       owl:NamedIndividual , ex:BeritaEmiten ;
+      rdfs:label "Laba Lonsum (LSIP) Melonjak 40 Persen Jadi Rp1,75 Triliun hingga September"@id ;
+      ex:arahVariabel 1 ;
+      ex:catatanData "Arah variabel dianotasi analis (human-in-the-loop) karena judul ambigu bagi leksikon."^^xsd:string ;
+      ex:dariSumber ex:Sumber_BeritaFinansial ;
+      ex:judulBerita "Laba Lonsum (LSIP) Melonjak 40 Persen Jadi Rp1,75 Triliun hingga September"^^xsd:string ;
+      ex:kredibilitasSumber
+              "0.85"^^xsd:double ;
+      ex:namaMedia "IDX Channel"^^xsd:string ;
+      ex:skorSentimenBerita
+              "0.5"^^xsd:double ;
+      ex:sumberReferensi "https://www.idxchannel.com/market-news/laba-lonsum-lsip-melonjak-40-persen-jadi-rp175-triliun-hingga-september"^^xsd:string ;
+      ex:tanggalTerbit "2026-10-31"^^xsd:date ;
+      ex:tentangEmiten ex:LSIP ;
+      ex:tentangPeristiwa ex:Ev_HargaCPONaik_Okt2026 ;
+      ex:tentangSektor ex:Sektor_KonsumenPrimer ;
+      ex:umurHari 19 ;
+      ex:urlSumber "https://www.idxchannel.com/market-news/laba-lonsum-lsip-melonjak-40-persen-jadi-rp175-triliun-hingga-september"^^xsd:string .
 
 ex:Mv_DolarMenguat
       a       ex:PergerakanMakro , owl:NamedIndividual ;
@@ -19294,9 +19449,9 @@ ex:sensDayaBeli
 
 <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl>
       a       owl:Ontology ;
-      rdfs:comment "Knowledge Base Sistem Pakar Prediksi Sektor Saham Unggulan & Kesehatan Fundamental Emiten BEI (horizon 1-3 tahun). Integrasi analisis Fundamental, Teknikal, Bandarmology, Sentimen (aspect-based), Geopolitik-Makro multi-hop, Case-Based Reasoning historis, dan rotasi siklus sektor. Penalaran dengan SWRL (jalankan Pellet / SWRLTab-Drools). Kelompok 9: Jonnathan Azarel Gunawan (L0224005), Gloria Dana Praysilia (L0224043). Tanggal acuan data: 2026-11-12. v2: lapisan sumber data & katalog indikator, deteksi regime + bobot adaptif, reaction function kebijakan, refleksivitas (priced-in), kapitulasi & akumulasi bertahap, revisi laba, ERP, tata kelola/gorengan, robustness skenario, konfluensi/konflik, sizing, katalis, tesis & kill switch."@id ;
+      rdfs:comment "Knowledge Base Sistem Pakar Prediksi Sektor Saham Unggulan & Kesehatan Fundamental Emiten BEI (horizon 1-3 tahun). Integrasi analisis Fundamental, Teknikal, Bandarmology, Sentimen (aspect-based), Geopolitik-Makro multi-hop, Case-Based Reasoning historis, dan rotasi siklus sektor. Penalaran dengan SWRL (jalankan Pellet / SWRLTab-Drools). Kelompok 9: Jonnathan Azarel Gunawan (L0224005), Gloria Dana Praysilia (L0224043). Tanggal acuan data: 2026-11-19. v2: lapisan sumber data & katalog indikator, deteksi regime + bobot adaptif, reaction function kebijakan, refleksivitas (priced-in), kapitulasi & akumulasi bertahap, revisi laba, ERP, tata kelola/gorengan, robustness skenario, konfluensi/konflik, sizing, katalis, tesis & kill switch."@id ;
       rdfs:label "SahamExpertKB - Ontologi Pakar Saham Indonesia"@id ;
-      owl:versionInfo "2.1 (2026-11-12)"^^xsd:string .
+      owl:versionInfo "2.1 (2026-11-19)"^^xsd:string .
 
 ex:IMF
       a       owl:NamedIndividual , ex:OrganisasiInternasional ;
@@ -19359,7 +19514,7 @@ ex:AKRA
       ex:jarakVWAPPersen "-0.4"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              1 ;
+              2 ;
       ex:kapitalisasiPasarT
               "18.0"^^xsd:double ;
       ex:kodeSaham "AKRA"^^xsd:string ;
@@ -19390,7 +19545,7 @@ ex:AKRA
       ex:skorAccDistBroker
               "-5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.298"^^xsd:double ;
+              "-0.226"^^xsd:double ;
       ex:termasukSektor ex:Sektor_Energi ;
       ex:termasukSubsektor
               ex:Sub_DistribusiEnergi ;
@@ -19429,7 +19584,7 @@ ex:Sektor_Teknologi
       ex:skorFaseMid 1 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.296"^^xsd:double ;
+              "-0.243"^^xsd:double ;
       ex:skorTemaStruktural
               1 .
 
@@ -19517,15 +19672,15 @@ ex:Ind_ProfilJatuhTempo
 
 ex:Makro_Emas
       a       ex:IndikatorHargaKomoditas , owl:NamedIndividual ;
-      rdfs:comment "Terendah sejak 4 Nov; inflasi AS di atas perkiraan & dolar menguat."@id ;
+      rdfs:comment "Spot (Reuters) pagi 19 Nov; sehari sebelumnya jatuh ~3% ke terendah 14 bulan (~US$3.719)."@id ;
       rdfs:label "Harga Emas Spot"@id ;
       ex:frekuensiHari 1 ;
-      ex:nilaiIndikator "3959.03"^^xsd:double ;
+      ex:nilaiIndikator "3745.56"^^xsd:double ;
       ex:satuan "US$/troy ons"^^xsd:string ;
-      ex:sumberReferensi "https://internasional.kontan.co.id/news/harga-emas-dunia-turun-ke-us-3959-per-ons-pasar-antisipasi-kenaikan-bunga-the-fed"^^xsd:string ;
-      ex:tanggalData "2026-11-12"^^xsd:string ;
+      ex:sumberReferensi "https://internasional.kontan.co.id/news/harga-emas-dunia-bangkit-dari-level-terendah-14-bulan-cermati-suku-bunga-the-fed"^^xsd:string ;
+      ex:tanggalData "2026-11-19"^^xsd:string ;
       ex:umurDataHari 0 ;
-      ex:urlSumber "https://internasional.kontan.co.id/news/harga-emas-dunia-turun-ke-us-3959-per-ons-pasar-antisipasi-kenaikan-bunga-the-fed"^^xsd:string .
+      ex:urlSumber "https://internasional.kontan.co.id/news/harga-emas-dunia-bangkit-dari-level-terendah-14-bulan-cermati-suku-bunga-the-fed"^^xsd:string .
 
 ex:Aturan_R_FUND_06b
       a       owl:NamedIndividual , swrl:Imp ;
@@ -20135,7 +20290,7 @@ ex:MTEL
       ex:skorAccDistBroker
               "10.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.074"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_Infrastruktur ;
       ex:termasukSubsektor
@@ -20241,7 +20396,7 @@ ex:ITMG
       ex:skorAccDistBroker
               "15.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.398"^^xsd:double ;
+              "-0.402"^^xsd:double ;
       ex:terdeteksiPola ex:Hammer ;
       ex:termasukSektor ex:Sektor_Energi ;
       ex:termasukSubsektor
@@ -20342,7 +20497,7 @@ ex:AADI
       ex:skorAccDistBroker
               "24.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.403"^^xsd:double ;
+              "0.398"^^xsd:double ;
       ex:terdeteksiPola ex:DoubleBottom , ex:BullishEngulfing ;
       ex:termasukSektor ex:Sektor_Energi ;
       ex:termasukSubsektor
@@ -20401,7 +20556,7 @@ ex:Makro_IHSG_16Okt
       ex:satuan "poin"^^xsd:string ;
       ex:sumberReferensi "https://www.kabarbursa.com/market-hari-ini/pelemahan-dinilai-mulai-terbatas-simak-arah-ihsg-hari-ini"^^xsd:string ;
       ex:tanggalData "2026-10-16"^^xsd:string ;
-      ex:umurDataHari 27 ;
+      ex:umurDataHari 34 ;
       ex:urlSumber "https://www.kabarbursa.com/market-hari-ini/pelemahan-dinilai-mulai-terbatas-simak-arah-ihsg-hari-ini"^^xsd:string .
 
 ex:ASII
@@ -20431,7 +20586,7 @@ ex:ASII
       ex:jarakVWAPPersen "-0.1"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              0 ;
+              1 ;
       ex:kapitalisasiPasarT
               "150.0"^^xsd:double ;
       ex:kodeSaham "ASII"^^xsd:string ;
@@ -20463,7 +20618,7 @@ ex:ASII
       ex:skorAccDistBroker
               "18.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.033"^^xsd:double ;
+              "-0.334"^^xsd:double ;
       ex:terdeteksiPola ex:DoubleBottom ;
       ex:termasukSektor ex:Sektor_Perindustrian ;
       ex:termasukSubsektor
@@ -20478,7 +20633,7 @@ ex:K_FOMC_Des2026
       a       owl:NamedIndividual , ex:KatalisBiner ;
       rdfs:label "FOMC 9 Des 2026"@id ;
       ex:hariMenujuKatalis
-              27 ;
+              20 ;
       ex:katalisSektor ex:Sektor_PropertiRealEstat , ex:Sektor_Keuangan ;
       ex:tanggalKatalis "2026-12-09"^^xsd:string .
 
@@ -20593,7 +20748,7 @@ ex:INKP
       ex:skorAccDistBroker
               "-6.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.03"^^xsd:double ;
+              "-0.038"^^xsd:double ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
               ex:Sub_KertasPulp ;
@@ -20773,7 +20928,7 @@ ex:BBRI
       ex:jarakVWAPPersen "-0.4"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              2 ;
+              3 ;
       ex:kapitalisasiPasarT
               "440.0"^^xsd:double ;
       ex:kodeSaham "BBRI"^^xsd:string ;
@@ -20806,7 +20961,7 @@ ex:BBRI
       ex:skorAccDistBroker
               "-15.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.433"^^xsd:double ;
+              "-0.369"^^xsd:double ;
       ex:terdeteksiPola ex:Hammer ;
       ex:termasukSektor ex:Sektor_Keuangan ;
       ex:termasukSubsektor
@@ -20855,7 +21010,7 @@ ex:BMRI
       ex:jarakVWAPPersen "-0.5"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              3 ;
+              4 ;
       ex:kapitalisasiPasarT
               "336.0"^^xsd:double ;
       ex:kodeSaham "BMRI"^^xsd:string ;
@@ -20887,7 +21042,7 @@ ex:BMRI
       ex:skorAccDistBroker
               "10.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.459"^^xsd:double ;
+              "-0.392"^^xsd:double ;
       ex:terdeteksiPola ex:MorningStar ;
       ex:termasukSektor ex:Sektor_Keuangan ;
       ex:termasukSubsektor
@@ -21378,7 +21533,7 @@ ex:K_MSCI_ReviewFeb2027
       a       owl:NamedIndividual , ex:KatalisBiner ;
       rdfs:label "MSCI Index Review Feb 2027 (umum 9 Feb)"@id ;
       ex:hariMenujuKatalis
-              89 ;
+              82 ;
       ex:katalisIndeks ex:MSCI_Indonesia ;
       ex:tanggalKatalis "2027-02-09"^^xsd:string .
 
@@ -21511,7 +21666,7 @@ ex:DCII
       ex:skorAccDistBroker
               "5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.118"^^xsd:double ;
+              "-0.097"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_Teknologi ;
       ex:termasukSubsektor
@@ -21709,7 +21864,7 @@ ex:Sektor_Keuangan
       ex:skorFaseMid 1 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.23"^^xsd:double ;
+              "-0.124"^^xsd:double ;
       ex:skorTemaStruktural
               2 .
 
@@ -21758,7 +21913,7 @@ ex:Sektor_PropertiRealEstat
       ex:skorFaseMid 0 ;
       ex:skorFaseResesi -1 ;
       ex:skorSentimenSektor
-              "-0.224"^^xsd:double ;
+              "-0.222"^^xsd:double ;
       ex:skorTemaStruktural
               1 .
 
@@ -21905,7 +22060,7 @@ ex:LSIP
       ex:jarakVWAPPersen "0.6"^^xsd:double ;
       ex:jumlahARA5Hari 0 ;
       ex:jumlahBeritaRelevan
-              0 ;
+              1 ;
       ex:kapitalisasiPasarT
               "7.0"^^xsd:double ;
       ex:kodeSaham "LSIP"^^xsd:string ;
@@ -21916,11 +22071,11 @@ ex:LSIP
       ex:namaPerusahaan "PP London Sumatra Indonesia"^^xsd:string ;
       ex:netAsing20HariM "12.0"^^xsd:double ;
       ex:netRitel20HariM "-8.0"^^xsd:double ;
-      ex:npm  "20.0"^^xsd:double ;
+      ex:npm  "40.4"^^xsd:double ;
       ex:pbv  "0.7"^^xsd:double ;
       ex:per  "6.5"^^xsd:double ;
       ex:per5Tahun "8.0"^^xsd:double ;
-      ex:pertumbuhanEPS "25.0"^^xsd:double ;
+      ex:pertumbuhanEPS "40.0"^^xsd:double ;
       ex:perubahanHarga20HariPersen
               "-5.0"^^xsd:double ;
       ex:rasioBidOffer "1.4"^^xsd:double ;
@@ -21936,7 +22091,7 @@ ex:LSIP
       ex:skorAccDistBroker
               "21.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "0.28"^^xsd:double ;
       ex:terdeteksiPola ex:BullFlag ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -22291,7 +22446,7 @@ ex:Mv_HargaLogamIndustriTurun
       a       ex:PergerakanMakro , owl:NamedIndividual ;
       rdfs:label "Harga Logam Industri Turun"@id ;
       ex:menurunkanHargaKomoditas
-              ex:Kom_Timah , ex:Kom_Tembaga , ex:Kom_Nikel ;
+              ex:Kom_Timah , ex:Kom_Nikel , ex:Kom_Tembaga ;
       ex:merugikanSektor ex:Sektor_BarangBaku .
 
 ex:UNVR
@@ -22352,7 +22507,7 @@ ex:UNVR
       ex:skorAccDistBroker
               "-15.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.007"^^xsd:double ;
+              "-0.02"^^xsd:double ;
       ex:terdeteksiPola ex:HeadAndShoulders ;
       ex:termasukSektor ex:Sektor_KonsumenPrimer ;
       ex:termasukSubsektor
@@ -22677,7 +22832,7 @@ ex:BBCA
       ex:skorAccDistBroker
               "22.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.361"^^xsd:double ;
+              "-0.319"^^xsd:double ;
       ex:terdeteksiPola ex:Hammer , ex:BullishHarami ;
       ex:termasukSektor ex:Sektor_Keuangan ;
       ex:termasukSubsektor
@@ -22823,7 +22978,7 @@ ex:TINS
       ex:skorAccDistBroker
               "20.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.37"^^xsd:double ;
+              "0.363"^^xsd:double ;
       ex:terdeteksiPola ex:AscendingTriangle ;
       ex:termasukSektor ex:Sektor_BarangBaku ;
       ex:termasukSubsektor
@@ -22935,7 +23090,7 @@ ex:MAPI
       ex:skorAccDistBroker
               "-12.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.058"^^xsd:double ;
+              "-0.04"^^xsd:double ;
       ex:terdeteksiPola ex:DescendingTriangle ;
       ex:termasukSektor ex:Sektor_KonsumenNonPrimer ;
       ex:termasukSubsektor
@@ -23065,7 +23220,7 @@ ex:BSDE
       ex:skorAccDistBroker
               "-8.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.089"^^xsd:double ;
       ex:terdeteksiPola ex:BearFlag ;
       ex:termasukSektor ex:Sektor_PropertiRealEstat ;
       ex:termasukSubsektor
@@ -23177,7 +23332,7 @@ ex:MAPA
       ex:skorAccDistBroker
               "-4.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.058"^^xsd:double ;
+              "-0.04"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_KonsumenNonPrimer ;
       ex:termasukSubsektor
@@ -23242,7 +23397,7 @@ ex:CTRA
       ex:skorAccDistBroker
               "5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.089"^^xsd:double ;
       ex:terdeteksiPola ex:DescendingTriangle ;
       ex:termasukSektor ex:Sektor_PropertiRealEstat ;
       ex:termasukSubsektor
@@ -23252,7 +23407,7 @@ ex:CTRA
 
 ex:DasarBelumTerkonfirmasi
       a       owl:Class ;
-      rdfs:comment "CDS & rupiah masih memburuk: jangan all-in, akumulasi bertahap."@id ;
+      rdfs:comment "CDS & rupiah belum membaik (memburuk atau datar): jangan all-in, akumulasi bertahap."@id ;
       rdfs:label "Dasar Belum Terkonfirmasi"@id ;
       rdfs:subClassOf ex:InferensiPasar .
 
@@ -23604,7 +23759,7 @@ ex:Sektor_KonsumenPrimer
       ex:skorFaseMid 0 ;
       ex:skorFaseResesi 2 ;
       ex:skorSentimenSektor
-              "-0.018"^^xsd:double ;
+              "-0.051"^^xsd:double ;
       ex:skorTemaStruktural
               2 .
 
@@ -23965,16 +24120,16 @@ ex:Ind_CadanganDevisa
 
 ex:Makro_BIRate
       a       ex:IndikatorMoneter , owl:NamedIndividual ;
-      rdfs:comment "Ditahan; ekonom (Permata) memproyeksikan naik ke 6% pada RDG 17-18 Nov 2026."@id ;
+      rdfs:comment "RDG 17-18 Nov 2026 menaikkan 25 bps ke 6% (berlawanan dengan konsensus ekonom yang memperkirakan ditahan); kumulatif +125 bps sejak Mei 2026."@id ;
       rdfs:label "BI Rate"@id ;
       ex:dirilisOleh ex:BankIndonesia ;
       ex:frekuensiHari 30 ;
-      ex:nilaiIndikator "5.75"^^xsd:double ;
+      ex:nilaiIndikator "6.0"^^xsd:double ;
       ex:satuan "%"^^xsd:string ;
-      ex:sumberReferensi "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026"^^xsd:string ;
-      ex:tanggalData "2026-10-21"^^xsd:string ;
-      ex:umurDataHari 22 ;
-      ex:urlSumber "https://finansial.bisnis.com/read/20261021/11/2014413/breaking-bank-indonesia-tahan-bi-rate-575-pada-rdg-oktober-2026"^^xsd:string .
+      ex:sumberReferensi "https://finansial.bisnis.com/read/20261118/11/2022401/breaking-bank-indonesia-kerek-bi-rate-jadi-6-pada-november-2026"^^xsd:string ;
+      ex:tanggalData "2026-11-18"^^xsd:string ;
+      ex:umurDataHari 1 ;
+      ex:urlSumber "https://finansial.bisnis.com/read/20261118/11/2022401/breaking-bank-indonesia-kerek-bi-rate-jadi-6-pada-november-2026"^^xsd:string .
 
 ex:Aturan_R_ROB_06a
       a       owl:NamedIndividual , swrl:Imp ;
@@ -24107,7 +24262,7 @@ ex:K_RamadanLebaran2027
       rdfs:comment "Puncak konsumsi."@id ;
       rdfs:label "Ramadan-Lebaran 2027 (≈Feb-Mar)"@id ;
       ex:hariMenujuKatalis
-              88 ;
+              81 ;
       ex:katalisSektor ex:Sektor_KonsumenNonPrimer , ex:Sektor_KonsumenPrimer ;
       ex:tanggalKatalis "2027-02-08"^^xsd:string .
 
@@ -24138,7 +24293,7 @@ ex:Makro_FedFundsRate
       ex:satuan "%"^^xsd:string ;
       ex:sumberReferensi "https://www.foxbusiness.com/economy/federal-reserve-interest-rate-decision-october-28-2026"^^xsd:string ;
       ex:tanggalData "2026-10-28"^^xsd:string ;
-      ex:umurDataHari 15 ;
+      ex:umurDataHari 22 ;
       ex:urlSumber "https://www.foxbusiness.com/economy/federal-reserve-interest-rate-decision-october-28-2026"^^xsd:string .
 
 ex:Aturan_R_EMT_07
@@ -24291,7 +24446,7 @@ ex:BUKA
       ex:skorAccDistBroker
               "-3.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.118"^^xsd:double ;
+              "-0.097"^^xsd:double ;
       ex:termasukSektor ex:Sektor_Teknologi ;
       ex:termasukSubsektor
               ex:Sub_Internet ;
@@ -24430,7 +24585,7 @@ ex:BBTN
       ex:skorAccDistBroker
               "-5.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.092"^^xsd:double ;
+              "-0.05"^^xsd:double ;
       ex:terdeteksiPola ex:DescendingTriangle ;
       ex:termasukSektor ex:Sektor_Keuangan ;
       ex:termasukSubsektor
@@ -24788,7 +24943,7 @@ ex:PWON
       ex:skorAccDistBroker
               "3.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.09"^^xsd:double ;
+              "-0.089"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_PropertiRealEstat ;
       ex:termasukSubsektor
@@ -25024,7 +25179,7 @@ ex:K_MSCI_EfektifDes2026
       rdfs:comment "Eksekusi aliran pasif."@id ;
       rdfs:label "Efektif MSCI Review (1 Des 2026)"@id ;
       ex:hariMenujuKatalis
-              19 ;
+              12 ;
       ex:katalisIndeks ex:MSCI_Indonesia ;
       ex:tanggalKatalis "2026-12-01"^^xsd:string .
 
@@ -25183,7 +25338,7 @@ ex:Waran
 
 ex:Aturan_R_PAS_05
       a       owl:NamedIndividual , swrl:Imp ;
-      rdfs:comment "[Intermarket] Dasar belum terkonfirmasi: CDS & rupiah masih memburuk"@id ;
+      rdfs:comment "[Intermarket] Dasar belum terkonfirmasi: CDS & rupiah belum membaik (memburuk atau datar)"@id ;
       rdfs:label "R-PAS-05"^^xsd:string ;
       ex:kodeAturan "R-PAS-05"^^xsd:string ;
       ex:pilarAnalisis "Intermarket"^^xsd:string ;
@@ -25196,7 +25351,7 @@ ex:Aturan_R_PAS_05
                   swrl:propertyPredicate
                           ex:trenCDS1Bulan
                 ] [ a       swrl:BuiltinAtom ;
-                  swrl:arguments (<urn:swrl#c> 1) ;
+                  swrl:arguments (<urn:swrl#c> 0) ;
                   swrl:builtin <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual>
                 ] [ a       swrl:DatavaluedPropertyAtom ;
                   swrl:argument1 <urn:swrl#k> ;
@@ -25204,7 +25359,7 @@ ex:Aturan_R_PAS_05
                   swrl:propertyPredicate
                           ex:trenRupiah1Bulan
                 ] [ a       swrl:BuiltinAtom ;
-                  swrl:arguments (<urn:swrl#r> 1) ;
+                  swrl:arguments (<urn:swrl#r> 0) ;
                   swrl:builtin <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual>
                 ]) ;
       swrl:head ([ a       swrl:ClassAtom ;
@@ -25663,30 +25818,30 @@ ex:Pasar_ID_Okt2026
       a       ex:KondisiPasar , owl:NamedIndividual ;
       rdfs:comment "State vector pasar untuk deteksi regime & reaction function. Breadth dihitung dari universe 64 emiten (agregasi di luar SWRL karena SWRL tidak dapat menghitung jumlah)."@id ;
       rdfs:label "Kondisi Pasar Indonesia per 26 Okt 2026"@id ;
-      ex:biRatePersen "5.75"^^xsd:double ;
+      ex:biRatePersen "6.0"^^xsd:double ;
       ex:breadthPersenDiAtasMA200
               "18.75"^^xsd:double ;
-      ex:brentUSD "92.39"^^xsd:double ;
-      ex:cds5YBps "103.79"^^xsd:double ;
+      ex:brentUSD "91.95"^^xsd:double ;
+      ex:cds5YBps "99.6"^^xsd:double ;
       ex:drawdownIHSGPersen
-              "-39.27"^^xsd:double ;
-      ex:emasUSD "3959.03"^^xsd:double ;
+              "-39.3"^^xsd:double ;
+      ex:emasUSD "3745.56"^^xsd:double ;
       ex:ffrAtasPersen "4.0"^^xsd:double ;
       ex:inflasiYoY "3.23"^^xsd:double ;
-      ex:kursUSDIDR "18239.0"^^xsd:double ;
-      ex:netAsingYTDT "-98.0"^^xsd:double ;
+      ex:kursUSDIDR "18232.0"^^xsd:double ;
+      ex:netAsingYTDT "-97.62"^^xsd:double ;
       ex:penurunanHarianTerbesarPersen
-              "-11.57"^^xsd:double ;
+              "-3.78"^^xsd:double ;
       ex:perubahanIHSG1BulanPersen
               "-11.54"^^xsd:double ;
       ex:spreadSBNUSTBps "281.0"^^xsd:double ;
       ex:statusAktifKondisi
               1 ;
-      ex:trenCDS1Bulan 1 ;
+      ex:trenCDS1Bulan 0 ;
       ex:trenRupiah1Bulan 1 ;
       ex:trenYieldSBN1Bulan
               1 ;
-      ex:yieldSBN10Y "7.707"^^xsd:double .
+      ex:yieldSBN10Y "7.668"^^xsd:double .
 
 ex:Kom_JagungKedelai
       a       ex:KomoditasAgrikultur , owl:NamedIndividual ;
@@ -25749,7 +25904,7 @@ ex:SIDO
       ex:skorAccDistBroker
               "17.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "0.019"^^xsd:double ;
+              "-0.035"^^xsd:double ;
       ex:terdeteksiPola ex:Hammer ;
       ex:termasukSektor ex:Sektor_Kesehatan ;
       ex:termasukSubsektor
@@ -25837,7 +25992,7 @@ ex:ERAA
       ex:skorAccDistBroker
               "-6.0"^^xsd:double ;
       ex:skorSentimenEmiten
-              "-0.058"^^xsd:double ;
+              "-0.04"^^xsd:double ;
       ex:terdeteksiPola ex:RectangleRange ;
       ex:termasukSektor ex:Sektor_KonsumenNonPrimer ;
       ex:termasukSubsektor
@@ -25893,7 +26048,7 @@ ex:K_EvaluasiLQ45_Jan2027
       rdfs:comment "Keluar-masuk konstituen."@id ;
       rdfs:label "Evaluasi mayor LQ45 (≈akhir Jan 2027)"@id ;
       ex:hariMenujuKatalis
-              74 ;
+              67 ;
       ex:katalisIndeks ex:LQ45 ;
       ex:tanggalKatalis "2027-01-25"^^xsd:string .
 

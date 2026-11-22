@@ -1,22 +1,22 @@
 FILE=output/SahamExpertKB_v2.owl
-TOTAL_AXIOMS=15367
-LOGICAL_AXIOMS=9010
+TOTAL_AXIOMS=15509
+LOGICAL_AXIOMS=9121
 CLASSES=298
 OBJECT_PROPERTIES=65
 DATA_PROPERTIES=220
-INDIVIDUALS=1384
+INDIVIDUALS=1392
 SWRL_RULES=303 SWRL_ATOMS=1656
-DECLARATION=1976 ANNOTATION=4381 TBOX=873 RBOX=0 ABOX=7834
-  AnnotationAssertion=4381
-  ClassAssertion=1392
-  DataPropertyAssertion=4744
+DECLARATION=1984 ANNOTATION=4404 TBOX=873 RBOX=0 ABOX=7945
+  AnnotationAssertion=4404
+  ClassAssertion=1400
+  DataPropertyAssertion=4808
   DataPropertyDomain=203
   DataPropertyRange=220
-  Declaration=1976
+  Declaration=1984
   DisjointClasses=13
   FunctionalObjectProperty=8
   InverseObjectProperties=2
-  ObjectPropertyAssertion=1698
+  ObjectPropertyAssertion=1737
   ObjectPropertyDomain=65
   ObjectPropertyRange=63
   Rule=303
@@ -29,7 +29,7 @@ INSTANCES SektorNetral (4) = [Sektor_Energi, Sektor_Infrastruktur, Sektor_Konsum
 INSTANCES SektorBearish (5) = [Sektor_Keuangan, Sektor_KonsumenNonPrimer, Sektor_PropertiRealEstat, Sektor_Teknologi, Sektor_TransportasiLogistik]
 INSTANCES SektorPilihanInti (2) = [Sektor_BarangBaku, Sektor_Kesehatan]
 INSTANCES SektorPilihanSatelit (2) = [Sektor_Infrastruktur, Sektor_Keuangan]
-INSTANCES KandidatTopPick (5) = [ANTM, BRMS, MIKA, NCKL, TINS]
+INSTANCES KandidatTopPick (4) = [ANTM, MIKA, NCKL, TINS]
 INSTANCES KandidatTopPickAdaptif (7) = [AADI, ANTM, JPFA, LSIP, MIKA, NCKL, TINS]
 INSTANCES KandidatAkumulasiBertahap (0) = []
 INSTANCES RegimeAktif (1) = [Regime_KrisisLikuiditas]

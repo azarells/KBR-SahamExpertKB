@@ -1,17 +1,17 @@
 variabel,nilai,keterangan
-drawdownIHSGPersen,-39.27,IHSG terakhir ÷ IHSG akhir 2025 − 1 (%)
-perubahanIHSG1BulanPersen,-11.54,perubahan IHSG ±1 bulan (%)
-penurunanHarianTerbesarPersen,-11.57,penurunan harian terbesar dalam 1 bulan (%)
-netAsingYTDT,-98.0,net asing sejak awal tahun (Rp T)
-cds5YBps,103.79,CDS Indonesia 5Y (bps)
-yieldSBN10Y,7.707,yield SBN 10Y (%)
+drawdownIHSGPersen,-39.3,IHSG terakhir ÷ IHSG akhir 2025 − 1 (%)
+perubahanIHSG1BulanPersen,-11.54,perubahan IHSG ±1 bulan (%) — sengaja diselaraskan dengan jendela 20 hari data teknikal emiten (snapshot Okt 2026) agar kekuatan relatif sebanding; perbarui bersamaan dengan kolom chg20 emiten
+penurunanHarianTerbesarPersen,-3.78,"penurunan harian terbesar dalam 1 bulan (%) — 3 Nov 2026 (−3,78%); crash 16 Okt sudah > 1 bulan"
+netAsingYTDT,-97.62,net asing sejak awal tahun (Rp T)
+cds5YBps,99.6,CDS Indonesia 5Y (bps)
+yieldSBN10Y,7.668,yield SBN 10Y (%)
 spreadSBNUSTBps,281.0,yield SBN − yield UST 10Y (bps)
-kursUSDIDR,18239.0,kurs USD/IDR
+kursUSDIDR,18232.0,kurs USD/IDR
 inflasiYoY,3.23,inflasi Indonesia yoy (%)
-biRatePersen,5.75,BI-Rate (%)
+biRatePersen,6.0,BI-Rate (%)
 ffrAtasPersen,4.0,Fed funds batas atas (%)
-brentUSD,92.39,Brent (US$/barel)
-emasUSD,3959.03,emas spot (US$/oz)
-trenCDS1Bulan,1,"1 = CDS naik sebulan, 0 = datar, -1 = turun"
+brentUSD,91.95,Brent (US$/barel)
+emasUSD,3745.56,emas spot (US$/oz)
+trenCDS1Bulan,0,"1 = CDS naik sebulan, 0 = datar, -1 = turun"
 trenRupiah1Bulan,1,"1 = rupiah melemah, 0 = datar, -1 = menguat"
 trenYieldSBN1Bulan,1,"1 = yield naik, 0, -1"

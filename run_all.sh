@@ -17,3 +17,5 @@ java -cp "$CP" ToDouble output/SahamExpertKB_v2.owl output/fuseki/saham_data.ttl
 cp output/SahamExpertKB_v2_inferred.owl output/fuseki/
 echo "Paket Fuseki siap di output/fuseki/"
 python3 tools/make_panduan.py "$(mktemp -d)" || true
+# --- Uji knowledge base lengkap (98 soal statis + 5 what-if) -> output/HASIL_UJI_KB.md
+python3 tools/uji_kb.py --whatif > output/log_uji_kb.txt || echo "Ada soal uji yang GAGAL, lihat output/HASIL_UJI_KB.md"
