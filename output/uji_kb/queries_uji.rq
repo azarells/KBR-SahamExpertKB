@@ -1,0 +1,696 @@
+# Semua query uji SahamExpertKB (tools/uji_kb.py). Di Fuseki: tempel bagian setelah baris '### ID'.
+### A04
+# Berapa aturan SWRL per pilar analisis (semua aturan berkode & berpilar)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?pilar (COUNT(?r) AS ?jumlah) WHERE { ?r ex:kodeAturan ?k ; ex:pilarAnalisis ?pilar } GROUP BY ?pilar ORDER BY DESC(?jumlah)
+
+### A05
+# Apakah setiap emiten mendapat TEPAT SATU nilai per pilar skor (interval aturan saling lepas & menutup domain)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode (COUNT(DISTINCT ?f) AS ?nF) (COUNT(DISTINCT ?v) AS ?nV) (COUNT(DISTINCT ?t) AS ?nT) (COUNT(DISTINCT ?b) AS ?nB) (COUNT(DISTINCT ?x) AS ?nTotal)
+WHERE { ?e a ex:Emiten ; ex:kodeSaham ?kode .
+ OPTIONAL { ?e ex:skorFundamental ?f } OPTIONAL { ?e ex:skorValuasi ?v } OPTIONAL { ?e ex:skorTeknikal ?t }
+ OPTIONAL { ?e ex:skorBandar ?b } OPTIONAL { ?e ex:skorTotalEmiten ?x } } GROUP BY ?kode
+
+### A06
+# Apakah skor total = jumlah 8 komponen (aritmetika swrlb:add benar) untuk semua emiten?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?f ?v ?t ?b ?s ?k ?p ?l ?total WHERE { ?e a ex:Emiten ; ex:kodeSaham ?kode ; ex:skorFundamental ?f ; ex:skorValuasi ?v ;
+ ex:skorTeknikal ?t ; ex:skorBandar ?b ; ex:skorSentimen ?s ; ex:skorKontribusiSektor ?k ; ex:penaltiRisiko ?p ; ex:poinLikuiditas ?l ; ex:skorTotalEmiten ?total } ORDER BY ?kode
+
+### A07
+# Apakah aturan bekerja pada emiten UJI fiktif (unit test aturan tata kelola/gorengan/collapse)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?e ?kelas WHERE { ?e a ex:EmitenUji ; a ?k . ?k rdfs:subClassOf* ex:KategoriInferensi .
+ FILTER(?k NOT IN (ex:KategoriInferensi, ex:InferensiEmiten, ex:PenandaKualitasData)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?e ?kelas
+
+### B01
+# Apa itu PER, bagaimana rumusnya, dan kapan dianggap murah?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?label ?rumus ?interpretasi ?ambang WHERE { ex:PER rdfs:label ?label ; ex:rumus ?rumus ; ex:interpretasi ?interpretasi ; ex:ambangBatas ?ambang }
+
+### B02
+# Rasio keuangan apa saja yang ada di KB beserta rumusnya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?r ?kelompok ?rumus WHERE { ?r a ex:RasioKeuangan ; a ?k . ?k rdfs:subClassOf ex:RasioKeuangan . OPTIONAL { ?r ex:rumus ?rumus }
+ BIND(STRAFTER(STR(?k),"#") AS ?kelompok) } ORDER BY ?kelompok ?r
+
+### B03
+# Rasio khusus perbankan apa saja dan apa ambang sehatnya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?r ?rumus ?ambang WHERE { ?r a ex:RasioPerbankan . OPTIONAL { ?r ex:rumus ?rumus } OPTIONAL { ?r ex:ambangBatas ?ambang } } ORDER BY ?r
+
+### B04
+# Bagaimana mekanisme perdagangan di BEI (ARB/ARA, lot, T+2, sesi, papan)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?m ?label ?penjelasan WHERE { ?m a ex:MekanismePerdagangan ; rdfs:label ?label . OPTIONAL { ?m rdfs:comment ?penjelasan } } ORDER BY ?m
+
+### B05
+# Aksi korporasi mana yang berdampak positif, netral, dan negatif?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?dampak ?a WHERE { ?a a ?k . FILTER(?k IN (ex:AksiKorporasiPositif, ex:AksiKorporasiNegatif, ex:AksiKorporasiNetral)) BIND(STRAFTER(STR(?k),"AksiKorporasi") AS ?dampak) } ORDER BY ?dampak ?a
+
+### B06
+# Indikator teknikal apa saja dan bagaimana membaca RSI & MACD?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?i ?rumus ?arti WHERE { ?i a ex:IndikatorTeknikal . OPTIONAL { ?i ex:rumus ?rumus } OPTIONAL { ?i rdfs:comment ?arti } } ORDER BY ?i
+
+### B07
+# Pola chart mana yang bullish, bearish, reversal, dan kontinuasi?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis ?p WHERE { ?p a ?k . FILTER(?k IN (ex:PolaBullish, ex:PolaBearish, ex:PolaReversal, ex:PolaKontinuasi)) BIND(STRAFTER(STR(?k),"#") AS ?jenis) } ORDER BY ?jenis ?p
+
+### B08
+# Pola candlestick apa saja yang dikenali?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis ?c WHERE { ?c a ?k . FILTER(?k IN (ex:CandlestickBullish, ex:CandlestickBearish, ex:CandlestickIndecision)) BIND(STRAFTER(STR(?k),"Candlestick") AS ?jenis) } ORDER BY ?jenis ?c
+
+### B09
+# Teori teknikal apa saja (Dow, Elliott, Wyckoff, Fibonacci, rotasi sektor)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?t ?arti WHERE { ?t a ex:TeoriTeknikal . OPTIONAL { ?t rdfs:comment ?arti } } ORDER BY ?t
+
+### B10
+# Bias perilaku investor apa yang dimodelkan?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?b ?arti WHERE { ?b a ex:BiasPerilaku . OPTIONAL { ?b rdfs:comment ?arti } } ORDER BY ?b
+
+### B11
+# Instrumen pasar modal dan gaya investasi apa saja yang dikenal KB?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis ?i WHERE { ?i a ?k . FILTER(?k IN (ex:InstrumenPasarModal, ex:GayaInvestasi)) BIND(STRAFTER(STR(?k),"#") AS ?jenis) } ORDER BY ?jenis ?i
+
+### B12
+# Konsep manajemen risiko apa saja (stop loss, position sizing, dll.)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?m ?rumus ?arti WHERE { ?m a ex:ManajemenRisiko . OPTIONAL { ?m ex:rumus ?rumus } OPTIONAL { ?m rdfs:comment ?arti } } ORDER BY ?m
+
+### B13
+# Biaya & pajak transaksi saham di Indonesia?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?b ?arti WHERE { ?b a ex:BiayaDanPajak . OPTIONAL { ?b rdfs:comment ?arti } } ORDER BY ?b
+
+### B14
+# Status pengawasan BEI apa saja (suspensi, UMA, notasi khusus, papan pemantauan)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?s ?arti WHERE { ?s a ex:StatusPengawasan . OPTIONAL { ?s rdfs:comment ?arti } } ORDER BY ?s
+
+### B15
+# Heuristik pakar apa yang dipakai (aturan praktis ahli)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?h ?isi WHERE { ?h ex:heuristikPakar ?isi } ORDER BY ?h
+
+### C01
+# Emiten mana yang fundamentalnya kuat, sedang, dan lemah?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas ?kode WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:FundamentalKuat, ex:FundamentalSedang, ex:FundamentalLemah)) FILTER NOT EXISTS { ?e a ex:EmitenUji }
+ BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?kelas ?kode
+
+### C02
+# Emiten mana yang undervalued, fair, overvalued (PER vs rata-rata 5 tahun)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas ?kode ?rasio WHERE { ?e ex:kodeSaham ?kode ; ex:rasioPERvsHistoris ?rasio ; a ?k . FILTER(?k IN (ex:Undervalued, ex:FairValued, ex:Overvalued)) FILTER NOT EXISTS { ?e a ex:EmitenUji }
+ BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?kelas ?rasio
+
+### C03
+# Emiten mana yang terlihat murah tapi sebenarnya jebakan (value trap)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis ?kode WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:ValueTrap, ex:MurahKarenaLabaTurun)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?jenis) } ORDER BY ?jenis ?kode
+
+### C04
+# Emiten mana yang rawan collapse / going concern, dan apa buktinya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?altmanZ ?der WHERE { ?e a ex:RisikoGoingConcern ; ex:kodeSaham ?kode ; ex:altmanZ ?altmanZ . OPTIONAL { ?e ex:der ?der } FILTER NOT EXISTS { ?e a ex:EmitenUji } } ORDER BY ?altmanZ
+
+### C05
+# Zona Altman Z: siapa aman, abu-abu, distress?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?zona (COUNT(?e) AS ?n) (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:ZonaAman, ex:ZonaAbuAbu, ex:ZonaDistress)) FILTER NOT EXISTS { ?e a ex:EmitenUji }
+ BIND(STRAFTER(STR(?k),"#") AS ?zona) } GROUP BY ?zona
+
+### C06
+# Emiten mana yang berisiko manipulasi laba (Beneish M-Score) atau kualitas labanya tinggi?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (COUNT(?e) AS ?n) (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:RisikoManipulasiLaba, ex:KualitasLabaTinggi)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### C07
+# Berapa nilai wajar dan potensi upside emiten top pick?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?harga ?nilaiWajar ?upside WHERE { ?e a ex:KandidatTopPickAdaptif ; ex:kodeSaham ?kode ; ex:hargaPenutupan ?harga ; ex:nilaiWajar ?nilaiWajar ; ex:potensiUpsidePersen ?upside } ORDER BY DESC(?upside)
+
+### C08
+# Emiten mana yang menjadi andalan dividen?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?dy ?dpr WHERE { ?e a ex:DividenAndalan ; ex:kodeSaham ?kode ; ex:dividendYield ?dy . OPTIONAL { ?e ex:dpr ?dpr } } ORDER BY DESC(?dy)
+
+### C09
+# Bank mana yang permodalannya lemah atau NPL-nya tinggi?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?npl ?car ?nim ?lemah WHERE { ?e a ex:EmitenPerbankan ; ex:kodeSaham ?kode . OPTIONAL { ?e ex:npl ?npl } OPTIONAL { ?e ex:car ?car } OPTIONAL { ?e ex:nim ?nim }
+ BIND(EXISTS { ?e a ex:BankModalLemah } AS ?lemah) } ORDER BY ?kode
+
+### D01
+# Emiten mana yang sedang tren naik dan tren turun?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (COUNT(?e) AS ?n) (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:TrenNaik, ex:TrenTurun)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### D02
+# Sinyal entry mana yang aktif, lengkap dengan stop loss & take profit (berbasis ATR)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?harga ?stopLoss ?takeProfit WHERE { ?e a ex:SinyalEntry ; ex:kodeSaham ?kode ; ex:hargaPenutupan ?harga ; ex:hargaStopLoss ?stopLoss ; ex:hargaTakeProfit ?takeProfit FILTER NOT EXISTS { ?e a ex:EmitenUji } } ORDER BY ?kode
+
+### D03
+# Sinyal buy-on-weakness, exit, dan hindari?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sinyal (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:SinyalBuyOnWeakness, ex:SinyalExit, ex:SinyalHindari)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?sinyal) } GROUP BY ?sinyal
+
+### D04
+# Pola chart apa yang terdeteksi dan mana yang terkonfirmasi indikator?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?status ?kode ?pola WHERE { ?e ex:kodeSaham ?kode ; ex:terdeteksiPola ?pola ; a ?k . FILTER(?k IN (ex:KonfirmasiPolaBullish, ex:KonfirmasiPolaBearish)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"KonfirmasiPola") AS ?status) } ORDER BY ?status ?kode
+
+### D05
+# Overbought/oversold (RSI) dan lonjakan volume?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas ?kode ?rsi ?rasioVolume WHERE { ?e ex:kodeSaham ?kode ; ex:rsi14 ?rsi ; ex:rasioVolume ?rasioVolume ; a ?k . FILTER(?k IN (ex:Overbought, ex:Oversold, ex:LonjakanVolume)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?kelas
+
+### D06
+# Emiten mana yang outperform / underperform IHSG (kekuatan relatif)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas ?kode ?kr WHERE { ?e ex:kodeSaham ?kode ; ex:kekuatanRelatifPersen ?kr ; a ?k . FILTER(?k IN (ex:OutperformPasar, ex:UnderperformPasar)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?kelas DESC(?kr)
+
+### D07
+# Sinyal scalping (trader jangka sangat pendek)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sinyal ?kode WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:SinyalScalpingLong, ex:SinyalScalpingHindari)) BIND(STRAFTER(STR(?k),"#") AS ?sinyal) } ORDER BY ?sinyal
+
+### E01
+# Emiten mana yang sedang diakumulasi bandar, dan broker siapa akumulatornya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?broker ?skorAccDist WHERE { ?e a ex:AkumulasiBandar ; ex:kodeSaham ?kode . OPTIONAL { ?e ex:brokerAkumulatorUtama ?broker } OPTIONAL { ?e ex:skorAccDistBroker ?skorAccDist } FILTER NOT EXISTS { ?e a ex:EmitenUji } } ORDER BY DESC(?skorAccDist)
+
+### E02
+# Di mana smart money diam-diam akumulasi saat harga masih turun (divergensi)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?chg20 ?netAsing WHERE { ?e a ex:AkumulasiTersembunyi ; ex:kodeSaham ?kode ; ex:perubahanHarga20HariPersen ?chg20 ; ex:netAsing20HariM ?netAsing FILTER NOT EXISTS { ?e a ex:EmitenUji } } ORDER BY ?kode
+
+### E03
+# Emiten mana yang sedang didistribusikan bandar ke ritel?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:DistribusiKeRitel, ex:DistribusiBandar)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### E04
+# Asing sedang akumulasi atau distribusi di emiten mana?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:AsingAkumulasi, ex:AsingDistribusi)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### E05
+# Fase Wyckoff tiap emiten (akumulasi, mark-up, distribusi, mark-down)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?fase (COUNT(?e) AS ?n) (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:FaseAkumulasiWyckoff, ex:FaseMarkUpWyckoff, ex:FaseDistribusiWyckoff, ex:FaseMarkDownWyckoff)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?fase) } GROUP BY ?fase
+
+### E06
+# Konsep & alat bandarmology apa yang ada di KB?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis ?k2 WHERE { ?k2 a ?k . FILTER(?k IN (ex:KonsepBandarmology, ex:PolaBandarBullish, ex:PolaBandarBearish, ex:PolaManipulatif)) BIND(STRAFTER(STR(?k),"#") AS ?jenis) } ORDER BY ?jenis ?k2
+
+### E07
+# Broker apa saja dan bagaimana klasifikasinya (asing/lokal/ritel/institusi)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis (GROUP_CONCAT(?bn; separator=", ") AS ?broker) WHERE { ?b a ?k . BIND(STRAFTER(STR(?b),"Broker_") AS ?bn) FILTER(?k IN (ex:BrokerAsing, ex:BrokerLokal, ex:BrokerRitel, ex:BrokerInstitusiLokal)) BIND(STRAFTER(STR(?k),"#") AS ?jenis) } GROUP BY ?jenis
+
+### E08
+# Apakah ada indikasi saham gorengan / pump and dump / jual paksa pengendali?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas ?e WHERE { ?e a ?k . FILTER(?k IN (ex:IndikasiSahamGorengan, ex:RisikoPumpAndDump, ex:RisikoForcedSellPengendali, ex:RisikoHSC, ex:SinyalOrangDalam)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?kelas
+
+### F01
+# Berapa berita yang dianalisis dan dari kategori apa?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kategori (COUNT(?b) AS ?n) WHERE { ?b a ?k . FILTER(?k IN (ex:BeritaMakroGeopolitik, ex:BeritaEmiten, ex:BeritaRisetAnalis)) BIND(STRAFTER(STR(?k),"#") AS ?kategori) } GROUP BY ?kategori
+
+### F02
+# Bagaimana skor sentimen tiap sektor dari berita?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sektor ?skor ?poin WHERE { ?s a ex:Sektor ; ex:skorSentimenSektor ?skor . OPTIONAL { ?s ex:poinSentimenSektor ?poin } BIND(STRAFTER(STR(?s),"Sektor_") AS ?sektor) } ORDER BY DESC(?skor)
+
+### F03
+# Emiten mana yang sentimennya positif / negatif?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:SentimenPositif, ex:SentimenNegatif)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### F04
+# Berita mana yang menjadi red flag untuk emiten?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?judul WHERE { ?e ex:memilikiRedFlag ?n ; ex:kodeSaham ?kode . ?n ex:judulBerita ?judul } ORDER BY ?kode
+
+### F05
+# Emiten mana yang tahan berita buruk (harga tidak turun saat berita negatif)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode WHERE { ?e a ex:SinyalKetahananBeritaBuruk ; ex:kodeSaham ?kode }
+
+### F06
+# Komponen machine learning apa yang dipakai dan perannya (pendukung < 20%)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?m ?arti WHERE { ?m a ex:KomponenML . OPTIONAL { ?m rdfs:comment ?arti } } ORDER BY ?m
+
+### G01
+# Peristiwa geopolitik/makro apa saja yang sedang aktif?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis ?ev WHERE { ?ev a ex:PeristiwaAktif ; a ?k . ?k rdfs:subClassOf ex:PeristiwaGeopolitik . BIND(STRAFTER(STR(?k),"#") AS ?jenis) } ORDER BY ?jenis ?ev
+
+### G02
+# Apa dampak kebijakan The Fed (FOMC hawkish / kenaikan FFR) ke pasar Indonesia?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?ev ?gerak ?lanjutan ?untung ?rugi WHERE { ?ev ex:memicuPergerakan ?gerak . FILTER(?ev IN (ex:Ev_FedHike_Sep2026, ex:Ev_FOMC_Hawkish_2026))
+ OPTIONAL { ?gerak ex:menyebabkan ?lanjutan } OPTIONAL { ?gerak ex:menguntungkanSektor ?untung } OPTIONAL { ?gerak ex:merugikanSektor ?rugi } } ORDER BY ?ev ?gerak
+
+### G03
+# Bagaimana perang/ketegangan Timur Tengah (Hormuz) memengaruhi minyak dan sektor saham?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?ev ?gerak ?komoditas ?untung ?rugi WHERE { ?ev ex:memicuPergerakan ?gerak . FILTER(?ev IN (ex:Ev_PenutupanHormuz_2026, ex:Ev_EskalasiTimurTengah_Okt2026, ex:Ev_GencatanRusiaUkraina_Okt2026))
+ OPTIONAL { ?gerak ex:menaikkanHargaKomoditas ?komoditas } OPTIONAL { ?gerak ex:menguntungkanSektor ?untung } OPTIONAL { ?gerak ex:merugikanSektor ?rugi } } ORDER BY ?ev
+
+### G04
+# Apa dampak inflasi dan krisis (rupiah, twin deficit, crash IHSG)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?ev ?gerak ?untung ?rugi WHERE { ?ev ex:memicuPergerakan ?gerak . FILTER(?ev IN (ex:Ev_InflasiNaik_Sep2026, ex:Ev_RupiahTertekan_2026, ex:Ev_TwinDeficit_2026, ex:Ev_CrashIHSG_16Okt2026))
+ OPTIONAL { ?gerak ex:menguntungkanSektor ?untung } OPTIONAL { ?gerak ex:merugikanSektor ?rugi } } ORDER BY ?ev
+
+### G05
+# Tunjukkan rantai sebab-akibat multi-hop: peristiwa → gerakan 1 → gerakan 2 → sektor diuntungkan.
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?ev ?hop1 ?hop2 ?sektor WHERE { ?ev a ex:PeristiwaAktif ; ex:memicuPergerakan ?hop1 . ?hop1 ex:menyebabkan ?hop2 . ?hop2 ex:menguntungkanSektor ?sektor } ORDER BY ?sektor
+
+### G06
+# Sektor mana yang diuntungkan dan dirugikan geopolitik saat ini?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?sek; separator=", ") AS ?sektor) WHERE { ?s a ?k . FILTER(?k IN (ex:SektorDiuntungkanGeopolitik, ex:SektorDirugikanGeopolitik)) BIND(STRAFTER(STR(?s),"Sektor_") AS ?sek) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### G07
+# Berapa nilai indikator makro terkini (BI-Rate, Fed, kurs, Brent, emas, CDS, inflasi, SBN)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?biRate ?ffr ?kurs ?brent ?emas ?cds ?inflasi ?sbn10y ?drawdownIHSG WHERE { ?k a ex:KondisiPasarAktif ; ex:biRatePersen ?biRate ; ex:ffrAtasPersen ?ffr ; ex:kursUSDIDR ?kurs ; ex:brentUSD ?brent ;
+ ex:emasUSD ?emas ; ex:cds5YBps ?cds ; ex:inflasiYoY ?inflasi ; ex:yieldSBN10Y ?sbn10y ; ex:drawdownIHSGPersen ?drawdownIHSG }
+
+### G08
+# Emiten mana yang diuntungkan / ditekan pergerakan komoditas & makro?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?arah ?kode ?gerak WHERE { { ?e ex:diuntungkanOleh ?gerak BIND("diuntungkan" AS ?arah) } UNION { ?e ex:ditekanOleh ?gerak BIND("ditekan" AS ?arah) } ?e ex:kodeSaham ?kode FILTER NOT EXISTS { ?e a ex:EmitenUji } } ORDER BY ?arah ?kode
+
+### G09
+# Indikator makro apa saja yang dipantau dan nilainya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?i ?nilai ?satuan WHERE { ?i a ex:IndikatorMakro ; ex:nilaiIndikator ?nilai . OPTIONAL { ?i ex:satuan ?satuan } } ORDER BY ?i
+
+### H01
+# Indeks apa saja yang tercakup (MSCI, LQ45, NASDAQ, FTSE, dll.)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kategori (COUNT(?i) AS ?n) (GROUP_CONCAT(?id; separator=", ") AS ?indeks) WHERE { ?i a ?k . ?k rdfs:subClassOf+ ex:IndeksSaham .
+ FILTER NOT EXISTS { ?k2 rdfs:subClassOf ?k . ?i a ?k2 . FILTER(?k2 != ?k) } BIND(STRAFTER(STR(?i),"#") AS ?id) BIND(STRAFTER(STR(?k),"#") AS ?kategori) } GROUP BY ?kategori ORDER BY ?kategori
+
+### H02
+# Emiten mana saja anggota LQ45?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode WHERE { ?e ex:anggotaIndeks ex:LQ45 ; ex:kodeSaham ?kode } ORDER BY ?kode
+
+### H03
+# Emiten mana anggota MSCI Indonesia dan mana yang berisiko outflow dana pasif (MSCI freeze/standalone)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?mcap ?outflow WHERE { ?e ex:anggotaIndeks ex:MSCI_Indonesia ; ex:kodeSaham ?kode ; ex:kapitalisasiPasarT ?mcap . BIND(EXISTS { ?e a ex:RisikoOutflowPasif } AS ?outflow) } ORDER BY DESC(?mcap)
+
+### H04
+# Indeks syariah dan emiten syariah?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis (COUNT(?x) AS ?n) WHERE { { ?x a ex:IndeksSyariah BIND("IndeksSyariah" AS ?jenis) } UNION { ?x a ex:EmitenSyariah BIND("EmitenSyariah" AS ?jenis) } } GROUP BY ?jenis
+
+### H05
+# Keputusan penyedia indeks apa yang memengaruhi pasar (MSCI review, freeze, FTSE, S&P)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?ev ?label WHERE { ?ev a ex:KeputusanPenyediaIndeks ; rdfs:label ?label } ORDER BY ?ev
+
+### I01
+# Sektor apa yang diprediksi naik dalam 1–3 tahun ke depan?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sektor ?prediksi ?skorAktif WHERE { ?s a ex:Sektor ; ex:skorOutlookAktif ?skorAktif ; a ?k . FILTER(?k IN (ex:SektorBullishKuat, ex:SektorBullishModerat, ex:SektorNetral, ex:SektorBearish))
+ BIND(STRAFTER(STR(?s),"Sektor_") AS ?sektor) BIND(STRAFTER(STR(?k),"Sektor") AS ?prediksi) } ORDER BY DESC(?skorAktif)
+
+### I02
+# Berapa skor sektor di tiap skenario (base, bull, bear) dan ekspektasi probabilistiknya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sektor ?base ?bull ?bear ?ekspektasi WHERE { ?s a ex:Sektor ; ex:skorOutlookBase ?base ; ex:skorOutlookBull ?bull ; ex:skorOutlookBear ?bear ; ex:skorEkspektasiProbabilistik ?ekspektasi
+ BIND(STRAFTER(STR(?s),"Sektor_") AS ?sektor) } ORDER BY DESC(?ekspektasi)
+
+### I03
+# Sektor mana yang tahan di semua skenario (inti), satelit, dan peluang kontrarian?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?peran (GROUP_CONCAT(?sek; separator=", ") AS ?sektor) WHERE { ?s a ?k . FILTER(?k IN (ex:SektorPilihanInti, ex:SektorPilihanSatelit, ex:SektorPeluangKontrarian, ex:SektorRobustLintasSkenario, ex:SektorAsimetriPositif))
+ BIND(STRAFTER(STR(?s),"Sektor_") AS ?sek) BIND(STRAFTER(STR(?k),"#") AS ?peran) } GROUP BY ?peran
+
+### I04
+# MENGAPA sektor terpilih diprediksi naik (jejak penjelasan tailwind/headwind/preseden)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sektor ?jenis ?faktor WHERE { ?s a ex:SektorBullish . { ?s ex:memilikiTailwind ?faktor BIND("tailwind" AS ?jenis) } UNION { ?s ex:memilikiHeadwind ?faktor BIND("headwind" AS ?jenis) }
+ UNION { ?s ex:memilikiPreseden ?faktor BIND("preseden" AS ?jenis) } UNION { ?s ex:didukungTema ?faktor BIND("tema" AS ?jenis) } BIND(STRAFTER(STR(?s),"Sektor_") AS ?sektor) } ORDER BY ?sektor ?jenis
+
+### I05
+# Periode sejarah mana yang paling mirip dengan kondisi sekarang (case-based reasoning)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?periode ?kemiripan ?analog WHERE { ?p a ex:PeriodeHistoris ; ex:skorKemiripan ?kemiripan . BIND(EXISTS { ?p a ex:PeriodeAnalog } AS ?analog) BIND(STRAFTER(STR(?p),"Kasus_") AS ?periode) } ORDER BY DESC(?kemiripan)
+
+### I06
+# Tema struktural jangka panjang apa yang mendukung sektor?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?tema ?kekuatan ?sektor WHERE { ?t a ex:TemaStruktural . OPTIONAL { ?t ex:skorKekuatanTema ?kekuatan } OPTIONAL { ?s ex:didukungTema ?t BIND(STRAFTER(STR(?s),"Sektor_") AS ?sektor) } BIND(STRAFTER(STR(?t),"#") AS ?tema) } ORDER BY DESC(?kekuatan)
+
+### I07
+# Fase siklus ekonomi apa yang berlaku dan sektor mana yang favorit di fase itu (rotasi sektor)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?skenario ?fase ?favorit WHERE { ?sc a ex:SkenarioAktif ; ex:faseSiklus ?fase . OPTIONAL { ?s a ex:SektorFavoritSiklus BIND(STRAFTER(STR(?s),"Sektor_") AS ?favorit) } BIND(STRAFTER(STR(?sc),"Skenario_") AS ?skenario) }
+
+### I08
+# Sektor mana yang murah secara historis, defensif, siklikal?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?sek; separator=", ") AS ?sektor) WHERE { ?s a ?k . FILTER(?k IN (ex:SektorMurahHistoris, ex:SektorDefensif, ex:SektorSiklikal, ex:SektorKomoditas)) BIND(STRAFTER(STR(?s),"Sektor_") AS ?sek) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### J01
+# Top-3 emiten per sektor pilihan (inti & satelit)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?sektor ?kode ?skorAdaptif WHERE { ?s ex:kodeIndeksSektor ?kd . { ?s a ex:SektorPilihanInti } UNION { ?s a ex:SektorPilihanSatelit }
+ ?e ex:termasukSektor ?s ; ex:kodeSaham ?kode ; ex:skorAdaptifRegime ?skorAdaptif . FILTER NOT EXISTS { ?e a ex:EmitenUji }
+ { SELECT ?e (COUNT(?o) AS ?lebih) WHERE { ?e ex:termasukSektor ?s2 ; ex:skorAdaptifRegime ?sk . OPTIONAL { ?o ex:termasukSektor ?s2 ; ex:skorAdaptifRegime ?so . FILTER(?so > ?sk) FILTER NOT EXISTS { ?o a ex:EmitenUji } } } GROUP BY ?e }
+ FILTER(?lebih < 3) BIND(STRAFTER(STR(?s),"Sektor_") AS ?sektor) } ORDER BY ?sektor DESC(?skorAdaptif)
+
+### J02
+# Apa beda pilihan analis biasa (skor statis) dan sistem pakar (skor adaptif regime)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?skorStatis ?skorAdaptif ?analisBiasa ?pakar WHERE { ?e ex:kodeSaham ?kode ; ex:skorTotalEmiten ?skorStatis ; ex:skorAdaptifRegime ?skorAdaptif .
+ BIND(EXISTS { ?e a ex:KandidatTopPick } AS ?analisBiasa) BIND(EXISTS { ?e a ex:KandidatTopPickAdaptif } AS ?pakar) FILTER(?analisBiasa || ?pakar) } ORDER BY DESC(?skorAdaptif)
+
+### J03
+# Mengapa BRMS tidak masuk top pick pakar padahal grafiknya paling kuat (outperform tertinggi)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?skorStatis ?skorAdaptif ?epsGrowth ?kelas WHERE { ex:BRMS ex:skorTotalEmiten ?skorStatis ; ex:skorAdaptifRegime ?skorAdaptif ; ex:pertumbuhanEPS ?epsGrowth ; a ?k .
+ FILTER(?k IN (ex:MomentumTanpaFundamental, ex:RevisiLabaTurun, ex:FundamentalLemah, ex:FundamentalSedang, ex:Overvalued, ex:KonfluensiRendah, ex:TungguKonfirmasi, ex:KandidatTopPick)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) }
+
+### J04
+# Rincian skor multi-pilar emiten top pick (fundamental, valuasi, teknikal, bandar, sentimen, sektor, risiko, likuiditas)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?fund ?val ?tek ?band ?sent ?sek ?risiko ?likuid ?total ?adaptif WHERE { ?e a ex:KandidatTopPickAdaptif ; ex:kodeSaham ?kode ; ex:skorFundamental ?fund ; ex:skorValuasi ?val ; ex:skorTeknikal ?tek ;
+ ex:skorBandar ?band ; ex:skorSentimen ?sent ; ex:skorKontribusiSektor ?sek ; ex:penaltiRisiko ?risiko ; ex:poinLikuiditas ?likuid ; ex:skorTotalEmiten ?total ; ex:skorAdaptifRegime ?adaptif } ORDER BY DESC(?adaptif)
+
+### J05
+# Emiten dengan keyakinan tinggi dan watchlist?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:KeyakinanTinggi, ex:KandidatWatchlist)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### J06
+# Berapa ukuran posisi maksimal per emiten top pick (manajemen risiko)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?posisiMaks ?atr WHERE { ?e a ex:KandidatTopPickAdaptif ; ex:kodeSaham ?kode ; ex:ukuranPosisiMaksPersen ?posisiMaks ; ex:atrPersen ?atr } ORDER BY DESC(?posisiMaks)
+
+### J07
+# Apakah ada risiko konsentrasi (dua top pick dengan tema/komoditas sama)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?a ?b WHERE { ?x ex:terkonsentrasiDengan ?y ; ex:kodeSaham ?a . ?y ex:kodeSaham ?b . FILTER(STR(?a) < STR(?b)) }
+
+### K01
+# Regime pasar apa yang sedang terjadi dan berapa skor stresnya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?regime ?label ?stres ?cds ?drawdown ?breadth WHERE { ?k a ex:KondisiPasarAktif ; ex:regimeTerdeteksi ?r ; ex:skorStresPasar ?stres ; ex:cds5YBps ?cds ; ex:drawdownIHSGPersen ?drawdown ; ex:breadthPersenDiAtasMA200 ?breadth .
+ ?r rdfs:label ?label BIND(STRAFTER(STR(?r),"Regime_") AS ?regime) }
+
+### K02
+# Bagaimana bobot pilar berubah menurut regime (adaptif)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?regime ?aktif ?fund ?tek ?bandar ?smart ?risikoTrx ?ambang WHERE { ?r a ex:RegimePasar ; ex:bobotFundamental ?fund ; ex:bobotTeknikal ?tek ; ex:bobotBandar ?bandar ; ex:bobotSmartMoney ?smart ;
+ ex:risikoPerTransaksiPersen ?risikoTrx ; ex:ambangTopPickAdaptif ?ambang . BIND(EXISTS { ?r a ex:RegimeAktif } AS ?aktif) BIND(STRAFTER(STR(?r),"Regime_") AS ?regime) } ORDER BY DESC(?aktif)
+
+### K03
+# Reaksi kebijakan apa yang diantisipasi (reaction function BI/pemerintah)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?antisipasi ?label ?mengaktifkan WHERE { ?a a ex:AntisipasiTerpicu ; rdfs:label ?label . OPTIONAL { ?a ex:antisipasiMengaktifkan ?mengaktifkan } BIND(STRAFTER(STR(?a),"Antisipasi_") AS ?antisipasi) }
+
+### K04
+# Tesis investasi mana yang valid, rapuh, atau gugur (kill switch)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?tesis ?status WHERE { ?t a ex:TesisInvestasi ; a ?k . FILTER(?k IN (ex:TesisValid, ex:TesisRapuh, ex:TesisGugur, ex:TesisTerpicu, ex:TesisPerluDataBaru)) BIND(STRAFTER(STR(?t),"Tesis_") AS ?tesis) BIND(STRAFTER(STR(?k),"Tesis") AS ?status) } ORDER BY ?tesis
+
+### K05
+# Indikator kunci & ambang kill switch tiap tesis?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?tesis ?indikator ?nilai ?invalidBawah ?invalidAtas WHERE { ?t a ex:TesisInvestasi ; ex:indikatorKunciTesis ?i . ?i ex:nilaiIndikator ?nilai .
+ OPTIONAL { ?t ex:ambangInvalidasiBawah ?invalidBawah } OPTIONAL { ?t ex:ambangInvalidasiAtas ?invalidAtas } BIND(STRAFTER(STR(?t),"Tesis_") AS ?tesis) BIND(STRAFTER(STR(?i),"#") AS ?indikator) } ORDER BY ?tesis
+
+### K06
+# Katalis apa yang dekat (≤ 45 hari) dan emiten/sektor mana yang terdampak?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?katalis ?label ?hari ?emiten WHERE { ?k a ex:KatalisDekat ; rdfs:label ?label ; ex:hariMenujuKatalis ?hari . OPTIONAL { ?e ex:memilikiKatalisDekat ?k ; ex:kodeSaham ?emiten } BIND(STRAFTER(STR(?k),"K_") AS ?katalis) } ORDER BY ?hari
+
+### K07
+# Emiten mana yang ERP-nya menarik vs obligasi negara (SBN), dan mana yang mahal vs obligasi?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (COUNT(?e) AS ?n) (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:ERPSangatMenarik, ex:ERPMenarik, ex:MahalVsObligasi)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### K08
+# Kapan & di harga berapa masuk bertahap (akumulasi 3 tranche)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kode ?t1 ?t2 ?t3 ?drawdown ?kapitulasi WHERE { ?k a ex:KondisiPasarAktif ; ex:drawdownIHSGPersen ?drawdown . BIND(EXISTS { ?k a ex:KapitulasiPasar } AS ?kapitulasi)
+ OPTIONAL { ?e a ex:KandidatAkumulasiBertahap ; ex:kodeSaham ?kode ; ex:hargaTranche1 ?t1 ; ex:hargaTranche2 ?t2 ; ex:hargaTranche3 ?t3 } }
+
+### K09
+# Apakah sinyal antar-pilar sejalan (konfluensi) atau bertentangan (perlu tunggu konfirmasi)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:KonfluensiTinggi, ex:TungguKonfirmasi, ex:KonflikFundamentalVsBandar, ex:MomentumTanpaFundamental)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### K10
+# Revisi konsensus laba: siapa yang direvisi naik / turun dan apa artinya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (GROUP_CONCAT(?kode; separator=", ") AS ?emiten) WHERE { ?e ex:kodeSaham ?kode ; a ?k . FILTER(?k IN (ex:RevisiLabaNaik, ex:RevisiLabaTurun, ex:CelahEkspektasiPositif)) FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### K11
+# Apakah ada emiten yang kapitulasi (jual panik) atau berita baik yang sudah 'priced-in' (sell the news)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas ?x WHERE { ?x a ?k . FILTER(?k IN (ex:KapitulasiEmiten, ex:SellTheNews, ex:BreadthWashout, ex:DasarBelumTerkonfirmasi)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } ORDER BY ?kelas
+
+### L01
+# Siapa stakeholder sistem ini dan apa kebutuhannya?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?peran ?s ?kebutuhan WHERE { ?s a ?k . FILTER(?k IN (ex:StakeholderUtama, ex:StakeholderKandidat, ex:Validator, ex:RegulatorStakeholder, ex:EndUser)) OPTIONAL { ?s ex:kebutuhanStakeholder ?kebutuhan }
+ BIND(STRAFTER(STR(?k),"#") AS ?peran) } ORDER BY ?peran
+
+### L02
+# Saham apa yang direkomendasikan untuk tiap persona investor?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?persona (GROUP_CONCAT(?kode; separator=", ") AS ?saham) WHERE { ?e ex:direkomendasikanUntuk ?p ; ex:kodeSaham ?kode . FILTER NOT EXISTS { ?e a ex:EmitenUji } BIND(STRAFTER(STR(?p),"Persona_") AS ?persona) } GROUP BY ?persona
+
+### L03
+# Profil risiko, horizon, dan modal tiap persona?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?persona ?profil ?horizon ?modal WHERE { ?p a ex:EndUser . OPTIONAL { ?p ex:memilikiProfilRisiko ?profil } OPTIONAL { ?p ex:memilikiHorizon ?horizon } OPTIONAL { ?p ex:modalAwalJuta ?modal } BIND(STRAFTER(STR(?p),"Persona_") AS ?persona) }
+
+### M01
+# Data apa yang sudah kedaluwarsa dan perlu diperbarui?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?item ?umurHari WHERE { ?i a ex:DataKedaluwarsa . OPTIONAL { ?i ex:umurDataHari ?umurHari } BIND(STRAFTER(STR(?i),"#") AS ?item) } ORDER BY DESC(?umurHari)
+
+### M02
+# Emiten mana yang datanya masih perlu diverifikasi (data indikatif)?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?kelas (COUNT(?e) AS ?n) WHERE { ?e a ?k . FILTER(?k IN (ex:PerluVerifikasiData, ex:DataIndikatif)) BIND(STRAFTER(STR(?k),"#") AS ?kelas) } GROUP BY ?kelas
+
+### M03
+# Dari mana sumber data KB dan indikator mana yang bersifat leading?
+PREFIX ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT ?jenis (COUNT(?s) AS ?n) WHERE { ?s a ?k . FILTER(?k IN (ex:SumberDataResmi, ex:SumberDataPasar, ex:SumberDataBerita, ex:SumberDataAlternatif, ex:IndikatorLeading, ex:IndikatorCoincident, ex:IndikatorLagging)) BIND(STRAFTER(STR(?k),"#") AS ?jenis) } GROUP BY ?jenis
+

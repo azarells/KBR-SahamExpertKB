@@ -1,0 +1,8 @@
+Uji statis: 98/98 lulus
+Uji what-if (Pellet dijalankan ulang per skenario):
+  W01 LULUS
+  W02 LULUS
+  W03 LULUS
+  W04 LULUS
+  W05 LULUS
+TOTAL: 103/103 lulus -> output/HASIL_UJI_KB.md

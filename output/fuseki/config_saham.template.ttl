@@ -1,0 +1,54 @@
+# ======================================================================
+# Konfigurasi Apache Jena Fuseki (Jena 5.x / 6.x) — SahamExpertKB v2
+# Dua dataset:
+#   /saham          : PENALARAN LANGSUNG (GenericRuleReasoner menjalankan 301 aturan hasil konversi SWRL)
+#                     + SPARQL Update untuk analisis what-if (hasil inferensi dihitung ulang otomatis)
+#   /saham-pellet   : hasil inferensi Pellet yang sudah jadi (read-only, tanpa reasoner)
+# __DIR__ diganti otomatis oleh start_fuseki.sh / start_fuseki.bat dengan lokasi folder ini.
+# ======================================================================
+PREFIX fuseki: <http://jena.apache.org/fuseki#>
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ja:     <http://jena.hpl.hp.com/2005/11/Assembler#>
+PREFIX :       <#>
+
+[] rdf:type fuseki:Server .
+
+# ---------------------------------------------------------------- /saham (live reasoning)
+:svcSaham rdf:type fuseki:Service ;
+    rdfs:label "SahamExpertKB v2 - penalaran langsung (aturan SWRL -> Jena)" ;
+    fuseki:name "saham" ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ;  fuseki:name "sparql" ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ;  fuseki:name "query" ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:update ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:update ; fuseki:name "update" ] ;
+    fuseki:dataset :dsSaham .
+
+:dsSaham rdf:type ja:RDFDataset ;
+    ja:defaultGraph :infSaham .
+
+:infSaham rdf:type ja:InfModel ;
+    ja:reasoner [
+        ja:reasonerURL <http://jena.hpl.hp.com/2003/GenericRuleReasoner> ;
+        ja:rulesFrom <file://__DIR__/saham_rules.rules>
+    ] ;
+    ja:baseModel :baseSaham .
+
+:baseSaham rdf:type ja:MemoryModel ;
+    ja:content [ ja:externalContent <file://__DIR__/saham_data.ttl> ] .
+
+# ---------------------------------------------------------------- /saham-pellet (hasil Pellet, read-only)
+:svcPellet rdf:type fuseki:Service ;
+    rdfs:label "SahamExpertKB v2 - hasil inferensi Pellet (read-only)" ;
+    fuseki:name "saham-pellet" ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ; fuseki:name "sparql" ] ;
+    fuseki:endpoint [ fuseki:operation fuseki:query ; fuseki:name "query" ] ;
+    fuseki:dataset :dsPellet .
+
+:dsPellet rdf:type ja:RDFDataset ;
+    ja:defaultGraph :modelPellet .
+
+:modelPellet rdf:type ja:MemoryModel ;
+    ja:content [ ja:externalContent <file://__DIR__/SahamExpertKB_v2_inferred.owl> ] .

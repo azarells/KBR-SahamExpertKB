@@ -1,0 +1,920 @@
+# Aturan Jena hasil konversi otomatis dari 303 aturan SWRL SahamExpertKB v2
+# Dipakai Apache Jena Fuseki (GenericRuleReasoner). RDFS disertakan agar hierarki kelas ikut diturunkan.
+@prefix ex: <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+# Hierarki kelas (RDFS subclass) sebagai aturan FORWARD agar terlihat oleh aturan pakar
+[rdfs_subclass_transitif: (?a rdfs:subClassOf ?b) (?b rdfs:subClassOf ?c) -> (?a rdfs:subClassOf ?c)]
+[rdfs_tipe_turunan: (?x rdf:type ?a) (?a rdfs:subClassOf ?b) -> (?x rdf:type ?b)]
+
+# R-FUND-01a | Fundamental | Poin ROE: roe ∈ [15.0, +inf) → poinROE 2
+[R_FUND_01a: (?e rdf:type ex:Emiten) (?e ex:roe ?v) ge(?v, '15.0'^^xsd:double) -> (?e ex:poinROE 2)]
+
+# R-FUND-01b | Fundamental | Poin ROE: roe ∈ [8.0, 15.0) → poinROE 1
+[R_FUND_01b: (?e rdf:type ex:Emiten) (?e ex:roe ?v) ge(?v, '8.0'^^xsd:double) lessThan(?v, '15.0'^^xsd:double) -> (?e ex:poinROE 1)]
+
+# R-FUND-01c | Fundamental | Poin ROE: roe ∈ [-inf, 8.0) → poinROE 0
+[R_FUND_01c: (?e rdf:type ex:Emiten) (?e ex:roe ?v) lessThan(?v, '8.0'^^xsd:double) -> (?e ex:poinROE 0)]
+
+# R-FUND-02a | Fundamental | Poin solvabilitas non-bank (DER): der ∈ [-inf, 0.5) → poinSolvabilitas 2
+[R_FUND_02a: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:der ?v) lessThan(?v, '0.5'^^xsd:double) -> (?e ex:poinSolvabilitas 2)]
+
+# R-FUND-02b | Fundamental | Poin solvabilitas non-bank (DER): der ∈ [0.5, 1.5) → poinSolvabilitas 1
+[R_FUND_02b: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:der ?v) ge(?v, '0.5'^^xsd:double) lessThan(?v, '1.5'^^xsd:double) -> (?e ex:poinSolvabilitas 1)]
+
+# R-FUND-02c | Fundamental | Poin solvabilitas non-bank (DER): der ∈ [1.5, +inf) → poinSolvabilitas 0
+[R_FUND_02c: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:der ?v) ge(?v, '1.5'^^xsd:double) -> (?e ex:poinSolvabilitas 0)]
+
+# R-FUND-03a | Fundamental | Poin solvabilitas bank (NPL): npl ∈ [-inf, 2.0) → poinSolvabilitas 2
+[R_FUND_03a: (?e rdf:type ex:EmitenPerbankan) (?e ex:npl ?v) lessThan(?v, '2.0'^^xsd:double) -> (?e ex:poinSolvabilitas 2)]
+
+# R-FUND-03b | Fundamental | Poin solvabilitas bank (NPL): npl ∈ [2.0, 3.5) → poinSolvabilitas 1
+[R_FUND_03b: (?e rdf:type ex:EmitenPerbankan) (?e ex:npl ?v) ge(?v, '2.0'^^xsd:double) lessThan(?v, '3.5'^^xsd:double) -> (?e ex:poinSolvabilitas 1)]
+
+# R-FUND-03c | Fundamental | Poin solvabilitas bank (NPL): npl ∈ [3.5, +inf) → poinSolvabilitas 0
+[R_FUND_03c: (?e rdf:type ex:EmitenPerbankan) (?e ex:npl ?v) ge(?v, '3.5'^^xsd:double) -> (?e ex:poinSolvabilitas 0)]
+
+# R-FUND-04a | Fundamental | Poin margin non-bank (NPM): npm ∈ [15.0, +inf) → poinMargin 2
+[R_FUND_04a: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:npm ?v) ge(?v, '15.0'^^xsd:double) -> (?e ex:poinMargin 2)]
+
+# R-FUND-04b | Fundamental | Poin margin non-bank (NPM): npm ∈ [5.0, 15.0) → poinMargin 1
+[R_FUND_04b: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:npm ?v) ge(?v, '5.0'^^xsd:double) lessThan(?v, '15.0'^^xsd:double) -> (?e ex:poinMargin 1)]
+
+# R-FUND-04c | Fundamental | Poin margin non-bank (NPM): npm ∈ [-inf, 5.0) → poinMargin 0
+[R_FUND_04c: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:npm ?v) lessThan(?v, '5.0'^^xsd:double) -> (?e ex:poinMargin 0)]
+
+# R-FUND-05a | Fundamental | Poin margin bank (NIM): nim ∈ [5.0, +inf) → poinMargin 2
+[R_FUND_05a: (?e rdf:type ex:EmitenPerbankan) (?e ex:nim ?v) ge(?v, '5.0'^^xsd:double) -> (?e ex:poinMargin 2)]
+
+# R-FUND-05b | Fundamental | Poin margin bank (NIM): nim ∈ [3.5, 5.0) → poinMargin 1
+[R_FUND_05b: (?e rdf:type ex:EmitenPerbankan) (?e ex:nim ?v) ge(?v, '3.5'^^xsd:double) lessThan(?v, '5.0'^^xsd:double) -> (?e ex:poinMargin 1)]
+
+# R-FUND-05c | Fundamental | Poin margin bank (NIM): nim ∈ [-inf, 3.5) → poinMargin 0
+[R_FUND_05c: (?e rdf:type ex:EmitenPerbankan) (?e ex:nim ?v) lessThan(?v, '3.5'^^xsd:double) -> (?e ex:poinMargin 0)]
+
+# R-FUND-06a | Fundamental | Poin pertumbuhan EPS: pertumbuhanEPS ∈ [15.0, +inf) → poinPertumbuhan 2
+[R_FUND_06a: (?e rdf:type ex:Emiten) (?e ex:pertumbuhanEPS ?v) ge(?v, '15.0'^^xsd:double) -> (?e ex:poinPertumbuhan 2)]
+
+# R-FUND-06b | Fundamental | Poin pertumbuhan EPS: pertumbuhanEPS ∈ [0.0, 15.0) → poinPertumbuhan 1
+[R_FUND_06b: (?e rdf:type ex:Emiten) (?e ex:pertumbuhanEPS ?v) ge(?v, '0.0'^^xsd:double) lessThan(?v, '15.0'^^xsd:double) -> (?e ex:poinPertumbuhan 1)]
+
+# R-FUND-06c | Fundamental | Poin pertumbuhan EPS: pertumbuhanEPS ∈ [-inf, 0.0) → poinPertumbuhan 0
+[R_FUND_06c: (?e rdf:type ex:Emiten) (?e ex:pertumbuhanEPS ?v) lessThan(?v, '0.0'^^xsd:double) -> (?e ex:poinPertumbuhan 0)]
+
+# R-FUND-07a | Fundamental | Poin kualitas laba (CFO/laba): cfoPerLabaBersih ∈ [1.0, +inf) → poinKualitas 2
+[R_FUND_07a: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:cfoPerLabaBersih ?v) ge(?v, '1.0'^^xsd:double) -> (?e ex:poinKualitas 2)]
+
+# R-FUND-07b | Fundamental | Poin kualitas laba (CFO/laba): cfoPerLabaBersih ∈ [0.7, 1.0) → poinKualitas 1
+[R_FUND_07b: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:cfoPerLabaBersih ?v) ge(?v, '0.7'^^xsd:double) lessThan(?v, '1.0'^^xsd:double) -> (?e ex:poinKualitas 1)]
+
+# R-FUND-07c | Fundamental | Poin kualitas laba (CFO/laba): cfoPerLabaBersih ∈ [-inf, 0.7) → poinKualitas 0
+[R_FUND_07c: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:cfoPerLabaBersih ?v) lessThan(?v, '0.7'^^xsd:double) -> (?e ex:poinKualitas 0)]
+
+# R-FUND-08a | Fundamental | Poin permodalan bank (CAR): car ∈ [20.0, +inf) → poinKualitas 2
+[R_FUND_08a: (?e rdf:type ex:EmitenPerbankan) (?e ex:car ?v) ge(?v, '20.0'^^xsd:double) -> (?e ex:poinKualitas 2)]
+
+# R-FUND-08b | Fundamental | Poin permodalan bank (CAR): car ∈ [15.0, 20.0) → poinKualitas 1
+[R_FUND_08b: (?e rdf:type ex:EmitenPerbankan) (?e ex:car ?v) ge(?v, '15.0'^^xsd:double) lessThan(?v, '20.0'^^xsd:double) -> (?e ex:poinKualitas 1)]
+
+# R-FUND-08c | Fundamental | Poin permodalan bank (CAR): car ∈ [-inf, 15.0) → poinKualitas 0
+[R_FUND_08c: (?e rdf:type ex:EmitenPerbankan) (?e ex:car ?v) lessThan(?v, '15.0'^^xsd:double) -> (?e ex:poinKualitas 0)]
+
+# R-FUND-09 | Fundamental | Skor fundamental = ROE + solvabilitas + margin + pertumbuhan + kualitas (0-10)
+[R_FUND_09: (?e rdf:type ex:Emiten) (?e ex:poinROE ?a) (?e ex:poinSolvabilitas ?b) (?e ex:poinMargin ?c) (?e ex:poinPertumbuhan ?d) (?e ex:poinKualitas ?f) sum(?a, ?b, ?_t1) sum(?_t1, ?c, ?_t2) sum(?_t2, ?d, ?_t3) sum(?_t3, ?f, ?s) -> (?e ex:skorFundamental ?s)]
+
+# R-FUND-10a | Fundamental | Klasifikasi kesehatan fundamental: skorFundamental ∈ [8, +inf) →   FundamentalKuat
+[R_FUND_10a: (?e rdf:type ex:Emiten) (?e ex:skorFundamental ?v) ge(?v, 8) -> (?e rdf:type ex:FundamentalKuat)]
+
+# R-FUND-10b | Fundamental | Klasifikasi kesehatan fundamental: skorFundamental ∈ [5, 8) →   FundamentalSedang
+[R_FUND_10b: (?e rdf:type ex:Emiten) (?e ex:skorFundamental ?v) ge(?v, 5) lessThan(?v, 8) -> (?e rdf:type ex:FundamentalSedang)]
+
+# R-FUND-10c | Fundamental | Klasifikasi kesehatan fundamental: skorFundamental ∈ [-inf, 5) →   FundamentalLemah
+[R_FUND_10c: (?e rdf:type ex:Emiten) (?e ex:skorFundamental ?v) lessThan(?v, 5) -> (?e rdf:type ex:FundamentalLemah)]
+
+# R-FUND-11 | Fundamental | Kualitas laba tinggi: CFO ≥ laba bersih pada emiten yang laba
+[R_FUND_11: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:cfoPerLabaBersih ?c) ge(?c, '1.0'^^xsd:double) (?e ex:per ?p) greaterThan(?p, '0.0'^^xsd:double) -> (?e rdf:type ex:KualitasLabaTinggi)]
+
+# R-FUND-12 | Fundamental | Dividen andalan: yield ≥ 6%, payout ≤ 90%, fundamental ≥ 5
+[R_FUND_12: (?e rdf:type ex:Emiten) (?e ex:dividendYield ?y) ge(?y, '6.0'^^xsd:double) (?e ex:dpr ?d) le(?d, '90.0'^^xsd:double) (?e ex:skorFundamental ?s) ge(?s, 5) -> (?e rdf:type ex:DividenAndalan)]
+
+# R-VAL-01 | Fundamental-Valuasi | Emiten merugi (PER ≤ 0) → skor valuasi 0
+[R_VAL_01: (?e rdf:type ex:Emiten) (?e ex:per ?p) le(?p, '0.0'^^xsd:double) -> (?e rdf:type ex:EmitenMerugi) (?e ex:skorValuasi 0)]
+
+# R-VAL-02 | Fundamental-Valuasi | Rasio PER terhadap rata-rata 5 tahun (PER band)
+[R_VAL_02: (?e rdf:type ex:Emiten) (?e ex:per ?p) greaterThan(?p, '0.0'^^xsd:double) (?e ex:per5Tahun ?q) greaterThan(?q, '0.0'^^xsd:double) quotient(?p, ?q, ?r) -> (?e ex:rasioPERvsHistoris ?r)]
+
+# R-VAL-03a | Fundamental-Valuasi | Skor valuasi PER band: rasioPERvsHistoris ∈ [-inf, 0.6) → skorValuasi 3 Undervalued
+[R_VAL_03a: (?e rdf:type ex:Emiten) (?e ex:rasioPERvsHistoris ?v) lessThan(?v, '0.6'^^xsd:double) -> (?e ex:skorValuasi 3) (?e rdf:type ex:Undervalued)]
+
+# R-VAL-03b | Fundamental-Valuasi | Skor valuasi PER band: rasioPERvsHistoris ∈ [0.6, 0.85) → skorValuasi 2 Undervalued
+[R_VAL_03b: (?e rdf:type ex:Emiten) (?e ex:rasioPERvsHistoris ?v) ge(?v, '0.6'^^xsd:double) lessThan(?v, '0.85'^^xsd:double) -> (?e ex:skorValuasi 2) (?e rdf:type ex:Undervalued)]
+
+# R-VAL-03c | Fundamental-Valuasi | Skor valuasi PER band: rasioPERvsHistoris ∈ [0.85, 1.1) → skorValuasi 1 FairValued
+[R_VAL_03c: (?e rdf:type ex:Emiten) (?e ex:rasioPERvsHistoris ?v) ge(?v, '0.85'^^xsd:double) lessThan(?v, '1.1'^^xsd:double) -> (?e ex:skorValuasi 1) (?e rdf:type ex:FairValued)]
+
+# R-VAL-03d | Fundamental-Valuasi | Skor valuasi PER band: rasioPERvsHistoris ∈ [1.1, +inf) → skorValuasi 0 Overvalued
+[R_VAL_03d: (?e rdf:type ex:Emiten) (?e ex:rasioPERvsHistoris ?v) ge(?v, '1.1'^^xsd:double) -> (?e ex:skorValuasi 0) (?e rdf:type ex:Overvalued)]
+
+# R-VAL-04 | Fundamental-Valuasi | EPS estimasi = harga / PER
+[R_VAL_04: (?e rdf:type ex:Emiten) (?e ex:hargaPenutupan ?h) (?e ex:per ?p) greaterThan(?p, '0.0'^^xsd:double) quotient(?h, ?p, ?eps) -> (?e ex:epsEstimasi ?eps)]
+
+# R-VAL-05 | Fundamental-Valuasi | Nilai wajar = EPS × PER rata-rata 5 tahun; upside = (NW/harga - 1) × 100
+[R_VAL_05: (?e rdf:type ex:Emiten) (?e ex:epsEstimasi ?eps) (?e ex:per5Tahun ?q) (?e ex:hargaPenutupan ?h) product(?eps, ?q, ?nw) quotient(?nw, ?h, ?r) difference(?r, '1.0'^^xsd:double, ?u0) product(?u0, '100.0'^^xsd:double, ?u) -> (?e ex:nilaiWajar ?nw) (?e ex:potensiUpsidePersen ?u)]
+
+# R-RISK-01a | Fundamental-Risiko | Zona Altman Z non-bank & penalti risiko: altmanZ ∈ [-inf, 1.81) → penaltiRisiko -5 ZonaDistress
+[R_RISK_01a: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:altmanZ ?v) lessThan(?v, '1.81'^^xsd:double) -> (?e ex:penaltiRisiko -5) (?e rdf:type ex:ZonaDistress)]
+
+# R-RISK-01b | Fundamental-Risiko | Zona Altman Z non-bank & penalti risiko: altmanZ ∈ [1.81, 2.99) → penaltiRisiko -1 ZonaAbuAbu
+[R_RISK_01b: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:altmanZ ?v) ge(?v, '1.81'^^xsd:double) lessThan(?v, '2.99'^^xsd:double) -> (?e ex:penaltiRisiko -1) (?e rdf:type ex:ZonaAbuAbu)]
+
+# R-RISK-01c | Fundamental-Risiko | Zona Altman Z non-bank & penalti risiko: altmanZ ∈ [2.99, +inf) → penaltiRisiko 0 ZonaAman
+[R_RISK_01c: (?e rdf:type ex:EmitenNonKeuangan) (?e ex:altmanZ ?v) ge(?v, '2.99'^^xsd:double) -> (?e ex:penaltiRisiko 0) (?e rdf:type ex:ZonaAman)]
+
+# R-RISK-02a | Fundamental-Risiko | Permodalan bank & penalti risiko: car ∈ [-inf, 12.0) → penaltiRisiko -5 BankModalLemah
+[R_RISK_02a: (?e rdf:type ex:EmitenPerbankan) (?e ex:car ?v) lessThan(?v, '12.0'^^xsd:double) -> (?e ex:penaltiRisiko -5) (?e rdf:type ex:BankModalLemah)]
+
+# R-RISK-02b | Fundamental-Risiko | Permodalan bank & penalti risiko: car ∈ [12.0, +inf) → penaltiRisiko 0
+[R_RISK_02b: (?e rdf:type ex:EmitenPerbankan) (?e ex:car ?v) ge(?v, '12.0'^^xsd:double) -> (?e ex:penaltiRisiko 0)]
+
+# R-RISK-03 | Fundamental-Risiko | Bank NPL > 5% → modal lemah (batas OJK)
+[R_RISK_03: (?e rdf:type ex:EmitenPerbankan) (?e ex:npl ?n) greaterThan(?n, '5.0'^^xsd:double) -> (?e rdf:type ex:BankModalLemah)]
+
+# R-RISK-04 | Fundamental-Risiko | Going concern: distress + DER > 1,5
+[R_RISK_04: (?e rdf:type ex:ZonaDistress) (?e ex:der ?d) greaterThan(?d, '1.5'^^xsd:double) -> (?e rdf:type ex:RisikoGoingConcern)]
+
+# R-RISK-05 | Fundamental-Risiko | Going concern: distress + arus kas lemah (CFO/laba < 0,7)
+[R_RISK_05: (?e rdf:type ex:ZonaDistress) (?e ex:cfoPerLabaBersih ?c) lessThan(?c, '0.7'^^xsd:double) -> (?e rdf:type ex:RisikoGoingConcern)]
+
+# R-RISK-06 | Fundamental-Risiko | Going concern: merugi + distress
+[R_RISK_06: (?e rdf:type ex:ZonaDistress) (?e rdf:type ex:EmitenMerugi) -> (?e rdf:type ex:RisikoGoingConcern)]
+
+# R-RISK-07 | Fundamental-Risiko | Beneish M > -1,78 → indikasi manipulasi laba
+[R_RISK_07: (?e rdf:type ex:Emiten) (?e ex:beneishM ?m) greaterThan(?m, '-1.78'^^xsd:double) -> (?e rdf:type ex:RisikoManipulasiLaba)]
+
+# R-TEK-01a | Teknikal | Tren naik penuh: harga > MA50, harga > MA200, MA50 > MA200 → 3 poin
+[R_TEK_01a: (?e rdf:type ex:Emiten) (?e ex:jarakMA200Persen ?a) ge(?a, '0.0'^^xsd:double) (?e ex:jarakMA50Persen ?b) ge(?b, '0.0'^^xsd:double) (?e ex:selisihMA50MA200Persen ?c) ge(?c, '0.0'^^xsd:double) -> (?e ex:poinTren 3) (?e rdf:type ex:TrenNaik)]
+
+# R-TEK-01b | Teknikal | Pullback dalam uptrend: harga > MA200, harga < MA50 → 2 poin
+[R_TEK_01b: (?e rdf:type ex:Emiten) (?e ex:jarakMA200Persen ?a) ge(?a, '0.0'^^xsd:double) (?e ex:jarakMA50Persen ?b) lessThan(?b, '0.0'^^xsd:double) -> (?e ex:poinTren 2) (?e rdf:type ex:PullbackDalamUptrend)]
+
+# R-TEK-01c | Teknikal | Pemulihan awal: harga > MA50 & MA200 tetapi MA50 < MA200 (menuju golden cross) → 2 poin
+[R_TEK_01c: (?e rdf:type ex:Emiten) (?e ex:jarakMA200Persen ?a) ge(?a, '0.0'^^xsd:double) (?e ex:jarakMA50Persen ?b) ge(?b, '0.0'^^xsd:double) (?e ex:selisihMA50MA200Persen ?c) lessThan(?c, '0.0'^^xsd:double) -> (?e ex:poinTren 2)]
+
+# R-TEK-01d | Teknikal | Rebound di bawah MA200: harga > MA50, harga < MA200 → 1 poin
+[R_TEK_01d: (?e rdf:type ex:Emiten) (?e ex:jarakMA200Persen ?a) lessThan(?a, '0.0'^^xsd:double) (?e ex:jarakMA50Persen ?b) ge(?b, '0.0'^^xsd:double) -> (?e ex:poinTren 1)]
+
+# R-TEK-01e | Teknikal | Downtrend: harga < MA50 & < MA200 → 0 poin
+[R_TEK_01e: (?e rdf:type ex:Emiten) (?e ex:jarakMA200Persen ?a) lessThan(?a, '0.0'^^xsd:double) (?e ex:jarakMA50Persen ?b) lessThan(?b, '0.0'^^xsd:double) -> (?e ex:poinTren 0) (?e rdf:type ex:TrenTurun)]
+
+# R-TEK-02a | Teknikal | Poin RSI-14: rsi14 ∈ [-inf, 30.0) → poinRSI 1 Oversold
+[R_TEK_02a: (?e rdf:type ex:Emiten) (?e ex:rsi14 ?v) lessThan(?v, '30.0'^^xsd:double) -> (?e ex:poinRSI 1) (?e rdf:type ex:Oversold)]
+
+# R-TEK-02b | Teknikal | Poin RSI-14: rsi14 ∈ [30.0, 40.0) → poinRSI 1
+[R_TEK_02b: (?e rdf:type ex:Emiten) (?e ex:rsi14 ?v) ge(?v, '30.0'^^xsd:double) lessThan(?v, '40.0'^^xsd:double) -> (?e ex:poinRSI 1)]
+
+# R-TEK-02c | Teknikal | Poin RSI-14: rsi14 ∈ [40.0, 65.0) → poinRSI 2
+[R_TEK_02c: (?e rdf:type ex:Emiten) (?e ex:rsi14 ?v) ge(?v, '40.0'^^xsd:double) lessThan(?v, '65.0'^^xsd:double) -> (?e ex:poinRSI 2)]
+
+# R-TEK-02d | Teknikal | Poin RSI-14: rsi14 ∈ [65.0, 75.0) → poinRSI 1
+[R_TEK_02d: (?e rdf:type ex:Emiten) (?e ex:rsi14 ?v) ge(?v, '65.0'^^xsd:double) lessThan(?v, '75.0'^^xsd:double) -> (?e ex:poinRSI 1)]
+
+# R-TEK-02e | Teknikal | Poin RSI-14: rsi14 ∈ [75.0, +inf) → poinRSI 0 Overbought
+[R_TEK_02e: (?e rdf:type ex:Emiten) (?e ex:rsi14 ?v) ge(?v, '75.0'^^xsd:double) -> (?e ex:poinRSI 0) (?e rdf:type ex:Overbought)]
+
+# R-TEK-03a | Teknikal | MACD histogram positif → 1
+[R_TEK_03a: (?e rdf:type ex:Emiten) (?e ex:histogramMACD ?m) greaterThan(?m, 0) -> (?e ex:poinMACD 1)]
+
+# R-TEK-03b | Teknikal | MACD histogram ≤ 0 → 0
+[R_TEK_03b: (?e rdf:type ex:Emiten) (?e ex:histogramMACD ?m) le(?m, 0) -> (?e ex:poinMACD 0)]
+
+# R-TEK-04a | Teknikal | Poin volume: rasioVolume ∈ [1.5, +inf) → poinVolume 1
+[R_TEK_04a: (?e rdf:type ex:Emiten) (?e ex:rasioVolume ?v) ge(?v, '1.5'^^xsd:double) -> (?e ex:poinVolume 1)]
+
+# R-TEK-04b | Teknikal | Poin volume: rasioVolume ∈ [-inf, 1.5) → poinVolume 0
+[R_TEK_04b: (?e rdf:type ex:Emiten) (?e ex:rasioVolume ?v) lessThan(?v, '1.5'^^xsd:double) -> (?e ex:poinVolume 0)]
+
+# R-TEK-05 | Teknikal | Lonjakan volume ≥ 2× rata-rata
+[R_TEK_05: (?e rdf:type ex:Emiten) (?e ex:rasioVolume ?v) ge(?v, '2.0'^^xsd:double) -> (?e rdf:type ex:LonjakanVolume)]
+
+# R-TEK-06 | Teknikal | Skor teknikal = tren + RSI + MACD + volume (0-7)
+[R_TEK_06: (?e rdf:type ex:Emiten) (?e ex:poinTren ?a) (?e ex:poinRSI ?b) (?e ex:poinMACD ?c) (?e ex:poinVolume ?d) sum(?a, ?b, ?_t1) sum(?_t1, ?c, ?_t2) sum(?_t2, ?d, ?s) -> (?e ex:skorTeknikal ?s)]
+
+# R-TEK-07 | Teknikal-Pola | Pola chart bullish terkonfirmasi akumulasi bandar
+[R_TEK_07: (?e ex:terdeteksiPola ?p) (?p rdf:type ex:PolaBullish) (?e rdf:type ex:AkumulasiBandar) -> (?e rdf:type ex:KonfirmasiPolaBullish)]
+
+# R-TEK-08 | Teknikal-Pola | Candlestick bullish terkonfirmasi akumulasi bandar
+[R_TEK_08: (?e ex:terdeteksiPola ?p) (?p rdf:type ex:CandlestickBullish) (?e rdf:type ex:AkumulasiBandar) -> (?e rdf:type ex:KonfirmasiPolaBullish)]
+
+# R-TEK-09 | Teknikal-Pola | Pola bearish terkonfirmasi distribusi (acc/dist ≤ -10)
+[R_TEK_09: (?e ex:terdeteksiPola ?p) (?p rdf:type ex:PolaBearish) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) -> (?e rdf:type ex:KonfirmasiPolaBearish)]
+
+# R-TEK-10 | Teknikal-Pola | Candlestick bearish + downtrend
+[R_TEK_10: (?e ex:terdeteksiPola ?p) (?p rdf:type ex:CandlestickBearish) (?e rdf:type ex:TrenTurun) -> (?e rdf:type ex:KonfirmasiPolaBearish)]
+
+# R-BDR-01a | Bandarmology | Poin Acc/Dist broker: skorAccDistBroker ∈ [30.0, +inf) → poinAccDist 3
+[R_BDR_01a: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?v) ge(?v, '30.0'^^xsd:double) -> (?e ex:poinAccDist 3)]
+
+# R-BDR-01b | Bandarmology | Poin Acc/Dist broker: skorAccDistBroker ∈ [10.0, 30.0) → poinAccDist 2
+[R_BDR_01b: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?v) ge(?v, '10.0'^^xsd:double) lessThan(?v, '30.0'^^xsd:double) -> (?e ex:poinAccDist 2)]
+
+# R-BDR-01c | Bandarmology | Poin Acc/Dist broker: skorAccDistBroker ∈ [-10.0, 10.0) → poinAccDist 1
+[R_BDR_01c: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?v) ge(?v, '-10.0'^^xsd:double) lessThan(?v, '10.0'^^xsd:double) -> (?e ex:poinAccDist 1)]
+
+# R-BDR-01d | Bandarmology | Poin Acc/Dist broker: skorAccDistBroker ∈ [-inf, -10.0) → poinAccDist 0
+[R_BDR_01d: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?v) lessThan(?v, '-10.0'^^xsd:double) -> (?e ex:poinAccDist 0)]
+
+# R-BDR-02a | Bandarmology | Poin net foreign 20 hari: netAsing20HariM ∈ [50.0, +inf) → poinAsing 2 AsingAkumulasi
+[R_BDR_02a: (?e rdf:type ex:Emiten) (?e ex:netAsing20HariM ?v) ge(?v, '50.0'^^xsd:double) -> (?e ex:poinAsing 2) (?e rdf:type ex:AsingAkumulasi)]
+
+# R-BDR-02b | Bandarmology | Poin net foreign 20 hari: netAsing20HariM ∈ [0.0, 50.0) → poinAsing 1
+[R_BDR_02b: (?e rdf:type ex:Emiten) (?e ex:netAsing20HariM ?v) ge(?v, '0.0'^^xsd:double) lessThan(?v, '50.0'^^xsd:double) -> (?e ex:poinAsing 1)]
+
+# R-BDR-02c | Bandarmology | Poin net foreign 20 hari: netAsing20HariM ∈ [-50.0, 0.0) → poinAsing 0
+[R_BDR_02c: (?e rdf:type ex:Emiten) (?e ex:netAsing20HariM ?v) ge(?v, '-50.0'^^xsd:double) lessThan(?v, '0.0'^^xsd:double) -> (?e ex:poinAsing 0)]
+
+# R-BDR-02d | Bandarmology | Poin net foreign 20 hari: netAsing20HariM ∈ [-inf, -50.0) → poinAsing 0 AsingDistribusi
+[R_BDR_02d: (?e rdf:type ex:Emiten) (?e ex:netAsing20HariM ?v) lessThan(?v, '-50.0'^^xsd:double) -> (?e ex:poinAsing 0) (?e rdf:type ex:AsingDistribusi)]
+
+# R-BDR-03 | Bandarmology | Skor bandarmology = acc/dist + asing (0-5)
+[R_BDR_03: (?e rdf:type ex:Emiten) (?e ex:poinAccDist ?a) (?e ex:poinAsing ?b) sum(?a, ?b, ?s) -> (?e ex:skorBandar ?s)]
+
+# R-BDR-04 | Bandarmology | Akumulasi bandar: Acc/Dist ≥ 20
+[R_BDR_04: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) ge(?a, '20.0'^^xsd:double) -> (?e rdf:type ex:AkumulasiBandar)]
+
+# R-BDR-05 | Bandarmology | Distribusi bandar: Acc/Dist ≤ -20
+[R_BDR_05: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) le(?a, '-20.0'^^xsd:double) -> (?e rdf:type ex:DistribusiBandar)]
+
+# R-BDR-06 | Bandarmology | Smart money divergence: bandar akumulasi saat harga turun & ritel jual (Wyckoff akumulasi)
+[R_BDR_06: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) ge(?a, '20.0'^^xsd:double) (?e ex:netRitel20HariM ?r) lessThan(?r, '0.0'^^xsd:double) (?e ex:perubahanHarga20HariPersen ?c) lessThan(?c, '0.0'^^xsd:double) -> (?e rdf:type ex:AkumulasiTersembunyi)]
+
+# R-BDR-07 | Bandarmology | Distribusi ke ritel: bandar jual, broker ritel net buy
+[R_BDR_07: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) (?e ex:netRitel20HariM ?r) greaterThan(?r, '0.0'^^xsd:double) -> (?e rdf:type ex:DistribusiKeRitel)]
+
+# R-BDR-08 | Bandarmology-Wyckoff | Fase akumulasi: akumulasi di bawah MA200
+[R_BDR_08: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) ge(?a, '20.0'^^xsd:double) (?e ex:jarakMA200Persen ?m) lessThan(?m, '0.0'^^xsd:double) -> (?e rdf:type ex:FaseAkumulasiWyckoff)]
+
+# R-BDR-09 | Bandarmology-Wyckoff | Fase mark-up: akumulasi + di atas MA200 + MA50 > MA200
+[R_BDR_09: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) ge(?a, '10.0'^^xsd:double) (?e ex:jarakMA200Persen ?m) ge(?m, '0.0'^^xsd:double) (?e ex:selisihMA50MA200Persen ?s) ge(?s, '0.0'^^xsd:double) -> (?e rdf:type ex:FaseMarkUpWyckoff)]
+
+# R-BDR-10 | Bandarmology-Wyckoff | Fase distribusi: bandar jual saat RSI tinggi
+[R_BDR_10: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) (?e ex:rsi14 ?r) ge(?r, '65.0'^^xsd:double) -> (?e rdf:type ex:FaseDistribusiWyckoff)]
+
+# R-BDR-11 | Bandarmology-Wyckoff | Fase mark-down: bandar jual + di bawah MA200
+[R_BDR_11: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) (?e ex:jarakMA200Persen ?m) lessThan(?m, '0.0'^^xsd:double) -> (?e rdf:type ex:FaseMarkDownWyckoff)]
+
+# R-BDR-12 | Bandarmology-Broker | Akumulator utama broker asing + akumulasi → akumulasi institusi asing
+[R_BDR_12: (?e ex:brokerAkumulatorUtama ?b) (?b rdf:type ex:BrokerAsing) (?e rdf:type ex:AkumulasiBandar) -> (?e rdf:type ex:AkumulasiInstitusiAsing)]
+
+# R-BDR-13 | Bandarmology-Broker | Pembeli utama broker ritel → waspada (exit liquidity)
+[R_BDR_13: (?e ex:brokerAkumulatorUtama ?b) (?b rdf:type ex:BrokerRitel) -> (?e rdf:type ex:AkumulasiDidominasiRitel)]
+
+# R-SEN-01a | Sentimen | Poin sentimen emiten: skorSentimenEmiten ∈ [0.3, +inf) → skorSentimen 2
+[R_SEN_01a: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?v) ge(?v, '0.3'^^xsd:double) -> (?e ex:skorSentimen 2)]
+
+# R-SEN-01b | Sentimen | Poin sentimen emiten: skorSentimenEmiten ∈ [0.1, 0.3) → skorSentimen 1
+[R_SEN_01b: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?v) ge(?v, '0.1'^^xsd:double) lessThan(?v, '0.3'^^xsd:double) -> (?e ex:skorSentimen 1)]
+
+# R-SEN-01c | Sentimen | Poin sentimen emiten: skorSentimenEmiten ∈ [-0.1, 0.1) → skorSentimen 0
+[R_SEN_01c: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?v) ge(?v, '-0.1'^^xsd:double) lessThan(?v, '0.1'^^xsd:double) -> (?e ex:skorSentimen 0)]
+
+# R-SEN-01d | Sentimen | Poin sentimen emiten: skorSentimenEmiten ∈ [-0.3, -0.1) → skorSentimen -1
+[R_SEN_01d: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?v) ge(?v, '-0.3'^^xsd:double) lessThan(?v, '-0.1'^^xsd:double) -> (?e ex:skorSentimen -1)]
+
+# R-SEN-01e | Sentimen | Poin sentimen emiten: skorSentimenEmiten ∈ [-inf, -0.3) → skorSentimen -2
+[R_SEN_01e: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?v) lessThan(?v, '-0.3'^^xsd:double) -> (?e ex:skorSentimen -2)]
+
+# R-SEN-02 | Sentimen | Sentimen positif ≥ 0,2
+[R_SEN_02: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?s) ge(?s, '0.2'^^xsd:double) -> (?e rdf:type ex:SentimenPositif)]
+
+# R-SEN-03 | Sentimen | Sentimen negatif ≤ -0,2
+[R_SEN_03: (?e rdf:type ex:Emiten) (?e ex:skorSentimenEmiten ?s) le(?s, '-0.2'^^xsd:double) -> (?e rdf:type ex:SentimenNegatif)]
+
+# R-SEN-04 | Sentimen | Red flag: berita kredibel (≥0,8) bernada sangat negatif (≤ -0,4) dalam 180 hari
+[R_SEN_04: (?n rdf:type ex:Berita) (?n ex:tentangEmiten ?e) (?n ex:skorSentimenBerita ?s) le(?s, '-0.4'^^xsd:double) (?n ex:kredibilitasSumber ?c) ge(?c, '0.8'^^xsd:double) (?n ex:umurHari ?d) le(?d, 180) -> (?e rdf:type ex:RedFlagBerita) (?e ex:memilikiRedFlag ?n)]
+
+# R-SEN-05a | Sentimen | Poin sentimen sektor: skorSentimenSektor ∈ [0.3, +inf) → poinSentimenSektor 2
+[R_SEN_05a: (?e rdf:type ex:Sektor) (?e ex:skorSentimenSektor ?v) ge(?v, '0.3'^^xsd:double) -> (?e ex:poinSentimenSektor 2)]
+
+# R-SEN-05b | Sentimen | Poin sentimen sektor: skorSentimenSektor ∈ [0.1, 0.3) → poinSentimenSektor 1
+[R_SEN_05b: (?e rdf:type ex:Sektor) (?e ex:skorSentimenSektor ?v) ge(?v, '0.1'^^xsd:double) lessThan(?v, '0.3'^^xsd:double) -> (?e ex:poinSentimenSektor 1)]
+
+# R-SEN-05c | Sentimen | Poin sentimen sektor: skorSentimenSektor ∈ [-0.1, 0.1) → poinSentimenSektor 0
+[R_SEN_05c: (?e rdf:type ex:Sektor) (?e ex:skorSentimenSektor ?v) ge(?v, '-0.1'^^xsd:double) lessThan(?v, '0.1'^^xsd:double) -> (?e ex:poinSentimenSektor 0)]
+
+# R-SEN-05d | Sentimen | Poin sentimen sektor: skorSentimenSektor ∈ [-0.3, -0.1) → poinSentimenSektor -1
+[R_SEN_05d: (?e rdf:type ex:Sektor) (?e ex:skorSentimenSektor ?v) ge(?v, '-0.3'^^xsd:double) lessThan(?v, '-0.1'^^xsd:double) -> (?e ex:poinSentimenSektor -1)]
+
+# R-SEN-05e | Sentimen | Poin sentimen sektor: skorSentimenSektor ∈ [-inf, -0.3) → poinSentimenSektor -2
+[R_SEN_05e: (?e rdf:type ex:Sektor) (?e ex:skorSentimenSektor ?v) lessThan(?v, '-0.3'^^xsd:double) -> (?e ex:poinSentimenSektor -2)]
+
+# R-GEO-01 | Geopolitik | Peristiwa aktif bila dikonfirmasi berita kredibel (≥ 0,7) berumur ≤ 180 hari
+[R_GEO_01: (?n rdf:type ex:Berita) (?n ex:tentangPeristiwa ?ev) (?n ex:kredibilitasSumber ?c) ge(?c, '0.7'^^xsd:double) (?n ex:umurHari ?d) le(?d, 180) -> (?ev rdf:type ex:PeristiwaAktif)]
+
+# R-GEO-02 | Geopolitik | Kebijakan domestik yang masih berjalan selalu aktif
+[R_GEO_02: (?ev rdf:type ex:KebijakanDomestik) (?ev ex:statusKebijakanBerjalan 1) -> (?ev rdf:type ex:PeristiwaAktif)]
+
+# R-GEO-03 | Geopolitik | Hop-1: peristiwa aktif memicu node transmisi
+[R_GEO_03: (?ev rdf:type ex:PeristiwaAktif) (?ev ex:memicuPergerakan ?m) -> (?m rdf:type ex:PergerakanAktif)]
+
+# R-GEO-04 | Geopolitik | Hop-n: propagasi kausal antar node transmisi (multi-hop)
+[R_GEO_04: (?m rdf:type ex:PergerakanAktif) (?m ex:menyebabkan ?n) -> (?n rdf:type ex:PergerakanAktif)]
+
+# R-GEO-05 | Geopolitik | Provenans geopolitik: node yang dipicu peristiwa global aktif
+[R_GEO_05: (?ev rdf:type ex:PeristiwaAktif) (?ev rdf:type ex:PeristiwaGlobal) (?ev ex:memicuPergerakan ?m) -> (?m rdf:type ex:PergerakanGeopolitik)]
+
+# R-GEO-06 | Geopolitik | Provenans geopolitik diturunkan sepanjang rantai kausal aktif
+[R_GEO_06: (?m rdf:type ex:PergerakanGeopolitik) (?m rdf:type ex:PergerakanAktif) (?m ex:menyebabkan ?n) -> (?n rdf:type ex:PergerakanGeopolitik)]
+
+# R-GEO-07 | Geopolitik | Tailwind sektor dari node aktif
+[R_GEO_07: (?m rdf:type ex:PergerakanAktif) (?m ex:menguntungkanSektor ?s) -> (?s ex:memilikiTailwind ?m)]
+
+# R-GEO-08 | Geopolitik | Headwind sektor dari node aktif
+[R_GEO_08: (?m rdf:type ex:PergerakanAktif) (?m ex:merugikanSektor ?s) -> (?s ex:memilikiHeadwind ?m)]
+
+# R-GEO-09 | Geopolitik | Peluang kontrarian (diskon teknikal/pasif)
+[R_GEO_09: (?m rdf:type ex:PergerakanAktif) (?m ex:menciptakanPeluangKontrarian ?s) -> (?s ex:memilikiPeluangKontrarian ?m) (?s rdf:type ex:SektorPeluangKontrarian)]
+
+# R-GEO-10 | Geopolitik | Sektor diuntungkan geopolitik
+[R_GEO_10: (?s ex:memilikiTailwind ?m) (?m rdf:type ex:PergerakanGeopolitik) (?m rdf:type ex:PergerakanAktif) -> (?s rdf:type ex:SektorDiuntungkanGeopolitik)]
+
+# R-GEO-11 | Geopolitik | Sektor dirugikan geopolitik
+[R_GEO_11: (?s ex:memilikiHeadwind ?m) (?m rdf:type ex:PergerakanGeopolitik) (?m rdf:type ex:PergerakanAktif) -> (?s rdf:type ex:SektorDirugikanGeopolitik)]
+
+# R-GEO-12 | Geopolitik→Emiten | Routing ke emiten: komoditas pendapatan naik
+[R_GEO_12: (?m rdf:type ex:PergerakanAktif) (?m ex:menaikkanHargaKomoditas ?k) (?e ex:eksposurKomoditasPendapatan ?k) -> (?e ex:diuntungkanOleh ?m) (?e rdf:type ex:PenerimaManfaatKomoditas)]
+
+# R-GEO-13 | Geopolitik→Emiten | Routing ke emiten: komoditas biaya naik
+[R_GEO_13: (?m rdf:type ex:PergerakanAktif) (?m ex:menaikkanHargaKomoditas ?k) (?e ex:eksposurKomoditasBiaya ?k) -> (?e ex:ditekanOleh ?m) (?e rdf:type ex:KorbanKenaikanKomoditas)]
+
+# R-GEO-14 | Geopolitik→Emiten | Routing ke emiten: komoditas pendapatan turun
+[R_GEO_14: (?m rdf:type ex:PergerakanAktif) (?m ex:menurunkanHargaKomoditas ?k) (?e ex:eksposurKomoditasPendapatan ?k) -> (?e ex:ditekanOleh ?m)]
+
+# R-GEO-15 | Geopolitik→Emiten | Keputusan penyedia indeks aktif → risiko outflow pasif konstituen
+[R_GEO_15: (?ev rdf:type ex:KeputusanPenyediaIndeks) (?ev rdf:type ex:PeristiwaAktif) (?ev ex:berdampakPadaIndeks ?i) (?e ex:anggotaIndeks ?i) -> (?e rdf:type ex:RisikoOutflowPasif)]
+
+# R-SKN-01 | Skenario | Skenario aktif dipilih (statusAktif = 1)
+[R_SKN_01: (?sc rdf:type ex:Skenario) (?sc ex:statusAktif 1) -> (?sc rdf:type ex:SkenarioAktif)]
+
+# R-SEK-01a | Makro-Geopolitik | Skor makro-geo bagian A = Σ sensitivitas × arah (faktor 1-6: energi, USD, suku bunga, inflasi, emas, logam/China)
+[R_SEK_01a: (?a rdf:type ex:PenilaianSektor) (?a ex:menilaiSektor ?s) (?a ex:dibawahSkenario ?sc) (?s ex:sensEnergi ?x0) (?sc ex:arahEnergi ?y0) product(?x0, ?y0, ?p0) (?s ex:sensUSD ?x1) (?sc ex:arahUSD ?y1) product(?x1, ?y1, ?p1) (?s ex:sensSukuBunga ?x2) (?sc ex:arahSukuBunga ?y2) product(?x2, ?y2, ?p2) (?s ex:sensInflasi ?x3) (?sc ex:arahInflasi ?y3) product(?x3, ?y3, ?p3) (?s ex:sensEmas ?x4) (?sc ex:arahEmas ?y4) product(?x4, ?y4, ?p4) (?s ex:sensLogamChina ?x5) (?sc ex:arahLogamChina ?y5) product(?x5, ?y5, ?p5) sum(?p0, ?p1, ?_t1) sum(?_t1, ?p2, ?_t2) sum(?_t2, ?p3, ?_t3) sum(?_t3, ?p4, ?_t4) sum(?_t4, ?p5, ?t) -> (?a ex:skorMakroGeoA ?t)]
+
+# R-SEK-01b | Makro-Geopolitik | Skor makro-geo bagian B = Σ sensitivitas × arah (faktor 7-12: risk-off, belanja pemerintah, daya beli, tarif, CPO, digital)
+[R_SEK_01b: (?a rdf:type ex:PenilaianSektor) (?a ex:menilaiSektor ?s) (?a ex:dibawahSkenario ?sc) (?s ex:sensRiskOff ?x6) (?sc ex:arahRiskOff ?y6) product(?x6, ?y6, ?p6) (?s ex:sensBelanjaPemerintah ?x7) (?sc ex:arahBelanjaPemerintah ?y7) product(?x7, ?y7, ?p7) (?s ex:sensDayaBeli ?x8) (?sc ex:arahDayaBeli ?y8) product(?x8, ?y8, ?p8) (?s ex:sensTarif ?x9) (?sc ex:arahTarif ?y9) product(?x9, ?y9, ?p9) (?s ex:sensCPO ?x10) (?sc ex:arahCPO ?y10) product(?x10, ?y10, ?p10) (?s ex:sensDigital ?x11) (?sc ex:arahDigital ?y11) product(?x11, ?y11, ?p11) sum(?p6, ?p7, ?_t1) sum(?_t1, ?p8, ?_t2) sum(?_t2, ?p9, ?_t3) sum(?_t3, ?p10, ?_t4) sum(?_t4, ?p11, ?t) -> (?a ex:skorMakroGeoB ?t)]
+
+# R-SEK-01c | Makro-Geopolitik | Skor makro-geo = bagian A + bagian B (12 faktor)
+[R_SEK_01c: (?a rdf:type ex:PenilaianSektor) (?a ex:skorMakroGeoA ?x) (?a ex:skorMakroGeoB ?y) sum(?x, ?y, ?t) -> (?a ex:skorMakroGeo ?t)]
+
+# R-SEK-02 | Fundamental-Sektor | Rasio valuasi sektor = PER / PER 5 th
+[R_SEK_02: (?s rdf:type ex:Sektor) (?s ex:perSektor ?p) (?s ex:per5TahunSektor ?q) quotient(?p, ?q, ?r) -> (?s ex:rasioValuasiSektor ?r)]
+
+# R-SEK-03a | Fundamental-Sektor | Skor valuasi sektor: rasioValuasiSektor ∈ [-inf, 0.6) → skorValuasiSektor 3 SektorMurahHistoris
+[R_SEK_03a: (?e rdf:type ex:Sektor) (?e ex:rasioValuasiSektor ?v) lessThan(?v, '0.6'^^xsd:double) -> (?e ex:skorValuasiSektor 3) (?e rdf:type ex:SektorMurahHistoris)]
+
+# R-SEK-03b | Fundamental-Sektor | Skor valuasi sektor: rasioValuasiSektor ∈ [0.6, 0.85) → skorValuasiSektor 2 SektorMurahHistoris
+[R_SEK_03b: (?e rdf:type ex:Sektor) (?e ex:rasioValuasiSektor ?v) ge(?v, '0.6'^^xsd:double) lessThan(?v, '0.85'^^xsd:double) -> (?e ex:skorValuasiSektor 2) (?e rdf:type ex:SektorMurahHistoris)]
+
+# R-SEK-03c | Fundamental-Sektor | Skor valuasi sektor: rasioValuasiSektor ∈ [0.85, 1.1) → skorValuasiSektor 1
+[R_SEK_03c: (?e rdf:type ex:Sektor) (?e ex:rasioValuasiSektor ?v) ge(?v, '0.85'^^xsd:double) lessThan(?v, '1.1'^^xsd:double) -> (?e ex:skorValuasiSektor 1)]
+
+# R-SEK-03d | Fundamental-Sektor | Skor valuasi sektor: rasioValuasiSektor ∈ [1.1, +inf) → skorValuasiSektor 0
+[R_SEK_03d: (?e rdf:type ex:Sektor) (?e ex:rasioValuasiSektor ?v) ge(?v, '1.1'^^xsd:double) -> (?e ex:skorValuasiSektor 0)]
+
+# R-SEK-04 | Tema Struktural | Skor tema tertimbang = tema × 2
+[R_SEK_04: (?s rdf:type ex:Sektor) (?s ex:skorTemaStruktural ?t) product(?t, 2, ?w) -> (?s ex:skorTemaTertimbang ?w)]
+
+# R-SEK-05 | Tema Struktural | Sektor didukung tema (skor ≥ 2)
+[R_SEK_05: (?s rdf:type ex:Sektor) (?s ex:skorTemaStruktural ?t) ge(?t, 2) -> (?s rdf:type ex:SektorDidukungTema)]
+
+# R-SEK-06a | Bandarmology-Sektor | Poin aliran asing sektor 3 bulan: aliranAsing3BulanT ∈ [1.0, +inf) → poinAliranAsing 2
+[R_SEK_06a: (?e rdf:type ex:Sektor) (?e ex:aliranAsing3BulanT ?v) ge(?v, '1.0'^^xsd:double) -> (?e ex:poinAliranAsing 2)]
+
+# R-SEK-06b | Bandarmology-Sektor | Poin aliran asing sektor 3 bulan: aliranAsing3BulanT ∈ [0.0, 1.0) → poinAliranAsing 1
+[R_SEK_06b: (?e rdf:type ex:Sektor) (?e ex:aliranAsing3BulanT ?v) ge(?v, '0.0'^^xsd:double) lessThan(?v, '1.0'^^xsd:double) -> (?e ex:poinAliranAsing 1)]
+
+# R-SEK-06c | Bandarmology-Sektor | Poin aliran asing sektor 3 bulan: aliranAsing3BulanT ∈ [-5.0, 0.0) → poinAliranAsing 0
+[R_SEK_06c: (?e rdf:type ex:Sektor) (?e ex:aliranAsing3BulanT ?v) ge(?v, '-5.0'^^xsd:double) lessThan(?v, '0.0'^^xsd:double) -> (?e ex:poinAliranAsing 0)]
+
+# R-SEK-06d | Bandarmology-Sektor | Poin aliran asing sektor 3 bulan: aliranAsing3BulanT ∈ [-inf, -5.0) → poinAliranAsing -1
+[R_SEK_06d: (?e rdf:type ex:Sektor) (?e ex:aliranAsing3BulanT ?v) lessThan(?v, '-5.0'^^xsd:double) -> (?e ex:poinAliranAsing -1)]
+
+# R-ROT-EarlyCycle | Rotasi Sektor | Skor rotasi bila skenario berada di Fase_EarlyCycle
+[R_ROT_EarlyCycle: (?a rdf:type ex:PenilaianSektor) (?a ex:dibawahSkenario ?sc) (?sc ex:faseSiklus ex:Fase_EarlyCycle) (?a ex:menilaiSektor ?s) (?s ex:skorFaseEarly ?v) -> (?a ex:skorRotasi ?v)]
+
+# R-ROT-MidCycle | Rotasi Sektor | Skor rotasi bila skenario berada di Fase_MidCycle
+[R_ROT_MidCycle: (?a rdf:type ex:PenilaianSektor) (?a ex:dibawahSkenario ?sc) (?sc ex:faseSiklus ex:Fase_MidCycle) (?a ex:menilaiSektor ?s) (?s ex:skorFaseMid ?v) -> (?a ex:skorRotasi ?v)]
+
+# R-ROT-LateCycle | Rotasi Sektor | Skor rotasi bila skenario berada di Fase_LateCycle
+[R_ROT_LateCycle: (?a rdf:type ex:PenilaianSektor) (?a ex:dibawahSkenario ?sc) (?sc ex:faseSiklus ex:Fase_LateCycle) (?a ex:menilaiSektor ?s) (?s ex:skorFaseLate ?v) -> (?a ex:skorRotasi ?v)]
+
+# R-ROT-ResesiStagflasi | Rotasi Sektor | Skor rotasi bila skenario berada di Fase_ResesiStagflasi
+[R_ROT_ResesiStagflasi: (?a rdf:type ex:PenilaianSektor) (?a ex:dibawahSkenario ?sc) (?sc ex:faseSiklus ex:Fase_ResesiStagflasi) (?a ex:menilaiSektor ?s) (?s ex:skorFaseResesi ?v) -> (?a ex:skorRotasi ?v)]
+
+# R-SEK-07 | Integrasi | SKOR OUTLOOK = makro-geo + valuasi + tema×2 + sentimen + aliran asing + rotasi
+[R_SEK_07: (?a rdf:type ex:PenilaianSektor) (?a ex:menilaiSektor ?s) (?a ex:skorMakroGeo ?m) (?a ex:skorRotasi ?r) (?s ex:skorValuasiSektor ?v) (?s ex:skorTemaTertimbang ?t) (?s ex:poinSentimenSektor ?n) (?s ex:poinAliranAsing ?f) sum(?m, ?r, ?_t1) sum(?_t1, ?v, ?_t2) sum(?_t2, ?t, ?_t3) sum(?_t3, ?n, ?_t4) sum(?_t4, ?f, ?o) -> (?a ex:skorOutlook ?o)]
+
+# R-SEK-08a | Integrasi | Kelas penilaian PenilaianBullishKuat
+[R_SEK_08a: (?a rdf:type ex:PenilaianSektor) (?a ex:skorOutlook ?o) ge(?o, 12) -> (?a rdf:type ex:PenilaianBullishKuat)]
+
+# R-SEK-08b | Integrasi | Kelas penilaian PenilaianBullishModerat
+[R_SEK_08b: (?a rdf:type ex:PenilaianSektor) (?a ex:skorOutlook ?o) ge(?o, 7) lessThan(?o, 12) -> (?a rdf:type ex:PenilaianBullishModerat)]
+
+# R-SEK-08c | Integrasi | Kelas penilaian PenilaianNetral
+[R_SEK_08c: (?a rdf:type ex:PenilaianSektor) (?a ex:skorOutlook ?o) ge(?o, 2) lessThan(?o, 7) -> (?a rdf:type ex:PenilaianNetral)]
+
+# R-SEK-08d | Integrasi | Kelas penilaian PenilaianBearish
+[R_SEK_08d: (?a rdf:type ex:PenilaianSektor) (?a ex:skorOutlook ?o) lessThan(?o, 2) -> (?a rdf:type ex:PenilaianBearish)]
+
+# R-SEK-09 | Skenario | Penilaian di skenario aktif
+[R_SEK_09: (?a rdf:type ex:PenilaianSektor) (?a ex:dibawahSkenario ?sc) (?sc rdf:type ex:SkenarioAktif) -> (?a rdf:type ex:PenilaianAktif)]
+
+# R-SEK-10 | Skenario | Skor outlook sektor mengikuti skenario aktif
+[R_SEK_10: (?a rdf:type ex:PenilaianAktif) (?a ex:menilaiSektor ?s) (?a ex:skorOutlook ?o) -> (?s ex:skorOutlookAktif ?o)]
+
+# R-SEK-11 | Rotasi Sektor | Sektor favorit fase siklus (rotasi ≥ 2 di skenario aktif)
+[R_SEK_11: (?a rdf:type ex:PenilaianAktif) (?a ex:menilaiSektor ?s) (?a ex:skorRotasi ?r) ge(?r, 2) -> (?s rdf:type ex:SektorFavoritSiklus)]
+
+# R-SEK-12a | Prediksi Sektor | PREDIKSI 1-3 TH: SektorBullishKuat
+[R_SEK_12a: (?s rdf:type ex:Sektor) (?s ex:skorOutlookAktif ?o) ge(?o, 12) -> (?s rdf:type ex:SektorBullishKuat)]
+
+# R-SEK-12b | Prediksi Sektor | PREDIKSI 1-3 TH: SektorBullishModerat
+[R_SEK_12b: (?s rdf:type ex:Sektor) (?s ex:skorOutlookAktif ?o) ge(?o, 7) lessThan(?o, 12) -> (?s rdf:type ex:SektorBullishModerat)]
+
+# R-SEK-12c | Prediksi Sektor | PREDIKSI 1-3 TH: SektorNetral
+[R_SEK_12c: (?s rdf:type ex:Sektor) (?s ex:skorOutlookAktif ?o) ge(?o, 2) lessThan(?o, 7) -> (?s rdf:type ex:SektorNetral)]
+
+# R-SEK-12d | Prediksi Sektor | PREDIKSI 1-3 TH: SektorBearish
+[R_SEK_12d: (?s rdf:type ex:Sektor) (?s ex:skorOutlookAktif ?o) lessThan(?o, 2) -> (?s rdf:type ex:SektorBearish)]
+
+# R-SEK-13a | Prediksi Sektor | Bullish kuat ⊂ bullish
+[R_SEK_13a: (?s rdf:type ex:SektorBullishKuat) -> (?s rdf:type ex:SektorBullish)]
+
+# R-SEK-13b | Prediksi Sektor | Bullish moderat ⊂ bullish
+[R_SEK_13b: (?s rdf:type ex:SektorBullishModerat) -> (?s rdf:type ex:SektorBullish)]
+
+# R-SEK-14 | Prediksi Sektor | Keyakinan tinggi: bullish + preseden historis + tema struktural (konfluensi)
+[R_SEK_14: (?s rdf:type ex:SektorBullish) (?s rdf:type ex:SektorPresedenHistoris) (?s rdf:type ex:SektorDidukungTema) -> (?s rdf:type ex:SektorKeyakinanTinggi)]
+
+# R-CBR-01 | Case-Based Reasoning | Skor kemiripan = 20 - Σ bobot × |fitur skenario - fitur kasus| (bobot Fed, minyak, USD = 2)
+[R_CBR_01: (?sc rdf:type ex:SkenarioAktif) (?p rdf:type ex:PeriodeHistoris) (?sc ex:cbrFed ?a0) (?p ex:cbrFed ?b0) difference(?a0, ?b0, ?d0) product(?d0, -1, ?_t1) max(?d0, ?_t1, ?g0) product(?g0, 2, ?w0) (?sc ex:cbrMinyak ?a1) (?p ex:cbrMinyak ?b1) difference(?a1, ?b1, ?d1) product(?d1, -1, ?_t2) max(?d1, ?_t2, ?g1) product(?g1, 2, ?w1) (?sc ex:cbrUSD ?a2) (?p ex:cbrUSD ?b2) difference(?a2, ?b2, ?d2) product(?d2, -1, ?_t3) max(?d2, ?_t3, ?g2) product(?g2, 2, ?w2) (?sc ex:cbrRiskOff ?a3) (?p ex:cbrRiskOff ?b3) difference(?a3, ?b3, ?d3) product(?d3, -1, ?_t4) max(?d3, ?_t4, ?g3) product(?g3, 1, ?w3) (?sc ex:cbrKomoditas ?a4) (?p ex:cbrKomoditas ?b4) difference(?a4, ?b4, ?d4) product(?d4, -1, ?_t5) max(?d4, ?_t5, ?g4) product(?g4, 1, ?w4) (?sc ex:cbrInflasi ?a5) (?p ex:cbrInflasi ?b5) difference(?a5, ?b5, ?d5) product(?d5, -1, ?_t6) max(?d5, ?_t6, ?g5) product(?g5, 1, ?w5) sum(?w0, ?w1, ?_t7) sum(?_t7, ?w2, ?_t8) sum(?_t8, ?w3, ?_t9) sum(?_t9, ?w4, ?_t10) sum(?_t10, ?w5, ?dist) difference(20, ?dist, ?sim) -> (?p ex:skorKemiripan ?sim)]
+
+# R-CBR-02 | Case-Based Reasoning | Periode analog bila kemiripan ≥ 13
+[R_CBR_02: (?sc rdf:type ex:SkenarioAktif) (?p rdf:type ex:PeriodeHistoris) (?p ex:skorKemiripan ?k) ge(?k, 13) -> (?p rdf:type ex:PeriodeAnalog) (?sc ex:analogDengan ?p)]
+
+# R-CBR-03 | Case-Based Reasoning | Sektor pemenang periode analog → preseden historis
+[R_CBR_03: (?p rdf:type ex:PeriodeAnalog) (?p ex:unggulPadaPeriode ?s) -> (?s rdf:type ex:SektorPresedenHistoris) (?s ex:memilikiPreseden ?p)]
+
+# R-EMT-01a | Integrasi | Kontribusi outlook sektor ke emiten = 4
+[R_EMT_01a: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorOutlookAktif ?o) ge(?o, 12) -> (?e ex:skorKontribusiSektor 4)]
+
+# R-EMT-01b | Integrasi | Kontribusi outlook sektor ke emiten = 2
+[R_EMT_01b: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorOutlookAktif ?o) ge(?o, 7) lessThan(?o, 12) -> (?e ex:skorKontribusiSektor 2)]
+
+# R-EMT-01c | Integrasi | Kontribusi outlook sektor ke emiten = 0
+[R_EMT_01c: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorOutlookAktif ?o) ge(?o, 2) lessThan(?o, 7) -> (?e ex:skorKontribusiSektor 0)]
+
+# R-EMT-01d | Integrasi | Kontribusi outlook sektor ke emiten = -3
+[R_EMT_01d: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorOutlookAktif ?o) lessThan(?o, 2) -> (?e ex:skorKontribusiSektor -3)]
+
+# R-EMT-02a | Likuiditas | Poin likuiditas (nilai transaksi harian): likuiditasHarianM ∈ [100.0, +inf) → poinLikuiditas 2
+[R_EMT_02a: (?e rdf:type ex:Emiten) (?e ex:likuiditasHarianM ?v) ge(?v, '100.0'^^xsd:double) -> (?e ex:poinLikuiditas 2)]
+
+# R-EMT-02b | Likuiditas | Poin likuiditas (nilai transaksi harian): likuiditasHarianM ∈ [20.0, 100.0) → poinLikuiditas 1
+[R_EMT_02b: (?e rdf:type ex:Emiten) (?e ex:likuiditasHarianM ?v) ge(?v, '20.0'^^xsd:double) lessThan(?v, '100.0'^^xsd:double) -> (?e ex:poinLikuiditas 1)]
+
+# R-EMT-02c | Likuiditas | Poin likuiditas (nilai transaksi harian): likuiditasHarianM ∈ [-inf, 20.0) → poinLikuiditas 0
+[R_EMT_02c: (?e rdf:type ex:Emiten) (?e ex:likuiditasHarianM ?v) lessThan(?v, '20.0'^^xsd:double) -> (?e ex:poinLikuiditas 0)]
+
+# R-EMT-03 | Integrasi | SKOR TOTAL EMITEN = fundamental + valuasi + teknikal + bandar + sentimen + sektor + risiko + likuiditas
+[R_EMT_03: (?e rdf:type ex:Emiten) (?e ex:skorFundamental ?a) (?e ex:skorValuasi ?b) (?e ex:skorTeknikal ?c) (?e ex:skorBandar ?d) (?e ex:skorSentimen ?f) (?e ex:skorKontribusiSektor ?g) (?e ex:penaltiRisiko ?h) (?e ex:poinLikuiditas ?i) sum(?a, ?b, ?_t1) sum(?_t1, ?c, ?_t2) sum(?_t2, ?d, ?_t3) sum(?_t3, ?f, ?_t4) sum(?_t4, ?g, ?_t5) sum(?_t5, ?h, ?_t6) sum(?_t6, ?i, ?t) -> (?e ex:skorTotalEmiten ?t)]
+
+# R-EMT-04 | Integrasi | Kandidat top pick: skor total ≥ 21 di sektor bullish
+[R_EMT_04: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s rdf:type ex:SektorBullish) (?e ex:skorTotalEmiten ?t) ge(?t, 21) -> (?e rdf:type ex:KandidatTopPick) (?s ex:topPickSektor ?e)]
+
+# R-EMT-05 | Integrasi | Watchlist: skor total 16-20 di sektor bullish
+[R_EMT_05: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s rdf:type ex:SektorBullish) (?e ex:skorTotalEmiten ?t) ge(?t, 16) lessThan(?t, 21) -> (?e rdf:type ex:KandidatWatchlist) (?s ex:watchlistSektor ?e)]
+
+# R-EMT-06 | Integrasi | Keyakinan tinggi: top pick + akumulasi bandar + fundamental kuat
+[R_EMT_06: (?e rdf:type ex:KandidatTopPick) (?e rdf:type ex:AkumulasiBandar) (?e rdf:type ex:FundamentalKuat) -> (?e rdf:type ex:KeyakinanTinggi)]
+
+# R-EMT-07 | Peringatan | Value trap: murah tetapi fundamental lemah & downtrend
+[R_EMT_07: (?e rdf:type ex:Emiten) (?e ex:skorValuasi ?v) ge(?v, 2) (?e rdf:type ex:FundamentalLemah) (?e ex:jarakMA200Persen ?m) lessThan(?m, '0.0'^^xsd:double) -> (?e rdf:type ex:ValueTrap)]
+
+# R-EMT-08 | Integrasi | Defensif berkualitas: sektor defensif + fundamental kuat + zona aman + yield ≥ 4%
+[R_EMT_08: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s rdf:type ex:SektorDefensif) (?e rdf:type ex:FundamentalKuat) (?e ex:penaltiRisiko ?p) equal(?p, 0) (?e ex:dividendYield ?y) ge(?y, '4.0'^^xsd:double) -> (?e rdf:type ex:DefensifBerkualitas)]
+
+# R-SIG-01 | Quant Trade | ATR rupiah = harga × ATR% / 100
+[R_SIG_01: (?e rdf:type ex:Emiten) (?e ex:hargaPenutupan ?h) (?e ex:atrPersen ?a) product(?h, ?a, ?x) quotient(?x, '100.0'^^xsd:double, ?r) -> (?e ex:atrRupiah ?r)]
+
+# R-SIG-02 | Quant Trade | Sinyal entry: teknikal ≥ 5, bandar ≥ 3, RSI < 70
+[R_SIG_02: (?e rdf:type ex:Emiten) (?e ex:skorTeknikal ?t) ge(?t, 5) (?e ex:skorBandar ?b) ge(?b, 3) (?e ex:rsi14 ?r) lessThan(?r, '70.0'^^xsd:double) -> (?e rdf:type ex:SinyalEntry)]
+
+# R-SIG-03 | Quant Trade | Buy on weakness: fundamental kuat, pullback dalam uptrend, RSI < 50, acc/dist ≥ 10
+[R_SIG_03: (?e rdf:type ex:FundamentalKuat) (?e rdf:type ex:PullbackDalamUptrend) (?e ex:rsi14 ?r) lessThan(?r, '50.0'^^xsd:double) (?e ex:skorAccDistBroker ?a) ge(?a, '10.0'^^xsd:double) -> (?e rdf:type ex:SinyalBuyOnWeakness)]
+
+# R-SIG-04 | Quant Trade | Buy on weakness kontrarian: fundamental kuat + undervalued + akumulasi tersembunyi + tanpa penalti risiko
+[R_SIG_04: (?e rdf:type ex:FundamentalKuat) (?e rdf:type ex:Undervalued) (?e rdf:type ex:AkumulasiTersembunyi) (?e ex:penaltiRisiko ?p) equal(?p, 0) -> (?e rdf:type ex:SinyalBuyOnWeakness)]
+
+# R-SIG-05 | Quant Trade | Stop loss & take profit untuk sinyal entry (SL = H - 2×ATR, TP = H + 3×ATR)
+[R_SIG_05: (?e rdf:type ex:SinyalEntry) (?e ex:hargaPenutupan ?h) (?e ex:atrRupiah ?a) product(?a, '2.0'^^xsd:double, ?a2) product(?a, '3.0'^^xsd:double, ?a3) difference(?h, ?a2, ?sl) sum(?h, ?a3, ?tp) -> (?e ex:hargaStopLoss ?sl) (?e ex:hargaTakeProfit ?tp)]
+
+# R-SIG-06 | Quant Trade | Stop loss & take profit untuk buy on weakness
+[R_SIG_06: (?e rdf:type ex:SinyalBuyOnWeakness) (?e ex:hargaPenutupan ?h) (?e ex:atrRupiah ?a) product(?a, '2.0'^^xsd:double, ?a2) product(?a, '3.0'^^xsd:double, ?a3) difference(?h, ?a2, ?sl) sum(?h, ?a3, ?tp) -> (?e ex:hargaStopLoss ?sl) (?e ex:hargaTakeProfit ?tp)]
+
+# R-SIG-07 | Quant Trade | Exit/take profit: overbought + distribusi
+[R_SIG_07: (?e rdf:type ex:Overbought) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) -> (?e rdf:type ex:SinyalExit)]
+
+# R-SIG-08 | Quant Trade | Exit: konfirmasi pola bearish + asing distribusi
+[R_SIG_08: (?e rdf:type ex:KonfirmasiPolaBearish) (?e rdf:type ex:AsingDistribusi) -> (?e rdf:type ex:SinyalExit)]
+
+# R-SIG-09 | Quant Trade | Hindari: downtrend + asing jual + bandar distribusi
+[R_SIG_09: (?e rdf:type ex:TrenTurun) (?e ex:netAsing20HariM ?f) lessThan(?f, '-50.0'^^xsd:double) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) -> (?e rdf:type ex:SinyalHindari)]
+
+# R-SIG-10 | Quant Trade | Hindari: risiko going concern
+[R_SIG_10: (?e rdf:type ex:RisikoGoingConcern) -> (?e rdf:type ex:SinyalHindari)]
+
+# R-SIG-11 | Scalper Pattern | Scalping long: volume ≥ 2×, di atas VWAP, bid/offer ≥ 1,5, likuid, free float ≥ 15% (bukan saham gorengan)
+[R_SIG_11: (?e rdf:type ex:Emiten) (?e ex:rasioVolume ?v) ge(?v, '2.0'^^xsd:double) (?e ex:jarakVWAPPersen ?w) greaterThan(?w, '0.0'^^xsd:double) (?e ex:rasioBidOffer ?b) ge(?b, '1.5'^^xsd:double) (?e ex:likuiditasHarianM ?l) ge(?l, '20.0'^^xsd:double) (?e ex:freeFloatPersen ?f) ge(?f, '15.0'^^xsd:double) -> (?e rdf:type ex:SinyalScalpingLong)]
+
+# R-SIG-12 | Scalper Pattern | Scalping hindari: volume tinggi di bawah VWAP & tekanan offer
+[R_SIG_12: (?e rdf:type ex:Emiten) (?e ex:rasioVolume ?v) ge(?v, '1.5'^^xsd:double) (?e ex:jarakVWAPPersen ?w) lessThan(?w, '0.0'^^xsd:double) (?e ex:rasioBidOffer ?b) lessThan(?b, '0.8'^^xsd:double) -> (?e rdf:type ex:SinyalScalpingHindari)]
+
+# R-PRF-01 | Profil Investor | Cocok konservatif: fundamental kuat, tanpa penalti, yield ≥ 5%, likuid
+[R_PRF_01: (?e rdf:type ex:FundamentalKuat) (?e ex:penaltiRisiko ?p) equal(?p, 0) (?e ex:dividendYield ?y) ge(?y, '5.0'^^xsd:double) (?e ex:likuiditasHarianM ?l) ge(?l, '50.0'^^xsd:double) -> (?e rdf:type ex:CocokKonservatif)]
+
+# R-PRF-02 | Profil Investor | Cocok moderat: skor total ≥ 20, fundamental ≥ 5, penalti ≥ -1
+[R_PRF_02: (?e rdf:type ex:Emiten) (?e ex:skorTotalEmiten ?t) ge(?t, 20) (?e ex:skorFundamental ?f) ge(?f, 5) (?e ex:penaltiRisiko ?p) ge(?p, -1) -> (?e rdf:type ex:CocokModerat)]
+
+# R-PRF-03 | Profil Investor | Cocok agresif: teknikal ≥ 5 & bandar ≥ 3
+[R_PRF_03: (?e rdf:type ex:Emiten) (?e ex:skorTeknikal ?t) ge(?t, 5) (?e ex:skorBandar ?b) ge(?b, 3) -> (?e rdf:type ex:CocokAgresif)]
+
+# R-PRF-04 | Stakeholder | Rekomendasi persona konservatif
+[R_PRF_04: (?i rdf:type ex:InvestorRitel) (?i ex:memilikiProfilRisiko ex:ProfilKonservatif) (?e rdf:type ex:CocokKonservatif) -> (?e ex:direkomendasikanUntuk ?i)]
+
+# R-PRF-05 | Stakeholder | Rekomendasi persona moderat (hanya sektor bullish)
+[R_PRF_05: (?i rdf:type ex:InvestorRitel) (?i ex:memilikiProfilRisiko ex:ProfilModerat) (?e rdf:type ex:CocokModerat) (?e ex:termasukSektor ?s) (?s rdf:type ex:SektorBullish) -> (?e ex:direkomendasikanUntuk ?i)]
+
+# R-PRF-06 | Stakeholder | Rekomendasi persona agresif horizon pendek (swing)
+[R_PRF_06: (?i rdf:type ex:InvestorRitel) (?i ex:memilikiProfilRisiko ex:ProfilAgresif) (?i ex:memilikiHorizon ex:Horizon_Pendek) (?e rdf:type ex:CocokAgresif) (?e rdf:type ex:SinyalEntry) -> (?e ex:direkomendasikanUntuk ?i)]
+
+# R-PRF-07 | Stakeholder | Rekomendasi scalper intraday
+[R_PRF_07: (?i rdf:type ex:InvestorRitel) (?i ex:memilikiHorizon ex:Horizon_Intraday) (?e rdf:type ex:SinyalScalpingLong) -> (?e ex:direkomendasikanUntuk ?i)]
+
+# R-DAT-01 | Kualitas Data | Data kedaluwarsa bila umur > 5 × frekuensi pembaruan
+[R_DAT_01: (?i rdf:type ex:IndikatorMakro) (?i ex:umurDataHari ?u) (?i ex:frekuensiHari ?f) product(?f, 5, ?b) greaterThan(?u, ?b) -> (?i rdf:type ex:DataKedaluwarsa)]
+
+# R-DAT-02 | Kualitas Data | Top pick adaptif berbasis data indikatif wajib diverifikasi
+[R_DAT_02: (?e rdf:type ex:DataIndikatif) (?e rdf:type ex:KandidatTopPickAdaptif) -> (?e rdf:type ex:PerluVerifikasiData)]
+
+# R-DAT-03 | Kualitas Data | Kandidat akumulasi bertahap berbasis data indikatif wajib diverifikasi
+[R_DAT_03: (?e rdf:type ex:DataIndikatif) (?e rdf:type ex:KandidatAkumulasiBertahap) -> (?e rdf:type ex:PerluVerifikasiData)]
+
+# R-DAT-04 | Kualitas Data | Tesis dengan indikator kunci kedaluwarsa perlu data baru
+[R_DAT_04: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i rdf:type ex:DataKedaluwarsa) -> (?t rdf:type ex:TesisPerluDataBaru)]
+
+# R-PAS-00 | Regime Pasar | Kondisi pasar aktif (statusAktifKondisi = 1)
+[R_PAS_00: (?k rdf:type ex:KondisiPasar) (?k ex:statusAktifKondisi 1) -> (?k rdf:type ex:KondisiPasarAktif)]
+
+# R-STR-01a | Regime Pasar | Poin stres drawdown IHSG: drawdownIHSGPersen ∈ [-inf, -30.0) → poinStresDrawdown 2
+[R_STR_01a: (?e rdf:type ex:KondisiPasarAktif) (?e ex:drawdownIHSGPersen ?v) lessThan(?v, '-30.0'^^xsd:double) -> (?e ex:poinStresDrawdown 2)]
+
+# R-STR-01b | Regime Pasar | Poin stres drawdown IHSG: drawdownIHSGPersen ∈ [-30.0, -15.0) → poinStresDrawdown 1
+[R_STR_01b: (?e rdf:type ex:KondisiPasarAktif) (?e ex:drawdownIHSGPersen ?v) ge(?v, '-30.0'^^xsd:double) lessThan(?v, '-15.0'^^xsd:double) -> (?e ex:poinStresDrawdown 1)]
+
+# R-STR-01c | Regime Pasar | Poin stres drawdown IHSG: drawdownIHSGPersen ∈ [-15.0, +inf) → poinStresDrawdown 0
+[R_STR_01c: (?e rdf:type ex:KondisiPasarAktif) (?e ex:drawdownIHSGPersen ?v) ge(?v, '-15.0'^^xsd:double) -> (?e ex:poinStresDrawdown 0)]
+
+# R-STR-02a | Regime Pasar | Poin stres CDS 5Y: cds5YBps ∈ [120.0, +inf) → poinStresCDS 2
+[R_STR_02a: (?e rdf:type ex:KondisiPasarAktif) (?e ex:cds5YBps ?v) ge(?v, '120.0'^^xsd:double) -> (?e ex:poinStresCDS 2)]
+
+# R-STR-02b | Regime Pasar | Poin stres CDS 5Y: cds5YBps ∈ [80.0, 120.0) → poinStresCDS 1
+[R_STR_02b: (?e rdf:type ex:KondisiPasarAktif) (?e ex:cds5YBps ?v) ge(?v, '80.0'^^xsd:double) lessThan(?v, '120.0'^^xsd:double) -> (?e ex:poinStresCDS 1)]
+
+# R-STR-02c | Regime Pasar | Poin stres CDS 5Y: cds5YBps ∈ [-inf, 80.0) → poinStresCDS 0
+[R_STR_02c: (?e rdf:type ex:KondisiPasarAktif) (?e ex:cds5YBps ?v) lessThan(?v, '80.0'^^xsd:double) -> (?e ex:poinStresCDS 0)]
+
+# R-STR-03a | Regime Pasar | Poin stres net asing YTD: netAsingYTDT ∈ [-inf, -50.0) → poinStresAsing 2
+[R_STR_03a: (?e rdf:type ex:KondisiPasarAktif) (?e ex:netAsingYTDT ?v) lessThan(?v, '-50.0'^^xsd:double) -> (?e ex:poinStresAsing 2)]
+
+# R-STR-03b | Regime Pasar | Poin stres net asing YTD: netAsingYTDT ∈ [-50.0, -10.0) → poinStresAsing 1
+[R_STR_03b: (?e rdf:type ex:KondisiPasarAktif) (?e ex:netAsingYTDT ?v) ge(?v, '-50.0'^^xsd:double) lessThan(?v, '-10.0'^^xsd:double) -> (?e ex:poinStresAsing 1)]
+
+# R-STR-03c | Regime Pasar | Poin stres net asing YTD: netAsingYTDT ∈ [-10.0, +inf) → poinStresAsing 0
+[R_STR_03c: (?e rdf:type ex:KondisiPasarAktif) (?e ex:netAsingYTDT ?v) ge(?v, '-10.0'^^xsd:double) -> (?e ex:poinStresAsing 0)]
+
+# R-STR-04a | Regime Pasar | Poin stres kurs USD/IDR: kursUSDIDR ∈ [17500.0, +inf) → poinStresKurs 2
+[R_STR_04a: (?e rdf:type ex:KondisiPasarAktif) (?e ex:kursUSDIDR ?v) ge(?v, '17500.0'^^xsd:double) -> (?e ex:poinStresKurs 2)]
+
+# R-STR-04b | Regime Pasar | Poin stres kurs USD/IDR: kursUSDIDR ∈ [16500.0, 17500.0) → poinStresKurs 1
+[R_STR_04b: (?e rdf:type ex:KondisiPasarAktif) (?e ex:kursUSDIDR ?v) ge(?v, '16500.0'^^xsd:double) lessThan(?v, '17500.0'^^xsd:double) -> (?e ex:poinStresKurs 1)]
+
+# R-STR-04c | Regime Pasar | Poin stres kurs USD/IDR: kursUSDIDR ∈ [-inf, 16500.0) → poinStresKurs 0
+[R_STR_04c: (?e rdf:type ex:KondisiPasarAktif) (?e ex:kursUSDIDR ?v) lessThan(?v, '16500.0'^^xsd:double) -> (?e ex:poinStresKurs 0)]
+
+# R-STR-05a | Regime Pasar | Poin stres yield SBN 10Y: yieldSBN10Y ∈ [7.5, +inf) → poinStresYield 2
+[R_STR_05a: (?e rdf:type ex:KondisiPasarAktif) (?e ex:yieldSBN10Y ?v) ge(?v, '7.5'^^xsd:double) -> (?e ex:poinStresYield 2)]
+
+# R-STR-05b | Regime Pasar | Poin stres yield SBN 10Y: yieldSBN10Y ∈ [6.75, 7.5) → poinStresYield 1
+[R_STR_05b: (?e rdf:type ex:KondisiPasarAktif) (?e ex:yieldSBN10Y ?v) ge(?v, '6.75'^^xsd:double) lessThan(?v, '7.5'^^xsd:double) -> (?e ex:poinStresYield 1)]
+
+# R-STR-05c | Regime Pasar | Poin stres yield SBN 10Y: yieldSBN10Y ∈ [-inf, 6.75) → poinStresYield 0
+[R_STR_05c: (?e rdf:type ex:KondisiPasarAktif) (?e ex:yieldSBN10Y ?v) lessThan(?v, '6.75'^^xsd:double) -> (?e ex:poinStresYield 0)]
+
+# R-STR-06a | Regime Pasar | Poin stres breadth (% saham > MA200): breadthPersenDiAtasMA200 ∈ [-inf, 25.0) → poinStresBreadth 2
+[R_STR_06a: (?e rdf:type ex:KondisiPasarAktif) (?e ex:breadthPersenDiAtasMA200 ?v) lessThan(?v, '25.0'^^xsd:double) -> (?e ex:poinStresBreadth 2)]
+
+# R-STR-06b | Regime Pasar | Poin stres breadth (% saham > MA200): breadthPersenDiAtasMA200 ∈ [25.0, 50.0) → poinStresBreadth 1
+[R_STR_06b: (?e rdf:type ex:KondisiPasarAktif) (?e ex:breadthPersenDiAtasMA200 ?v) ge(?v, '25.0'^^xsd:double) lessThan(?v, '50.0'^^xsd:double) -> (?e ex:poinStresBreadth 1)]
+
+# R-STR-06c | Regime Pasar | Poin stres breadth (% saham > MA200): breadthPersenDiAtasMA200 ∈ [50.0, +inf) → poinStresBreadth 0
+[R_STR_06c: (?e rdf:type ex:KondisiPasarAktif) (?e ex:breadthPersenDiAtasMA200 ?v) ge(?v, '50.0'^^xsd:double) -> (?e ex:poinStresBreadth 0)]
+
+# R-STR-07 | Regime Pasar | Skor stres pasar = Σ 6 poin stres (0-12)
+[R_STR_07: (?k rdf:type ex:KondisiPasarAktif) (?k ex:poinStresDrawdown ?a) (?k ex:poinStresCDS ?b) (?k ex:poinStresAsing ?c) (?k ex:poinStresKurs ?d) (?k ex:poinStresYield ?f) (?k ex:poinStresBreadth ?g) sum(?a, ?b, ?_t1) sum(?_t1, ?c, ?_t2) sum(?_t2, ?d, ?_t3) sum(?_t3, ?f, ?_t4) sum(?_t4, ?g, ?s) -> (?k ex:skorStresPasar ?s)]
+
+# R-REG-01 | Regime Pasar | Deteksi regime: Regime_KrisisLikuiditas
+[R_REG_01: (?k rdf:type ex:KondisiPasarAktif) (?k ex:skorStresPasar ?s) ge(?s, 8) -> (?k ex:regimeTerdeteksi ex:Regime_KrisisLikuiditas) (ex:Regime_KrisisLikuiditas rdf:type ex:RegimeAktif)]
+
+# R-REG-02 | Regime Pasar | Deteksi regime: Regime_RiskOff
+[R_REG_02: (?k rdf:type ex:KondisiPasarAktif) (?k ex:skorStresPasar ?s) ge(?s, 5) lessThan(?s, 8) -> (?k ex:regimeTerdeteksi ex:Regime_RiskOff) (ex:Regime_RiskOff rdf:type ex:RegimeAktif)]
+
+# R-REG-03 | Regime Pasar | Deteksi regime: Regime_Netral
+[R_REG_03: (?k rdf:type ex:KondisiPasarAktif) (?k ex:skorStresPasar ?s) ge(?s, 3) lessThan(?s, 5) -> (?k ex:regimeTerdeteksi ex:Regime_Netral) (ex:Regime_Netral rdf:type ex:RegimeAktif)]
+
+# R-REG-04 | Regime Pasar | Deteksi regime: Regime_RiskOn
+[R_REG_04: (?k rdf:type ex:KondisiPasarAktif) (?k ex:skorStresPasar ?s) lessThan(?s, 3) -> (?k ex:regimeTerdeteksi ex:Regime_RiskOn) (ex:Regime_RiskOn rdf:type ex:RegimeAktif)]
+
+# R-PAS-01 | Struktur Pasar | Premi risiko negara tinggi: CDS ≥ 90 bps
+[R_PAS_01: (?k rdf:type ex:KondisiPasarAktif) (?k ex:cds5YBps ?c) ge(?c, '90.0'^^xsd:double) -> (?k rdf:type ex:PremiRisikoNegaraTinggi)]
+
+# R-PAS-02 | Struktur Pasar | Breadth washout: < 25% saham di atas MA200
+[R_PAS_02: (?k rdf:type ex:KondisiPasarAktif) (?k ex:breadthPersenDiAtasMA200 ?b) lessThan(?b, '25.0'^^xsd:double) -> (?k rdf:type ex:BreadthWashout)]
+
+# R-PAS-03 | Struktur Pasar | Kapitulasi pasar: drawdown ≤ -40% & hari crash ≤ -10%
+[R_PAS_03: (?k rdf:type ex:KondisiPasarAktif) (?k ex:drawdownIHSGPersen ?d) le(?d, '-40.0'^^xsd:double) (?k ex:penurunanHarianTerbesarPersen ?x) le(?x, '-10.0'^^xsd:double) -> (?k rdf:type ex:KapitulasiPasar)]
+
+# R-PAS-04 | Struktur Pasar | Zona akumulasi generasional: kapitulasi + washout + premi risiko tinggi
+[R_PAS_04: (?k rdf:type ex:KapitulasiPasar) (?k rdf:type ex:BreadthWashout) (?k rdf:type ex:PremiRisikoNegaraTinggi) -> (?k rdf:type ex:ZonaAkumulasiGenerasional)]
+
+# R-PAS-05 | Intermarket | Dasar belum terkonfirmasi: CDS & rupiah belum membaik (memburuk atau datar)
+[R_PAS_05: (?k rdf:type ex:KondisiPasarAktif) (?k ex:trenCDS1Bulan ?c) ge(?c, 0) (?k ex:trenRupiah1Bulan ?r) ge(?r, 0) -> (?k rdf:type ex:DasarBelumTerkonfirmasi)]
+
+# R-PAS-06 | Intermarket | Divergensi intermarket bullish: CDS & rupiah membaik saat IHSG masih turun
+[R_PAS_06: (?k rdf:type ex:KondisiPasarAktif) (?k ex:trenCDS1Bulan ?c) le(?c, -1) (?k ex:trenRupiah1Bulan ?r) le(?r, -1) (?k ex:perubahanIHSG1BulanPersen ?m) lessThan(?m, '0.0'^^xsd:double) -> (?k rdf:type ex:DivergensiIntermarketBullish)]
+
+# R-PAS-07 | Struktur Pasar | Zona akumulasi tetapi dasar belum terkonfirmasi → akumulasi bertahap
+[R_PAS_07: (?k rdf:type ex:ZonaAkumulasiGenerasional) (?k rdf:type ex:DasarBelumTerkonfirmasi) -> (?k rdf:type ex:StrategiAkumulasiBertahap)]
+
+# R-PAS-08 | Struktur Pasar | Kapitulasi + divergensi intermarket → akumulasi bertahap
+[R_PAS_08: (?k rdf:type ex:KapitulasiPasar) (?k rdf:type ex:DivergensiIntermarketBullish) -> (?k rdf:type ex:StrategiAkumulasiBertahap)]
+
+# R-ANT-01 | Reaction Function | Rupiah ≥ 17.500 & inflasi ≥ 3% → antisipasi BI naik pre-emptif
+[R_ANT_01: (?k rdf:type ex:KondisiPasarAktif) (?k ex:kursUSDIDR ?u) ge(?u, '17500.0'^^xsd:double) (?k ex:inflasiYoY ?i) ge(?i, '3.0'^^xsd:double) -> (ex:Antisipasi_BIHikePreemptif rdf:type ex:AntisipasiTerpicu) (ex:Mv_SukuBungaBINaik rdf:type ex:PergerakanAktif)]
+
+# R-ANT-02 | Reaction Function | Brent ≥ US$100 → antisipasi penyesuaian BBM/subsidi
+[R_ANT_02: (?k rdf:type ex:KondisiPasarAktif) (?k ex:brentUSD ?b) ge(?b, '100.0'^^xsd:double) -> (ex:Antisipasi_PenyesuaianBBM rdf:type ex:AntisipasiTerpicu) (ex:Mv_KenaikanHargaBBM rdf:type ex:PergerakanAktif)]
+
+# R-ANT-03 | Reaction Function | Fed ≥ 4% & spread SBN-UST ≤ 225 bps → antisipasi outflow SBN
+[R_ANT_03: (?k rdf:type ex:KondisiPasarAktif) (?k ex:ffrAtasPersen ?f) ge(?f, '4.0'^^xsd:double) (?k ex:spreadSBNUSTBps ?s) le(?s, '225.0'^^xsd:double) -> (ex:Antisipasi_OutflowSBN rdf:type ex:AntisipasiTerpicu) (ex:Mv_OutflowSBN rdf:type ex:PergerakanAktif)]
+
+# R-ANT-04 | Reaction Function | Drawdown ≤ -35% → antisipasi stabilisasi pasar (buyer of last resort)
+[R_ANT_04: (?k rdf:type ex:KondisiPasarAktif) (?k ex:drawdownIHSGPersen ?d) le(?d, '-35.0'^^xsd:double) -> (ex:Antisipasi_StabilisasiPasar rdf:type ex:AntisipasiTerpicu) (ex:Mv_DukunganLikuiditasDomestik rdf:type ex:PergerakanAktif)]
+
+# R-ANT-05 | Reaction Function | CDS ≥ 90 bps → antisipasi kenaikan premi risiko negara
+[R_ANT_05: (?k rdf:type ex:KondisiPasarAktif) (?k ex:cds5YBps ?c) ge(?c, '90.0'^^xsd:double) -> (ex:Antisipasi_PremiRisikoNegara rdf:type ex:AntisipasiTerpicu) (ex:Mv_PremiRisikoNegaraNaik rdf:type ex:PergerakanAktif)]
+
+# R-RS-01 | Refleksivitas | Kekuatan relatif = perubahan 20 hari − perubahan IHSG 1 bulan
+[R_RS_01: (?e rdf:type ex:Emiten) (?e ex:perubahanHarga20HariPersen ?c) (?k rdf:type ex:KondisiPasarAktif) (?k ex:perubahanIHSG1BulanPersen ?m) difference(?c, ?m, ?rs) -> (?e ex:kekuatanRelatifPersen ?rs)]
+
+# R-RS-02 | Refleksivitas | Mengungguli pasar ≥ +5 pp
+[R_RS_02: (?e rdf:type ex:Emiten) (?e ex:kekuatanRelatifPersen ?r) ge(?r, '5.0'^^xsd:double) -> (?e rdf:type ex:OutperformPasar)]
+
+# R-RS-03 | Refleksivitas | Kalah dari pasar ≤ -5 pp
+[R_RS_03: (?e rdf:type ex:Emiten) (?e ex:kekuatanRelatifPersen ?r) le(?r, '-5.0'^^xsd:double) -> (?e rdf:type ex:UnderperformPasar)]
+
+# R-REF-01 | Refleksivitas | Berita buruk priced-in: sentimen negatif, mengungguli pasar, bandar akumulasi
+[R_REF_01: (?e rdf:type ex:SentimenNegatif) (?e ex:kekuatanRelatifPersen ?r) ge(?r, '5.0'^^xsd:double) (?e ex:skorAccDistBroker ?a) ge(?a, '10.0'^^xsd:double) -> (?e rdf:type ex:SinyalKetahananBeritaBuruk)]
+
+# R-REF-02 | Refleksivitas | Sell the news: sentimen positif, kalah dari pasar, bandar distribusi
+[R_REF_02: (?e rdf:type ex:SentimenPositif) (?e ex:kekuatanRelatifPersen ?r) lessThan(?r, '0.0'^^xsd:double) (?e ex:skorAccDistBroker ?a) le(?a, '-10.0'^^xsd:double) -> (?e rdf:type ex:SellTheNews)]
+
+# R-KAP-01 | Kapitulasi | Kapitulasi emiten: volume ≥ 1,8×, RSI < 35, turun ≥ 15% sebulan
+[R_KAP_01: (?e rdf:type ex:Emiten) (?e ex:rasioVolume ?v) ge(?v, '1.8'^^xsd:double) (?e ex:rsi14 ?r) lessThan(?r, '35.0'^^xsd:double) (?e ex:perubahanHarga20HariPersen ?c) le(?c, '-15.0'^^xsd:double) -> (?e rdf:type ex:KapitulasiEmiten)]
+
+# R-KAP-02 | Kapitulasi | Akumulasi bertahap: strategi pasar bertahap + kualitas + murah + tanpa penalti + kapitulasi emiten
+[R_KAP_02: (?k rdf:type ex:StrategiAkumulasiBertahap) (?e rdf:type ex:FundamentalKuat) (?e rdf:type ex:Undervalued) (?e ex:penaltiRisiko ?p) equal(?p, 0) (?e rdf:type ex:KapitulasiEmiten) -> (?e rdf:type ex:KandidatAkumulasiBertahap)]
+
+# R-KAP-03 | Kapitulasi | Akumulasi bertahap: strategi pasar bertahap + kualitas + murah + tanpa penalti + akumulasi bandar di bawah MA200 (beaten-down quality)
+[R_KAP_03: (?k rdf:type ex:StrategiAkumulasiBertahap) (?e rdf:type ex:FundamentalKuat) (?e rdf:type ex:Undervalued) (?e ex:penaltiRisiko ?p) equal(?p, 0) (?e rdf:type ex:AkumulasiBandar) (?e ex:jarakMA200Persen ?m) lessThan(?m, '0.0'^^xsd:double) -> (?e rdf:type ex:KandidatAkumulasiBertahap)]
+
+# R-KAP-04 | Kapitulasi | Tangga harga tranche: T1 = harga, T2 = harga − 2×ATR, T3 = harga − 4×ATR
+[R_KAP_04: (?e rdf:type ex:KandidatAkumulasiBertahap) (?e ex:hargaPenutupan ?h) (?e ex:atrRupiah ?a) product(?a, '2.0'^^xsd:double, ?a2) product(?a, '4.0'^^xsd:double, ?a4) difference(?h, ?a2, ?t2) difference(?h, ?a4, ?t3) -> (?e ex:hargaTranche1 ?h) (?e ex:hargaTranche2 ?t2) (?e ex:hargaTranche3 ?t3)]
+
+# R-REV-01 | Ekspektasi Laba | Revisi konsensus naik ≥ 5%
+[R_REV_01: (?e rdf:type ex:Emiten) (?e ex:revisiEPS3BulanPersen ?r) ge(?r, '5.0'^^xsd:double) -> (?e rdf:type ex:RevisiLabaNaik)]
+
+# R-REV-02 | Ekspektasi Laba | Revisi konsensus turun ≥ 5%
+[R_REV_02: (?e rdf:type ex:Emiten) (?e ex:revisiEPS3BulanPersen ?r) le(?r, '-5.0'^^xsd:double) -> (?e rdf:type ex:RevisiLabaTurun)]
+
+# R-REV-03 | Ekspektasi Laba | Celah ekspektasi positif: revisi naik + undervalued + teknikal belum bereaksi (≤ 4)
+[R_REV_03: (?e rdf:type ex:RevisiLabaNaik) (?e rdf:type ex:Undervalued) (?e ex:skorTeknikal ?t) le(?t, 4) -> (?e rdf:type ex:CelahEkspektasiPositif)]
+
+# R-REV-04 | Ekspektasi Laba | Murah karena laba turun (peringatan dini value trap)
+[R_REV_04: (?e rdf:type ex:RevisiLabaTurun) (?e rdf:type ex:Undervalued) -> (?e rdf:type ex:MurahKarenaLabaTurun)]
+
+# R-ERP-01 | Valuasi Relatif Obligasi | ERP = 100/PER − yield SBN 10Y
+[R_ERP_01: (?e rdf:type ex:Emiten) (?e ex:per ?p) greaterThan(?p, '0.0'^^xsd:double) (?k rdf:type ex:KondisiPasarAktif) (?k ex:yieldSBN10Y ?y) quotient('100.0'^^xsd:double, ?p, ?ey) difference(?ey, ?y, ?erp) -> (?e ex:equityRiskPremium ?erp)]
+
+# R-ERP-02 | Valuasi Relatif Obligasi | ERP ≥ 8 pp sangat menarik
+[R_ERP_02: (?e rdf:type ex:Emiten) (?e ex:equityRiskPremium ?x) ge(?x, '8.0'^^xsd:double) -> (?e rdf:type ex:ERPSangatMenarik)]
+
+# R-ERP-03 | Valuasi Relatif Obligasi | 4 ≤ ERP < 8 pp menarik
+[R_ERP_03: (?e rdf:type ex:Emiten) (?e ex:equityRiskPremium ?x) ge(?x, '4.0'^^xsd:double) lessThan(?x, '8.0'^^xsd:double) -> (?e rdf:type ex:ERPMenarik)]
+
+# R-ERP-04 | Valuasi Relatif Obligasi | ERP < 0: SBN lebih menarik
+[R_ERP_04: (?e rdf:type ex:Emiten) (?e ex:equityRiskPremium ?x) lessThan(?x, '0.0'^^xsd:double) -> (?e rdf:type ex:MahalVsObligasi)]
+
+# R-GOV-01 | Tata Kelola | Free float < 15% → risiko HSC/dikeluarkan indeks
+[R_GOV_01: (?e rdf:type ex:Emiten) (?e ex:freeFloatPersen ?f) lessThan(?f, '15.0'^^xsd:double) -> (?e rdf:type ex:RisikoHSC)]
+
+# R-GOV-02 | Tata Kelola | Saham pengendali digadaikan ≥ 30% saat downtrend → risiko forced sell
+[R_GOV_02: (?e rdf:type ex:Emiten) (?e ex:sahamDigadaikanPersen ?g) ge(?g, '30.0'^^xsd:double) (?e rdf:type ex:TrenTurun) -> (?e rdf:type ex:RisikoForcedSellPengendali)]
+
+# R-GOV-03 | Tata Kelola | Orang dalam membeli saat undervalued
+[R_GOV_03: (?e rdf:type ex:Emiten) (?e ex:transaksiOrangDalam ?t) ge(?t, 1) (?e rdf:type ex:Undervalued) -> (?e rdf:type ex:SinyalOrangDalam)]
+
+# R-GOV-04 | Tata Kelola | Indikasi saham gorengan: free float < 20%, volume ≥ 3×, ARA ≥ 2 kali/5 hari, top-3 broker ≥ 60%
+[R_GOV_04: (?e rdf:type ex:Emiten) (?e ex:freeFloatPersen ?f) lessThan(?f, '20.0'^^xsd:double) (?e ex:rasioVolume ?v) ge(?v, '3.0'^^xsd:double) (?e ex:jumlahARA5Hari ?n) ge(?n, 2) (?e ex:konsentrasiBrokerTop3Persen ?c) ge(?c, '60.0'^^xsd:double) -> (?e rdf:type ex:IndikasiSahamGorengan)]
+
+# R-GOV-05 | Tata Kelola | Risiko pump & dump: gorengan + overvalued + RSI ≥ 80
+[R_GOV_05: (?e rdf:type ex:IndikasiSahamGorengan) (?e rdf:type ex:Overvalued) (?e ex:rsi14 ?r) ge(?r, '80.0'^^xsd:double) -> (?e rdf:type ex:RisikoPumpAndDump)]
+
+# R-GOV-06 | Tata Kelola | Rencana BEI keluarkan HSC aktif → emiten free float rendah tertekan
+[R_GOV_06: (?e rdf:type ex:RisikoHSC) (ex:Ev_RencanaBEI_KeluarkanHSC rdf:type ex:PeristiwaAktif) -> (?e ex:ditekanOleh ex:Mv_PenghapusanHSC)]
+
+# R-GOV-07 | Tata Kelola | Pump & dump → hindari
+[R_GOV_07: (?e rdf:type ex:RisikoPumpAndDump) -> (?e rdf:type ex:SinyalHindari)]
+
+# R-GOV-08 | Tata Kelola | Forced sell pengendali → hindari
+[R_GOV_08: (?e rdf:type ex:RisikoForcedSellPengendali) -> (?e rdf:type ex:SinyalHindari)]
+
+# R-ROB-01 | Robustness Skenario | Skor ekspektasi probabilistik = Σ p(skenario) × skor outlook; upside = Bull − Base; downside = Base − Bear
+[R_ROB_01: (?s rdf:type ex:Sektor) (?a1 rdf:type ex:PenilaianSektor) (?a1 ex:menilaiSektor ?s) (?a1 ex:dibawahSkenario ex:Skenario_Base_2027_2028) (?a1 ex:skorOutlook ?o1) (?a2 rdf:type ex:PenilaianSektor) (?a2 ex:menilaiSektor ?s) (?a2 ex:dibawahSkenario ex:Skenario_Bull_Pemulihan) (?a2 ex:skorOutlook ?o2) (?a3 rdf:type ex:PenilaianSektor) (?a3 ex:menilaiSektor ?s) (?a3 ex:dibawahSkenario ex:Skenario_Bear_Stagflasi) (?a3 ex:skorOutlook ?o3) (ex:Skenario_Base_2027_2028 ex:probabilitasSkenario ?p1) (ex:Skenario_Bull_Pemulihan ex:probabilitasSkenario ?p2) (ex:Skenario_Bear_Stagflasi ex:probabilitasSkenario ?p3) product(?p1, ?o1, ?x1) product(?p2, ?o2, ?x2) product(?p3, ?o3, ?x3) sum(?x1, ?x2, ?_t1) sum(?_t1, ?x3, ?ev) difference(?o2, ?o1, ?up) difference(?o1, ?o3, ?dn) -> (?s ex:skorEkspektasiProbabilistik ?ev) (?s ex:skorOutlookBase ?o1) (?s ex:skorOutlookBull ?o2) (?s ex:skorOutlookBear ?o3) (?s ex:upsideSkenario ?up) (?s ex:downsideSkenario ?dn)]
+
+# R-ROB-02 | Robustness Skenario | Robust: Base ≥ 7, Bull ≥ 7, Bear ≥ 2
+[R_ROB_02: (?s rdf:type ex:Sektor) (?s ex:skorOutlookBase ?a) ge(?a, 7) (?s ex:skorOutlookBull ?b) ge(?b, 7) (?s ex:skorOutlookBear ?c) ge(?c, 2) -> (?s rdf:type ex:SektorRobustLintasSkenario)]
+
+# R-ROB-03 | Robustness Skenario | Asimetri positif: upside ≥ 1,5 × downside & ekspektasi ≥ 2
+[R_ROB_03: (?s rdf:type ex:Sektor) (?s ex:upsideSkenario ?u) (?s ex:downsideSkenario ?d) ge(?d, 0) product(?d, '1.5'^^xsd:double, ?d15) ge(?u, ?d15) (?s ex:skorEkspektasiProbabilistik ?e) ge(?e, '2.0'^^xsd:double) -> (?s rdf:type ex:SektorAsimetriPositif)]
+
+# R-ROB-04 | Konstruksi Portofolio | Sektor inti (core): bullish di skenario aktif & robust lintas skenario
+[R_ROB_04: (?s rdf:type ex:SektorBullish) (?s rdf:type ex:SektorRobustLintasSkenario) -> (?s rdf:type ex:SektorPilihanInti)]
+
+# R-ROB-05 | Konstruksi Portofolio | Sektor satelit: asimetri positif + peluang kontrarian
+[R_ROB_05: (?s rdf:type ex:SektorAsimetriPositif) (?s rdf:type ex:SektorPeluangKontrarian) -> (?s rdf:type ex:SektorPilihanSatelit)]
+
+# R-ROB-06a | Robustness Skenario | Kontribusi sektor berbasis ekspektasi probabilistik = 4
+[R_ROB_06a: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorEkspektasiProbabilistik ?v) ge(?v, '10.0'^^xsd:double) -> (?e ex:skorKontribusiSektorEV 4)]
+
+# R-ROB-06b | Robustness Skenario | Kontribusi sektor berbasis ekspektasi probabilistik = 2
+[R_ROB_06b: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorEkspektasiProbabilistik ?v) ge(?v, '6.0'^^xsd:double) lessThan(?v, '10.0'^^xsd:double) -> (?e ex:skorKontribusiSektorEV 2)]
+
+# R-ROB-06c | Robustness Skenario | Kontribusi sektor berbasis ekspektasi probabilistik = 0
+[R_ROB_06c: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorEkspektasiProbabilistik ?v) ge(?v, '2.0'^^xsd:double) lessThan(?v, '6.0'^^xsd:double) -> (?e ex:skorKontribusiSektorEV 0)]
+
+# R-ROB-06d | Robustness Skenario | Kontribusi sektor berbasis ekspektasi probabilistik = -3
+[R_ROB_06d: (?e rdf:type ex:Emiten) (?e ex:termasukSektor ?s) (?s ex:skorEkspektasiProbabilistik ?v) lessThan(?v, '2.0'^^xsd:double) -> (?e ex:skorKontribusiSektorEV -3)]
+
+# R-ADP-01a | Adaptif Regime | Poin smart money 2: akumulasi ≥ 20 & mengungguli pasar ≥ 5
+[R_ADP_01a: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) ge(?a, '20.0'^^xsd:double) (?e ex:kekuatanRelatifPersen ?r) ge(?r, '5.0'^^xsd:double) -> (?e ex:poinSmartMoney 2)]
+
+# R-ADP-01b | Adaptif Regime | Poin smart money 1: akumulasi ≥ 20 tetapi belum mengungguli pasar
+[R_ADP_01b: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) ge(?a, '20.0'^^xsd:double) (?e ex:kekuatanRelatifPersen ?r) lessThan(?r, '5.0'^^xsd:double) -> (?e ex:poinSmartMoney 1)]
+
+# R-ADP-01c | Adaptif Regime | Poin smart money 0: akumulasi < 20
+[R_ADP_01c: (?e rdf:type ex:Emiten) (?e ex:skorAccDistBroker ?a) lessThan(?a, '20.0'^^xsd:double) -> (?e ex:poinSmartMoney 0)]
+
+# R-ADP-02 | Adaptif Regime | SKOR ADAPTIF = Σ bobot(regime aktif) × pilar (9 pilar)
+[R_ADP_02: (?e rdf:type ex:Emiten) (?r rdf:type ex:RegimeAktif) (?r ex:bobotFundamental ?w1) (?r ex:bobotValuasi ?w2) (?r ex:bobotTeknikal ?w3) (?r ex:bobotBandar ?w4) (?r ex:bobotSentimen ?w5) (?r ex:bobotSektor ?w6) (?r ex:bobotRisiko ?w7) (?r ex:bobotLikuiditas ?w8) (?r ex:bobotSmartMoney ?w9) (?e ex:skorFundamental ?v1) (?e ex:skorValuasi ?v2) (?e ex:skorTeknikal ?v3) (?e ex:skorBandar ?v4) (?e ex:skorSentimen ?v5) (?e ex:skorKontribusiSektorEV ?v6) (?e ex:penaltiRisiko ?v7) (?e ex:poinLikuiditas ?v8) (?e ex:poinSmartMoney ?v9) product(?w1, ?v1, ?m1) product(?w2, ?v2, ?m2) product(?w3, ?v3, ?m3) product(?w4, ?v4, ?m4) product(?w5, ?v5, ?m5) product(?w6, ?v6, ?m6) product(?w7, ?v7, ?m7) product(?w8, ?v8, ?m8) product(?w9, ?v9, ?m9) sum(?m1, ?m2, ?_t1) sum(?_t1, ?m3, ?_t2) sum(?_t2, ?m4, ?_t3) sum(?_t3, ?m5, ?_t4) sum(?_t4, ?m6, ?_t5) sum(?_t5, ?m7, ?_t6) sum(?_t6, ?m8, ?_t7) sum(?_t7, ?m9, ?s) -> (?e ex:skorAdaptifRegime ?s)]
+
+# R-ADP-03 | Adaptif Regime | Top pick adaptif: skor adaptif ≥ ambang regime, sektor ekspektasi ≥ 2, penalti ≥ -1
+[R_ADP_03: (?e rdf:type ex:Emiten) (?r rdf:type ex:RegimeAktif) (?r ex:ambangTopPickAdaptif ?t) (?e ex:skorAdaptifRegime ?s) ge(?s, ?t) (?e ex:skorKontribusiSektorEV ?c) ge(?c, 0) (?e ex:penaltiRisiko ?p) ge(?p, -1) (?e ex:termasukSektor ?sk) -> (?e rdf:type ex:KandidatTopPickAdaptif) (?sk ex:topPickAdaptifSektor ?e)]
+
+# R-KON-01a | Konfluensi | Bendera pilar skorFundamental ≥ 7: skorFundamental ∈ [7, +inf) → flagFundamental 1
+[R_KON_01a: (?e rdf:type ex:Emiten) (?e ex:skorFundamental ?v) ge(?v, 7) -> (?e ex:flagFundamental 1)]
+
+# R-KON-01b | Konfluensi | Bendera pilar skorFundamental ≥ 7: skorFundamental ∈ [-inf, 7) → flagFundamental 0
+[R_KON_01b: (?e rdf:type ex:Emiten) (?e ex:skorFundamental ?v) lessThan(?v, 7) -> (?e ex:flagFundamental 0)]
+
+# R-KON-02a | Konfluensi | Bendera pilar skorValuasi ≥ 2: skorValuasi ∈ [2, +inf) → flagValuasi 1
+[R_KON_02a: (?e rdf:type ex:Emiten) (?e ex:skorValuasi ?v) ge(?v, 2) -> (?e ex:flagValuasi 1)]
+
+# R-KON-02b | Konfluensi | Bendera pilar skorValuasi ≥ 2: skorValuasi ∈ [-inf, 2) → flagValuasi 0
+[R_KON_02b: (?e rdf:type ex:Emiten) (?e ex:skorValuasi ?v) lessThan(?v, 2) -> (?e ex:flagValuasi 0)]
+
+# R-KON-03a | Konfluensi | Bendera pilar skorTeknikal ≥ 5: skorTeknikal ∈ [5, +inf) → flagTeknikal 1
+[R_KON_03a: (?e rdf:type ex:Emiten) (?e ex:skorTeknikal ?v) ge(?v, 5) -> (?e ex:flagTeknikal 1)]
+
+# R-KON-03b | Konfluensi | Bendera pilar skorTeknikal ≥ 5: skorTeknikal ∈ [-inf, 5) → flagTeknikal 0
+[R_KON_03b: (?e rdf:type ex:Emiten) (?e ex:skorTeknikal ?v) lessThan(?v, 5) -> (?e ex:flagTeknikal 0)]
+
+# R-KON-04a | Konfluensi | Bendera pilar skorBandar ≥ 3: skorBandar ∈ [3, +inf) → flagBandar 1
+[R_KON_04a: (?e rdf:type ex:Emiten) (?e ex:skorBandar ?v) ge(?v, 3) -> (?e ex:flagBandar 1)]
+
+# R-KON-04b | Konfluensi | Bendera pilar skorBandar ≥ 3: skorBandar ∈ [-inf, 3) → flagBandar 0
+[R_KON_04b: (?e rdf:type ex:Emiten) (?e ex:skorBandar ?v) lessThan(?v, 3) -> (?e ex:flagBandar 0)]
+
+# R-KON-05a | Konfluensi | Bendera pilar skorSentimen ≥ 1: skorSentimen ∈ [1, +inf) → flagSentimen 1
+[R_KON_05a: (?e rdf:type ex:Emiten) (?e ex:skorSentimen ?v) ge(?v, 1) -> (?e ex:flagSentimen 1)]
+
+# R-KON-05b | Konfluensi | Bendera pilar skorSentimen ≥ 1: skorSentimen ∈ [-inf, 1) → flagSentimen 0
+[R_KON_05b: (?e rdf:type ex:Emiten) (?e ex:skorSentimen ?v) lessThan(?v, 1) -> (?e ex:flagSentimen 0)]
+
+# R-KON-06a | Konfluensi | Bendera pilar skorKontribusiSektorEV ≥ 2: skorKontribusiSektorEV ∈ [2, +inf) → flagMakroSektor 1
+[R_KON_06a: (?e rdf:type ex:Emiten) (?e ex:skorKontribusiSektorEV ?v) ge(?v, 2) -> (?e ex:flagMakroSektor 1)]
+
+# R-KON-06b | Konfluensi | Bendera pilar skorKontribusiSektorEV ≥ 2: skorKontribusiSektorEV ∈ [-inf, 2) → flagMakroSektor 0
+[R_KON_06b: (?e rdf:type ex:Emiten) (?e ex:skorKontribusiSektorEV ?v) lessThan(?v, 2) -> (?e ex:flagMakroSektor 0)]
+
+# R-KON-07 | Konfluensi | Skor konfluensi = jumlah pilar bullish (0-6)
+[R_KON_07: (?e rdf:type ex:Emiten) (?e ex:flagFundamental ?a) (?e ex:flagValuasi ?b) (?e ex:flagTeknikal ?c) (?e ex:flagBandar ?d) (?e ex:flagSentimen ?f) (?e ex:flagMakroSektor ?g) sum(?a, ?b, ?_t1) sum(?_t1, ?c, ?_t2) sum(?_t2, ?d, ?_t3) sum(?_t3, ?f, ?_t4) sum(?_t4, ?g, ?s) -> (?e ex:skorKonfluensi ?s)]
+
+# R-KON-08 | Konfluensi | Konfluensi tinggi ≥ 5
+[R_KON_08: (?e rdf:type ex:Emiten) (?e ex:skorKonfluensi ?s) ge(?s, 5) -> (?e rdf:type ex:KonfluensiTinggi)]
+
+# R-KON-09 | Konfluensi | Konfluensi rendah ≤ 2
+[R_KON_09: (?e rdf:type ex:Emiten) (?e ex:skorKonfluensi ?s) le(?s, 2) -> (?e rdf:type ex:KonfluensiRendah)]
+
+# R-KON-10 | Konflik Sinyal | Fundamental kuat tetapi bandar distribusi
+[R_KON_10: (?e rdf:type ex:FundamentalKuat) (?e rdf:type ex:DistribusiBandar) -> (?e rdf:type ex:KonflikFundamentalVsBandar) (?e rdf:type ex:TungguKonfirmasi)]
+
+# R-KON-11 | Konflik Sinyal | Tren naik tanpa fundamental
+[R_KON_11: (?e rdf:type ex:TrenNaik) (?e rdf:type ex:FundamentalLemah) -> (?e rdf:type ex:MomentumTanpaFundamental) (?e rdf:type ex:TungguKonfirmasi)]
+
+# R-KON-12 | Konflik Sinyal | Sentimen positif tetapi bandar distribusi
+[R_KON_12: (?e rdf:type ex:SentimenPositif) (?e rdf:type ex:DistribusiBandar) -> (?e rdf:type ex:DistribusiSaatEuforia) (?e rdf:type ex:TungguKonfirmasi)]
+
+# R-KON-13 | Konflik Sinyal | Murah karena laba turun → tunggu
+[R_KON_13: (?e rdf:type ex:MurahKarenaLabaTurun) (?e rdf:type ex:KandidatTopPickAdaptif) -> (?e rdf:type ex:TungguKonfirmasi)]
+
+# R-POS-01 | Manajemen Posisi | Ukuran posisi maks (% modal) = risiko per transaksi (regime) / (2 × ATR%) × 100
+[R_POS_01: (?e rdf:type ex:Emiten) (?r rdf:type ex:RegimeAktif) (?r ex:risikoPerTransaksiPersen ?x) (?e ex:atrPersen ?a) product(?a, '2.0'^^xsd:double, ?d) quotient(?x, ?d, ?q) product(?q, '100.0'^^xsd:double, ?u) -> (?e ex:ukuranPosisiMaksPersen ?u)]
+
+# R-POS-02 | Manajemen Posisi | Konsentrasi tema: dua top pick adaptif berbagi komoditas pendapatan
+[R_POS_02: (?a rdf:type ex:KandidatTopPickAdaptif) (?b rdf:type ex:KandidatTopPickAdaptif) (?a ex:eksposurKomoditasPendapatan ?k) (?b ex:eksposurKomoditasPendapatan ?k) (?a ex:kodeSaham ?x) (?b ex:kodeSaham ?y) notEqual(?x, ?y) -> (?a ex:terkonsentrasiDengan ?b) (?a rdf:type ex:RisikoKonsentrasiTema)]
+
+# R-KAT-01 | Katalis | Katalis dekat: 0-45 hari ke depan
+[R_KAT_01: (?k rdf:type ex:Katalis) (?k ex:hariMenujuKatalis ?d) ge(?d, 0) le(?d, 45) -> (?k rdf:type ex:KatalisDekat)]
+
+# R-KAT-02 | Katalis | Sektor dengan katalis dekat
+[R_KAT_02: (?k rdf:type ex:KatalisDekat) (?k ex:katalisSektor ?s) -> (?s ex:sektorMemilikiKatalis ?k) (?s rdf:type ex:SektorKatalisDekat)]
+
+# R-KAT-03 | Katalis | Routing katalis sektor ke emiten
+[R_KAT_03: (?k rdf:type ex:KatalisDekat) (?k ex:katalisSektor ?s) (?e ex:termasukSektor ?s) -> (?e ex:memilikiKatalisDekat ?k)]
+
+# R-KAT-04 | Katalis | Routing katalis indeks ke konstituen
+[R_KAT_04: (?k rdf:type ex:KatalisDekat) (?k ex:katalisIndeks ?i) (?e ex:anggotaIndeks ?i) -> (?e ex:memilikiKatalisDekat ?k)]
+
+# R-KAT-05 | Katalis | Top pick adaptif + katalis biner dekat → masuk bertahap
+[R_KAT_05: (?e ex:memilikiKatalisDekat ?k) (?k rdf:type ex:KatalisBiner) (?e rdf:type ex:KandidatTopPickAdaptif) -> (?e rdf:type ex:StrategiTrancheKatalisBiner)]
+
+# R-KAT-06 | Katalis | Kandidat akumulasi + katalis biner dekat → masuk bertahap
+[R_KAT_06: (?e ex:memilikiKatalisDekat ?k) (?k rdf:type ex:KatalisBiner) (?e rdf:type ex:KandidatAkumulasiBertahap) -> (?e rdf:type ex:StrategiTrancheKatalisBiner)]
+
+# R-TES-01 | Tesis & Invalidasi | Tesis gugur: indikator di bawah ambang invalidasi bawah
+[R_TES_01: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i ex:nilaiIndikator ?v) (?t ex:ambangInvalidasiBawah ?b) lessThan(?v, ?b) -> (?t rdf:type ex:TesisGugur)]
+
+# R-TES-02 | Tesis & Invalidasi | Tesis gugur: indikator di atas ambang invalidasi atas
+[R_TES_02: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i ex:nilaiIndikator ?v) (?t ex:ambangInvalidasiAtas ?a) greaterThan(?v, ?a) -> (?t rdf:type ex:TesisGugur)]
+
+# R-TES-03 | Tesis & Invalidasi | Tesis valid: indikator di dalam rentang
+[R_TES_03: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i ex:nilaiIndikator ?v) (?t ex:ambangInvalidasiBawah ?b) ge(?v, ?b) (?t ex:ambangInvalidasiAtas ?a) le(?v, ?a) -> (?t rdf:type ex:TesisValid)]
+
+# R-TES-04 | Tesis & Invalidasi | Buffer ke batas bawah (%)
+[R_TES_04: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i ex:nilaiIndikator ?v) (?t ex:ambangInvalidasiBawah ?b) greaterThan(?b, '0.0'^^xsd:double) difference(?v, ?b, ?d) quotient(?d, ?v, ?q) product(?q, '100.0'^^xsd:double, ?p) -> (?t ex:bufferBawahPersen ?p)]
+
+# R-TES-05 | Tesis & Invalidasi | Buffer ke batas atas (%)
+[R_TES_05: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i ex:nilaiIndikator ?v) (?t ex:ambangInvalidasiAtas ?a) lessThan(?a, '100000000.0'^^xsd:double) difference(?a, ?v, ?d) quotient(?d, ?v, ?q) product(?q, '100.0'^^xsd:double, ?p) -> (?t ex:bufferAtasPersen ?p)]
+
+# R-TES-06 | Tesis & Invalidasi | Tesis rapuh: buffer bawah < 10%
+[R_TES_06: (?t rdf:type ex:TesisInvestasi) (?t ex:bufferBawahPersen ?p) lessThan(?p, '10.0'^^xsd:double) -> (?t rdf:type ex:TesisRapuh)]
+
+# R-TES-07 | Tesis & Invalidasi | Tesis rapuh: buffer atas < 10%
+[R_TES_07: (?t rdf:type ex:TesisInvestasi) (?t ex:bufferAtasPersen ?p) lessThan(?p, '10.0'^^xsd:double) -> (?t rdf:type ex:TesisRapuh)]
+
+# R-TES-08 | Tesis & Invalidasi | Tesis kontrarian terpicu: indikator di bawah ambang pemicu
+[R_TES_08: (?t rdf:type ex:TesisInvestasi) (?t ex:indikatorKunciTesis ?i) (?i ex:nilaiIndikator ?v) (?t ex:ambangPemicuBawah ?x) lessThan(?v, ?x) -> (?t rdf:type ex:TesisTerpicu)]
+
+# R-TES-09 | Tesis & Invalidasi | Tesis gugur → sektor dipantau ketat
+[R_TES_09: (?t rdf:type ex:TesisGugur) (?t ex:tesisUntukSektor ?s) -> (?s rdf:type ex:SektorPerluPemantauanKetat)]
+
+# R-TES-10 | Tesis & Invalidasi | Tesis rapuh → sektor dipantau ketat
+[R_TES_10: (?t rdf:type ex:TesisRapuh) (?t ex:tesisUntukSektor ?s) -> (?s rdf:type ex:SektorPerluPemantauanKetat)]
+
+# R-PRF-08 | Stakeholder | Persona moderat: top pick adaptif tanpa konflik
+[R_PRF_08: (?i rdf:type ex:InvestorRitel) (?i ex:memilikiProfilRisiko ex:ProfilModerat) (?e rdf:type ex:KandidatTopPickAdaptif) (?e rdf:type ex:KonfluensiTinggi) -> (?e ex:direkomendasikanUntuk ?i)]
+
+# R-PRF-09 | Stakeholder | Persona konservatif: akumulasi bertahap pada emiten berdividen
+[R_PRF_09: (?i rdf:type ex:InvestorRitel) (?i ex:memilikiProfilRisiko ex:ProfilKonservatif) (?e rdf:type ex:KandidatAkumulasiBertahap) (?e rdf:type ex:DividenAndalan) -> (?e ex:direkomendasikanUntuk ?i)]
+

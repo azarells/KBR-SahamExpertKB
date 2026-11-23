@@ -125,3 +125,27 @@ python3 tools/uji_kb.py --whatif   # + 5 what-if (ubah data -> Pellet ulang), ±
   bandarmology, sentimen, geopolitik & makro, indeks, prediksi sektor, rekomendasi emiten, meta-penalaran, stakeholder, kualitas data,
   dan what-if (skenario bull/bear, emiten memburuk, kapitulasi IHSG, CDS membaik). 12 competency questions proposal = B01, C04, G01, I01, I03, I04, J01, J02, K01, K04, K08, L02 (pemetaan lengkap ada di HASIL_UJI_KB.md).
 - `tools/uji_cq.py` (12 CQ versi lama) tetap tersedia.
+
+## 8. Fuseki + dashboard web live
+
+```bash
+# sekali saja: unduh apache-jena-fuseki-6.3.0.zip dari https://jena.apache.org/download/, ekstrak ke ~/Downloads
+cd ~/Downloads/apache-jena-fuseki-6.3.0 && chmod +x fuseki-server && /usr/bin/xattr -dr com.apple.quarantine . && cd -
+
+python3 run_all.py                                              # bangun KB + file Fuseki
+./dashboard/start_demo.sh ~/Downloads/apache-jena-fuseki-6.3.0  # Fuseki :3030 + dashboard :8080
+```
+
+Buka `http://localhost:8080`. Dashboard menanyai dataset `/saham-pellet` (hasil Pellet) dan `/saham` (aturan Jena, bisa what-if lewat SPARQL Update). Ctrl+C mematikan keduanya. Cara manual: `bash output/fuseki/start_fuseki.sh <folder-fuseki>` di satu terminal, `python3 dashboard/server.py` di terminal lain.
+
+## 9. Ontologi eksternal (modul alignment)
+
+`output/SahamExpertKB_alignment.ttl` mengimpor ontologi utama (lewat `output/catalog-v001.xml`, tanpa internet) dan memetakannya ke FIBO, schema.org, SKOS, dan Dublin Core. Buka di Protégé, jalankan Pellet: BankIndonesia dkk. tersimpulkan sebagai `fibo:CentralBank`.
+
+## 10. Buku panduan lengkap
+
+`output/BUKU_PANDUAN_LENGKAP_SahamExpertKB.pdf` menjelaskan dari nol: ontologi, RDF, OWL, reasoner, SWRL, SPARQL, ontologi eksternal, arsitektur, membangun dari awal, Fuseki, dashboard, troubleshooting. Buat ulang dengan `python3 tools/make_buku_panduan.py`.
+
+## 11. Dashboard v2 (tema merah, logo, 100 pertanyaan)
+
+Dashboard (`dashboard/index.html`) kini punya: ringkasan regime dengan gauge, peta panas sektor × skenario, kartu top pick berlogo, perbandingan analis biasa vs sistem pakar, peta sebaran skor, peringkat seluruh emiten, bedah emiten (radar 8 pilar, level harga), tesis & kill switch, rantai geopolitik, kalender katalis, CBR, what-if, dan **100 pertanyaan** (`dashboard/assets/queries100.js`) yang jawabannya otomatis divisualkan. Logo emiten: lihat `dashboard/logo/README.md`. Grafik memakai Chart.js lokal (`dashboard/vendor/`), jadi tetap jalan tanpa internet.
