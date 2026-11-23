@@ -1,0 +1,67 @@
+# =====================================================================================
+#  SahamExpertKB — MODUL ALIGNMENT KE ONTOLOGI EKSTERNAL
+#  Contoh nyata "pemakaian ulang ontologi eksternal" (ontology reuse):
+#   1. owl:imports       → modul ini mengimpor ontologi utama SahamExpertKB (file lokal,
+#                           dipetakan lewat catalog-v001.xml di folder yang sama)
+#   2. Dublin Core       → metadata ontologi (judul, pembuat, tanggal, lisensi, sumber)
+#   3. SKOS              → pemetaan "mirip" (closeMatch) ke konsep FIBO & schema.org.
+#                           Hanya anotasi: tidak mengubah hasil penalaran.
+#   4. rdfs:subClassOf / rdf:type ke kelas FIBO → pemetaan logis: Pellet ikut menalar
+#                           (mis. BankIndonesia disimpulkan sebagai fibo:CentralBank).
+#  Semua IRI FIBO diverifikasi dari repositori resmi github.com/edmcouncil/fibo (master).
+#  Buka di Protégé: File › Open › SahamExpertKB_alignment.ttl (ontologi utama ikut termuat).
+# =====================================================================================
+@prefix :        <http://kbr.kelompok9.id/ontologi/SahamExpertKB-alignment.owl#> .
+@prefix ex:      <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema:  <https://schema.org/> .
+@prefix fibo-fbc-fi-fi:   <https://spec.edmcouncil.org/fibo/ontology/FBC/FinancialInstruments/FinancialInstruments/> .
+@prefix fibo-fbc-fct-fse: <https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/> .
+@prefix fibo-fbc-fct-mkt: <https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/> .
+@prefix fibo-ind-ei-ei:   <https://spec.edmcouncil.org/fibo/ontology/IND/EconomicIndicators/EconomicIndicators/> .
+@prefix fibo-ind-mkt-bas: <https://spec.edmcouncil.org/fibo/ontology/IND/MarketIndices/BasketIndices/> .
+@prefix fibo-sec-eq-eq:   <https://spec.edmcouncil.org/fibo/ontology/SEC/Equities/EquityInstruments/> .
+
+# ----------------------------------------------------------------- header + metadata (Dublin Core)
+<http://kbr.kelompok9.id/ontologi/SahamExpertKB-alignment.owl>
+    a owl:Ontology ;
+    owl:imports <http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl> ;
+    rdfs:label "SahamExpertKB — alignment ke ontologi eksternal"@id ;
+    dcterms:title "Pemetaan SahamExpertKB ke FIBO, schema.org, SKOS, dan Dublin Core"@id ;
+    dcterms:creator "Kelompok 9 — Knowledge Based Reasoning" ;
+    dcterms:created "2026-11-23"^^xsd:date ;
+    dcterms:license <https://opensource.org/licenses/MIT> ;
+    dcterms:source <https://github.com/edmcouncil/fibo> , <https://schema.org/> ;
+    dcterms:description "Modul terpisah agar ontologi utama tetap ringan: FIBO lengkap berisi ratusan ontologi dan ribuan kelas, sehingga tidak diimpor, cukup dirujuk IRI-nya."@id .
+
+# Kelas eksternal dideklarasikan (tanpa mengimpor seluruh FIBO) agar Protégé & Pellet mengenalinya
+fibo-fbc-fct-fse:CentralBank a owl:Class ; rdfs:label "central bank (FIBO)"@en ; rdfs:isDefinedBy <https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/FinancialServicesEntities/> .
+fibo-fbc-fct-mkt:Exchange    a owl:Class ; rdfs:label "exchange (FIBO)"@en ;     rdfs:isDefinedBy <https://spec.edmcouncil.org/fibo/ontology/FBC/FunctionalEntities/Markets/> .
+
+# ----------------------------------------------------------------- 1) pemetaan LOGIS (ikut dinalar Pellet)
+ex:BankSentral rdfs:subClassOf fibo-fbc-fct-fse:CentralBank .      # → BankIndonesia & TheFed disimpulkan sebagai fibo:CentralBank
+ex:BEI_Bursa   rdf:type        fibo-fbc-fct-mkt:Exchange .         # Bursa Efek Indonesia adalah sebuah bursa menurut FIBO
+
+# ----------------------------------------------------------------- 2) pemetaan SKOS (anotasi, tidak mengubah penalaran)
+ex:Emiten          skos:closeMatch fibo-fbc-fi-fi:Issuer , schema:Corporation .
+ex:IndeksSaham     skos:closeMatch fibo-ind-mkt-bas:EquityIndex .
+ex:IndikatorMakro  skos:closeMatch fibo-ind-ei-ei:EconomicIndicator .
+ex:Broker          skos:closeMatch fibo-fbc-fct-fse:BrokerageFirm .
+ex:Berita          skos:closeMatch schema:NewsArticle .
+ex:SahamBiasa      skos:closeMatch fibo-sec-eq-eq:CommonShare .
+ex:Institusi       skos:closeMatch schema:Organization .
+
+# ---------------------------------------------------------------- Aksioma nominal (unsur O pada SROIQ(D))
+# Semua indeks sektoral IDX-IC diterbitkan oleh individu Penyedia_BEI (restriksi owl:hasValue).
+# Diletakkan di modul ini, bukan di ontologi inti, karena nominal membuat Pellet jauh lebih lambat
+# bila digabung dengan 303 aturan SWRL (±6 detik menjadi ±2,5 menit).
+ex:IndeksSektoralBEI rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty ex:diterbitkanOleh ;
+    owl:hasValue   ex:Penyedia_BEI
+] .

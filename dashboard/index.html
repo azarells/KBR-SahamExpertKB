@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stock Investment Knowledge Based · SahamExpertKB Dashboard</title>
+<link rel="icon" href="assets/logo_mark.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="topbar">📡 Setiap angka di halaman ini ditanyakan langsung ke knowledge base lewat <b>SPARQL</b> ke <b>Apache Jena Fuseki</b> · data acuan <b>19 November 2026</b></div>
+<header>
+  <div class="hwrap">
+    <a class="brand" href="#ringkasan"><img src="assets/logo_kbr.png" alt="Stock Investment Knowledge Based"></a>
+    <nav id="nav">
+      <a href="#ringkasan">Ringkasan</a><a href="#sektor">Sektor</a><a href="#emiten">Emiten</a><a href="#bedah">Bedah Emiten</a>
+      <a href="#risiko">Tesis &amp; Risiko</a><a href="#geo">Geopolitik</a><a href="#whatif">What-if</a><a href="#tanya">100 Pertanyaan</a><a href="#konsol">Konsol</a>
+    </nav>
+    <div class="hright">
+      <span class="status"><span class="dot" id="dot"></span><span id="conn">Menghubungi Fuseki…</span></span>
+      <span class="seg" title="Dataset yang ditanyai dashboard">
+        <button id="src-pellet" class="on" onclick="setSource('saham-pellet')">Pellet</button>
+        <button id="src-jena" onclick="setSource('saham')">Jena live</button>
+      </span>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============================================================ RINGKASAN -->
+<section id="ringkasan">
+  <div class="hero">
+    <div>
+      <span class="pill">🎓 Sistem Pakar · Ontologi OWL SROIQ(D) · 303 aturan SWRL</span>
+      <h1>Prediksi sektor saham BEI <span>1–3 tahun</span>, dijelaskan oleh sistem pakar.</h1>
+      <p class="sub">Knowledge base membaca kondisi pasar, menyesuaikan cara menilai, menguji tiga skenario, lalu memilih emiten terbaik lengkap dengan batas risikonya.</p>
+      <div class="hstats" id="hstats"><div class="loading">Memuat…</div></div>
+      <a class="btn pri" href="#emiten">Lihat rekomendasi →</a>
+      <a class="btn sec" href="#tanya" style="margin-left:8px">Tanya 100 pertanyaan</a>
+    </div>
+    <div class="regime-card" id="regime"><div class="loading" style="color:#fff">Memuat…</div></div>
+  </div>
+  <div class="grid g6" id="kpi" style="margin-top:22px"></div>
+</section>
+
+<!-- ============================================================ SEKTOR -->
+<section id="sektor">
+  <div class="sec-h"><div><span class="eyebrow">Prediksi sektor 1–3 tahun</span><h2>Sektor mana yang berpeluang naik?</h2>
+    <p>Setiap sektor dinilai di tiga skenario: base 50%, bull 25%, bear 25%. Sektor <b>inti</b> tetap positif di semua skenario; sektor <b>satelit</b> punya potensi naik jauh lebih besar dari risikonya.</p></div></div>
+  <div class="sk-cards" id="sk-cards"><div class="loading">Memuat…</div></div>
+  <div class="grid g2">
+    <div class="card">
+      <button class="qbtn" onclick="toggleQ('q-sektor')">SPARQL</button>
+      <h3>Rentang skor per skenario</h3>
+      <p class="lead">Garis = bear sampai bull · titik = skenario aktif · belah ketupat = ekspektasi probabilistik.</p>
+      <pre class="q" id="q-sektor"></pre>
+      <div id="chart-sektor" class="loading">Memuat…</div>
+    </div>
+    <div class="grid" style="gap:16px">
+      <div class="card"><h3>Peta panas sektor × skenario</h3><p class="lead">Hijau = bullish, abu-abu = netral, merah = bearish.</p><div id="heat" class="loading">Memuat…</div></div>
+      <div class="card"><h3>Ekspektasi probabilistik</h3><p class="lead">0,5 × base + 0,25 × bull + 0,25 × bear.</p><canvas id="c-ev" height="210"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ EMITEN -->
+<section id="emiten">
+  <div class="sec-h"><div><span class="eyebrow">Rekomendasi emiten</span><h2>Top pick sistem pakar</h2>
+    <p>Skor adaptif = sembilan pilar dikalikan bobot regime. Klik kartu mana pun untuk membedah emitennya.</p></div></div>
+  <div class="pick-grid" id="picks"><div class="loading">Memuat…</div></div>
+  <div class="grid g2e" style="margin-top:16px">
+    <div class="card">
+      <button class="qbtn" onclick="toggleQ('q-pick')">SPARQL</button>
+      <h3>Analis biasa vs sistem pakar</h3>
+      <p class="lead">Skor statis (bobot sama) dibanding skor adaptif regime. Sistem pakar menemukan peluang yang dilewatkan analis biasa.</p>
+      <pre class="q" id="q-pick"></pre>
+      <canvas id="c-pick" height="250"></canvas>
+      <div id="pick-note" class="small muted" style="margin-top:8px"></div>
+    </div>
+    <div class="card">
+      <h3>Peta skor semua emiten</h3>
+      <p class="lead">Sumbu X skor statis, sumbu Y skor adaptif. Titik merah tua = top pick sistem pakar; garis putus = ambang regime.</p>
+      <canvas id="c-scatter" height="250"></canvas>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <button class="qbtn" onclick="toggleQ('q-rank')">SPARQL</button>
+    <h3>Peringkat seluruh emiten</h3>
+    <p class="lead">Filter per sektor. Klik baris untuk membedah emiten.</p>
+    <pre class="q" id="q-rank"></pre>
+    <div class="filters" id="rank-filter"></div>
+    <div class="tscroll" id="rank"><div class="loading">Memuat…</div></div>
+  </div>
+</section>
+
+<!-- ============================================================ BEDAH -->
+<section id="bedah">
+  <div class="sec-h"><div><span class="eyebrow">Bedah satu emiten</span><h2>Kenapa sistem memilih (atau menahan) saham ini?</h2>
+    <p>Kontribusi delapan pilar, level harga dari manajemen risiko, rasio kunci, dan semua kelas yang disimpulkan reasoner.</p></div>
+    <select id="sel-emiten" onchange="loadEmiten()"></select></div>
+  <div class="card">
+    <button class="qbtn" onclick="toggleQ('q-emiten')">SPARQL</button>
+    <pre class="q" id="q-emiten"></pre>
+    <div id="bd-out" class="loading">Memuat…</div>
+  </div>
+</section>
+
+<!-- ============================================================ RISIKO -->
+<section id="risiko">
+  <div class="sec-h"><div><span class="eyebrow">Tesis &amp; risiko</span><h2>Kapan sistem mengakui tesisnya salah?</h2>
+    <p>Setiap sektor pilihan punya indikator kunci dan batas gugur (kill switch). Di bawahnya, emiten yang ditandai berisiko oleh aturan.</p></div></div>
+  <div class="grid g2e">
+    <div class="card">
+      <button class="qbtn" onclick="toggleQ('q-tesis')">SPARQL</button>
+      <h3>Tesis investasi &amp; kill switch</h3>
+      <p class="lead">Titik = nilai saat ini · garis merah = batas gugur.</p>
+      <pre class="q" id="q-tesis"></pre>
+      <div id="tesis" class="loading">Memuat…</div>
+    </div>
+    <div class="card">
+      <h3>Radar risiko emiten</h3>
+      <p class="lead">Jumlah emiten per jenis peringatan yang disimpulkan aturan.</p>
+      <canvas id="c-risk" height="230"></canvas>
+      <div id="risk-list" style="margin-top:12px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ GEOPOLITIK -->
+<section id="geo">
+  <div class="sec-h"><div><span class="eyebrow">Geopolitik, makro &amp; katalis</span><h2>Dari berita dunia sampai ke sektor</h2>
+    <p>Peristiwa aktif memicu pergerakan makro, pergerakan memicu gerakan lanjutan, lalu menguntungkan sektor tertentu.</p></div></div>
+  <div class="grid g2">
+    <div class="card">
+      <button class="qbtn" onclick="toggleQ('q-geo')">SPARQL</button>
+      <h3>Rantai sebab-akibat</h3>
+      <pre class="q" id="q-geo"></pre>
+      <div id="geo-flow" class="loading">Memuat…</div>
+    </div>
+    <div class="card">
+      <button class="qbtn" onclick="toggleQ('q-kat')">SPARQL</button>
+      <h3>Kalender katalis</h3>
+      <p class="lead">Hari menuju katalis terjadwal (≥ 0 hari dari tanggal acuan).</p>
+      <pre class="q" id="q-kat"></pre>
+      <div id="kat" class="loading">Memuat…</div>
+      <h3 style="margin-top:18px">Kemiripan dengan krisis historis</h3>
+      <p class="lead">Case-based reasoning · skor ≥ 13 dianggap analog.</p>
+      <canvas id="c-cbr" height="210"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WHAT-IF -->
+<section id="whatif">
+  <div class="sec-h"><div><span class="eyebrow">Simulasi what-if</span><h2>Ubah data, aturan menalar ulang di server</h2>
+    <p>Tombol mengirim <b>SPARQL UPDATE</b> ke dataset <code>/saham</code>. Di sana 305 aturan Jena menghitung ulang kesimpulan, lalu dashboard pindah ke sumber <b>Jena live</b>. Dataset Pellet tidak pernah diubah, jadi <b>Reset</b> selalu mengembalikan nilai asli.</p></div></div>
+  <div class="card">
+    <div class="wi-grid" id="wi-grid">
+      <button class="wi" onclick="whatif('bull')"><span class="em">🚀</span><b>Skenario bull</b><span>pemulihan & re-rating</span></button>
+      <button class="wi" onclick="whatif('bear')"><span class="em">🌧️</span><b>Skenario bear</b><span>stagflasi</span></button>
+      <button class="wi" onclick="whatif('cds')"><span class="em">🛡️</span><b>CDS turun ke 75</b><span>premi risiko membaik</span></button>
+      <button class="wi" onclick="whatif('emas')"><span class="em">🥇</span><b>Emas US$4.000</b><span>tesis emas pulih?</span></button>
+      <button class="wi" onclick="whatif('brent')"><span class="em">🛢️</span><b>Brent US$70</b><span>tesis energi gugur?</span></button>
+      <button class="wi" onclick="whatif('kapitulasi')"><span class="em">📉</span><b>Kapitulasi IHSG</b><span>−45%, crash −10,5%</span></button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap">
+      <button class="btn pri sm" onclick="whatif('reset')">↺ Reset ke data asli</button>
+      <details><summary class="small" style="cursor:pointer;font-weight:700;color:var(--m7)">Atur angka sendiri</summary>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center">
+          <label class="small">CDS <input type="number" id="c-cds" step="0.1" style="width:90px"></label>
+          <label class="small">Emas <input type="number" id="c-emas" step="1" style="width:100px"></label>
+          <label class="small">Brent <input type="number" id="c-brent" step="0.1" style="width:90px"></label>
+          <label class="small">Drawdown % <input type="number" id="c-dd" step="0.1" style="width:90px"></label>
+          <label class="small">Crash % <input type="number" id="c-crash" step="0.1" style="width:90px"></label>
+          <label class="small">Skenario <select id="c-sk"><option value="base">Base</option><option value="bull">Bull</option><option value="bear">Bear</option></select></label>
+          <button class="btn pri sm" onclick="whatif('custom')">Jalankan</button>
+        </div></details>
+    </div>
+    <pre class="q" id="q-whatif"></pre>
+    <div id="whatif-out"></div>
+  </div>
+</section>
+
+<!-- ============================================================ 100 PERTANYAAN -->
+<section id="tanya">
+  <div class="sec-h"><div><span class="eyebrow">100 pertanyaan penting</span><h2>Tanya knowledge base, jawabannya langsung jadi visual</h2>
+    <p>Pilih pertanyaan di kiri. Dashboard menjalankan query SPARQL-nya ke Fuseki lalu memilih bentuk visual yang paling cocok: grafik, kartu emiten, peta sebaran, atau tabel.</p></div></div>
+  <div class="qa">
+    <div class="card">
+      <input type="search" id="q-cari" placeholder="Cari pertanyaan… (mis. ROE, asing, tesis)" style="width:100%" oninput="renderQList()">
+      <div class="qlist" id="qlist"></div>
+    </div>
+    <div class="card qa-out">
+      <button class="qbtn" onclick="toggleQ('q-qa')">SPARQL</button>
+      <div id="qa-head"></div>
+      <pre class="q" id="q-qa"></pre>
+      <div class="viz" id="qa-viz"><p class="muted">Pilih salah satu pertanyaan.</p></div>
+      <details class="data"><summary>Lihat data mentah</summary><div id="qa-data" style="margin-top:8px"></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ KONSOL -->
+<section id="konsol">
+  <div class="sec-h"><div><span class="eyebrow">Konsol SPARQL</span><h2>Tulis query sendiri</h2>
+    <p>Sama dengan menu <i>query</i> di halaman Fuseki (http://localhost:3030). Prefiks <code>ex:</code>, <code>rdfs:</code>, <code>owl:</code>, <code>xsd:</code> otomatis ditambahkan.</p></div></div>
+  <div class="card">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <select id="ex-sel" onchange="loadExample()"></select>
+      <select id="con-ds"><option value="saham-pellet">/saham-pellet</option><option value="saham">/saham</option></select>
+      <button class="btn pri sm" id="run-btn" onclick="runConsole()">Jalankan query</button>
+      <span id="con-time" class="small muted"></span>
+    </div>
+    <textarea id="con-q" style="margin-top:10px" spellcheck="false"></textarea>
+    <div id="con-out"></div>
+  </div>
+</section>
+
+<footer><img src="assets/logo_kbr.png" alt="">SahamExpertKB v2 · Kelompok 9 Knowledge Based Reasoning · Jonnathan Azarel Gunawan &amp; Gloria Dana Praysilia<br>Alat bantu riset &amp; edukasi, bukan nasihat investasi</footer>
+</main>
+
+<script src="vendor/chart.umd.min.js"></script>
+<script src="assets/emiten_logo.js"></script>
+<script src="assets/queries100.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

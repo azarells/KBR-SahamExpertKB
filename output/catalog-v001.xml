@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Dibaca otomatis oleh Protégé: IRI ontologi utama → file lokal di folder ini,
+     sehingga owl:imports di SahamExpertKB_alignment.ttl tidak perlu internet. -->
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="SahamExpertKB utama" name="http://kbr.kelompok9.id/ontologi/SahamExpertKB.owl" uri="SahamExpertKB_v2.owl"/>
+</catalog>

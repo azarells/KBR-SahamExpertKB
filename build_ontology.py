@@ -526,6 +526,28 @@ with onto:
     IND["Stk_ManajerInvestasi"].mengonsumsiKeluaran.extend([IND["Output_RegimeDanStrategiPasar"], IND["Output_TesisDanKillSwitch"]])
     IND["Stk_TimEquityResearch"].mengonsumsiKeluaran.extend([IND["Output_KalenderKatalis"], IND["Output_TesisDanKillSwitch"]])
 
+    # ------------------------------------------------------------ AKSIOMA EKSPRESIVITAS SROIQ(D)
+    # S : peran transitif     — transmisi sentimen antar-indeks bersifat berantai (NASDAQ → MSCI EM → IHSG)
+    OP["memengaruhiIndeks"].is_a.append(TransitiveProperty)
+    # R : karakteristik peran — relasi kausal tidak bisa menyebabkan dirinya sendiri dan tidak timbal balik;
+    #     satu pergerakan makro tidak mungkin sekaligus menguntungkan dan merugikan sektor yang sama
+    OP["menyebabkan"].is_a.extend([AsymmetricProperty, IrreflexiveProperty])
+    AllDisjoint([OP["menguntungkanSektor"], OP["merugikanSektor"]])
+    # O : individu yang dinyatakan berbeda (owl:AllDifferent) — tiga skenario dan empat regime; OWL tidak memakai
+    #     unique name assumption. OWLAPI/Protégé menghitung aksioma ini sebagai unsur nominal (O).
+    #     Restriksi nominal eksplisit (hasValue) diletakkan di modul output/SahamExpertKB_alignment.ttl: uji kami
+    #     menunjukkan hasValue/oneOf di ontologi inti membuat Pellet melambat dari ±6 detik menjadi ±2,5 menit
+    #     (interaksi dengan 303 aturan SWRL dan 1.392 individu).
+    AllDifferent([IND[n] for n in ("Skenario_Base_2027_2028", "Skenario_Bull_Pemulihan", "Skenario_Bear_Stagflasi")])
+    AllDifferent([IND[n] for n in ("Regime_KrisisLikuiditas", "Regime_RiskOff", "Regime_Netral", "Regime_RiskOn")])
+    # Q : kardinalitas berkualifikasi — tepat satu sektor per emiten, satu sektor & satu skenario per penilaian,
+    #     satu indikator kunci per tesis investasi
+    CLS["Emiten"].is_a.append(OP["termasukSektor"].exactly(1, CLS["Sektor"]))
+    CLS["PenilaianSektor"].is_a.append(OP["menilaiSektor"].exactly(1, CLS["Sektor"]))
+    CLS["PenilaianSektor"].is_a.append(OP["dibawahSkenario"].exactly(1, CLS["Skenario"]))
+    CLS["TesisInvestasi"].is_a.append(OP["indikatorKunciTesis"].exactly(1, CLS["IndikatorMakro"]))
+    # I (peran invers) dan (D) (tipe data) sudah ada: anggotaIndeks ⇄ memilikiKonstituen, 220 data property ber-range xsd.
+
     # ------------------------------------------------------------ SWRL
     RULES = build_rules(onto, M.FAKTOR, kodeAturan, pilarAnalisis)
 

@@ -176,7 +176,7 @@ w("<h3>5.3 Aturan kerja agar tidak bentrok</h3>"
 # 6
 w("<h2>6. Langkah End-to-End sampai Knowledge Base Berjalan</h2>")
 steps = [
- ("Instalasi", "Pasang Protégé 5.6.x, plugin Pellet (File → Check for plugins), Python 3, JDK 25 (untuk Fuseki & pipeline), Fuseki 6.2.0. Ekstrak <code>KBR_Kelompok9_SahamExpertKB_v2.zip</code>."),
+ ("Instalasi", "Pasang Protégé 5.6.x, plugin Pellet (File → Check for plugins), Python 3, JDK 25 (untuk Fuseki & pipeline), Fuseki 6.3.0. Ekstrak <code>KBR_Kelompok9_SahamExpertKB_v2.zip</code>."),
  ("Coba hasil yang sudah ada", "Buka <code>output/SahamExpertKB_v2.owl</code> di Protégé → Reasoner → Pellet → Start reasoner → tab Individuals by class → kelas <code>SektorPilihanInti</code>, <code>KandidatTopPickAdaptif</code>. Pastikan muncul hasil (latar kuning)."),
  ("Pahami struktur", "Buka <code>STRUKTUR_ONTOLOGI_v2.pdf</code> & tab Entities → Classes. Cocokkan 15 kelas akar dengan bagian 1–2 panduan ini."),
  ("Isi/perbarui data", "Isi <code>Template_Data_Emiten.xlsx</code> (sheet KAMUS_KOLOM menjelaskan cara menghitung tiap kolom) → simpan sebagai <code>data/emiten.csv</code>. Perbarui <code>data/berita.csv</code>, <code>data/makro.csv</code>, <code>data/kondisi_pasar.csv</code>."),
@@ -185,7 +185,7 @@ steps = [
  ("Jalankan reasoner", "Buka OWL baru di Protégé → Pellet → Start reasoner. Atau SWRLTab → OWL+SWRL→Drools → Run Drools → Drools→OWL."),
  ("Jawab Competency Questions", "Jalankan 12 CQ (Bagian 7) lewat DL Query / SPARQL; isi tabel lulus/gagal."),
  ("Uji teknis", "Konsistensi (Pellet), emiten fiktif <code>UJI_*</code> terdeteksi benar, <code>output/validasi_owlapi_pellet.txt</code> CONSISTENT=true, Fuseki /saham = /saham-pellet."),
- ("Deploy", "<code>./start_fuseki.sh ~/Downloads/apache-jena-fuseki-6.2.0</code> → <code>http://localhost:3030</code> → query SPARQL & what-if (Panduan Fuseki)."),
+ ("Deploy", "<code>./start_fuseki.sh ~/Downloads/apache-jena-fuseki-6.3.0</code> → <code>http://localhost:3030</code> → query SPARQL & what-if (Panduan Fuseki)."),
  ("Validasi pakar", "Tunjukkan prediksi sektor & alasan ke analis/dosen; catat skor kesesuaian 1–5 & masukan; perbaiki parameter, ulangi langkah 5–8."),
  ("Laporan & presentasi", "Gunakan Laporan Hasil v2, Dokumen Pengembangan v2, Struktur Ontologi v2; latih demo 10 menit."),
 ]
@@ -207,7 +207,7 @@ w("<h3>Pengujian teknis</h3><table><tr><th>Uji</th><th>Cara</th><th>Hasil saat i
   "<tr><td>Konsistensi logika</td><td>Pellet di Protégé / validasi_owlapi_pellet.txt</td><td>CONSISTENT = true</td></tr>"
   "<tr><td>Unit test aturan tata kelola</td><td>Emiten fiktif UJI_GORENG, UJI_GADAI, UJI_INSIDER</td><td>Ketiganya terdeteksi benar</td></tr>"
   "<tr><td>Kesetaraan mesin</td><td>Pellet vs Jena (Fuseki)</td><td>Prediksi sektor (Q01), regime (Q05), skor statis & adaptif serta status top pick (Q04) identik</td></tr>"
-  "<tr><td>What-if</td><td>CDS 103,79 → 75 + CDS & rupiah membaik (whatif_update.ru)</td><td>Stres 11 → 10, muncul DivergensiIntermarketBullish, tesis Keuangan terpicu</td></tr>"
+  "<tr><td>What-if</td><td>CDS 99,6 → 75 + CDS & rupiah membaik (whatif_update.ru)</td><td>Stres 11 → 10, muncul DivergensiIntermarketBullish, tesis Keuangan terpicu</td></tr>"
   "<tr><td>Rasio KB</td><td>Hitung aksioma</td><td>KB 98,0% vs aturan 2,0%</td></tr></table>")
 
 # 8

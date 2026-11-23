@@ -1,0 +1,112 @@
+# ============================================================================
+# SQWRL QUERIES — tempel di Protégé > Window > Tabs > SQWRLTab (plugin SWRLTab)
+# Setiap query dijalankan bersama aturan SWRL (engine Drools), jadi tidak perlu
+# menjalankan reasoner terlebih dulu. Ganti nama individu sesuai kebutuhan.
+# ============================================================================
+
+# Q01 — PREDIKSI SEKTOR 1-3 TAHUN (urut skor outlook skenario aktif)
+Sektor(?s) ^ skorOutlookAktif(?s, ?o) -> sqwrl:select(?s, ?o) ^ sqwrl:orderByDescending(?o)
+
+# Q02 — Sektor bullish saja
+SektorBullish(?s) ^ skorOutlookAktif(?s, ?o) -> sqwrl:select(?s, ?o) ^ sqwrl:orderByDescending(?o)
+
+# Q03 — TOP-3 EMITEN di sektor tertentu (ulangi untuk Sektor_Energi, Sektor_Kesehatan, ...)
+termasukSektor(?e, Sektor_BarangBaku) ^ skorTotalEmiten(?e, ?t) -> sqwrl:select(?e, ?t) ^ sqwrl:orderByDescending(?t) ^ sqwrl:limit(3)
+termasukSektor(?e, Sektor_Energi) ^ skorTotalEmiten(?e, ?t) -> sqwrl:select(?e, ?t) ^ sqwrl:orderByDescending(?t) ^ sqwrl:limit(3)
+termasukSektor(?e, Sektor_Kesehatan) ^ skorTotalEmiten(?e, ?t) -> sqwrl:select(?e, ?t) ^ sqwrl:orderByDescending(?t) ^ sqwrl:limit(3)
+
+# Q04 — Semua kandidat top pick + sektornya
+KandidatTopPick(?e) ^ termasukSektor(?e, ?s) ^ skorTotalEmiten(?e, ?t) -> sqwrl:select(?s, ?e, ?t) ^ sqwrl:orderByDescending(?t)
+
+# Q05 — Rincian skor multi-pilar satu emiten
+skorFundamental(ANTM, ?f) ^ skorValuasi(ANTM, ?v) ^ skorTeknikal(ANTM, ?t) ^ skorBandar(ANTM, ?b) ^ skorSentimen(ANTM, ?s) ^ skorKontribusiSektor(ANTM, ?k) ^ penaltiRisiko(ANTM, ?r) ^ poinLikuiditas(ANTM, ?l) ^ skorTotalEmiten(ANTM, ?x) -> sqwrl:select(?f, ?v, ?t, ?b, ?s, ?k, ?r, ?l, ?x)
+
+# Q06 — JALUR PENJELASAN: tailwind & headwind sebuah sektor
+memilikiTailwind(Sektor_BarangBaku, ?m) -> sqwrl:select(?m)
+memilikiHeadwind(Sektor_Energi, ?m) -> sqwrl:select(?m)
+
+# Q07 — Rantai kausal multi-hop dari peristiwa aktif
+PeristiwaAktif(?ev) ^ memicuPergerakan(?ev, ?m1) ^ menyebabkan(?m1, ?m2) ^ menguntungkanSektor(?m2, ?s) -> sqwrl:select(?ev, ?m1, ?m2, ?s)
+
+# Q08 — Routing geopolitik ke emiten (eksposur komoditas)
+diuntungkanOleh(?e, ?m) -> sqwrl:select(?e, ?m) ^ sqwrl:orderBy(?e)
+
+# Q09 — ANALISIS SKENARIO (what-if) semua sektor × skenario
+PenilaianSektor(?a) ^ menilaiSektor(?a, ?s) ^ dibawahSkenario(?a, ?sc) ^ skorOutlook(?a, ?o) -> sqwrl:select(?s, ?sc, ?o) ^ sqwrl:orderBy(?s)
+
+# Q10 — CASE-BASED REASONING: kemiripan periode historis
+PeriodeHistoris(?p) ^ skorKemiripan(?p, ?k) -> sqwrl:select(?p, ?k) ^ sqwrl:orderByDescending(?k)
+
+# Q11 — RAWAN COLLAPSE / going concern
+RisikoGoingConcern(?e) ^ altmanZ(?e, ?z) ^ der(?e, ?d) -> sqwrl:select(?e, ?z, ?d) ^ sqwrl:orderBy(?z)
+
+# Q12 — SINYAL QUANT TRADE dengan stop loss & take profit
+SinyalEntry(?e) ^ hargaPenutupan(?e, ?h) ^ hargaStopLoss(?e, ?sl) ^ hargaTakeProfit(?e, ?tp) -> sqwrl:select(?e, ?h, ?sl, ?tp)
+
+# Q13 — Smart money divergence & distribusi ke ritel
+AkumulasiTersembunyi(?e) -> sqwrl:select(?e)
+DistribusiKeRitel(?e) -> sqwrl:select(?e)
+
+# Q14 — Rekomendasi per persona
+direkomendasikanUntuk(?e, ?i) -> sqwrl:select(?i, ?e) ^ sqwrl:orderBy(?i)
+
+# Q15 — Emiten berisiko outflow pasif MSCI
+RisikoOutflowPasif(?e) ^ kapitalisasiPasarT(?e, ?m) -> sqwrl:select(?e, ?m) ^ sqwrl:orderByDescending(?m)
+
+# Q16 — Red flag berita
+memilikiRedFlag(?e, ?n) ^ judulBerita(?n, ?j) -> sqwrl:select(?e, ?j)
+
+# Q17 — Value trap (jebakan murah)
+ValueTrap(?e) ^ rasioPERvsHistoris(?e, ?r) -> sqwrl:select(?e, ?r)
+
+# ============================== QUERY v2 (modul pakar lanjutan) ==============================
+# Q18 — Regime aktif & skor stres pasar
+KondisiPasarAktif(?k) ^ regimeTerdeteksi(?k, ?r) ^ skorStresPasar(?k, ?s) -> sqwrl:select(?k, ?r, ?s)
+
+# Q19 — Bobot pilar regime aktif
+RegimeAktif(?r) ^ bobotFundamental(?r, ?f) ^ bobotTeknikal(?r, ?t) ^ bobotSmartMoney(?r, ?m) ^ risikoPerTransaksiPersen(?r, ?x) ^ ambangTopPickAdaptif(?r, ?a) -> sqwrl:select(?r, ?f, ?t, ?m, ?x, ?a)
+
+# Q20 — Top pick adaptif (urut skor adaptif)
+KandidatTopPickAdaptif(?e) ^ skorAdaptifRegime(?e, ?s) ^ ukuranPosisiMaksPersen(?e, ?p) -> sqwrl:select(?e, ?s, ?p) ^ sqwrl:orderByDescending(?s)
+
+# Q21 — Analis biasa vs sistem pakar: skor statis vs adaptif
+Emiten(?e) ^ skorTotalEmiten(?e, ?t) ^ skorAdaptifRegime(?e, ?a) -> sqwrl:select(?e, ?t, ?a) ^ sqwrl:orderByDescending(?a) ^ sqwrl:limit(15)
+
+# Q22 — Rencana akumulasi bertahap (3 tranche)
+KandidatAkumulasiBertahap(?e) ^ hargaTranche1(?e, ?a) ^ hargaTranche2(?e, ?b) ^ hargaTranche3(?e, ?c) -> sqwrl:select(?e, ?a, ?b, ?c)
+
+# Q23 — Ekspektasi probabilistik & robustness sektor
+Sektor(?s) ^ skorEkspektasiProbabilistik(?s, ?ev) ^ skorOutlookBase(?s, ?b) ^ skorOutlookBull(?s, ?u) ^ skorOutlookBear(?s, ?d) -> sqwrl:select(?s, ?ev, ?b, ?u, ?d) ^ sqwrl:orderByDescending(?ev)
+
+# Q24 — Sektor inti & satelit
+SektorPilihanInti(?s) -> sqwrl:select(?s)
+SektorPilihanSatelit(?s) -> sqwrl:select(?s)
+
+# Q25 — Reaction function yang terpicu
+AntisipasiTerpicu(?a) ^ antisipasiMengaktifkan(?a, ?m) -> sqwrl:select(?a, ?m)
+
+# Q26 — Status tesis & kill switch
+TesisInvestasi(?t) ^ indikatorKunciTesis(?t, ?i) ^ nilaiIndikator(?i, ?v) -> sqwrl:select(?t, ?i, ?v)
+TesisRapuh(?t) -> sqwrl:select(?t)
+
+# Q27 — Katalis ≤45 hari & emiten terdampak
+KatalisDekat(?k) ^ hariMenujuKatalis(?k, ?d) -> sqwrl:select(?k, ?d) ^ sqwrl:orderBy(?d)
+StrategiTrancheKatalisBiner(?e) ^ memilikiKatalisDekat(?e, ?k) ^ KatalisBiner(?k) -> sqwrl:select(?e, ?k)
+
+# Q28 — Konfluensi & konflik sinyal
+Emiten(?e) ^ skorKonfluensi(?e, ?k) -> sqwrl:select(?e, ?k) ^ sqwrl:orderByDescending(?k) ^ sqwrl:limit(15)
+TungguKonfirmasi(?e) -> sqwrl:select(?e)
+
+# Q29 — ERP vs SBN & kekuatan relatif
+Emiten(?e) ^ equityRiskPremium(?e, ?x) ^ kekuatanRelatifPersen(?e, ?r) -> sqwrl:select(?e, ?x, ?r) ^ sqwrl:orderByDescending(?x)
+
+# Q30 — Tata kelola & uji aturan (emiten fiktif)
+RisikoHSC(?e) -> sqwrl:select(?e)
+EmitenUji(?e) ^ IndikasiSahamGorengan(?e) -> sqwrl:select(?e)
+
+# Q31 — Kualitas data
+DataKedaluwarsa(?i) ^ umurDataHari(?i, ?u) -> sqwrl:select(?i, ?u) ^ sqwrl:orderByDescending(?u)
+PerluVerifikasiData(?e) -> sqwrl:select(?e)
+
+# Q32 — Katalog indikator & sumber data
+IndikatorLeading(?i) ^ diperolehDari(?i, ?s) -> sqwrl:select(?i, ?s)

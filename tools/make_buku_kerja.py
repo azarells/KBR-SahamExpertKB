@@ -79,7 +79,7 @@ w("<table><tr><th>Alat</th><th>Untuk apa</th><th>Wajib?</th><th>Unduh</th></tr>"
   "<tr><td>Protégé 5.6.x Desktop</td><td>Membuka & menjalankan ontologi, Pellet, SWRLTab, DL Query</td><td>Wajib</td><td>protege.stanford.edu</td></tr>"
   "<tr><td>Python 3.10+</td><td>Validasi data & membangun ontologi (owlready2 sudah dibundel di <code>lib/</code>)</td><td>Wajib</td><td>python.org</td></tr>"
   "<tr><td>JDK 25 (atau 21+)</td><td>Reasoner Pellet di pipeline & Fuseki 6</td><td>Wajib</td><td>adoptium.net (Temurin) / oracle.com</td></tr>"
-  "<tr><td>Apache Jena Fuseki 6.2.0</td><td>Server SPARQL (Tahap 9)</td><td>Wajib untuk demo server</td><td>jena.apache.org → Download</td></tr>"
+  "<tr><td>Apache Jena Fuseki 6.3.0</td><td>Server SPARQL (Tahap 9)</td><td>Wajib untuk demo server</td><td>jena.apache.org → Download</td></tr>"
   "<tr><td>Excel / Google Sheets</td><td>Mengisi data</td><td>Wajib</td><td>—</td></tr>"
   "<tr><td>Node.js + Playwright</td><td>Hanya untuk mencetak ulang laporan PDF otomatis</td><td>Opsional</td><td>nodejs.org; lalu <code>npm i playwright</code></td></tr></table>")
 w("<h3>Windows</h3>")
@@ -292,12 +292,12 @@ w("<p class='cek'>✔ Selesai bila: 12 CQ terisi, uji teknis lulus, rekap valida
 
 # ---------------- TAHAP 9
 w("<h2 class='pb'>Tahap 9 — Deployment dengan Apache Jena Fuseki</h2><p><b>Siapa:</b> " + TA + ". Rincian lengkap di <code>PANDUAN_FUSEKI_PELLET_SWRLTAB.pdf</code>.</p>")
-steps(["Unduh Fuseki 6.2.0 (jena.apache.org → Download → <i>apache-jena-fuseki-6.2.0.zip</i>) → ekstrak, mis. ke <code>C:\\fuseki</code> atau <code>~/fuseki</code>. Butuh Java 21+.",
+steps(["Unduh Fuseki 6.3.0 (jena.apache.org → Download → <i>apache-jena-fuseki-6.3.0.zip</i>) → ekstrak, mis. ke <code>C:\\fuseki</code> atau <code>~/fuseki</code>. Butuh Java 21+.",
        "Setelah <code>run_all.py</code>, folder <code>output/fuseki/</code> sudah berisi data, aturan Jena, config, dan skrip start.",
-       "Windows: <code>output\\fuseki\\start_fuseki.bat C:\\fuseki\\apache-jena-fuseki-6.2.0</code> · macOS/Linux: <code>./output/fuseki/start_fuseki.sh ~/fuseki/apache-jena-fuseki-6.2.0</code>",
+       "Windows: <code>output\\fuseki\\start_fuseki.bat C:\\fuseki\\apache-jena-fuseki-6.3.0</code> · macOS/Linux: <code>./output/fuseki/start_fuseki.sh ~/fuseki/apache-jena-fuseki-6.3.0</code>",
        "Buka browser <code>http://localhost:3030</code> → dataset <code>/saham</code> (penalaran aturan langsung) dan <code>/saham-pellet</code> (hasil Pellet).",
        "Tab <b>query</b> → tempel query dari <code>queries_sparql.rq</code> (Q01 prediksi sektor, Q03 top-3, Q04 analis biasa vs pakar, …) → Run.",
-       "What-if: tab <b>update</b> → tempel <code>whatif_update.ru</code> (mis. CDS 103,79 → 75) → jalankan → ulangi Q05/Q08 dan lihat perubahan regime/tesis.",
+       "What-if: tab <b>update</b> → tempel <code>whatif_update.ru</code> (mis. CDS 99,6 → 75) → jalankan → ulangi Q05/Q08 dan lihat perubahan regime/tesis.",
        "Rekam layar demo (cadangan bila saat presentasi laptop bermasalah)."])
 w("<p class='cek'>✔ Selesai bila: Q01–Q05 berjalan di /saham, hasil sama dengan Pellet, demo what-if terekam.</p>")
 

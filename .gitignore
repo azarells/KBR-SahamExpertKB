@@ -4,6 +4,5 @@ __pycache__/
 node_modules/
 package.json
 package-lock.json
-node_modules/
-package.json
-package-lock.json
+output/fuseki/fuseki.log
+output/fuseki/config_saham.ttl
